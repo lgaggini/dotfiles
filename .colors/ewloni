@@ -1,0 +1,29 @@
+! -------------------------------------------------
+! file:     .colors/ewloni                           
+! author:   ewlony - https://bbs.archlinux.org/viewtopic.php?pid=990630#p990630  
+! vim:enc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=txt:
+! -------------------------------------------------
+!black
+*color0 :            #353535
+*color8 :            #606060
+!red
+*color1 :            #AF7561
+*color9 :            #AF4E2C
+!green
+*color2 :            #78956F
+*color10:            #559542
+!yellow
+*color3 :            #E5CB85
+*color11:            #E5B840
+!blue
+*color4 :            #6A8D9B
+*color12:            #3B809B
+!magenta
+*color5 :            #94719D
+*color13:            #9E4199
+!cyan
+*color6 :            #8DBDC0
+*color14:            #47A6AC
+!white
+*color7 :            #A5A5A5
+*color15:            #C0C0C0

@@ -1,0 +1,131 @@
+#---------------------------
+#--        .muttrc        --
+#--      by lgaggini      --
+#--      CC BY-SA 3.0     --
+#---------------------------
+
+# general
+set help = yes                          # enable help
+set status_on_top = no                  # status line on bottom
+set charset = utf-8                     # charset
+set locale = "it_IT.utf8"               # locale
+set ascii_chars = yes                   # use ascii chars
+set beep = no                           # no beep on error
+set mark_old = yes                      # mark old msg not read
+set beep_new = yes                      # beep on new msg
+set history = 20                        # history entries
+
+# mailbox & directory
+set mbox_type = Maildir                 # mailbox type
+set folder = "~/offlinemail/"           # mailbox folder
+set mask = "!^\\.[^.]"                  # mailbox scan
+set record = "~/offlinemail/sent/"      # sent mail folder
+set copy = no                           # copy managed by gmail
+set postponed = "~/offlinemail/drafts/" # draft mail folders
+set spoolfile = "~/offlinemail/INBOX"   # inbox
+set move = no                           # not move from spool
+set tmpdir = /tmp                       # temporary files
+
+# read
+set sort = threads                      # order by threads
+set sort_aux = date-received            # secondary order by received date
+set sort_browser = alpha                # alphabetic browser order
+set uncollapse_jump = yes               # jump to first unread msg og thread
+set collapse_unread = no                # not collapse thread with msg unread
+set pager_index_lines = 8               # index line to view on pager open
+set pager_stop = yes                    # not go to next messagge on the end
+set pager_context = 2                   # lines between two scree in pager
+set tilde = yes                         # replace final empty lines with tilde
+set smart_wrap = yes                    # wrap long lines
+set markers = yes                       # set marker for wrapped lines
+
+# attachment
+set mailcap_path = ~/.mailcap:/etc/mailcap:/usr/lib/mime/mailcap
+
+# compose
+set editor = "vim -c 'set tw=70 et' '+/^$' "  # vim as default editor
+set reply_to = ask-yes                        # user Replt-To for reply
+set edit_headers = yes                        # edit header for cc and bcc
+set postpone = yes                            # save drafts
+set recall = no                               # not remember drafts not send      
+set forward_format = "[(fwd): %s]"            # forward subject format
+set reply_regexp = "^(([Rr]e?):[ \t]*)+"      # regexp to id reply
+set quote_regexp = "^([ \t]*[|>:}#])+"        # regexp to id quote
+set sig_dashes = yes                          # dashes for signature
+
+# send
+set sendmail="/usr/local/bin/msmtp"           # software to send mail
+set envelope_from = yes                       # retrieve from automatically
+
+# default profile for new messages
+source ~/.mutt/gmail
+
+# sync headers and signature for reply
+reply-hook ~Clgaggini@gmail.com "source ~/.mutt/gmail"
+reply-hook ~Clorenzo@keepsimple.it "source ~/.mutt/keepsimple"
+
+# macro for change identity on the fly
+macro index g "<enter-command>source ~/.mutt/gmail<enter>" "switch to gmail profile"
+macro index k "<enter-command>source ~/.mutt/keepsimple<enter>" "switch to keepsimple profile"
+
+ignore *
+unignore Subject: Date: From: Reply-To: To: CC: BCC:\
+X-Operating-System: X-Mailer: User-Agent:
+
+unhdr_order *
+hdr_order Subject: Date: From: Reply-To: To: CC: BCC:\
+X-Operating-System: X-Mailer: User-Agent:
+
+# manage
+set delete = ask-yes                    # ask confirm on delete
+set confirmcreate = yes                 # ask confirm on new mailbox
+set auto_tag = yes                      # multiple tag without ;
+set forward_quote = yes                 # quote forward messages
+
+# spell check
+set ispell = "/usr/bin/aspell --mode=email check --lang=it_IT"
+
+# alias
+set alias_file = ~.mutt/mutt_aliases    # alias file
+source ~/.mutt/mutt_aliases             # load alias file at startup
+set reverse_alias = yes                 # replace address with alias
+set sort_alias = alias                  # alias order by alias
+set query_command= "abook --mutt-query '%s'"# abook integration
+
+# look & feel
+set folder_format = "[%2C] %t %N %-40.40f (dim: %8s) ultima modifica: %d"
+set index_format = "(%3C) %Z %{%d %b} DA: %-25.25n (msg:%2M) %s"
+set status_format = " %f (%r) DIM: %l MSGS: %?M?%M/?%m%?n? NEW: %n?%?o? OLD: %o?%?d?\
+DEL: %d?%?F? FLAG: %F?%?t? TAG: %t?%?p? POSTP: %p?%?b? INC: %b?%?l?? (SORT: %s/%S)%> (%P) "
+set pager_format = " [STATUS FLAGS: %Z] DA: %f"
+set compose_format = "-- Compose Menu [Dim. messaggio: circa %l N° Attach: %a (compreso il msg di testo)]%>-
+set attach_format = "%2n %u %D %t %-25.25f %I %> [%.7m/%.10M, %.6e%?C?, %C?, %s]"
+set message_format="%-.16n: %s"
+set alias_format="%4n %2f %t %-12a %r"
+set date_format = "%d.%m.%y, %H:%M"
+source ~/.mutt/mutt_colors
+
+# bind
+bind    pager   <up>        previous-line
+bind    pager   <down>      next-line
+bind    pager   <left>      previous-entry
+bind    pager   <right>     next-entry
+bind    pager   <left>      previous-entry
+bind    pager   <right>     next-entry
+bind    editor  <down>      history-down
+bind    editor  <up>        history-up
+bind    index   \t          collapse-thread
+
+# macro
+macro compose \ci '<enter-command>set ispell="/usr/bin/aspell -c\
+--mode=email --lang=en_GB<enter><ispell><enter-command>\
+set ispell="/usr/bin/aspell -c --mode=email --lang=it_IT"<enter>
+
+macro browser m <return><mail> "start compose a message"
+
+macro index \cB |w3m\n "call w3m to extract URLs out of a message"
+macro pager \cB |w3m\n "call w3m to extract URLs out of a message"
+macro index,pager A " abook --add-email-quiet" "add the sender address to abook"
+macro index \ca "!abook " "use abook as address book" 
+
+# gpg

@@ -1,0 +1,13 @@
+[OPTIONS]
+width=707
+showtoolbar=1
+ypos=585
+filename=/mnt/dati/dev/aur_memopal/memopal_debian_amd64.deb
+xpos=1015
+height=435
+
+[SETTINGS]
+tippause=500
+basecolor=#3a3e48
+tiptime=10000
+

@@ -1,0 +1,31 @@
+! -------------------------------------------------
+! file:     .colors/milomouse
+! author:   milomouse - https://bbs.archlinux.org/viewtopic.php?pid=722375#p722375
+! vim:enc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=txt:
+! -------------------------------------------------
+*background: #060606
+*foreground: #a9a6af
+ !black
+*color0:  #050505
+*color8:  #555753
+ !red
+*color1:  #9c8093
+*color9:  #ffadcc
+ !green
+*color2:  #7ac4ad
+*color10: #9ed7ca
+ !yellow
+*color3:  #adaa8d
+*color11: #c4c497
+ !blue
+*color4:  #3f4f60
+*color12: #98a7b6
+ !magenta
+*color5:  #a488d9
+*color13: #b7a7bc
+ !cyan
+*color6:  #8d9fa6
+*color14: #b8ddea
+ !white
+*color7:  #665c64
+*color15: #787a76

@@ -1,0 +1,70 @@
+#---------------------------
+#--       .inputrc        --
+#--      by lgaggini      --
+#--      CC BY-SA 3.0     --
+#---------------------------
+
+#
+# custom options
+#
+# do not bell on tab-completion
+set bell-style none
+# single key-press completion
+set show-all-if-ambiguous on
+# a character being appended to any file-names returned by completion
+set visible-stats on
+# names which are symbolic links to directories have a slash appended
+set mark-symlinked-directories on
+# removes the annoying "-- more --" prompt for long lists
+set page-completions off
+# do not casesensitive completion
+set completion-ignore-case on
+# don't echo ^C etc
+set echo-control-characters off
+# Completed dir names have a slash appended
+set mark-directories on
+
+#up-down arrow to search in history
+"\e[A":history-search-backward
+"\e[B":history-search-forward
+
+# ctrl + up-down arrow to move in history
+"\e[1;5A": previous-history
+"\e[1;5B": next-history
+
+#
+# defaults
+#
+set meta-flag on
+set input-meta on
+set convert-meta off
+set output-meta on
+
+$if mode=emacs
+
+# for linux console and RH/Debian xterm
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+"\e[5~": beginning-of-history
+"\e[6~": end-of-history
+"\e[7~": beginning-of-line
+"\e[3~": delete-char
+"\e[2~": quoted-insert
+"\e[5C": forward-word
+"\e[5D": backward-word
+"\e\e[C": forward-word
+"\e\e[D": backward-word
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+
+# for rxvt
+"\e[8~": end-of-line
+
+# for non RH/Debian xterm, can't hurt for RH/DEbian xterm
+"\eOH": beginning-of-line
+"\eOF": end-of-line
+
+# for freebsd console
+"\e[H": beginning-of-line
+"\e[F": end-of-line
+$endif

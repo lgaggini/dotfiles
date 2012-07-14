@@ -1,0 +1,168 @@
+!---------------------------
+!--      .Xresources      --
+!--      by lgaggini      --
+!--      CC BY-SA 3.0     --
+!---------------------------
+
+! Xft settings ---------------------------------------------------------
+Xft.autohint:   0
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
+Xft.lcdfilter:  lcddefault
+
+! terminal colors ------------------------------------------------------
+#include "/home/lorenzo/.colors/cloud_woman"
+
+! urxvt settings--------------------------------------------------------
+!
+! general
+!
+! lines in the scrollback buffer
+URxvt*saveLines:            10000
+! window geometry
+URxvt*geometry:             128x64
+! start as login shell
+URxvt*loginShell:           false
+! name of terminal type
+! URxvt*termName:           Urxvt
+! window title  
+! URxvt*title:              Urxvt
+! window icon
+! URxvt*iconName:           string
+! store tabs as wide characters
+URxvt*pastableTabs:         true
+
+!
+! scroll
+!
+! jump scrolling
+URxvt*jumpScroll:           true
+! skip scrolling
+URxvt*skipScroll:           false
+! scroll to bottom on output
+URxvt*scrollTtyOutput:      true
+! scroll to bottom when a non-special key is pressed
+URxvt*scrollTtyKeypress:    false
+! scroll to bottom when tty receives new lines
+URxvt*scrollWithBuffer:     false
+! scroll page by page
+URxvt*mouseWheelScrollPage: false
+
+!
+! effects
+!
+! enable transparency
+URxvt*transparent:          false
+! percentage of shading
+!URxvt*.shading:            0
+! shading color
+!URxvt*tintColor:           color
+! percentage of fading on unfocused
+!URxvt*fading:              0
+! fading color
+!URxvt*fadeColor:           color
+! use font glyphs 
+URxvt*skipBuiltinGlyphs:    true
+! number of lines between row
+URxvt*lineSpace:            0
+! space between letters
+URxvt*letterSpace:          -1
+! cursor underline  
+URxvt*cursorUnderline:      false
+! cursor blinking 
+URxvt*cursorBlink:          false
+! blank the pointer on keypress or timeout
+URxvt*pointerBlank:         false
+! reverve bf and fg colors
+URxvt*reverseVideo:         false
+
+!
+! misc
+!
+! enable urgency init
+URxvt*urgentOnBell:       true
+! triple click select only logical line
+URxvt*tripleclickwords:   true
+! insecure mode  
+URxvt*insecure:           false
+! maintain window after program execution
+URxvt*hold:               false
+! delimiters for double-click selection
+URxvt*cutchars:           BACKSLASH '"'&()*,;<=>?@[]^{|}
+
+!
+! borders
+!
+! pixels for external border
+URxvt*externalBorder:     0
+! pixels for internal border
+URxvt*internalBorder:     2
+! remove border
+URxvt*borderLess:         false
+
+!
+! colors
+!
+! foreground color
+!URxvt*foreground:         #CCCCCC
+! background color  
+!URxvt*background:         #28211C
+! border color
+!URxvt*colorBD:           color
+! italic and bold color  
+!URxvt*colorIT:           color
+! underline color
+!URxvt*colorUL:           color
+! background in reverse mode
+!URxvt*colorRV:           color
+! colour for underline itself
+!URxvt*underlineColor:    color
+! cursor color
+!URxvt*cursorColor:       color
+! cursor text color
+!URxvt*cursorColor2:      color
+! pointer foreground color
+!URxvt*pointerColor:      color
+! pointer background color
+!URxvt*pointerColor2:     color
+! border color
+!URxvt*borderColor:       color
+  
+!
+! fonts
+!
+! xft fonts
+URxvt*font: xft:DejaVu Sans Mono:size=9
+URxvt*boldFont: xft:DejaVu Sans Mono:bold:size=9
+! normal fonts
+!URxvt*font:-*-courier-medium-r-normal-*-14-*-*-*-*-*-iso8859-1
+!URxvt*boldFont:-*-courier-bold-r-normal-*-14-*-*-*-*-*-iso8859-1
+
+!
+! scrollbar
+!
+! enable scrollbar
+URxvt*scrollBar:          true     
+! scrollbar width
+URxvt*thickness:          5
+! scrollbar color
+URxvt*scrollColor:        #1E1E1E
+! scrollbar trough area color
+!URxvt*troughColor:        #333333
+! scrollbar without a trough
+!URxvt*scrollBar_floating: false
+! scrollbar to the right
+URxvt*scrollBar_right:    true
+! scrollbar style
+URxvt*scrollstyle:        plain
+
+!
+! extension
+!
+! matcher for clickable urls and vtwheel for scroll in man, less, etc.
+URxvt.perl-ext-common:  default,matcher,vtwheel
+URxvt.urlLauncher:      /usr/bin/chromium
+URxvt.matcher.button:   1

@@ -1,0 +1,41 @@
+#---------------------------
+#--       .mpdconf        --
+#--      by lgaggini      --
+#--      CC BY-SA 3.0     --
+#---------------------------
+
+# paths
+music_directory             "~/musica"
+playlist_directory          "~/.mpd/playlists"
+db_file                     "~/.mpd/mpd.db"
+pid_file                    "~/.mpd/mpd.pid"
+state_file                  "~/.mpd/mpdstate"
+log_file                    "~/.mpd/mpd.log"
+log_level                   "default"
+follow_outside_symlinks     "yes"
+follow_inside_symlinks      "yes"
+
+# daemon options
+bind_to_address             "127.0.0.1"
+port                        "6600"
+
+# preferences
+gapless_mp3_playback                "yes"
+save_absolute_paths_in_playlists    "yes"
+metadata_to_use                     "track,artist,album,title,name,genre,date,composer,performer,disc"
+auto_update                         "yes"
+auto_update_depth                   "3"
+volume_normalization                "yes"
+
+
+# audio output
+audio_output {
+    type            "alsa"
+    name            "MPD Alsa"
+    device          "hw:0,0"
+    format          "44100:16:2"
+    mixer_type      "software"
+    mixer_device    "default"
+    mixer_control   "PCM"
+}
+

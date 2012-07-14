@@ -1,0 +1,83 @@
+#---------------------------
+#--   .mutt/mutt_colors   --
+#--      by lgaggini      --
+#--      CC BY-SA 3.0     --
+#---------------------------
+
+# text color - general functions
+color normal     white          default                       # normal text
+color status     brightgreen    black                         # status bars
+color search     brightblue     black                         # searches
+color message    brightyellow   default                       # info msg
+color error      brightred      default                       # error msg
+color markers    brightred      default                       # + for wrap
+
+# text color - message index menu e attachment menu
+color indicator  brightmagenta  cyan                          # actual messagge bar
+color tree       cyan           default                       # thread arrow
+color index      cyan           default      "~A"             # all messages
+color index      brightgreen    default      "~N"             # new messages
+color index      magenta        default      "~R"             # read messages
+color index      brightblue     default      "~U"             # unread messages
+color index      brightred      default      "~F"             # important messages
+color index      red            default      "~T"             # tagged messages  
+color index      yellow         default      "~Q"             # messages that have been replied to
+color index      black          default      "~D"             # deleted messages
+color index      brightyellow   default      "~O"             # old messages
+color index      blue           default      "~E"             # expired messages
+color index      green          default      "~="             # duplicated messages
+
+# text color - collapsed threads
+# color index      brightcyan   default      "~v~(!~N)"       # collapsed thread with no unread
+# color index      yellow       default      "~v~(~N)"        # collapsed thread with some unread
+# color index      green        default      "~N~v~(~N)"      # collapsed thread with unread parent#
+# color index      red          default      "~v~(~F)!~N"     # collapsed thread with flagged, no unread
+# color index      yellow       default      "~v~(~F~N)"      # collapsed thread with some unread & flagged
+# color index      green        default      "~N~v~(~F~N)"    # collapsed thread with unread parent & flagged
+# color index      green        default      "~N~v~(~F)"      # collapsed thread with unread parent, no unread inside, but some flagged
+# color index      cyan         default      "~v~(~p)"        # collapsed thread with unread parent, no unread inside, some to me directly
+# color index      yellow       default      "~v~(~D)"        # collapsed thread with deleted (doesn't differentiate between all or partial)
+# color index      brightyellow default      "~v"             # messages part of a collapsed thread
+
+# text color - pager
+color hdrdefault cyan           black                         # header rows
+color header     yellow         black "^(from|subject|to):"   # header from: subject: to:
+color bold       green          black                         # body bold
+color underline  yellow         black                         # underline body
+color attachment blue           black                         # MIME files
+color signature  red            default                       # signature
+color tilde      blue           default                       # ~ at the end
+color quoted     cyan           default                       # quoted text
+color quoted1    red            default                       # quoted text 1st level
+color quoted2    green          default                       # quoted text 2nd level
+color quoted3    magenta        default
+color quoted4    magenta        default
+color quoted5    magenta        default
+color quoted6    magenta        default
+color quoted7    magenta        default
+color quoted8    magenta        default
+color quoted9    magenta        default
+
+# text color - pager (URL)
+color body       cyan           default  "(finger|ftp|http|news|telnet)://[^ >]*"                   # generic
+color body       cyan           default  "<URL:[^ ]*>"                                              # generic
+color body       white          default  "https://[^ >]*"                                           # https
+color body       cyan           default  "ftp://[^ ]*"                                              # ftp
+color body       green          default  "[[:alnum:]][-+.#_[:alnum:]]*@[-+.[:alnum:]]*[[:alnum:]]"  # http
+color body       brightred      default  "mailto: *[^ ]+\(\\?subject=[^ ]+\)?"                      # mailto
+
+# text color - pager (paths, filenames and variables)
+color body       brightgreen    default  "\\~?\(/[-_.,a-zA-Z0-9{}]+\)+"                             # filenames
+color body       brightgreen    default  "[a-z]:[-_.a-zA-Z0-9\]+"                                   # filenames DOS/WIN
+color body       brightred      default  "\(/[-_.a-zA-Z0-9]+\)+/"                                   # paths
+color body       brightmagenta  default  "\\$[a-zA-Z][-_a-zA-Z]+"                                   # variables
+
+# colori testo - pager (other)
+color body       red            default  "^[*] .*:$"                                                # attribution row
+color body       brightred      default  "[*/_]+ *[- &[:alnum:]]+ *[*/_]+"                          # emphasis
+color body       yellow         default  "[;:8]-?[)/(|PpDO]"                                        # smilies :-)
+color body       blue           default  "<[Vv]?[Bb]?[Ee]?[Gg]>"                                    # grin <G>
+color body       green          default  "\( *[-+=#*~_]\){4,}"                                      # border row
+color body       red            default  "[!?]{3,}"                                                 # esclamation
+color body       brightgreen    default  "[.0-9]+ ?%"                                               # %
+color body       white          default  "[0-9]{0,3}\.[0-9]{0,3}\.[0-9]{0,3}\.[0-9]{0,3}"           # IP addresses

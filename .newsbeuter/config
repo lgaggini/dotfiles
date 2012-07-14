@@ -1,0 +1,10 @@
+refresh-on-startup yes
+max-items 200
+
+browser "xlinks -g -mode 800x800 %u &"
+
+color   background   default default 
+color   listnormal   default default
+color   listfocus    black   cyan  dim
+color   info         cyan   blue  bold
+color   article      default default
