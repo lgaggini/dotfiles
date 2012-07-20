@@ -43,11 +43,12 @@ set markers = yes                       # set marker for wrapped lines
 set mailcap_path = ~/.mailcap:/etc/mailcap:/usr/lib/mime/mailcap
 
 # compose
+set askcc = yes                               # ask for cc on new msgs
 set editor = "vim -c 'set tw=70 et' '+/^$' "  # vim as default editor
 set reply_to = ask-yes                        # user Replt-To for reply
 set edit_headers = yes                        # edit header for cc and bcc
 set postpone = yes                            # save drafts
-set recall = no                               # not remember drafts not send      
+set recall = ask-no                           # remember drafts not send
 set forward_format = "[(fwd): %s]"            # forward subject format
 set reply_regexp = "^(([Rr]e?):[ \t]*)+"      # regexp to id reply
 set quote_regexp = "^([ \t]*[|>:}#])+"        # regexp to id quote
