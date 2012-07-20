@@ -9,14 +9,13 @@
 alias aliases='cat ~/.bash_aliases'
 
 # script
-alias onbak='sh ~/bin/onsitebak.sh'
+alias onbak='sh ~/bin/onbak.sh'
+alias offbak='sh ~/bin/offbak.sh'
+alias usbak='sh ~/bin/usbak.sh'
 alias dsync='sh ~/bin/datasync.sh'
-alias offbak='sh ~/bin/offsitebak.sh'
-alias pdftomobi='sh ~/bin/pdftomobi.sh'
-alias mmusic='sh ~/bin/mobilemusic.sh'
 
 # remote machine aliases
-#lghub ="ssh@"
+alias lghub='ssh lg@lghub'
 
 # yaourt aliases
 alias ysyu='yaourt -Syu'
@@ -27,7 +26,40 @@ alias ysc='yaourt -Sc'
 alias yscc='yaourt -Scc'
 alias yqs="yaourt -Qs"
 alias yql="yaourt -Ql"
-alias yqi="yaourt -Qi"   
+alias yqi="yaourt -Qi"
+
+# completion for yaourt / pacman aliases
+function _pacalias
+{
+    local cur 
+    source /usr/share/bash-completion/completions/pacman
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    case $COMP_WORDS in
+        yr*)
+            _pacman_pkg Qq;;
+        yq*)
+            { _arch_incomp 'g groups' && _pacman_pkg Qg sort; }    ||
+            { _arch_incomp 'p file'   && _pacman_file; }           ||
+            _arch_incomp 'o owns'   || _arch_incomp 'u upgrades' ||
+            _pacman_pkg Qq;;
+        ys*)
+            { _arch_incomp 'g groups' && _pacman_pkg Sg; }      ||
+            { _arch_incomp 'l list'   && _pacman_pkg Sl sort; } ||
+            _pacman_pkg Slq;;
+        yu*)
+            _pacman_file;;
+    esac
+    return 0;
+}
+complete -F _pacalias ysyu
+complete -F _pacalias ys
+complete -F _pacalias yss
+complete -F _pacalias ysc
+complete -F _pacalias yscc
+complete -F _pacalias yqs
+complete -F _pacalias yql
+complete -F _pacalias yqi
+complete -F _pacalias yrs
 
 # toolbox aliases (ls, cp, grep, find, cd)
 alias la='ls -a --color=auto'
@@ -63,6 +95,7 @@ alias sr='sort'
 alias pg='ping -c 7'
 alias un='uniq'
 alias ut='sudo umount'
+alias wh='which'
 alias lsdir='du -xmh --max-depth=1 | sort -rh'
 alias path='echo -e ${PATH//:/\\n}'
 
@@ -75,18 +108,17 @@ alias v='vim'
 alias sv='sudo vim'
 alias t='urxvt &' 
 alias b='chromium &'
-alias mus='urxvt -name mocp -e mocp'
+alias mus='urxvt -name ncmpcpp -e ncmpcpp'
 alias mov='smplayer &' 
 alias f='xfe &'
 alias sf='mysudo xfe &'
 alias ge='geany &'
-alias sge='mysudo xfe &'
+alias sge='mysudo geany &'
 alias news='urxvt -name newsbeuter -e newsbeuter &'
-alias mail='urxvt -name alpine -e alpine &'
+alias mail='urxvt -name mutt -e mutt &'
 alias tasks='lxtask &'
 alias im='gajim &'
 alias irc='urxvt -name irssi -e screen irssi'
-alias girc='xchat &'
 alias office='libreoffice &'
 alias theme='lxappearance &'
 alias burn='wodim'
@@ -129,7 +161,7 @@ alias mnext='mpc next'
 
 # super user
 alias sudo='sudo '
-alias mysudo='sudo HOME=$HOME'
-alias resudo='sudo !!'
+alias mys='sudo HOME=$HOME'
+alias res='sudo !!'
 alias reboot='sudo reboot'
 alias poweroff='sudo halt'
