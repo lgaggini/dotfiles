@@ -94,7 +94,7 @@ mvcd ()
 cdls()
 {
     cd $@;
-    ls -a --color=auto;
+    ls -a --color=auto
 }
 
 # up - cd up by n directories
@@ -120,9 +120,9 @@ up()
 # usage: uprm
 uprm()
 {
-    dir=$(pwd);
-    cd ..;
-    rm -r $dir;
+    dir=$(pwd)
+    cd ..
+    rm -r $dir
 }
 
 # swap() - switch 2 filenames around
@@ -157,14 +157,14 @@ default()
 # usage: grab <file>
 grab() 
 { 
-    sudo chown -R ${USER}:${USER} ${1:-.}; 
+    sudo chown -R ${USER}:${USER} ${1:-.} 
 }
 
 # own - change ownership
 # usage: own <file> <user>
 own() 
 { 
-    chown -R "$2":"$2" ${1:-.}; 
+    chown -R "$2":"$2" ${1:-.}
 }
 
 # cpmod - copy permission from file1 to file2
@@ -185,25 +185,25 @@ lowercase()
         y=$(echo "$x" | tr '[A-Z ]' '[a-z_]');
         # create directory if it does not exit
         if [ ! -d "$y" ]; then
-                mkdir -p "$y";
+                mkdir -p "$y"
         fi
         # check if the source and destination is the same
         if [ "$x" != "$y" ]; then
                 # move directory files before deleting
                 ls -A "$x" | while read i
                 do
-                  mv "$x"/"$i" "$y";
+                  mv "$x"/"$i" "$y"
                 done
-                rmdir "$x";
+                rmdir "$x"
         fi
     done
     # Rename all files
-    find * -type f | while read x ;
+    find * -type f | while read x
     do
         # Translate Caps to Small letters
-        y=$(echo "$x" | tr '[A-Z ]' '[a-z_]');
+        y=$(echo "$x" | tr '[A-Z ]' '[a-z_]')
         if [ "$x" != "$y" ]; then
-                mv "$x" "$y";
+                mv "$x" "$y"
         fi
     done
     exit 0
@@ -213,8 +213,8 @@ lowercase()
 # usage: fix-tabs <file>
 fix-tabs() 
 { 
-    expand -t 4 "$1" > "$1.expanded"; 
-    mv -f "$1.expanded" "$1"; 
+    expand -t 4 "$1" > "$1.expanded"
+    mv -f "$1.expanded" "$1"
 }
 
 
@@ -225,21 +225,21 @@ fix-tabs()
 # usage: fp <name>
 fp()
 {
-    sudo find . -iname '*'$*'*' -ls ;
+    sudo find . -iname '*'$*'*' -ls
 }
 
 # fr - find a file by name globally
 # usage: fr <name>
 fr()
 {
-    sudo find / -iname '*'$*'*' -ls ;
+    sudo find / -iname '*'$*'*' -ls
 }
 
 # fcd - find a file by name in selected path
 # usage: fcd <name> <path>
 fcd()
 {
-    sudo find $2 -iname '*'$1'*' -ls ;
+    sudo find $2 -iname '*'$1'*' -ls
 }
 
 # fpg - find a file by grepping in pwd
@@ -309,7 +309,7 @@ money()
     echo '    ' $1 '    ' $3 'EUR'  >> $ledger
     echo '    ' $2                  >> $ledger
     echo                            >> $ledger
-    encloud ledger ledger
+    encloud $ledger "ledger"
     tail -n 3 $ledger
 }
 
@@ -479,7 +479,7 @@ dict()
 # usage: calc <expression>
 calc()
 {
-    echo "scale=4; $1" | bc ;
+    echo "scale=4; $1" | bc
 }
 
 # sm - send email from console
@@ -494,8 +494,8 @@ sm()
 surf()
 {
     if [[ -z "$2" ]]; then
-        surfraw archwiki $1;
-        return 1;
+        surfraw archwiki $1
+        return 1
     fi    
     surfraw $1 $2
 }
@@ -576,9 +576,9 @@ colors()
       do FG=${FGs// /}
       echo -en " $FGs \033[$FG  $T  "
       for BG in 40m 41m 42m 43m 44m 45m 46m 47m;
-        do echo -en "$EINS \033[$FG\033[$BG  $T  \033[0m";
+        do echo -en "$EINS \033[$FG\033[$BG  $T  \033[0m"
       done
-      echo;
+      echo
     done
     echo
 }
@@ -587,14 +587,14 @@ colors()
 # usage: mkiso <folder> <volume-name>
 mkiso() 
 { 
-    mkisofs -V $2 -J -r $1 -o isoimage.iso; 
+    mkisofs -V $2 -J -r $1 -o isoimage.iso
 }
 
 # log - view live and color logs
 # usage: log <logname>
 log()
 {
-    sudo tail -f -n 50 $1 | ccze;
+    sudo tail -f -n 50 $1 | ccze
 }
 
 
