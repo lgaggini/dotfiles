@@ -1,5 +1,5 @@
 [OPTIONS]
-height=1040
+height=509
 toolstoolbar=0
 panel_view=0
 width=958
@@ -34,15 +34,6 @@ confirm_drag_and_drop=0
 open=geany:FBReader:feh:libreoffice:xfi:xarchiver:smplayer:/usr/lib/libreoffice/program/scalc:chromium:abiword:gnumeric:
 run=pytyle:
 filter=*:
-
-[PROGS]
-archiver=file-roller
-imgeditor=
-xterm=urxvt
-pdfviewer=epdfview
-txteditor=geany
-videoviewer=smplayer
-audioviewer=
 
 [KEYBINDINGS]
 search_prev=Shift-Ctrl-G
@@ -139,6 +130,15 @@ hiddenfiles=1
 [DIR PANEL]
 hidden_dir=1
 sort_func=ascendingCase
+
+[PROGS]
+archiver=file-roller
+imgeditor=
+xterm=urxvt
+pdfviewer=epdfview
+txteditor=geany
+videoviewer=smplayer
+audioviewer=
 
 [LEFT PANEL]
 type_size=476
