@@ -13,10 +13,9 @@ set history=1000                " increase history (default is 20)
 filetype plugin indent on       " load file type plugins + indentation
 set hidden                      " allow buffer switching without saving
 set shortmess+=filmnrxoOtT      " abbrev. of messages (avoids 'hit enter')
-set undofile                    " persistent undo
-set undolevels=100              " number of forgivable mistakes
-set backupdir=~/.vim/backup/    " directory for backup files
-set directory=~/.vim/swap/      " directory for swap files
+set backup                      " file backup
+set backupdir=~/.vim/backup     " directory for backup files
+set directory=~/.vim/swap       " directory for swap files
 
 "
 " Editor view
