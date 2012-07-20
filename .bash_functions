@@ -23,31 +23,47 @@ functions()
 start()
 {
     for arg in $*; do
-        sudo /etc/rc.d/$arg start
+        sudo rc.d start $arg
     done
 }
 
 stop()
 {
     for arg in $*; do
-        sudo /etc/rc.d/$arg stop
+        sudo rc.d stop $arg
     done
 }
 
 restart()
 {
     for arg in $*; do
-        sudo /etc/rc.d/$arg restart
+        sudo rc.d restart $arg
     done
 }
 
 reload()
 {
     for arg in $*; do
-        sudo /etc/rc.d/$arg reload
+        sudo rc.d reload $arg 
     done
 }
 
+# _service - service functions completion
+_service()
+{    
+    local cur 
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    if [[ $COMP_WORDS == start ]]; then
+        COMPREPLY=($(comm -23 <(cd /etc/rc.d && compgen -f -X 'functions*' "$cur"|sort) <(cd /run/daemons/ && compgen -f "$cur"|sort)))
+    elif [[ $COMP_WORDS =~ stop|restart|reload ]]; then
+        COMPREPLY=($(cd /run/daemons/ && compgen -f "$cur"|sort))
+    fi
+    return 0
+}
+complete -F _service start
+complete -F _service reload
+complete -F _service restart
+complete -F _service stop
 
 #
 # navigation and basic operations
@@ -258,7 +274,7 @@ mang()
 # usage: hig <word>
 hig()
 {
-    history | grep --color=auto -IrFoi $* -C 5
+    history | grep --color=auto $* -C 5
 }
 
 # psg - check if a process is running by name and return PID(s)
@@ -282,7 +298,6 @@ noteg()
 
 #
 # money management by ledger
-# TODO: encryption and remote hosting
 #
 # money - personal finance manager by ledger
 # usage - money <source account> <destination account> <value> <note>
@@ -294,6 +309,7 @@ money()
     echo '    ' $1 '    ' $3 'EUR'  >> $ledger
     echo '    ' $2                  >> $ledger
     echo                            >> $ledger
+    encloud ledger ledger
     tail -n 3 $ledger
 }
 
@@ -355,11 +371,54 @@ balance()
 }
 
 
+# 
+# pass manager by pwsafe
 #
-# cli utility
+# password file
+pwfile=~/doc/pass/pwsafe.dat
+
+# getpass - retieve a password
+# usage - getpass <account>
+getpass()
+{
+    pwsafe -f $pwfile -u -p -x $1
+}
+
+# setpass - set a new password for existing account
+# usage - setpass <account>
+setpass()
+{
+    pwsafe -f $pwfile -e $1
+    encloud $pwfile "pwsafe"
+}
+
+# mkpass - set a new password account
+# usage - mkpass <account>
+mkpass()
+{
+    pwsafe -f $pwfile -a $1
+    encloud $pwfile "pwsafe"
+}
+
+# lspass - list all password
+# usage - lspass <regex>
+lspass()
+{
+    pwsafe -f $pwfile -l $1
+}
+
+# rmpass - remove password account
+# usage - rmpass <account>
+rmpass()
+{
+    pwsafe -f $pwfile --delete $1
+    encloud $pwfile "pwsafe"
+}
+
+#
+# note manager
 #
 # note - quick note view and edit/create
-# TODO: encryption and remote hosting
 # usage: note <name>
 note()
 {
@@ -367,6 +426,7 @@ note()
         ls -lh ~/doc/note
     else
         vim ~/doc/note/$1.otl
+        encloud ~/doc/note/$1.otl $1
     fi
 }
 # _note - note name completion
@@ -383,8 +443,33 @@ _note()
 }
 complete -o nospace -F _note note
 
+#
+# encloud, secure cloud storage by gpg and ssh
+#
+# default gpg key
+key_uid=lghub
+key_pub=C1FC8820
+# default remote host
+ssh_host=lg@lghub
+
+# encloud - send encrypted file to cloud
+# usage:  encloud <source> <name>
+encloud()
+{
+    cat $1 | gpg --encrypt --recipient $key_uid | ssh $ssh_host "cat > ~/private/$2.gpg" 
+}
+# decloud - retrieve and decrypt file from cloud
+# usage:  encloud <name> <destination>
+decloud()
+{
+    ssh $ssh_host "cat ~/private/$1.gpg" | gpg --bash --decrypt -u $key_pub --output $2
+}
+
+#
+# cli utility
+#
 # dict - dictionary
-# usage: dicat <keyword>
+# usage: dict <keyword>
 dict()
 {
     sdcv $* | less
@@ -399,7 +484,7 @@ calc()
 
 # sm - send email from console
 # usage: sm <to> <subject> <body> 
-function sm()
+sm()
 {
     $ echo $3 | mailx -s $2 $1
 }
@@ -512,33 +597,27 @@ log()
     sudo tail -f -n 50 $1 | ccze;
 }
 
-# pass - password manager
-# WIP
-# usage: pass
-#pass()
-#{}
-
 
 #
 # automations
 #
 # dotfiles - sync dotfiles for git sync
 # usage: dotfiles
-function dots()
+dots()
 {
     rsync -a -v --existing /home/lorenzo/ /home/lorenzo/code/dotfiles/
 }
 
 # awcf - sync awesome config for git sync
 # usage: awcf
-function awcf()
+awcf()
 {
     rsync -a -v --existing /home/lorenzo/.config/awesome/ /home/lorenzo/code/archKiss/
 }
 
 # cf - wrapper for configuration files
 # usage: cf <alias-or-filename>
-function cf()
+cf()
 {
     if [[ -z "$1" ]]; then
         echo "Missing arguments. Syntax: {FILE|ALIAS}"
@@ -594,28 +673,28 @@ pw()
 
 # um - mount selected device ad usb stick or disk
 # usage: um <dev>
-function um()
+um()
 {
     sudo mount $1 /media/usb && cd /media/usb
 }
 
 # mm - mount selected device as mobile
 # usage: mm <dev>
-function mm()
+mm()
 {
     sudo mount $1 /media/mobile && cd /media/mobile
 }
 
 # cdm - mounte selected device ad cd/dvd
 # usage cdm
-function cdm()
+cdm()
 {
-    sudo mount /dev/sr0 /media/cdrom
+    sudo mount /dev/sr0 /media/cdrom && cd /media/cdrom
 }
 
 # isom - mount selected iso to selected mount point 
 # usage: isom <iso>
-function isom()
+isom()
 {
-    sudo mount $1 /media/iso -oloop
+    sudo mount $1 /media/iso -oloop && cd /media/iso
 }
