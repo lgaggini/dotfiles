@@ -303,21 +303,26 @@ noteg()
 # usage - money <source account> <destination account> <value> <note>
 money()
 {
-    ledger = ~/doc/money/money.dat
-    cp $ledger{,.bak}
+    ledger=~/doc/money/money.dat
+    \cp $ledger{,.bak}
     echo `date +%d/%m/%Y` ' ' $4    >> $ledger
-    echo '    ' $1 '    ' $3 'EUR'  >> $ledger
-    echo '    ' $2                  >> $ledger
+    echo '    ' $2 '    ' $3 'EUR'  >> $ledger
+    echo '    ' $1                  >> $ledger
     echo                            >> $ledger
     encloud $ledger "ledger"
-    tail -n 3 $ledger
+    tail -n 4 $ledger
 }
 
 # cash - expenses from cash
 # usage - cash <destination account> <value> <note>
 cash()
 {
-    money "Assets:Cash" $1 $2 $3
+    if [[ -z "$3" ]]; then
+        note="Uscita-Cash"
+    else
+        note=$3
+    fi
+    money "Assets:Cash" $1 $2 $note
 }
 
 # getcash - transfer from conto to cash
@@ -336,7 +341,12 @@ getcash()
 # usage - income <source account> <value> <note>
 income()
 {
-    money $1 "Assets:MPS Conto" $2 $3
+    if [[ -z "$3" ]]; then
+        note="Entrata-Conto"
+    else
+        note=$3
+    fi
+    money $1 "Assets:MPS Conto" $2 $note
 }
 
 # _money - money manager account name completion
@@ -356,18 +366,18 @@ complete -o nospace -F _money money
 complete -o nospace -F _money cash
 complete -o nospace -F _money income
 
-# checkbook - checkbook of money
-# usage - cehckbook <options>
-checkbook()
+# report - report of money
+# usage - report <options>
+report()
 {
-    ledger -f ~/doc/money/money.dat register
+    ledger -f ~/doc/money/money.dat --input-date-format "%d/%m/%Y" -y "%d/%m/%Y" register
 }
 
 # balance - balance of money
 # usage - balance <options>
 balance()
 {
-    ledger -f ~/doc/money/money.dat balance
+    ledger -f ~/doc/money/money.dat --input-date-format "%d/%m/%Y" -y "%d/%m/%Y" -E balance
 }
 
 
@@ -377,7 +387,7 @@ balance()
 # password file
 pwfile=~/doc/pass/pwsafe.dat
 
-# getpass - retieve a password
+# getpass - retrieve a password
 # usage - getpass <account>
 getpass()
 {
