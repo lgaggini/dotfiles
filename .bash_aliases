@@ -11,8 +11,6 @@ alias aliases='cat ~/.bash_aliases'
 # script
 alias onbak='sh ~/bin/onbak.sh'
 alias offbak='sh ~/bin/offbak.sh'
-alias usbak='sh ~/bin/usbak.sh'
-alias dsync='sh ~/bin/datasync.sh'
 
 # remote machine aliases
 alias lghub='ssh lg@lghub'
@@ -142,6 +140,7 @@ alias down='cd ~/download'
 alias doc='cd ~/doc'
 alias code='cd ~/code'
 alias album='cd ~/musica/album'
+alias live='cd ~/musica/bootlegs/'
 alias usb='cd /media/usb'
 alias cdrom='cd /media/cdrom'
 alias mobile='cd /media/mobile'
@@ -158,6 +157,8 @@ alias ms='mpc stop'
 alias mpp='mpc toggle'
 alias mprev='mpc prev'
 alias mnext='mpc next'
+alias flac2ogg='for i in *.flac; do sox -S $i -C5 $(basename $i .flac).ogg; done'
+alias wav2ogg='for i in *.flac; do sox -S $i -C5 $(basename $i .flac).ogg; done'
 
 # super user
 alias sudo='sudo '
