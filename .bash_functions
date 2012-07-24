@@ -125,7 +125,7 @@ uprm()
     rm -r $dir
 }
 
-# swap() - switch 2 filenames around
+# swap - switch 2 filenames around
 # usage: swap <file1> <file2>
 swap()
 {
@@ -157,7 +157,7 @@ default()
 # usage: grab <file>
 grab() 
 { 
-    sudo chown -R ${USER}:${USER} ${1:-.} 
+    sudo chown -R ${USER}:${GROUP} ${1:-.} 
 }
 
 # own - change ownership
@@ -174,8 +174,8 @@ cpmod()
     chmod --reference $1 $2
 }
 
-# lower - rename file names to lowercase and replace space with underscore from pwd
-# usage: rename
+# lowercase - rename file names to lowercase and replace space with underscore from pwd
+# usage: lowercase
 lowercase()
 {
     # Process each directory’s contents before the directory  itself
@@ -206,7 +206,6 @@ lowercase()
                 mv "$x" "$y"
         fi
     done
-    exit 0
 }
 
 # fix-tabs - replace tabs with space
