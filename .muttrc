@@ -95,7 +95,7 @@ set query_command= "abook --mutt-query '%s'"# abook integration
 
 # look & feel
 set folder_format = "[%2C] %t %N %-40.40f (dim: %8s) ultima modifica: %d"
-set index_format = "(%3C) %Z %{%d %b} DA: %-25.25n (msg:%2M) %s"
+set index_format = "(%3C) %Z %b %d DA: %-25.25n (msg:%2M) %s"
 set status_format = " %f (%r) DIM: %l MSGS: %?M?%M/?%m%?n? NEW: %n?%?o? OLD: %o?%?d?\
 DEL: %d?%?F? FLAG: %F?%?t? TAG: %t?%?p? POSTP: %p?%?b? INC: %b?%?l?? (SORT: %s/%S)%> (%P) "
 set pager_format = " [STATUS FLAGS: %Z] DA: %f"
@@ -103,7 +103,7 @@ set compose_format = "-- Compose Menu [Dim. messaggio: circa %l N° Attach: %a (
 set attach_format = "%2n %u %D %t %-25.25f %I %> [%.7m/%.10M, %.6e%?C?, %C?, %s]"
 set message_format="%-.16n: %s"
 set alias_format="%4n %2f %t %-12a %r"
-set date_format = "%d.%m.%y, %H:%M"
+set date_format = "%a %d/%m/%y, %H:%M"
 source ~/.mutt/mutt_colors
 
 # bind
