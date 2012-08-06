@@ -55,7 +55,7 @@ set quote_regexp = "^([ \t]*[|>:}#])+"        # regexp to id quote
 set sig_dashes = yes                          # dashes for signature
 
 # send
-set sendmail="/usr/local/bin/msmtp"           # software to send mail
+set sendmail="/usr/bin/msmtp"                 # software to send mail
 set envelope_from = yes                       # retrieve from automatically
 
 # default profile for new messages
