@@ -333,7 +333,7 @@ getcash()
     else
         value=$1
     fi
-    money "Assets:MPS Conto" "Assets:Cash" $value "Prelievo"
+    money "Assets:MPS:Conto" "Assets:Cash" $value "Prelievo"
 }
 
 # income - income on conto
@@ -345,7 +345,7 @@ income()
     else
         note=$3
     fi
-    money $1 "Assets:MPS Conto" $2 $note
+    money $1 "Assets:MPS:Conto" $2 $note
 }
 
 # _money - money manager account name completion
