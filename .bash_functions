@@ -385,19 +385,20 @@ balance()
 #
 # password file
 pwfile=~/doc/pass/pwsafe.dat
+pwfile_pass=~/doc/pass/cat/master
 
 # getpass - retrieve a password
 # usage - getpass <account>
 getpass()
 {
-    pwsafe -f $pwfile -u -p -x $1
+    cat $pwfile_pass | pwsafe -f $pwfile -u -p -x $1
 }
 
 # setpass - set a new password for existing account
 # usage - setpass <account>
 setpass()
 {
-    pwsafe -f $pwfile -e $1
+    cat $pwfile_pass | pwsafe -f $pwfile -e $1
     encloud $pwfile "pwsafe"
 }
 
@@ -405,7 +406,7 @@ setpass()
 # usage - mkpass <account>
 mkpass()
 {
-    pwsafe -f $pwfile -a $1
+    cat $pwfile_pass | pwsafe -f $pwfile -a $1
     encloud $pwfile "pwsafe"
 }
 
@@ -413,14 +414,14 @@ mkpass()
 # usage - lspass <regex>
 lspass()
 {
-    pwsafe -f $pwfile -l $1
+    cat $pwfile_pass | pwsafe -f $pwfile -l $1
 }
 
 # rmpass - remove password account
 # usage - rmpass <account>
 rmpass()
 {
-    pwsafe -f $pwfile --delete $1
+    cat $pwfile_pass | pwsafe -f $pwfile --delete $1
     encloud $pwfile "pwsafe"
 }
 
