@@ -385,20 +385,20 @@ balance()
 #
 # password file
 pwfile=~/doc/pass/pwsafe.dat
-pwfile_pass=~/doc/pass/cat/master
+pwfile_pass=~/doc/pass/cat/master.gpg
 
 # getpass - retrieve a password
 # usage - getpass <account>
 getpass()
 {
-    cat $pwfile_pass | pwsafe -f $pwfile -u -p -x $1
+    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f $pwfile -u -p -x $1
 }
 
 # setpass - set a new password for existing account
 # usage - setpass <account>
 setpass()
 {
-    cat $pwfile_pass | pwsafe -f $pwfile -e $1
+    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f $pwfile -e $1
     encloud $pwfile "pwsafe"
 }
 
@@ -406,7 +406,7 @@ setpass()
 # usage - mkpass <account>
 mkpass()
 {
-    cat $pwfile_pass | pwsafe -f $pwfile -a $1
+    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f $pwfile -a $1
     encloud $pwfile "pwsafe"
 }
 
@@ -414,16 +414,17 @@ mkpass()
 # usage - lspass <regex>
 lspass()
 {
-    cat $pwfile_pass | pwsafe -f $pwfile -l $1
+    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f $pwfile -l $1
 }
 
 # rmpass - remove password account
 # usage - rmpass <account>
 rmpass()
 {
-    cat $pwfile_pass | pwsafe -f $pwfile --delete $1
+    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f $pwfile --delete $1
     encloud $pwfile "pwsafe"
 }
+
 
 #
 # note manager
@@ -472,7 +473,7 @@ encloud()
 # usage:  encloud <name> <destination>
 decloud()
 {
-    ssh $ssh_host "cat ~/private/$1.gpg" | gpg --bash --decrypt -u $key_pub --output $2
+    ssh $ssh_host "cat ~/private/$1.gpg" | gpg --decrypt -u $key_pub --output $2
 }
 
 #
