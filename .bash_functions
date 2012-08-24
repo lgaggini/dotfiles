@@ -398,7 +398,7 @@ getpass()
 # usage - setpass <account>
 setpass()
 {
-    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f $pwfile -e $1
+    pwsafe -f $pwfile -e $1
     encloud $pwfile "pwsafe"
 }
 
@@ -406,7 +406,7 @@ setpass()
 # usage - mkpass <account>
 mkpass()
 {
-    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f $pwfile -a $1
+    pwsafe -f $pwfile -a $1
     encloud $pwfile "pwsafe"
 }
 
