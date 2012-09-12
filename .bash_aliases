@@ -105,6 +105,8 @@ alias gd='git diff'
 alias gc='git commit'
 alias ga='git add'
 alias gp='git push'
+alias gpo='git push origin'
+alias gpom='git push origin master'
 alias gt='git timeline'
 
 # shortcuts
