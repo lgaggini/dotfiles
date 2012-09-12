@@ -18,52 +18,124 @@ functions()
 #
 # service management
 #
-# start, stop, restart, reload - simple daemon management
+# start, stop, restart, reload, status - simple systemd daemon management
 # usage: start/stop/restart/reload <daemon-name>
 start()
 {
     for arg in $*; do
-        sudo rc.d start $arg
+        sudo systemctl start $arg
     done
 }
 
 stop()
 {
     for arg in $*; do
-        sudo rc.d stop $arg
+        sudo systemctl stop $arg
     done
 }
 
 restart()
 {
     for arg in $*; do
-        sudo rc.d restart $arg
+        sudo systemctl restart $arg
     done
 }
 
 reload()
 {
     for arg in $*; do
-        sudo rc.d reload $arg 
+        sudo systemctl reload $arg 
+    done
+}
+
+status()
+{
+    for arg in $*; do
+        sudo systemctl status $arg 
     done
 }
 
 # _service - service functions completion
 _service()
 {    
-    local cur 
-    cur="${COMP_WORDS[COMP_CWORD]}"
-    if [[ $COMP_WORDS == start ]]; then
-        COMPREPLY=($(comm -23 <(cd /etc/rc.d && compgen -f -X 'functions*' "$cur"|sort) <(cd /run/daemons/ && compgen -f "$cur"|sort)))
-    elif [[ $COMP_WORDS =~ stop|restart|reload ]]; then
-        COMPREPLY=($(cd /run/daemons/ && compgen -f "$cur"|sort))
+    local cur=${COMP_WORDS[COMP_CWORD]} prev=${COMP_WORDS[COMP_CWORD-1]}
+    local verb comps
+
+    local -A OPTS=(
+           [STANDALONE]='--all -a --defaults --fail --ignore-dependencies --failed --force -f --full --global
+                         --help -h --no-ask-password --no-block --no-legend --no-pager --no-reload --no-wall
+                         --order --require --quiet -q --privileged -P --system --user --version --runtime'
+                  [ARG]='--host -H --kill-mode --kill-who --property -p --signal -s --type -t --root'
+    )
+
+    if [[ "$cur" = -* ]]; then
+            COMPREPLY=( $(compgen -W '${OPTS[*]}' -- "$cur") )
+            return 0
     fi
+    
+    
+    local -A VERBS=(
+            [ALL_UNITS]='status'
+        [ENABLED_UNITS]='disable reenable'
+       [DISABLED_UNITS]='enable'
+      [STARTABLE_UNITS]='start'
+      [STOPPABLE_UNITS]='stop'
+     [RELOADABLE_UNITS]='reload'
+    [RESTARTABLE_UNITS]='restart'
+    )
+    
+    for ((i=0; $i <= $COMP_CWORD; i++)); do
+        if __contains_word "${COMP_WORDS[i]}" ${VERBS[*]} &&
+         ! __contains_word "${COMP_WORDS[i-1]}" ${OPTS[ARG}]}; then
+                verb=${COMP_WORDS[i]}
+                break
+        fi
+    done
+
+    if   [[ -z $verb ]]; then
+            comps="${VERBS[*]}"
+
+    elif __contains_word "$verb" ${VERBS[ALL_UNITS]}; then
+            comps=$( __get_all_units )
+
+    elif __contains_word "$verb" ${VERBS[ENABLED_UNITS]}; then
+            comps=$( __get_enabled_units )
+
+    elif __contains_word "$verb" ${VERBS[DISABLED_UNITS]}; then
+            comps=$( __get_disabled_units )
+
+    elif __contains_word "$verb" ${VERBS[STARTABLE_UNITS]}; then
+            comps=$( __filter_units_by_property CanStart yes \
+                  $( __get_inactive_units \
+            | while read -r line; do \
+                    [[ "$line" =~ \.(device|snapshot)$ ]] || printf "%s\n" "$line"; \
+            done ))
+
+    elif __contains_word "$verb" ${VERBS[RESTARTABLE_UNITS]}; then
+            comps=$( __filter_units_by_property CanStart yes \
+                  $( __get_all_units \
+            | while read -r line; do \
+                    [[ "$line" =~ \.(device|snapshot|socket|timer)$ ]] || printf "%s\n" "$line"; \
+            done ))
+
+    elif __contains_word "$verb" ${VERBS[STOPPABLE_UNITS]}; then
+            comps=$( __filter_units_by_property CanStop yes \
+                  $( __get_active_units ) )
+
+    elif __contains_word "$verb" ${VERBS[RELOADABLE_UNITS]}; then
+            comps=$( __filter_units_by_property CanReload yes \
+                  $( __get_active_units ) )
+
+    fi
+
+    COMPREPLY=( $(compgen -W '$comps' -- "$cur") )
     return 0
 }
 complete -F _service start
 complete -F _service reload
 complete -F _service restart
 complete -F _service stop
+complete -F _service status
 
 #
 # navigation and basic operations
