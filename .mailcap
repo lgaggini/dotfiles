@@ -28,7 +28,7 @@ application/vnd.oasis.opendocument.text-template; /usr/bin/libreoffice '%s'; tes
 # image formats
 #image/*; /usr/bin/img '%s'; test=test -n "$DISPLAY"
 # compressed file
-application/zip; /usr/bin/xarchiver '%s'; test=test -n "$DISPLAY"
-application/x-compressed; /usr/bin/xarchiver '%s'; test=test -n "$DISPLAY" 
-application/x-gtar; /usr/bin/xarchiver '%s'; test=test -n "$DISPLAY"
-application/x-bzip2; /usr/bin/xarchiver '%s'; test=test -n "$DISPLAY"
+application/zip; /usr/bin/file-roller '%s'; test=test -n "$DISPLAY"
+application/x-compressed; /usr/bin/file-roller '%s'; test=test -n "$DISPLAY" 
+application/x-gtar; /usr/bin/file-roller '%s'; test=test -n "$DISPLAY"
+application/x-bzip2; /usr/bin/file-roller '%s'; test=test -n "$DISPLAY"
