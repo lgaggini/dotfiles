@@ -108,7 +108,7 @@ alias gp='git push'
 alias gt='git timeline'
 
 # shortcuts
-alias s='sudo'
+alias s='sudo '
 alias c='clear'
 alias h='history'
 alias m='man'
@@ -175,7 +175,7 @@ alias mp32ogg='for i in *.mp3; do sox -S $i -C5 $(basename $i .mp3).ogg; done'
 
 # super user
 alias sudo='sudo '
-alias mys='sudo HOME=$HOME'
+alias mys='sudo -E'
 alias res='sudo !!'
 alias reboot='sudo reboot'
 alias poweroff='sudo halt'
