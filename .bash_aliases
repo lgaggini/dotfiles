@@ -99,6 +99,14 @@ alias wh='which'
 alias lsdir='du -xmh --max-depth=1 | sort -rh'
 alias path='echo -e ${PATH//:/\\n}'
 
+# git aliases
+alias gs='git status'
+alias gd='git diff'
+alias gc='git commit'
+alias ga='git add'
+alias gp='git push'
+alias gt='git timeline'
+
 # shortcuts
 alias s='sudo'
 alias c='clear'
