@@ -660,14 +660,14 @@ cf()
             $EDITOR "${HOME}/.config/awesome/rc.lua"
             ;;
         'fstab')
-            sudo HOME=$HOME $EDITOR '/etc/fstab'
+            sudo -E $EDITOR '/etc/fstab'
             ;;
         'rc')
-            sudo HOME=$HOME $EDITOR '/etc/rc.conf'
+            sudo -E $EDITOR '/etc/rc.conf'
             ;;
         *)
             if [[ "$(readlink -f "$1")" != ${HOME}/* ]]; then
-                sudo HOME=$HOME $EDITOR "$1"
+                sudo -E $EDITOR "$1"
             else
                 $EDITOR "$1"
             fi
