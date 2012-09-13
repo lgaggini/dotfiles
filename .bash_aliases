@@ -110,6 +110,10 @@ alias gpo='git push origin'
 alias gpom='git push origin master'
 alias gt='git timeline'
 
+# python aliases
+alias p2='python2'
+alias p='python'
+
 # shortcuts
 alias s='sudo '
 alias c='clear'
