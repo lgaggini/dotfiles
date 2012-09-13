@@ -60,6 +60,7 @@ complete -F _pacalias yqs
 complete -F _pacalias yql
 complete -F _pacalias yqi
 complete -F _pacalias yrs
+complete -F _pacalias yr
 
 # toolbox aliases (ls, cp, grep, find, cd)
 alias la='ls -a --color=auto'
