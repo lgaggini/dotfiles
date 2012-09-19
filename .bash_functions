@@ -55,6 +55,47 @@ status()
     done
 }
 
+#__systemctl for systemctl bash completion
+__systemctl() {
+        systemctl --full --no-legend "$@"
+}
+
+#__contains_word for systemctl bash completion
+__contains_word () {
+        local word=$1; shift
+        for w in $*; do [[ $w = $word ]] && return 0; done
+        return 1
+}
+# __filter_units_by_property for systemctl bash completion
+__filter_units_by_property () {
+        local property=$1 value=$2 ; shift 2
+        local units=("$@")
+        local props
+        IFS=$'\n' read -rd '' -a props < \
+            <(__systemctl show --property "$property" -- "${units[@]}")
+        for ((i=0; $i < ${#units[*]}; i++)); do
+                if [[ "${props[i]}" = "$property=$value" ]]; then
+                        printf "%s\n" "${units[i]}"
+                fi
+        done
+}
+
+#__get_*_units for systemctl bash completion
+__get_all_units      () { __systemctl list-units --all \
+        | { while read -r a b; do printf "%s\n" "$a"; done; }; }
+__get_active_units   () { __systemctl list-units       \
+        | { while read -r a b; do printf "%s\n" "$a"; done; }; }
+__get_inactive_units () { __systemctl list-units --all \
+        | { while read -r a b c d; do [[ $c == "inactive" ]] && printf "%s\n" "$a"; done; }; }
+__get_failed_units   () { __systemctl list-units       \
+        | { while read -r a b c d; do [[ $c == "failed"   ]] && printf "%s\n" "$a"; done; }; }
+__get_enabled_units  () { __systemctl list-unit-files  \
+        | { while read -r a b c  ; do [[ $b == "enabled"  ]] && printf "%s\n" "$a"; done; }; }
+__get_disabled_units () { __systemctl list-unit-files  \
+        | { while read -r a b c  ; do [[ $b == "disabled" ]] && printf "%s\n" "$a"; done; }; }
+__get_masked_units   () { __systemctl list-unit-files  \
+        | { while read -r a b c  ; do [[ $b == "masked"   ]] && printf "%s\n" "$a"; done; }; }
+
 # _service - service functions completion
 _service()
 {    
