@@ -55,128 +55,13 @@ status()
     done
 }
 
-#__systemctl for systemctl bash completion
-__systemctl() {
-        systemctl --full --no-legend "$@"
-}
-
-#__contains_word for systemctl bash completion
-__contains_word () {
-        local word=$1; shift
-        for w in $*; do [[ $w = $word ]] && return 0; done
-        return 1
-}
-# __filter_units_by_property for systemctl bash completion
-__filter_units_by_property () {
-        local property=$1 value=$2 ; shift 2
-        local units=("$@")
-        local props
-        IFS=$'\n' read -rd '' -a props < \
-            <(__systemctl show --property "$property" -- "${units[@]}")
-        for ((i=0; $i < ${#units[*]}; i++)); do
-                if [[ "${props[i]}" = "$property=$value" ]]; then
-                        printf "%s\n" "${units[i]}"
-                fi
-        done
-}
-
-#__get_*_units for systemctl bash completion
-__get_all_units      () { __systemctl list-units --all \
-        | { while read -r a b; do printf "%s\n" "$a"; done; }; }
-__get_active_units   () { __systemctl list-units       \
-        | { while read -r a b; do printf "%s\n" "$a"; done; }; }
-__get_inactive_units () { __systemctl list-units --all \
-        | { while read -r a b c d; do [[ $c == "inactive" ]] && printf "%s\n" "$a"; done; }; }
-__get_failed_units   () { __systemctl list-units       \
-        | { while read -r a b c d; do [[ $c == "failed"   ]] && printf "%s\n" "$a"; done; }; }
-__get_enabled_units  () { __systemctl list-unit-files  \
-        | { while read -r a b c  ; do [[ $b == "enabled"  ]] && printf "%s\n" "$a"; done; }; }
-__get_disabled_units () { __systemctl list-unit-files  \
-        | { while read -r a b c  ; do [[ $b == "disabled" ]] && printf "%s\n" "$a"; done; }; }
-__get_masked_units   () { __systemctl list-unit-files  \
-        | { while read -r a b c  ; do [[ $b == "masked"   ]] && printf "%s\n" "$a"; done; }; }
-
-# _service - service functions completion
-_service()
-{    
-    local cur=${COMP_WORDS[COMP_CWORD]} prev=${COMP_WORDS[COMP_CWORD-1]}
-    local verb comps
-
-    local -A OPTS=(
-           [STANDALONE]='--all -a --defaults --fail --ignore-dependencies --failed --force -f --full --global
-                         --help -h --no-ask-password --no-block --no-legend --no-pager --no-reload --no-wall
-                         --order --require --quiet -q --privileged -P --system --user --version --runtime'
-                  [ARG]='--host -H --kill-mode --kill-who --property -p --signal -s --type -t --root'
-    )
-
-    if [[ "$cur" = -* ]]; then
-            COMPREPLY=( $(compgen -W '${OPTS[*]}' -- "$cur") )
-            return 0
-    fi
-    
-    
-    local -A VERBS=(
-            [ALL_UNITS]='status'
-        [ENABLED_UNITS]='disable reenable'
-       [DISABLED_UNITS]='enable'
-      [STARTABLE_UNITS]='start'
-      [STOPPABLE_UNITS]='stop'
-     [RELOADABLE_UNITS]='reload'
-    [RESTARTABLE_UNITS]='restart'
-    )
-    
-    for ((i=0; $i <= $COMP_CWORD; i++)); do
-        if __contains_word "${COMP_WORDS[i]}" ${VERBS[*]} &&
-         ! __contains_word "${COMP_WORDS[i-1]}" ${OPTS[ARG}]}; then
-                verb=${COMP_WORDS[i]}
-                break
-        fi
-    done
-
-    if   [[ -z $verb ]]; then
-            comps="${VERBS[*]}"
-
-    elif __contains_word "$verb" ${VERBS[ALL_UNITS]}; then
-            comps=$( __get_all_units )
-
-    elif __contains_word "$verb" ${VERBS[ENABLED_UNITS]}; then
-            comps=$( __get_enabled_units )
-
-    elif __contains_word "$verb" ${VERBS[DISABLED_UNITS]}; then
-            comps=$( __get_disabled_units )
-
-    elif __contains_word "$verb" ${VERBS[STARTABLE_UNITS]}; then
-            comps=$( __filter_units_by_property CanStart yes \
-                  $( __get_inactive_units \
-            | while read -r line; do \
-                    [[ "$line" =~ \.(device|snapshot)$ ]] || printf "%s\n" "$line"; \
-            done ))
-
-    elif __contains_word "$verb" ${VERBS[RESTARTABLE_UNITS]}; then
-            comps=$( __filter_units_by_property CanStart yes \
-                  $( __get_all_units \
-            | while read -r line; do \
-                    [[ "$line" =~ \.(device|snapshot|socket|timer)$ ]] || printf "%s\n" "$line"; \
-            done ))
-
-    elif __contains_word "$verb" ${VERBS[STOPPABLE_UNITS]}; then
-            comps=$( __filter_units_by_property CanStop yes \
-                  $( __get_active_units ) )
-
-    elif __contains_word "$verb" ${VERBS[RELOADABLE_UNITS]}; then
-            comps=$( __filter_units_by_property CanReload yes \
-                  $( __get_active_units ) )
-
-    fi
-
-    COMPREPLY=( $(compgen -W '$comps' -- "$cur") )
-    return 0
-}
-complete -F _service start
-complete -F _service reload
-complete -F _service restart
-complete -F _service stop
-complete -F _service status
+# completion for systemctl alias
+source /usr/share/bash-completion/completions/systemctl
+complete -F _systemctl start
+complete -F _systemctl reload
+complete -F _systemctl restart
+complete -F _systemctl stop
+complete -F _systemctl status
 
 #
 # navigation and basic operations
