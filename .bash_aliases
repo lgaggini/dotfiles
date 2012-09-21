@@ -27,6 +27,7 @@ alias yscc='yaourt -Scc'
 alias yqs="yaourt -Qs"
 alias yql="yaourt -Ql"
 alias yqi="yaourt -Qi"
+alias yqqtd="yaourt -Qqtd"
 
 # completion for yaourt / pacman aliases
 function _pacalias
