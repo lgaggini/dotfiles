@@ -11,8 +11,9 @@ clear lock
 ! context menu key to slash(/) and tilde (~)
 keycode 135 = slash asciitilde
 
-! ctrl-left key to Mode_switch for global vim-like movements
+! ctrl-left key and backslash to Mode_switch for global vim-like movements
 keycode 37 = Mode_switch
+keycode 49 = Mode_switch bar
 remove control = Mode_switch
 
 ! global vim-like movements
@@ -28,3 +29,6 @@ keycode 58 = m M Next Next mu masculine mu
 ! ctrl-right key to delete
 keycode 105 = Delete
 remove control = Delete NoSymbol Delete
+
+! escape key to backslash
+keycode 9 = backslash bar backslash bar notsign brokenbar notsign
