@@ -36,6 +36,7 @@ servers = (
     port = "6667";
     use_ssl = "no";
     ssl_verify = "no";
+    autoconnect = "yes"; 
   }
 );
 
@@ -106,8 +107,7 @@ chatnets = {
 };
 
 channels = (
-  { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
-  { name = "silc"; chatnet = "silc"; autojoin = "No"; }
+  { name = "#archlinux"; chatnet = "Freenode"; autojoin = "yes"; }
 );
 
 aliases = {
