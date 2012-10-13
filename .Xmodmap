@@ -1,0 +1,30 @@
+!---------------------------
+!--       .Xmodmap        --
+!--      by lgaggini      --
+!--      CC BY-SA 3.0     --
+!---------------------------
+
+! caps lock key to escape
+keycode 66 = Escape NoSymbol Escape
+clear lock
+
+! context menu key to slash(/) and tilde (~)
+keycode 135 = slash asciitilde
+
+! ctrl-left key to Mode_switch for global vim-like movements
+keycode 37 = Mode_switch
+remove control = Mode_switch
+
+! global vim-like movements
+keycode 43 = h H Left Left hstroke Hstroke hstroke
+keycode 44 = j J Down Down dead_hook dead_horn dead_hook
+keycode 45 = k K Up Up kra ampersand kra
+keycode 46 = l L Right Right lstroke Lstroke lstroke
+
+! pgup and pgdown near vim movements
+keycode 31 = i I Prior Prior rightarrow	idotless rightarrow
+keycode 58 = m M Next Next mu masculine mu
+
+! ctrl-right key to delete
+keycode 105 = Delete
+remove control = Delete NoSymbol Delete
