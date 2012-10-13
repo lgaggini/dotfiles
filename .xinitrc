@@ -1,21 +1,32 @@
 #!/bin/sh
 #---------------------------
 #--       .xinitrc        --
-#--      by lgaggini     --
+#--      by lgaggini      --
 #--      CC BY-SA 3.0     --
 #---------------------------
+
+# disable bell
+xset -b
 
 # numlock
 numlockx &
 
-# merge custom X resources
-xrdb -merge ~/.Xresources
+# Merge custom X resources
+if [ -f $HOME/.Xresources ]; then
+  xrdb -merge ~/.Xresources
+fi
 
 # volumeicon
 volumeicon &
 
 # mpd daemon user mode
 mpd ~/.mpdconf &
+
+# custom keyboard mapping
+setxkbmap -option caps:ctrl_modifier
+if [ -f $HOME/.Xmodmap ]; then
+    /usr/bin/xmodmap $HOME/.Xmodmap
+fi
 
 # check monitors status, single or dual
 # monitor=$(sh ~/bin/check_monitor.sh)
