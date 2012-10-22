@@ -18,50 +18,57 @@ functions()
 #
 # service management
 #
-# start, stop, restart, reload, status - simple systemd daemon management
+# start, stop, restart, reload, status - simple systemd / system V daemon management
 # usage: start/stop/restart/reload <daemon-name>
+system='systemctl'
+
 start()
 {
     for arg in $*; do
-        sudo systemctl start $arg
+        sudo $system start $arg
     done
 }
 
 stop()
 {
     for arg in $*; do
-        sudo systemctl stop $arg
+        sudo $system stop $arg
     done
 }
 
 restart()
 {
     for arg in $*; do
-        sudo systemctl restart $arg
+        sudo $system restart $arg
     done
 }
 
 reload()
 {
     for arg in $*; do
-        sudo systemctl reload $arg 
+        sudo $system reload $arg 
     done
 }
 
 status()
 {
     for arg in $*; do
-        sudo systemctl status $arg 
+        sudo $system status $arg 
     done
 }
 
-# completion for systemctl alias
-source /usr/share/bash-completion/completions/systemctl
-complete -F _systemctl start
-complete -F _systemctl reload
-complete -F _systemctl restart
-complete -F _systemctl stop
-complete -F _systemctl status
+# completion for systemctl / system V alias
+if [ $system == "systemctl" ]; then 
+    source /usr/share/bash-completion/completions/$system
+else
+    source /etc/bash_completion.d/$system
+fi
+
+complete -F _$system start
+complete -F _$system reload
+complete -F _$system restart
+complete -F _$system stop
+complete -F _$system status
 
 #
 # navigation and basic operations
