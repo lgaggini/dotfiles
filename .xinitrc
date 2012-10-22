@@ -23,10 +23,12 @@ volumeicon &
 mpd ~/.mpdconf &
 
 # custom keyboard mapping
-setxkbmap -option caps:ctrl_modifier
 if [ -f $HOME/.Xmodmap ]; then
-    /usr/bin/xmodmap $HOME/.Xmodmap
+  (sleep 20 && /usr/bin/xmodmap $HOME/.Xmodmap) &
 fi
+
+# single press of control to escape https://github.com/alols/xcape
+(sleep 20 && xcape) &
 
 # check monitors status, single or dual
 # monitor=$(sh ~/bin/check_monitor.sh)
