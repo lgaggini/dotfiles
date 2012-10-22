@@ -13,7 +13,8 @@ alias onbak='sh ~/bin/onbak.sh'
 alias offbak='sh ~/bin/offbak.sh'
 
 # remote machine aliases
-alias lghub='ssh lg@lghub'
+alias agharti='ssh lg@agharti'
+alias nibiru='ssh lg@nibiru'
 
 # yaourt aliases
 alias ysyu='yaourt -Syu'

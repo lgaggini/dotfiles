@@ -459,7 +459,7 @@ complete -o nospace -F _note note
 key_uid=lghub
 key_pub=C1FC8820
 # default remote host
-ssh_host=lg@lghub
+ssh_host=lg@nibiru
 
 # encloud - send encrypted file to cloud
 # usage:  encloud <source> <name>
