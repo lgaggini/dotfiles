@@ -64,6 +64,21 @@ complete -F _pacalias yqi
 complete -F _pacalias yrs
 complete -F _pacalias yr
 
+# aptitude/apt-get alias
+manager='aptitude'
+alias apu='sudo $manager update'
+alias apuu='sudo $manager upgrade'
+alias api='sudo $manager install'
+alias apr='sudo $manager remove'
+alias app='sudo $manager purge'
+alias aps='sudo $manager search'
+alias apss='sudo $manager show'
+alias apc='sudo $manager clean'
+alias apcc='sudo $manager autoclean'
+alias apd='sudo $manager download'
+
+# completion for aptitude / apt-get aliases
+
 # toolbox aliases (ls, cp, grep, find, cd)
 alias la='ls -a --color=auto'
 alias ll='ls -alh --color=auto'
