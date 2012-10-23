@@ -33,7 +33,7 @@ alias yqqtd="yaourt -Qqtd"
 # completion for yaourt / pacman aliases
 function _pacalias
 {
-    local cur 
+    local cur
     source /usr/share/bash-completion/completions/pacman
     cur="${COMP_WORDS[COMP_CWORD]}"
     case $COMP_WORDS in
@@ -78,6 +78,26 @@ alias apcc='sudo $manager autoclean'
 alias apd='sudo $manager download'
 
 # completion for aptitude / apt-get aliases
+function _apalias()
+{
+    local cur
+    cur=`_get_cword`
+    case $COMP_WORDS in
+        api|apss|apd)
+            COMPREPLY=( $( apt-cache pkgnames $cur 2> /dev/null ) )
+            return 0;;
+        apr|app)
+            source /usr/share/bash-completion/completions/dpkg
+            COMPREPLY=( $( _comp_dpkg_installed_packages "$cur" ) )
+            return 0;;
+    esac
+    return 0
+}
+complete -F _apalias api
+complete -F _apalias apss
+complete -F _apalias apd
+complete -F _apalias apr
+complete -F _apalias app
 
 # toolbox aliases (ls, cp, grep, find, cd)
 alias la='ls -a --color=auto'
