@@ -22,53 +22,102 @@ functions()
 # usage: start/stop/restart/reload <daemon-name>
 system='systemctl'
 
-start()
-{
-    for arg in $*; do
-        sudo $system start $arg
-    done
-}
-
-stop()
-{
-    for arg in $*; do
-        sudo $system stop $arg
-    done
-}
-
-restart()
-{
-    for arg in $*; do
-        sudo $system restart $arg
-    done
-}
-
-reload()
-{
-    for arg in $*; do
-        sudo $system reload $arg 
-    done
-}
-
-status()
-{
-    for arg in $*; do
-        sudo $system status $arg 
-    done
-}
-
-# completion for systemctl / system V alias
+# systemd
 if [ $system == "systemctl" ]; then 
-    source /usr/share/bash-completion/completions/$system
-else
-    source /etc/bash_completion.d/$system
-fi
+    # alias
+    start()
+    {
+        for arg in $*; do
+            sudo $system start $arg
+        done
+    }
 
-complete -F _$system start
-complete -F _$system reload
-complete -F _$system restart
-complete -F _$system stop
-complete -F _$system status
+    stop()
+    {
+        for arg in $*; do
+            sudo $system stop $arg
+        done
+    }
+
+    restart()
+    {
+        for arg in $*; do
+            sudo $system restart $arg
+        done
+    }
+
+    reload()
+    {
+        for arg in $*; do
+            sudo $system reload $arg 
+        done
+    }
+
+    status()
+    {
+        for arg in $*; do
+            sudo $system status $arg 
+        done
+    }
+    # completion
+    source /usr/share/bash-completion/completions/$system
+    complete -F _$system start
+    complete -F _$system reload
+    complete -F _$system restart
+    complete -F _$system stop
+    complete -F _$system status
+# systemV
+elif [ $system == "service" ]; then 
+    # alias
+    start()
+    {
+        for arg in $*; do
+            sudo $system $arg start
+        done
+    }
+
+    stop()
+    {
+        for arg in $*; do
+            sudo $system $arg stop
+        done
+    }
+
+    restart()
+    {
+        for arg in $*; do
+            sudo $system $arg restart
+        done
+    }
+
+    reload()
+    {
+        for arg in $*; do
+            sudo $system $arg reload
+        done
+    }
+
+    status()
+    {
+        for arg in $*; do
+            sudo $system $arg status
+        done
+    }
+    # completion
+    function _sysvservices()
+    {
+        local cur services
+        cur=`_get_cword`
+        services=`ls /etc/init.d`
+        COMPREPLY=( $(compgen -W "${services}" -- ${cur}) )
+        return 0
+    }
+    complete -F _$sysvservices start
+    complete -F _$sysvservices reload
+    complete -F _$sysvservices restart
+    complete -F _$sysvservices stop
+    complete -F _$sysvservices status
+fi
 
 #
 # navigation and basic operations
