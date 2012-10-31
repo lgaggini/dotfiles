@@ -129,4 +129,15 @@ macro pager \cB |w3m\n "call w3m to extract URLs out of a message"
 macro index,pager A " abook --add-email-quiet" "add the sender address to abook"
 macro index \ca "!abook " "use abook as address book" 
 
+# sidebar
+set sidebar_width = 30                      # sidebar width
+set sidebar_visible = yes                   # sidebar enabled
+mailboxes `echo ~/offlinemail/*/`           # mailboxes in the sidebar
+bind index \CP sidebar-prev                 # ctrl-n to select prev folder
+bind index \CN sidebar-next                 # ctrl-n to select next folder
+bind index \CO sidebar-open                 # ctrl-o to open selected folder
+bind pager \CP sidebar-prev                 # ctrl-n to select prev folder
+bind pager \CN sidebar-next                 # ctrl-n to select next folder
+bind pager \CO sidebar-open                 # ctrl-o to open selected folder
+
 # gpg
