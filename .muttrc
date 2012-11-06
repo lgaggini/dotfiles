@@ -79,7 +79,7 @@ hdr_order Subject: Date: From: Reply-To: To: CC: BCC:\
 X-Operating-System: X-Mailer: User-Agent:
 
 # manage
-set delete = ask-yes                    # ask confirm on delete
+set delete = yes                        # ask confirm on delete
 set confirmcreate = yes                 # ask confirm on new mailbox
 set auto_tag = yes                      # multiple tag without ;
 set forward_quote = yes                 # quote forward messages
