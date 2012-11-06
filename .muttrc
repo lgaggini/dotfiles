@@ -25,6 +25,7 @@ set postponed = "~/offlinemail/drafts/" # draft mail folders
 set spoolfile = "~/offlinemail/INBOX"   # inbox
 set move = no                           # not move from spool
 set tmpdir = /tmp                       # temporary files
+set trash = "~/offlinemail/Trash/"      # trash folder for gmail delete
 
 # read
 set sort = threads                      # order by threads
