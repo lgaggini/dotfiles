@@ -349,6 +349,21 @@ noteg()
 }
 
 
+#default remote host for data
+ssh_user=lg
+ssh_host=agharti
+
+# alive - check status of an host
+# usage - alive <target_host>
+alive()
+{
+    if ping -q -c 1 $1  > /dev/null 2>&1; then
+        return 0
+    else
+        return 1
+    fi
+}
+
 #
 # money management by ledger
 #
@@ -356,13 +371,13 @@ noteg()
 # usage - money <source account> <destination account> <value> <note>
 money()
 {
-    ledger=~/doc/money/money.dat
-    \cp $ledger{,.bak}
+    ledger=doc/money/money.dat
+    \cp ~/$ledger{,.bak}
     echo `date +%d/%m/%Y` ' ' $4    >> $ledger
     echo '    ' $2 '    ' $3 'EUR'  >> $ledger
     echo '    ' $1                  >> $ledger
     echo                            >> $ledger
-    encloud $ledger "ledger"
+    alive $ssh_host && scp $ledger $ssh_user@$ssh_host:/srv/storage/data/$ledger
     tail -n 4 $ledger
 }
 
@@ -438,51 +453,52 @@ balance()
 # pass manager by pwsafe
 #
 # password file
-pwfile=~/doc/pass/pwsafe.dat
+pwfile=doc/pass/pwsafe.dat
 pwfile_pass=~/doc/pass/cat/master.gpg
 
 # getpass - retrieve a password
 # usage - getpass <account>
 getpass()
 {
-    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f $pwfile -u -p -x $1
+    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f ~/$pwfile -u -p -x $1
 }
 
 # setpass - set a new password for existing account
 # usage - setpass <account>
 setpass()
 {
-    pwsafe -f $pwfile -e $1
-    encloud $pwfile "pwsafe"
+    pwsafe -f ~/$pwfile -e $1
+    alive $ssh_host && scp ~/$pwfile $ssh_user@$ssh_host:/srv/storage/data/$pwfile
 }
 
 # mkpass - set a new password account
 # usage - mkpass <account>
 mkpass()
 {
-    pwsafe -f $pwfile -a $1
-    encloud $pwfile "pwsafe"
+    pwsafe -f ~/$pwfile -a $1
+    alive $ssh_host && scp ~/$pwfile $ssh_user@$ssh_host:/srv/storage/data/$pwfile
 }
 
 # lspass - list all password
 # usage - lspass <regex>
 lspass()
 {
-    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f $pwfile -l $1
+    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f ~/$pwfile -l $1
 }
 
 # rmpass - remove password account
 # usage - rmpass <account>
 rmpass()
 {
-    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f $pwfile --delete $1
-    encloud $pwfile "pwsafe"
+    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f ~/$pwfile --delete $1
+    alive $ssh_host && scp ~/$pwfile $ssh_user@$ssh_host:/srv/storage/data/$pwfile
 }
 
 
 #
 # note manager
 #
+
 # note - quick note view and edit/create
 # usage: note <name>
 note()
@@ -490,8 +506,9 @@ note()
     if [[ -z "$1" ]]; then
         ls -lh ~/doc/note
     else
-        vim ~/doc/note/$1.otl
-        encloud ~/doc/note/$1.otl $1
+        vim ~/doc/note/$1.txt
+        #ping -q -c 1 $ssh_host  > /dev/null 2>&1 && scp ~/doc/note/$1.txt $ssh_user@$ssh_host:/srv/storage/data/doc/note/
+        alive $ssh_host && scp ~/doc/note/$1.txt $ssh_user@$ssh_host:/srv/storage/data/doc/note/
     fi
 }
 # _note - note name completion
@@ -512,23 +529,25 @@ complete -o nospace -F _note note
 # encloud, secure cloud storage by gpg and ssh
 #
 # default gpg key
-key_uid=lghub
+key_uid=nibiru
 key_pub=C1FC8820
 # default remote host
-ssh_host=lg@nibiru
+cloud_user=lg
+cloud_host=nibiru
 
 # encloud - send encrypted file to cloud
 # usage:  encloud <source> <name>
 encloud()
 {
-    cat $1 | gpg --encrypt --recipient $key_uid | ssh $ssh_host "cat > ~/private/$2.gpg" 
+    alive $cloud_host && cat $1 | gpg --encrypt --recipient $key_uid | ssh $cloud_user@$cloud_host "cat > ~/private/$2.gpg" 
 }
 # decloud - retrieve and decrypt file from cloud
 # usage:  encloud <name> <destination>
 decloud()
 {
-    ssh $ssh_host "cat ~/private/$1.gpg" | gpg --decrypt -u $key_pub --output $2
+    alive $cloud_host && ssh $cloud_user@$cloud_host "cat ~/private/$1.gpg" | gpg --decrypt -u $key_pub --output $2
 }
+
 
 #
 # cli utility
