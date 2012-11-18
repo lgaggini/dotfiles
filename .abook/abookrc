@@ -1,8 +1,8 @@
-!---------------------------
-!--        abookrc        --
-!--      by lgaggini      --
-!--      CC BY-SA 3.0     --
-!---------------------------
+#---------------------------
+#--        abookrc        --
+#--      by lgaggini      --
+#--      CC BY-SA 3.0     --
+#---------------------------
 #
 # Declare a few custom fields
 field company = Company,string
