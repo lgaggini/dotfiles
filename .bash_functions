@@ -507,7 +507,7 @@ note()
         ls -lh ~/doc/note
     else
         vim ~/doc/note/$1.txt
-        chmod 0666 $1.txt
+        chmod 0666 ~/doc/note/$1.txt
         alive $ssh_host && scp ~/doc/note/$1.txt $ssh_user@$ssh_host:/srv/storage/data/doc/note/
     fi
 }
