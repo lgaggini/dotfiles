@@ -367,12 +367,17 @@ alive()
 #
 # money management by ledger
 #
+
+# money file
+
+ledger=~/doc/money/money.dat
+accounts_path=~/doc/money/accounts.dat
+
 # money - personal finance manager by ledger
 # usage - money <source account> <destination account> <value> <note>
 money()
 {
-    ledger=doc/money/money.dat
-    \cp ~/$ledger{,.bak}
+    \cp $ledger{,.bak}
     echo `date +%d/%m/%Y` ' ' $4    >> $ledger
     echo '    ' $2 '    ' $3 'EUR'  >> $ledger
     echo '    ' $1                  >> $ledger
@@ -423,7 +428,7 @@ _money()
     local cur accounts IFS
     
     cur="${COMP_WORDS[COMP_CWORD]}"
-    accounts=`cat ~/doc/money/accounts.dat | sed 's/^account //'`
+    accounts=`cat $accounts_path | sed 's/^account //'`
     IFS=$'\t\n'
     COMP_WORDBREAKS=${COMP_WORDBREAKS//:}
     
@@ -438,14 +443,14 @@ complete -o nospace -F _money income
 # usage - report <options>
 report()
 {
-    ledger -f ~/doc/money/money.dat --input-date-format "%d/%m/%Y" -y "%d/%m/%Y" register
+    ledger -f $ledger --input-date-format "%d/%m/%Y" -y "%d/%m/%Y" register
 }
 
 # balance - balance of money
 # usage - balance <options>
 balance()
 {
-    ledger -f ~/doc/money/money.dat --input-date-format "%d/%m/%Y" -y "%d/%m/%Y" -E balance
+    ledger -f $ledger --input-date-format "%d/%m/%Y" -y "%d/%m/%Y" -E balance
 }
 
 
@@ -499,16 +504,19 @@ rmpass()
 # note manager
 #
 
+# note folder
+note_path=~/doc/note/
+
 # note - quick note view and edit/create
 # usage: note <name>
 note()
 {
     if [[ -z "$1" ]]; then
-        ls -lh ~/doc/note
+        ls -lh $note_path
     else
-        vim ~/doc/note/$1.txt
-        chmod 0666 ~/doc/note/$1.txt
-        alive $ssh_host && scp ~/doc/note/$1.txt $ssh_user@$ssh_host:/srv/storage/data/doc/note/
+        vim $note_path$1.txt
+        chmod 0666 $note_path$1.txt
+        alive $ssh_host && scp $note_path$1.txt $ssh_user@$ssh_host:/srv/storage/data/doc/note/
     fi
 }
 # _note - note name completion
@@ -517,7 +525,7 @@ _note()
     local cur names IFS
  
     cur="${COMP_WORDS[COMP_CWORD]}"
-    names=`ls $HOME/doc/note | sed 's/\.[^.]*$//'`
+    names=`ls $note_path | sed 's/\.[^.]*$//'`
     IFS=$'\t\n'
  
     COMPREPLY=( $(compgen -W "${names}" -- ${cur}) )
