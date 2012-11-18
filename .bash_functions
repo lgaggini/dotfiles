@@ -382,7 +382,7 @@ money()
     echo '    ' $2 '    ' $3 'EUR'  >> $ledger
     echo '    ' $1                  >> $ledger
     echo                            >> $ledger
-    alive $ssh_host && scp $ledger $ssh_user@$ssh_host:/srv/storage/data/$ledger
+    alive $ssh_host && scp $ledger $ssh_user@$ssh_host:/srv/storage/data/doc/money/money.dat
     tail -n 4 $ledger
 }
 
@@ -458,22 +458,22 @@ balance()
 # pass manager by pwsafe
 #
 # password file
-pwfile=doc/pass/pwsafe.dat
+pwfile=~/doc/pass/pwsafe.dat
 pwfile_pass=~/doc/pass/cat/master.gpg
 
 # getpass - retrieve a password
 # usage - getpass <account>
 getpass()
 {
-    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f ~/$pwfile -u -p -x $1
+    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f $pwfile -u -p -x $1
 }
 
 # setpass - set a new password for existing account
 # usage - setpass <account>
 setpass()
 {
-    pwsafe -f ~/$pwfile -e $1
-    alive $ssh_host && scp ~/$pwfile $ssh_user@$ssh_host:/srv/storage/data/$pwfile
+    pwsafe -f $pwfile -e $1
+    alive $ssh_host && scp $pwfile $ssh_user@$ssh_host:/srv/storage/data/doc/pass/pwsafe.dat
 }
 
 # mkpass - set a new password account
@@ -481,22 +481,22 @@ setpass()
 mkpass()
 {
     pwsafe -f ~/$pwfile -a $1
-    alive $ssh_host && scp ~/$pwfile $ssh_user@$ssh_host:/srv/storage/data/$pwfile
+    alive $ssh_host && scp $pwfile $ssh_user@$ssh_host:/srv/storage/data/doc/pass/pwsafe.dat
 }
 
 # lspass - list all password
 # usage - lspass <regex>
 lspass()
 {
-    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f ~/$pwfile -l $1
+    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f $pwfile -l $1
 }
 
 # rmpass - remove password account
 # usage - rmpass <account>
 rmpass()
 {
-    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f ~/$pwfile --delete $1
-    alive $ssh_host && scp ~/$pwfile $ssh_user@$ssh_host:/srv/storage/data/$pwfile
+    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f $pwfile --delete $1
+    alive $ssh_host && scp $pwfile $ssh_user@$ssh_host:/srv/storage/data/doc/pass/pwsafe.dat
 }
 
 
