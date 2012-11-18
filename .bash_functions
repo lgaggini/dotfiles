@@ -382,7 +382,7 @@ money()
     echo '    ' $2 '    ' $3 'EUR'  >> $ledger
     echo '    ' $1                  >> $ledger
     echo                            >> $ledger
-    alive $ssh_host && scp $ledger $ssh_user@$ssh_host:/srv/storage/data/doc/money/money.dat
+    alive $ssh_host && scp $ledger $ssh_user@$ssh_host:/srv/storage/data/doc/money/
     tail -n 4 $ledger
 }
 
@@ -473,7 +473,7 @@ getpass()
 setpass()
 {
     pwsafe -f $pwfile -e $1
-    alive $ssh_host && scp $pwfile $ssh_user@$ssh_host:/srv/storage/data/doc/pass/pwsafe.dat
+    alive $ssh_host && scp $pwfile $ssh_user@$ssh_host:/srv/storage/data/doc/pass/
 }
 
 # mkpass - set a new password account
@@ -481,7 +481,7 @@ setpass()
 mkpass()
 {
     pwsafe -f ~/$pwfile -a $1
-    alive $ssh_host && scp $pwfile $ssh_user@$ssh_host:/srv/storage/data/doc/pass/pwsafe.dat
+    alive $ssh_host && scp $pwfile $ssh_user@$ssh_host:/srv/storage/data/doc/pass/
 }
 
 # lspass - list all password
@@ -496,7 +496,7 @@ lspass()
 rmpass()
 {
     gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f $pwfile --delete $1
-    alive $ssh_host && scp $pwfile $ssh_user@$ssh_host:/srv/storage/data/doc/pass/pwsafe.dat
+    alive $ssh_host && scp $pwfile $ssh_user@$ssh_host:/srv/storage/data/doc/pass/
 }
 
 
@@ -532,6 +532,22 @@ _note()
     return 0
 }
 complete -o nospace -F _note note
+
+#
+# contact manager by abook
+#
+
+# addressbook path
+addressbook=~/doc/contact/addressbook
+
+# contact - abook with custom addressbook
+# usage: contact
+contact()
+{
+    abook --datafile $addressbook
+    alive $ssh_host && scp $addressbook $ssh_user@$ssh_host:/srv/storage/data/doc/contact/
+}
+
 
 #
 # encloud, secure cloud storage by gpg and ssh
