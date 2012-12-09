@@ -104,7 +104,7 @@ elif [ $system == "service" ]; then
         done
     }
     # completion
-    function _service()
+    function _sysvservices()
     {
         local cur services
         cur=`_get_cword`
@@ -112,11 +112,11 @@ elif [ $system == "service" ]; then
         COMPREPLY=( $(compgen -W "${services}" -- ${cur}) )
         return 0
     }
-    complete -F _$system start
-    complete -F _$system reload
-    complete -F _$system restart
-    complete -F _$system stop
-    complete -F _$system status
+    complete -F _$sysvservices start
+    complete -F _$sysvservices reload
+    complete -F _$sysvservices restart
+    complete -F _$sysvservices stop
+    complete -F _$sysvservices status
 fi
 
 #
@@ -443,14 +443,14 @@ complete -o nospace -F _money income
 # usage - report <options>
 report()
 {
-    ledger -f $ledger --input-date-format "%d/%m/%Y" -y "%d/%m/%Y" register
+    ledger -f $ledger --input-date-format "%d/%m/%Y" -y "%d/%m/%Y" register $*
 }
 
 # balance - balance of money
 # usage - balance <options>
 balance()
 {
-    ledger -f $ledger --input-date-format "%d/%m/%Y" -y "%d/%m/%Y" -E balance
+    ledger -f $ledger --input-date-format "%d/%m/%Y" -y "%d/%m/%Y" -E balance $*
 }
 
 
@@ -532,6 +532,7 @@ _note()
     return 0
 }
 complete -o nospace -F _note note
+
 
 #
 # contact manager by abook

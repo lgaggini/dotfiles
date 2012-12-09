@@ -25,7 +25,7 @@ set postponed = "~/offlinemail/drafts/" # draft mail folders
 set spoolfile = "~/offlinemail/INBOX"   # inbox
 set move = no                           # not move from spool
 set tmpdir = /tmp                       # temporary files
-set trash = "~/offlinemail/Trash/"      # trash folder for gmail delete
+set trash = "~/offlinemail/trash/"      # trash folder for gmail delete
 
 # read
 set sort = threads                      # order by threads
@@ -65,10 +65,12 @@ source ~/.mutt/gmail
 # sync headers and signature for reply
 reply-hook ~Clgaggini@gmail.com "source ~/.mutt/gmail"
 reply-hook ~Clorenzo@keepsimple.it "source ~/.mutt/keepsimple"
+reply-hook ~Clg@lgaggini.net "source ~/.mutt/lgaggini"
 
 # macro for change identity on the fly
 macro index g "<enter-command>source ~/.mutt/gmail<enter>" "switch to gmail profile"
 macro index k "<enter-command>source ~/.mutt/keepsimple<enter>" "switch to keepsimple profile"
+macro index l "<enter-command>source ~/.mutt/lgaggini<enter>" "switch to lgaggini profile"
 
 ignore *
 unignore Subject: Date: From: Reply-To: To: CC: BCC:\
@@ -133,7 +135,7 @@ macro index \ca "!abook " "use abook as address book"
 # sidebar
 set sidebar_width = 30                      # sidebar width
 set sidebar_visible = yes                   # sidebar enabled
-mailboxes `echo ~/offlinemail/*/`           # mailboxes in the sidebar
+mailboxes `echo ~/offlinemail/*`           # mailboxes in the sidebar
 bind index \CP sidebar-prev                 # ctrl-n to select prev folder
 bind index \CN sidebar-next                 # ctrl-n to select next folder
 bind index \CO sidebar-open                 # ctrl-o to open selected folder
