@@ -114,8 +114,6 @@ bind    pager   <up>        previous-line
 bind    pager   <down>      next-line
 bind    pager   <left>      previous-entry
 bind    pager   <right>     next-entry
-bind    pager   <left>      previous-entry
-bind    pager   <right>     next-entry
 bind    editor  <down>      history-down
 bind    editor  <up>        history-up
 bind    index   \t          collapse-thread
