@@ -80,6 +80,15 @@ set expandtab                   " use spaces, not tabs
 set backspace=indent,eol,start  " backspace through everything in insert mode
 
 "
+" GUI
+"
+set guioptions=aAeimgr            " custom gvim view
+set guifont=DejaVu\ Sans\ Mono\ 10" custom gvim font
+if has('gui_running')
+    color muon                    " custom gvim colorscheme
+endif
+
+"
 " Custom keys and shortcuts
 "
 let mapleader = ","             " custom map leader
@@ -137,4 +146,4 @@ inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"    " cursor movi
 inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"       " cursor moving in insert mode
 inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"     " cursor moving in insert mode
 
-# powerline
+" powerline
