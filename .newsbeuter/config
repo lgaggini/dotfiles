@@ -1,10 +1,42 @@
-refresh-on-startup yes
-max-items 200
+#---------------------------
+#--  .newsbeuter/config   --
+#--      by lgaggini      --
+#--      CC BY-SA 3.0     --
+#---------------------------
 
+# Accounts
+urls-source "ttrss"
+ttrss-url ""
+ttrss-login "lg"
+ttrss-password ""
+ttrss-mode "multi"
+
+# General options
+refresh-on-startup yes
+max-items 500
 browser "xlinks -g -mode 800x800 %u &"
 
+# Colors scheme
 color   background   default default 
 color   listnormal   default default
 color   listfocus    black   cyan  dim
 color   info         cyan   blue  bold
 color   article      default default
+
+# Vim like key bindings 
+bind-key     j   next          feedlist
+bind-key     k   prev          feedlist
+bind-key     j   next          articlelist
+bind-key     k   prev          articlelist
+bind-key     j   next          filterselection
+bind-key     k   prev          filterselection
+bind-key     j   next          tagselection
+bind-key     k   prev          tagselection
+bind-key     j   next          filebrowser
+bind-key     k   prev          filebrowser
+bind-key     l   next-unread   article
+bind-key     h   prev-unread   article
+bind-key     j   pagedown      article
+bind-key     k   pageup        article
+bind-key     i   quit          article
+bind-key     i   quit          articlelist
