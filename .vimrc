@@ -30,6 +30,8 @@ set showmatch                   " show matching brackets/parenthesis
 set scrolljump=5                " lines to scroll when cursor leaves screen
 set scrolloff=3                 " minimum lines to keep above and below cursor
 set foldenable                  " auto fold code
+set foldlevel=99                " folding level
+set foldmethod=indent           " folding method
 set cursorline                  " highlight current line
 hi CursorLine ctermbg=DarkGrey  " highlight style for current line
 if &term =~ "xterm\\|rxvt"      " change cursor color on mode  
