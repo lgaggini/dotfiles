@@ -9,14 +9,15 @@ These are configuration files for my GNU/Linux toolboox:
 * email: `mutt`
 * feed: `newsbeuter`
 * irc: `irssi`
-* filemanager: `xfe`
-* ide: `geany`
+* filemanager: `ranger`
+* ide: `gvim`
 * versioning: `git`
 * music: `mpd + ncmpcpp` 
 * browser: `w3m`
 * surfer: `surfraw`
 * password manager: `pwsafe`
 * personal finance: `ledger`
+* document viewer:  `zathura`
 
 There are many [available solutions](http://dotfiles.github.com/) to manage dotfiles. I use a very simple approach. I have a dedicated folder repo, dotfiles, where i copy manually every files to track. After the first manually copy, i sync my dotfiles by `--existing` options of `rsync`, that syncs two folder only for files present in the destination. In my bash functions i have the function dots:
 
