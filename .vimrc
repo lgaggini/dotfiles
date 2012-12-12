@@ -82,6 +82,8 @@ set backspace=indent,eol,start  " backspace through everything in insert mode
 "
 " Custom keys and shortcuts
 "
+let mapleader = ","             " custom map leader
+let g:mapleader = ","           " custom map leader
 
 "
 " Plugins
