@@ -9,8 +9,8 @@ clear lock
 keycode 66 = Control_L
 add control = Control_L
 
-! context menu key to slash(/) and tilde (~)
-keycode 135 = slash asciitilde
+! context menu key to slash(/) and backslash (\)
+keycode 135 = slash backslash
 
 ! backslash to Mode_switch for global vim-like movements
 keycode 49 = Mode_switch bar
