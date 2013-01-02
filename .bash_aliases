@@ -18,6 +18,7 @@ alias nibiru='ssh lg@nibiru'
 
 # yaourt aliases
 alias ysyu='yaourt -Syu'
+alias ysyua='yaourt -Syua'
 alias ys='yaourt -S'
 alias ysy='yaourt -Sy'
 alias yrs='yaourt -Rs'
@@ -25,6 +26,7 @@ alias yr='yaourt -R'
 alias yss='yaourt -Ss'
 alias ysc='yaourt -Sc'
 alias yscc='yaourt -Scc'
+alias yqe='yaourt -Qe'
 alias yqs="yaourt -Qs"
 alias yql="yaourt -Ql"
 alias yqi="yaourt -Qi"
