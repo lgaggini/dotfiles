@@ -164,5 +164,5 @@ URxvt*scrollstyle:        plain
 !
 ! matcher for clickable urls and vtwheel for scroll in man, less, etc.
 URxvt.perl-ext-common:  default,matcher,vtwheel
-URxvt.urlLauncher:      /usr/bin/chromium
+URxvt.url-launcher:     /usr/bin/chromium
 URxvt.matcher.button:   1
