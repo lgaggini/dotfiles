@@ -111,6 +111,20 @@ chatnets = {
 
 channels = (
   { name = "#archlinux"; chatnet = "Freenode"; autojoin = "yes"; }
+  { name = "#debian"; chatnet = "Freenode"; autojoin = "no"; },
+  { name = "##linux"; chatnet = "Freenode"; autojoin = "no"; },
+  { name = "#ubuntu-server"; chatnet = "Freenode"; autojoin = "no"; },
+  { name = "#networking"; chatnet = "Freenode"; autojoin = "no"; },
+  { name = "#/r/sysadmin"; chatnet = "Freenode"; autojoin = "no"; },
+  { name = "##security"; chatnet = "Freenode"; autojoin = "no"; },
+  { name = "##crypto"; chatnet = "Freenode"; autojoin = "no"; },
+  { name = "#lowendbox"; chatnet = "Freenode"; autojoin = "no"; },
+  { name = "#bash"; chatnet = "Freenode"; autojoin = "no"; },
+  { name = "#mutt"; chatnet = "Freenode"; autojoin = "no"; },
+  { name = "#irssi"; chatnet = "Freenode"; autojoin = "no"; },
+  { name = "#nagios"; chatnet = "Freenode"; autojoin = "no"; },
+  { name = "#vim"; chatnet = "Freenode"; autojoin = "no"; },
+  { name = "#awesome"; chatnet = "OFTC"; autojoin = "no"; }
 );
 
 aliases = {
