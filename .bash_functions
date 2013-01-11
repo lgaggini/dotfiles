@@ -104,7 +104,7 @@ elif [ $system == "service" ]; then
         done
     }
     # completion
-    function _sysvservices()
+    function _$system()
     {
         local cur services
         cur=`_get_cword`
