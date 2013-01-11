@@ -69,7 +69,7 @@ reply-hook ~Clg@lgaggini.net "source ~/.mutt/lgaggini"
 
 # macro for change identity on the fly
 macro index g "<enter-command>source ~/.mutt/gmail<enter>" "switch to gmail profile"
-macro index k "<enter-command>source ~/.mutt/keepsimple<enter>" "switch to keepsimple profile"
+macro index s "<enter-command>source ~/.mutt/keepsimple<enter>" "switch to keepsimple profile"
 macro index l "<enter-command>source ~/.mutt/lgaggini<enter>" "switch to lgaggini profile"
 
 ignore *
