@@ -349,9 +349,12 @@ noteg()
 }
 
 
-#default remote host for data
+# default remote host for data
 ssh_user=lg
 ssh_host=agharti
+# cloud remote host for data
+cloud_user=lg
+cloud_host=nibiru
 
 # alive - check status of an host
 # usage - alive <target_host>
@@ -517,7 +520,8 @@ note()
         vim $note_path$1.txt
         chmod 0666 $note_path$1.txt
         alive $ssh_host && scp $note_path$1.txt $ssh_user@$ssh_host:/srv/storage/data/doc/note/
-    fi
+        alive $cloud_host && scp -p $note_path$1.txt $cloud_user@$cloud_host:/home/$cloud_user/doc/note/
+      fi
 }
 # _note - note name completion
 _note() 
@@ -546,7 +550,9 @@ addressbook=~/doc/contact/addressbook
 contact()
 {
     abook --datafile $addressbook
-    alive $ssh_host && scp $addressbook $ssh_user@$ssh_host:/srv/storage/data/doc/contact/
+    a/live $ssh_host && scp $addressbook $ssh_user@$ssh_host:/srv/storage/data/doc/contact/
+    alive $cloud_host && scp -p $addressbook $cloud_user@$cloud_host:/home/$cloud_user/doc/contact/addressbook
+    
 }
 
 
@@ -556,9 +562,6 @@ contact()
 # default gpg key
 key_uid=nibiru
 key_pub=C1FC8820
-# default remote host
-cloud_user=lg
-cloud_host=nibiru
 
 # encloud - send encrypted file to cloud
 # usage:  encloud <source> <name>
