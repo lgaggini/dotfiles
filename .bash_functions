@@ -550,7 +550,7 @@ addressbook=~/doc/contact/addressbook
 contact()
 {
     abook --datafile $addressbook
-    a/live $ssh_host && scp $addressbook $ssh_user@$ssh_host:/srv/storage/data/doc/contact/
+    alive $ssh_host && scp $addressbook $ssh_user@$ssh_host:/srv/storage/data/doc/contact/
     alive $cloud_host && scp -p $addressbook $cloud_user@$cloud_host:/home/$cloud_user/doc/contact/addressbook
     
 }
