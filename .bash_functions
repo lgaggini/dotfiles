@@ -483,7 +483,7 @@ setpass()
 # usage - mkpass <account>
 mkpass()
 {
-    pwsafe -f ~/$pwfile -a $1
+    pwsafe -f $pwfile -a $1
     alive $ssh_host && scp $pwfile $ssh_user@$ssh_host:/srv/storage/data/doc/pass/
 }
 
