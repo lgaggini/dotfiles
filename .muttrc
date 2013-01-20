@@ -20,7 +20,7 @@ set mbox_type = Maildir                 # mailbox type
 set folder = "~/offlinemail/"           # mailbox folder
 set mask = "!^\\.[^.]"                  # mailbox scan
 set record = "~/offlinemail/sent/"      # sent mail folder
-set copy = no                           # copy managed by gmail
+set copy = yes                          # copy managed by gmail
 set postponed = "~/offlinemail/drafts/" # draft mail folders
 set spoolfile = "~/offlinemail/INBOX"   # inbox
 set move = no                           # not move from spool
@@ -94,7 +94,7 @@ set alias_file = ~.mutt/mutt_aliases    # alias file
 source ~/.mutt/mutt_aliases             # load alias file at startup
 set reverse_alias = yes                 # replace address with alias
 set sort_alias = alias                  # alias order by alias
-set query_command= "abook --mutt-query '%s'"# abook integration
+set query_command= "abook --datafile ~/doc/contact/addressbook --mutt-query '%s'"# abook integration
 
 # look & feel
 set folder_format = "[%2C] %t %N %-40.40f (dim: %8s) ultima modifica: %d"
