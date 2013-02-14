@@ -20,12 +20,12 @@ set mbox_type = Maildir                 # mailbox type
 set folder = "~/offlinemail/"           # mailbox folder
 set mask = "!^\\.[^.]"                  # mailbox scan
 set record = "~/offlinemail/sent/"      # sent mail folder
-set copy = yes                          # copy managed by gmail
+set copy = yes                          # fcc managed by mutt
 set postponed = "~/offlinemail/drafts/" # draft mail folders
 set spoolfile = "~/offlinemail/INBOX"   # inbox
 set move = no                           # not move from spool
 set tmpdir = /tmp                       # temporary files
-set trash = "~/offlinemail/trash/"      # trash folder for gmail delete
+set trash = "~/offlinemail/trash/"      # trash folder for mail delete
 
 # read
 set sort = threads                      # order by threads
@@ -39,6 +39,7 @@ set pager_context = 2                   # lines between two scree in pager
 set tilde = yes                         # replace final empty lines with tilde
 set smart_wrap = yes                    # wrap long lines
 set markers = yes                       # set marker for wrapped lines
+auto_view text/html                     # auto view for html mail
 
 # attachment
 set mailcap_path = ~/.mailcap:/etc/mailcap:/usr/lib/mime/mailcap
