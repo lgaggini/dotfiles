@@ -9,7 +9,7 @@ These are configuration files for my GNU/Linux toolboox:
 * email: `mutt`
 * feed: `newsbeuter`
 * irc: `irssi`
-* filemanager: `ranger`
+* filemanager: `ranger`, `thunar`
 * ide: `gvim`
 * versioning: `git`
 * music: `mpd + ncmpcpp` 
