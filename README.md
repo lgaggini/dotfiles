@@ -6,7 +6,7 @@ These are configuration files for my GNU/Linux toolboox:
 
 * shell: `bash`
 * editor: `vim`
-* email: `mutt`
+* email: `mutt` + `notmuch`
 * feed: `newsbeuter`
 * irc: `irssi`
 * filemanager: `ranger`, `thunar`

@@ -131,10 +131,14 @@ macro pager \cB |w3m\n "call w3m to extract URLs out of a message"
 macro index,pager A " abook --add-email-quiet" "add the sender address to abook"
 macro index \ca "!abook " "use abook as address book" 
 
+macro index <F8> "<enter-command>unset wait_key<enter><shell-escape>notmuch-mutt -o ~/offlinemail/search -r --prompt search<enter><change-folder-readonly>~/offlinemail/search<enter>" "notmuch: search mail"
+macro index <F9> "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt -o ~/offlinemail/search -r thread<enter><change-folder-readonly>~/offlinemail/search<enter><enter-command>set wait_key<enter>" "notmuch: reconstruct thread"
+#macro index <F6> "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt tag -- -inbox<enter>" "notmuch: remove message from inbox"
+
 # sidebar
 set sidebar_width = 30                      # sidebar width
 set sidebar_visible = yes                   # sidebar enabled
-mailboxes `echo ~/offlinemail/*`           # mailboxes in the sidebar
+mailboxes `echo ~/offlinemail/*`            # mailboxes in the sidebar
 bind index \CP sidebar-prev                 # ctrl-n to select prev folder
 bind index \CN sidebar-next                 # ctrl-n to select next folder
 bind index \CO sidebar-open                 # ctrl-o to open selected folder
