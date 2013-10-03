@@ -5,9 +5,6 @@
 #--      CC BY-SA 3.0     --
 #---------------------------
 
-# disable bell
-xset -b
-
 # numlock
 numlockx &
 
@@ -18,6 +15,9 @@ fi
 
 # volumeicon
 volumeicon &
+
+# parcellite
+parcellite &
 
 # mpd daemon user mode
 mpd ~/.mpdconf &
