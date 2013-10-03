@@ -141,13 +141,13 @@ alias path='echo -e ${PATH//:/\\n}'
 
 # git aliases
 alias gs='git status'
+alias gv='git show'
 alias gd='git diff'
 alias gc='git commit'
 alias ga='git add'
-alias gp='git push'
+alias gpl='git pull'
+alias gps='git push'
 alias gr='git rm'
-alias gpo='git push origin'
-alias gpom='git push origin master'
 alias gt='git timeline'
 
 # python aliases
