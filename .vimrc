@@ -106,11 +106,10 @@ autocmd vimenter * if !argc() | NERDTree | endif          " open tree on startup
 let NERDTreeShowBookmarks = 0                             " not show bookmark tree
 let NERDTreeIgnore = []                                   " file to ignore  
 let NERDTreeChDirMode = 0                                 " not change vim working directory
-let NERDTreeQuitOnOpen = 1                                " close tree after file open
+let NERDTreeQuitOnOpen = 0                                " close tree after file open
 let NERDTreeShowHidden = 1                                " show hidden files
 
 " minibufferexplorer
-autocmd BufAdd * :UMiniBufExplorer                        " autoupdate bar on new buffer
 let g:miniBufExplUseSingleClick = 1                       " single click for open buffer
 let g:miniBufExplSplitBelow = 0                           " minibuffer bar on top
 let g:miniBufExplModSelTarget = 1                         " compatibility with other explorers (tagbar)
