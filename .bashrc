@@ -35,7 +35,7 @@ else
   root="${red}"
 fi
 
-PS1="${red}┌─[${root}\u${red}][\[\e[0;96m\]\h${red}][${green}\w${red}]\n${red}└─╼ \[\e[0m\]"
+PS1="${red}[${root}\u${red}][\[\e[0;96m\]\h${red}][${green}\w${red}]\n${red}└─╼ \[\e[0m\]"
 
 #
 # path
