@@ -5,14 +5,13 @@
 These are configuration files for my GNU/Linux toolboox:
 
 * shell: `bash`
+* wm: awesome
 * editor: `vim`
 * email: `mutt` + `notmuch`
 * feed: `newsbeuter`
-* irc: `irssi`
-* filemanager: `ranger`, `thunar`
 * ide: `gvim`
 * versioning: `git`
-* music: `mpd + ncmpcpp` 
+* music: `mpd` 
 * browser: `w3m`
 * surfer: `surfraw`
 * password manager: `pwsafe`
