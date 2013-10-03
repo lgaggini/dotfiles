@@ -33,7 +33,6 @@ set foldenable                  " auto fold code
 set foldlevel=99                " folding level
 set foldmethod=indent           " folding method
 set cursorline                  " highlight current line
-hi CursorLine ctermbg=DarkGrey  " highlight style for current line
 if &term =~ "xterm\\|rxvt"      " change cursor color on mode  
   :silent !echo -ne "\033]12;lightgreen\007" 
   let &t_SI = "\033]12;darkcyan\007" 
