@@ -8,23 +8,3 @@
 clear lock
 keycode 66 = Control_L
 add control = Control_L
-
-! context menu key to slash(/) and backslash (\)
-keycode 135 = slash backslash
-
-! backslash to Mode_switch for global vim-like movements
-keycode 49 = Mode_switch bar
-
-! global vim-like movements
-keycode 43 = h H Left Left hstroke Hstroke hstroke
-keycode 44 = j J Down Down dead_hook dead_horn dead_hook
-keycode 45 = k K Up Up kra ampersand kra
-keycode 46 = l L Right Right lstroke Lstroke lstroke
-
-! pgup and pgdown near vim movements
-keycode 31 = i I Prior Prior rightarrow idotless rightarrow
-keycode 58 = m M Next Next mu masculine mu
-
-! ctrl-right key to delete
-keycode 105 = Delete
-remove control = Delete
