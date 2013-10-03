@@ -1,0 +1,11 @@
+# headers
+my_hdr From: lorenzo - keepsimple.it <lorenzo@keepsimple.it>
+my_hdr Reply-To: lorenzo - keepsimple.it <lorenzo@keepsimple.it>
+my_hdr X-Operating-System: "`uname -sr` - powered by Archlinux" 
+my_hdr X-Disclaimer: Free as in Freedom
+my_hdr X-Mailer: Mutt http://www.mutt.org
+my_hdr X-Editor: Vim http://www.vim.org
+
+# signature
+set sig_dashes = yes 
+set signature = "~/.signature/keepsimple"

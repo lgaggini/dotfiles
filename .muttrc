@@ -15,17 +15,17 @@ set mark_old = yes                      # mark old msg not read
 set beep_new = yes                      # beep on new msg
 set history = 20                        # history entries
 
+# profile management
+source ~/.mutt/profiles/libersoft       # default profile
+macro index <F1> "<enter-command>source ~/.mutt/profiles/libersoft<enter><change-folder>=INBOX<enter>" "libersoft profile"
+macro index <F2> "<enter-command>source ~/.mutt/profiles/lgaggini<enter><change-folder>=INBOX<enter>" "lgaggini profile"
+
 # mailbox & directory
 set mbox_type = Maildir                 # mailbox type
-set folder = "~/offlinemail/"           # mailbox folder
 set mask = "!^\\.[^.]"                  # mailbox scan
-set record = "~/offlinemail/sent/"      # sent mail folder
-set copy = yes                          # fcc managed by mutt
-set postponed = "~/offlinemail/drafts/" # draft mail folders
-set spoolfile = "~/offlinemail/INBOX"   # inbox
+set copy = no                           # copy managed by gmail
 set move = no                           # not move from spool
 set tmpdir = /tmp                       # temporary files
-set trash = "~/offlinemail/trash/"      # trash folder for mail delete
 
 # read
 set sort = threads                      # order by threads
@@ -45,33 +45,19 @@ auto_view text/html                     # auto view for html mail
 set mailcap_path = ~/.mailcap:/etc/mailcap:/usr/lib/mime/mailcap
 
 # compose
-set askcc = yes                               # ask for cc on new msgs
+set askcc = yes                               # ask for cc on new msg
 set editor = "vim -c 'set tw=70 et' '+/^$' "  # vim as default editor
-set reply_to = ask-yes                        # user Replt-To for reply
+set reply_to = ask-yes                        # user Reply-To for reply
 set edit_headers = yes                        # edit header for cc and bcc
 set postpone = yes                            # save drafts
-set recall = ask-no                           # remember drafts not send
+set recall = ask-no                           # ask for postponed on new msg
 set forward_format = "[(fwd): %s]"            # forward subject format
 set reply_regexp = "^(([Rr]e?):[ \t]*)+"      # regexp to id reply
 set quote_regexp = "^([ \t]*[|>:}#])+"        # regexp to id quote
-set sig_dashes = yes                          # dashes for signature
 
 # send
 set sendmail="/usr/bin/msmtp"                 # software to send mail
 set envelope_from = yes                       # retrieve from automatically
-
-# default profile for new messages
-source ~/.mutt/gmail
-
-# sync headers and signature for reply
-reply-hook ~Clgaggini@gmail.com "source ~/.mutt/gmail"
-reply-hook ~Clorenzo@keepsimple.it "source ~/.mutt/keepsimple"
-reply-hook ~Clg@lgaggini.net "source ~/.mutt/lgaggini"
-
-# macro for change identity on the fly
-macro index g "<enter-command>source ~/.mutt/gmail<enter>" "switch to gmail profile"
-macro index s "<enter-command>source ~/.mutt/keepsimple<enter>" "switch to keepsimple profile"
-macro index l "<enter-command>source ~/.mutt/lgaggini<enter>" "switch to lgaggini profile"
 
 ignore *
 unignore Subject: Date: From: Reply-To: To: CC: BCC:\
@@ -95,7 +81,7 @@ set alias_file = ~.mutt/mutt_aliases    # alias file
 source ~/.mutt/mutt_aliases             # load alias file at startup
 set reverse_alias = yes                 # replace address with alias
 set sort_alias = alias                  # alias order by alias
-set query_command= "abook --datafile ~/doc/contact/addressbook --mutt-query '%s'"# abook integration
+set query_command= "abook --mutt-query '%s'"# abook integration
 
 # look & feel
 set folder_format = "[%2C] %t %N %-40.40f (dim: %8s) ultima modifica: %d"
@@ -115,30 +101,19 @@ bind    pager   <up>        previous-line
 bind    pager   <down>      next-line
 bind    pager   <left>      previous-entry
 bind    pager   <right>     next-entry
+bind    pager   <left>      previous-entry
+bind    pager   <right>     next-entry
 bind    editor  <down>      history-down
 bind    editor  <up>        history-up
 bind    index   \t          collapse-thread
 
 # macro
-macro compose \ci '<enter-command>set ispell="/usr/bin/aspell -c\
---mode=email --lang=en_GB<enter><ispell><enter-command>\
-set ispell="/usr/bin/aspell -c --mode=email --lang=it_IT"<enter>
-
 macro browser m <return><mail> "start compose a message"
-
-macro index \cB |w3m\n "call w3m to extract URLs out of a message"
-macro pager \cB |w3m\n "call w3m to extract URLs out of a message"
 macro index,pager A " abook --add-email-quiet" "add the sender address to abook"
-macro index \ca "!abook " "use abook as address book" 
-
-macro index <F8> "<enter-command>unset wait_key<enter><shell-escape>notmuch-mutt -o ~/offlinemail/search -r --prompt search<enter><change-folder-readonly>~/offlinemail/search<enter>" "notmuch: search mail"
-macro index <F9> "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt -o ~/offlinemail/search -r thread<enter><change-folder-readonly>~/offlinemail/search<enter><enter-command>set wait_key<enter>" "notmuch: reconstruct thread"
-#macro index <F6> "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt tag -- -inbox<enter>" "notmuch: remove message from inbox"
 
 # sidebar
 set sidebar_width = 30                      # sidebar width
 set sidebar_visible = yes                   # sidebar enabled
-mailboxes `echo ~/offlinemail/*`            # mailboxes in the sidebar
 bind index \CP sidebar-prev                 # ctrl-n to select prev folder
 bind index \CN sidebar-next                 # ctrl-n to select next folder
 bind index \CO sidebar-open                 # ctrl-o to open selected folder
@@ -146,4 +121,4 @@ bind pager \CP sidebar-prev                 # ctrl-n to select prev folder
 bind pager \CN sidebar-next                 # ctrl-n to select next folder
 bind pager \CO sidebar-open                 # ctrl-o to open selected folder
 
-# gpg
+#gpg

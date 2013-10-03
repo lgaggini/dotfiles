@@ -1,0 +1,28 @@
+# mailbox & directory
+set folder = "~/mail/lgaggini"            # mailbox folder
+set record = "~/mail/lgaggini/sent/"      # sent mail folder
+set postponed = "~/mail/lgaggini/drafts/" # draft mail folders
+set spoolfile = "~/mail/lgaggini/INBOX"   # inbox
+set trash = "~/mail/lgaggini/trash/"      # trash folder for mail delete
+
+# default profile for new messages
+source ~/.mutt/profiles/lgaggini_send/gmail
+
+# sync headers and signature for reply
+reply-hook ~Clgaggini@gmail.com "source ~/.mutt/profiles/lgaggini_send/gmail"
+reply-hook ~Clorenzo@keepsimple.it "source ~/.mutt/profiles/lgaggini_send/keepsimple"
+reply-hook ~Clg@lgaggini.net "source ~/.mutt/profiles/lgaggini_send/lgaggini"
+
+# macro for change identity on the fly
+macro index g "<enter-command>source ~/.mutt/profiles/lgaggini_send/gmail<enter>" "switch to gmail profile"
+macro index s "<enter-command>source ~/.mutt/profiles/lgaggini_send/keepsimple<enter>" "switch to keepsimple profile"
+macro index l "<enter-command>source ~/.mutt/profiles/lgaggini_send/lgaggini<enter>" "switch to lgaggini profile"
+
+# sidebar
+unmailboxes *
+mailboxes "+-- lgaggini -----------"
+mailboxes `echo ~/mail/lgaggini/*/`       # mailboxes in the sidebar
+
+# search macro
+macro index <F8> "<enter-command>unset wait_key<enter><shell-escape>notmuch-mutt -o ~/mail/lgaggini/search -r --prompt search<enter><change-folder-readonly>~/mail/lgaggini/search<enter>" "notmuch: search mail"
+macro index <F9> "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt -o ~/mail/lgaggini/search -r thread<enter><change-folder-readonly>~/mail/lgaggini/search<enter><enter-command>set wait_key<enter>" "notmuch: reconstruct thread"
