@@ -774,7 +774,7 @@ dots()
 # usage: awcf
 awcf()
 {
-    rsync -a -v --existing /home/lg/.config/awesome/ /home/lg/code/lgaggini/archKiss/
+    rsync -a -v --existing /home/lg/.config/awesome/ /home/lg/code/lgaggini/awesome-archKiss/
 }
 
 # cf - wrapper for configuration files
