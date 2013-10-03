@@ -373,8 +373,8 @@ alive()
 
 # money file
 
-ledger=~/doc/money/money.dat
-accounts_path=~/doc/money/accounts.dat
+ledger=~/doc/lgaggini/money/money.dat
+accounts_path=~/doc/lgaggini/money/accounts.dat
 
 # money - personal finance manager by ledger
 # usage - money <source account> <destination account> <value> <note>
@@ -461,21 +461,45 @@ balance()
 # pass manager by pwsafe
 #
 # password file
-pwfile=~/doc/pass/pwsafe.dat
-pwfile_pass=~/doc/pass/cat/master.gpg
+pwfile=~/doc/lgaggini/pass/lgaggini.dat
+pwfile_pass=~/doc/lgaggini/pass/cat/master.gpg
+
+pwfile_lgaggini=~/doc/lgaggini/pass/lgaggini.dat
+pwfile_lgaggini_pass=~/doc/lgaggini/pass/cat/master.gpg
+
+pwfile_libersoft=~/doc/libersoft/pass/libersoft.dat
+pwfile_libersoft_pass=~/doc/libersoft/pass/cat/master.gpg
+
+# getpassdb - retrieve a password db by contex
+# usage - getpass <context>
+getpassdb()
+{
+    case "$1" in
+        'lgaggini')
+            pwfile=$pwfile_lgaggini
+            pwfile_pass=$pwfile_lgaggini_pass
+            ;;
+        'libersoft')
+            pwfile=$pwfile_libersoft
+            pwfile_pass=$pwfile_libersoft_pass
+            ;;
+    esac
+}
 
 # getpass - retrieve a password
 # usage - getpass <account>
 getpass()
 {
-    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f $pwfile -u -p -x $1
+    getpassdb $1
+    gpg --decrypt -q -u $key_pub $pwfile_pass | pwsafe -f $pwfile -u -p -x $2
 }
 
 # setpass - set a new password for existing account
 # usage - setpass <account>
 setpass()
 {
-    pwsafe -f $pwfile -e $1
+    getpassdb $1
+    pwsafe -f $pwfile -e $2
     alive $ssh_host && scp $pwfile $ssh_user@$ssh_host:/srv/storage/data/doc/pass/
 }
 
@@ -483,7 +507,8 @@ setpass()
 # usage - mkpass <account>
 mkpass()
 {
-    pwsafe -f $pwfile -a $1
+    getpassdb $1
+    pwsafe -f $pwfile -a $2
     alive $ssh_host && scp $pwfile $ssh_user@$ssh_host:/srv/storage/data/doc/pass/
 }
 
@@ -491,14 +516,16 @@ mkpass()
 # usage - lspass <regex>
 lspass()
 {
-    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f $pwfile -l $1
+    getpassdb $1
+    gpg --decrypt -q -u $key_pub $pwfile_pass | pwsafe -f $pwfile -l $2
 }
 
 # rmpass - remove password account
 # usage - rmpass <account>
 rmpass()
 {
-    gpg --decrypt -u $key_pub $pwfile_pass | pwsafe -f $pwfile --delete $1
+    getpassdb $1
+    gpg --decrypt -q -u $key_pub $pwfile_pass | pwsafe -f $pwfile --delete $2
     alive $ssh_host && scp $pwfile $ssh_user@$ssh_host:/srv/storage/data/doc/pass/
 }
 
@@ -508,20 +535,32 @@ rmpass()
 #
 
 # note folder
-note_path=~/doc/note/
+note_path=~/doc/lgaggini/note/
+
+note_path_lgaggini=~/doc/lgaggini/note/
+note_path_libersoft=~/doc/libersoft/note/
 
 # note - quick note view and edit/create
 # usage: note <name>
-note()
+notes()
 {
-    if [[ -z "$1" ]]; then
+    case "$1" in
+        'lgaggini')
+            note_path=$note_path_lgaggini
+            ;;
+        'libersoft')
+            note_path=$note_path_libersoft
+            ;;
+    esac 
+
+    if [[ -z "$2" ]]; then
         ls -lh $note_path
     else
-        vim $note_path$1.txt
-        chmod 0666 $note_path$1.txt
-        alive $ssh_host && scp $note_path$1.txt $ssh_user@$ssh_host:/srv/storage/data/doc/note/
-        alive $cloud_host && scp -p $note_path$1.txt $cloud_user@$cloud_host:/home/$cloud_user/doc/note/
-      fi
+        vim $note_path$2.txt
+        chmod 0666 $note_path$2.txt
+        alive $ssh_host && scp $note_path$2.txt $ssh_user@$ssh_host:/srv/storage/data/doc/note/`echo $note_path | awk -F/ '{print $3}'`
+        alive $cloud_host && scp -p $note_path$2.txt $cloud_user@$cloud_host:/home/$cloud_user/doc/note/`echo $note_path | awk -F/ '{print $3}'`
+    fi
 }
 # _note - note name completion
 _note() 
@@ -535,7 +574,7 @@ _note()
     COMPREPLY=( $(compgen -W "${names}" -- ${cur}) )
     return 0
 }
-complete -o nospace -F _note note
+complete -o nospace -F _note notes
 
 
 #
@@ -543,12 +582,23 @@ complete -o nospace -F _note note
 #
 
 # addressbook path
-addressbook=~/doc/contact/addressbook
+addressbook=$addressbook_lgaggini
+
+addressbook_lgaggini=~/doc/lgaggini/contact/lgaggini.abook
+addressbook_libersoft=~/doc/libersoft/contact/libersoft.abook
 
 # contact - abook with custom addressbook
 # usage: contact
 contact()
 {
+    case "$1" in
+        'lgaggini')
+            addressbook=$addressbook_lgaggini
+            ;;
+        'libersoft')
+            addressbook=$addressbook_libersoft
+            ;;
+    esac
     abook --datafile $addressbook
     alive $ssh_host && scp $addressbook $ssh_user@$ssh_host:/srv/storage/data/doc/contact/
     alive $cloud_host && scp -p $addressbook $cloud_user@$cloud_host:/home/$cloud_user/doc/contact/addressbook
@@ -561,7 +611,7 @@ contact()
 #
 # default gpg key
 key_uid=nibiru
-key_pub=C1FC8820
+key_pub=DC7DBC72
 
 # encloud - send encrypted file to cloud
 # usage:  encloud <source> <name>
@@ -717,14 +767,14 @@ log()
 # usage: dotfiles
 dots()
 {
-    rsync -a -v --existing /home/lorenzo/ /home/lorenzo/code/dotfiles/
+    rsync -a -v --existing /home/lg/ /home/lg/code/lgaggini/dotfiles/
 }
 
 # awcf - sync awesome config for git sync
 # usage: awcf
 awcf()
 {
-    rsync -a -v --existing /home/lorenzo/.config/awesome/ /home/lorenzo/code/archKiss/
+    rsync -a -v --existing /home/lg/.config/awesome/ /home/lg/code/lgaggini/archKiss/
 }
 
 # cf - wrapper for configuration files
