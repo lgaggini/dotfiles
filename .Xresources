@@ -14,7 +14,7 @@ Xft.hintstyle:  hintslight
 Xft.lcdfilter:  lcddefault
 
 ! terminal colors ------------------------------------------------------
-#include "/home/lorenzo/.colors/cloud_woman"
+#include "/home/lg/.colors/cloud_woman"
 
 ! urxvt settings--------------------------------------------------------
 !
