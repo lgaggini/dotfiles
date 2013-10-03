@@ -5,7 +5,7 @@
 #---------------------------
 
 # paths
-music_directory             "~/musica"
+music_directory             "~/media/music"
 playlist_directory          "~/.mpd/playlists"
 db_file                     "~/.mpd/mpd.db"
 pid_file                    "~/.mpd/mpd.pid"
