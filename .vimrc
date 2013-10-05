@@ -92,6 +92,7 @@ endif
 "
 let mapleader = ","             " custom map leader
 let g:mapleader = ","           " custom map leader
+map <Leader>c :bp<bar>bd#<CR>   " close buffer without lose split
 
 "
 " Plugins
