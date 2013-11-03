@@ -105,9 +105,9 @@ map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>          " tree toggle key
 map <leader>e :NERDTreeFind<CR>                           " find files in tree
 autocmd vimenter * if !argc() | NERDTree | endif          " open tree on startup without file
 let NERDTreeShowBookmarks = 0                             " not show bookmark tree
-let NERDTreeIgnore = []                                   " file to ignore  
+let NERDTreeIgnore = []                                   " file to ignore
 let NERDTreeChDirMode = 0                                 " not change vim working directory
-let NERDTreeQuitOnOpen = 0                                " close tree after file open
+let NERDTreeQuitOnOpen = 1                                " close tree after file open
 let NERDTreeShowHidden = 1                                " show hidden files
 
 " minibufferexplorer
