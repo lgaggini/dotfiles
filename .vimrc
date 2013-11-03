@@ -116,6 +116,7 @@ let g:miniBufExplSplitBelow = 0                           " minibuffer bar on to
 let g:miniBufExplModSelTarget = 1                         " compatibility with other explorers (tagbar)
 
 " tagbar
+nmap <F8> :TagbarToggle<CR>
 nnoremap <silent> <leader>tt :TagbarToggle<CR>            " tagbar toggle key
 let g:tagbar_left = 0                                     " tagbar to the right
 let g:tagbar_autofocus = 1                                " tagbar focus on open  
