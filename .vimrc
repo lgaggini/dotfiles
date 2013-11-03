@@ -146,3 +146,6 @@ inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"       " cursor movi
 inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"     " cursor moving in insert mode
 
 " powerline
+
+" syntastic
+let g:syntastic_python_checkers=['pep8']
