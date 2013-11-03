@@ -17,6 +17,9 @@ my_hdr X-Editor: Vim http://www.vim.org
 set sig_dashes = yes 
 set signature = "~/.signature/libersoft"
 
+# address book
+set query_command= "abook --datafile ~/doc/libersoft/contact/libersoft.abook --mutt-query '%s'"
+
 # sidebar
 unmailboxes *
 mailboxes "+-- libersoft -----------"

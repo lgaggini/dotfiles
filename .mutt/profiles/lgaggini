@@ -15,8 +15,11 @@ reply-hook ~Clg@lgaggini.net "source ~/.mutt/profiles/lgaggini_send/lgaggini"
 
 # macro for change identity on the fly
 macro index g "<enter-command>source ~/.mutt/profiles/lgaggini_send/gmail<enter>" "switch to gmail profile"
-macro index s "<enter-command>source ~/.mutt/profiles/lgaggini_send/keepsimple<enter>" "switch to keepsimple profile"
+#macro index k "<enter-command>source ~/.mutt/profiles/lgaggini_send/keepsimple<enter>" "switch to keepsimple profile"
 macro index l "<enter-command>source ~/.mutt/profiles/lgaggini_send/lgaggini<enter>" "switch to lgaggini profile"
+
+# address book
+set query_command = "abook --datafile ~/doc/lgaggini/contact/lgaggini.abook --mutt-query '%s'"
 
 # sidebar
 unmailboxes *

@@ -81,7 +81,6 @@ set alias_file = ~.mutt/mutt_aliases    # alias file
 source ~/.mutt/mutt_aliases             # load alias file at startup
 set reverse_alias = yes                 # replace address with alias
 set sort_alias = alias                  # alias order by alias
-set query_command= "abook --mutt-query '%s'"# abook integration
 
 # look & feel
 set folder_format = "[%2C] %t %N %-40.40f (dim: %8s) ultima modifica: %d"
