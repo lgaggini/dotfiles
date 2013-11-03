@@ -491,7 +491,7 @@ getpassdb()
 getpass()
 {
     getpassdb $1
-    gpg --decrypt -q -u $key_pub $pwfile_pass | pwsafe -f $pwfile -u -p -x $2
+    gpg --decrypt -q -u $key_pub $pwfile_pass | gpwsafe -f $pwfile -u -p -x $2
 }
 
 # setpass - set a new password for existing account
@@ -499,7 +499,7 @@ getpass()
 setpass()
 {
     getpassdb $1
-    pwsafe -f $pwfile -e $2
+    gpwsafe -f $pwfile -e $2
     alive $ssh_host && scp $pwfile $ssh_user@$ssh_host:/srv/storage/data/doc/pass/
 }
 
@@ -508,7 +508,7 @@ setpass()
 mkpass()
 {
     getpassdb $1
-    pwsafe -f $pwfile -a $2
+    gpwsafe -f $pwfile -a $2
     alive $ssh_host && scp $pwfile $ssh_user@$ssh_host:/srv/storage/data/doc/pass/
 }
 
@@ -517,7 +517,7 @@ mkpass()
 lspass()
 {
     getpassdb $1
-    gpg --decrypt -q -u $key_pub $pwfile_pass | pwsafe -f $pwfile -l $2
+    gpg --decrypt -q -u $key_pub $pwfile_pass | gpwsafe -f $pwfile --list $2
 }
 
 # rmpass - remove password account
@@ -525,7 +525,7 @@ lspass()
 rmpass()
 {
     getpassdb $1
-    gpg --decrypt -q -u $key_pub $pwfile_pass | pwsafe -f $pwfile --delete $2
+    gpg --decrypt -q -u $key_pub $pwfile_pass | gpwsafe -f $pwfile --delete $2
     alive $ssh_host && scp $pwfile $ssh_user@$ssh_host:/srv/storage/data/doc/pass/
 }
 
