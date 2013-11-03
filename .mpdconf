@@ -25,7 +25,7 @@ save_absolute_paths_in_playlists    "yes"
 metadata_to_use                     "track,artist,album,title,name,genre,date,composer,performer,disc"
 auto_update                         "yes"
 auto_update_depth                   "3"
-volume_normalization                "yes"
+#volume_normalization                "yes"
 
 
 # audio output
