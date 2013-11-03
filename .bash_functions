@@ -461,14 +461,14 @@ balance()
 # pass manager by pwsafe
 #
 # password file
-pwfile=~/doc/lgaggini/pass/lgaggini.dat
-pwfile_pass=~/doc/lgaggini/pass/cat/master.gpg
-
-pwfile_lgaggini=~/doc/lgaggini/pass/lgaggini.dat
+pwfile_lgaggini=~/doc/lgaggini/pass/lgaggini.psafe3
 pwfile_lgaggini_pass=~/doc/lgaggini/pass/cat/master.gpg
 
-pwfile_libersoft=~/doc/libersoft/pass/libersoft.dat
+pwfile_libersoft=~/doc/libersoft/pass/libersoft.psafe3
 pwfile_libersoft_pass=~/doc/libersoft/pass/cat/master.gpg
+
+pwfile=$pwfile_lgaggini
+pwfile_pass=$pwfile_lgaggini_pass
 
 # getpassdb - retrieve a password db by contex
 # usage - getpass <context>
@@ -535,14 +535,14 @@ rmpass()
 #
 
 # note folder
-note_path=~/doc/lgaggini/note/
-
 note_path_lgaggini=~/doc/lgaggini/note/
 note_path_libersoft=~/doc/libersoft/note/
 
+note_path=$note_path_lgaggini
+
 # note - quick note view and edit/create
 # usage: note <name>
-notes()
+note()
 {
     case "$1" in
         'lgaggini')
@@ -574,7 +574,7 @@ _note()
     COMPREPLY=( $(compgen -W "${names}" -- ${cur}) )
     return 0
 }
-complete -o nospace -F _note notes
+complete -o nospace -F _note note
 
 
 #
@@ -582,10 +582,10 @@ complete -o nospace -F _note notes
 #
 
 # addressbook path
-addressbook=$addressbook_lgaggini
-
 addressbook_lgaggini=~/doc/lgaggini/contact/lgaggini.abook
 addressbook_libersoft=~/doc/libersoft/contact/libersoft.abook
+
+addressbook=$addressbook_lgaggini
 
 # contact - abook with custom addressbook
 # usage: contact
