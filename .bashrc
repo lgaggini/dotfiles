@@ -52,9 +52,9 @@ export VISUAL=$EDITOR
 export PAGER=/usr/bin/less
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 if [ -n "$DISPLAY" ]; then
-	BROWSER=/usr/bin/chromium
+    BROWSER=/usr/bin/chromium
 else
-	BROWSER=/usr/bin/links
+    BROWSER=/usr/bin/links
 fi
 export BROWSER
 [[ -x /usr/bin/lesspipe ]] && eval "$(SHELL=/bin/sh lesspipe)"  # less more friendly for non-text
@@ -113,6 +113,31 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m'                   # begin underline
 [ -f ~/.bashrc_local ] && source ~/.bashrc_local                  # local config
 [ -f ~/.bash_aliases_local ] && source ~/.bash_aliases_local      # local aliases
 [ -f ~/.bash_functions_local ] && source ~/.bash_functions_local  # local functions
+
+# term title with command:
+# http://mg.pov.lt/blog/bash-prompt.html
+case ${TERM} in
+  xterm*|rxvt*|Eterm|aterm|kterm|gnome)
+    PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
+    # Show the currently running command in the terminal title:
+    # http://www.davidpashley.com/articles/xterm-titles-with-bash.html
+    show_command_in_title_bar()
+    {
+        case "$BASH_COMMAND" in
+            *\033]0*)
+                # The command is trying to set the title bar as well;
+                # this is most likely the execution of $PROMPT_COMMAND.
+                # In any case nested escapes confuse the terminal, so don't
+                # output them.
+                ;;
+            *)
+                echo -ne "\033]0;${USER}@${HOSTNAME}:${PWD/#$HOME/~} ${BASH_COMMAND}\007"
+                ;;
+        esac
+    }
+    trap show_command_in_title_bar DEBUG
+    ;;
+esac
 
 #
 # welcome messages and goodies
