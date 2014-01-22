@@ -71,10 +71,10 @@ set smartcase                   " ... unless they contain at least one capital l
 " Formatting
 "
 set nowrap                      " don't wrap lines
-set autoindent smartindent      " indent and smartindent
+set autoindent                  " indent
 set smarttab                    " make <tab> and <backspace> smarter
 set shiftwidth=4                " a tab is two spaces
-set tabstop=4                   " indentation of two spaces  
+set tabstop=4                   " indentation of two spaces
 set expandtab                   " use spaces, not tabs
 set backspace=indent,eol,start  " backspace through everything in insert mode
 
