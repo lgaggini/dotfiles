@@ -5,6 +5,9 @@ set postponed = "~/mail/libersoft/drafts/"# draft mail folders
 set spoolfile = "~/mail/libersoft/INBOX"  # inbox
 set trash = "~/mail/libersoft/trash/"     # trash folder for mail delete
 
+# sync headers and signature for reply
+reply-hook ~Clg@libersoft.it "source ~/.mutt/profiles/libersoft"
+
 # headers
 my_hdr From: Lorenzo Gaggini - Libersoft Srl <lg@libersoft.it>
 my_hdr Reply-To: Lorenzo Gaggini - Libersoft Srl <lg@libersoft.it>
