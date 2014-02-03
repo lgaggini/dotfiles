@@ -56,6 +56,7 @@ set reply_regexp = "^(([Rr]e?):[ \t]*)+"      # regexp to id reply
 set quote_regexp = "^([ \t]*[|>:}#])+"        # regexp to id quote
 
 # send
+set send_charset="utf-8"                      # utf8-charset for send
 set sendmail="/usr/bin/msmtp"                 # software to send mail
 set envelope_from = yes                       # retrieve from automatically
 
