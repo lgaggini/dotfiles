@@ -5,6 +5,24 @@
 "---------------------------
 
 "
+" Plugins by vundle
+"
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+Bundle 'zhaocai/GoldenView.Vim'
+Bundle 'fholgado/minibufexpl.vim'
+Bundle 'Shougo/neocomplcache.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'majutsushi/tagbar'
+Bundle 'itchyny/lightline.vim'
+
+"
 " General
 "
 set nocompatible                " choose no compatibility with legacy vi
@@ -97,8 +115,6 @@ map <Leader>c :bp<bar>bd#<CR>   " close buffer without lose split
 "
 " Plugins
 "
-" pathogen
-call pathogen#infect()                                    " load pathogen bundle
 
 " nerdtree
 map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>          " tree toggle key
