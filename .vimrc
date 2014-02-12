@@ -52,13 +52,13 @@ set foldlevel=99                " folding level
 set foldmethod=indent           " folding method
 set cursorline                  " highlight current line
 if &term =~ "xterm\\|rxvt"      " change cursor color on mode  
-  :silent !echo -ne "\033]12;lightgreen\007" 
-  let &t_SI = "\033]12;darkcyan\007" 
-  let &t_EI = "\033]12;lightgreen\007" 
-  autocmd VimLeave * :!echo -ne "\033]12;grey\007" 
+  :silent !echo -ne "\033]12;darkcyan\007"
+  let &t_SI = "\033]12;lightgreen\007"
+  let &t_EI = "\033]12;darkcyan\007"
+  autocmd VimLeave * :!echo -ne "\033]12;grey\007"
 endif
 set spelllang=it,en
-autocmd FileType mail setlocal spell " set spell for email 
+autocmd FileType mail setlocal spell        " set spell for email
 
 "
 " UI
@@ -99,10 +99,13 @@ set backspace=indent,eol,start  " backspace through everything in insert mode
 "
 " GUI
 "
-set guioptions=aAeimgr            " custom gvim view
-set guifont=DejaVu\ Sans\ Mono\ 10" custom gvim font
+set guioptions=aAeimgr                              " custom gvim view
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10  " custom gvim font
 if has('gui_running')
-    color muon                    " custom gvim colorscheme
+    color muon                      " custom gvim colorscheme
+endif
+if !has('gui_running')
+  set t_Co=256                      " powerline colors in terminal
 endif
 
 "
@@ -163,6 +166,80 @@ inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"       " cursor movi
 inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"     " cursor moving in insert mode
 
 " powerline
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'filename' ] ],
+      \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'MyFugitive',
+      \   'filename': 'MyFilename',
+      \   'fileformat': 'MyFileformat',
+      \   'filetype': 'MyFiletype',
+      \   'fileencoding': 'MyFileencoding',
+      \   'mode': 'MyMode',
+      \ },
+      \ 'component_expand': {
+      \   'syntastic': 'SyntasticStatuslineFlag',
+      \ },
+      \ 'component_type': {
+      \   'syntastic': 'error',
+      \ },
+      \ 'subseparator': { 'left': '|', 'right': '|' }
+      \ }
+
+function! MyModified()
+  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! MyReadonly()
+  return &ft !~? 'help' && &readonly ? 'RO' : ''
+endfunction
+
+function! MyFilename()
+  let fname = expand('%:t')
+  return fname == '__Tagbar__' ? g:lightline.fname :
+        \ fname =~ '__Gundo\|NERD_tree' ? '' :
+        \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+        \ ('' != fname ? fname : '[No Name]') .
+        \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
+function! MyFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! MyFileencoding()
+  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! MyMode()
+  let fname = expand('%:t')
+  return fname == '__Tagbar__' ? 'Tagbar' :
+        \ fname =~ 'NERD_tree' ? 'NERDTree' :
+        \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+let g:tagbar_status_func = 'TagbarStatusFunc'
+
+function! TagbarStatusFunc(current, sort, fname, ...) abort
+    let g:lightline.fname = a:fname
+  return lightline#statusline(0)
+endfunction
+
+augroup AutoSyntastic
+  autocmd!
+  autocmd BufWritePost *.c,*.cpp call s:syntastic()
+augroup END
+function! s:syntastic()
+  SyntasticCheck
+  call lightline#update()
+endfunction
 
 " syntastic
 let g:syntastic_python_checkers=['pep8']
