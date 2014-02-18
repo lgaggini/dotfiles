@@ -85,7 +85,7 @@ set sort_alias = alias                  # alias order by alias
 
 # look & feel
 set folder_format = "[%2C] %t %N %-40.40f (dim: %8s) ultima modifica: %d"
-set index_format = "(%3C) %Z %b %d DA: %-25.25n (msg:%2M) %s"
+set index_format = "(%3C) %Z %X %b %d DA: %-25.25n (msg:%2M) %s"
 set status_format = " %f (%r) DIM: %l MSGS: %?M?%M/?%m%?n? NEW: %n?%?o? OLD: %o?%?d?\
 DEL: %d?%?F? FLAG: %F?%?t? TAG: %t?%?p? POSTP: %p?%?b? INC: %b?%?l?? (SORT: %s/%S)%> (%P) "
 set pager_format = " [STATUS FLAGS: %Z] DA: %f"
