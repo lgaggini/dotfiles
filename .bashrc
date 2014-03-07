@@ -106,6 +106,7 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m'                   # begin underline
 #
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases          # aliases
 [ -f ~/.bash_functions ] && source ~/.bash_functions      # functions
+[ -f ~/.bash-git-prompt/gitprompt.sh ] && source ~/.bash-git-prompt/gitprompt.sh    # git prompt
 
 #
 # machine specific configuration
