@@ -16,7 +16,7 @@ Bundle 'gmarik/vundle'
 
 Bundle 'zhaocai/GoldenView.Vim'
 Bundle 'fholgado/minibufexpl.vim'
-Bundle 'Shougo/neocomplcache.vim'
+Bundle 'Shougo/neocomplete.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
@@ -142,28 +142,31 @@ let g:tagbar_autofocus = 1                                " tagbar focus on open
 let g:tagbar_compact = 1                                  " compact view
 let g:tagbar_singleclick = 1                              " go to tag with single click
 
-" neocomplcache
-let g:neocomplcache_enable_at_startup = 1                 " enable at startup
-let g:neocomplcache_enable_camel_case_completion = 1      " use camel case completion
-let g:neocomplcache_enable_smart_case = 1                 " use smartcase
-let g:neocomplcache_enable_underbar_completion = 1        " use underbar completion
-let g:neocomplcache_min_syntax_length = 3                 " minimum syntax keyword length
-let g:neocomplcache_enable_auto_delimiter = 1             " auto insertion of delimiter
-let g:neocomplcache_enable_auto_select = 0                " auto selection of first candidate
-if !exists('g:neocomplcache_keyword_patterns')            " define keyword
-  let g:neocomplcache_keyword_patterns = {}               " define keyword
+" neocomplete
+let g:neocomplete#enable_at_startup = 1                 " enable at startup
+let g:neocomplete#enable_camel_case_completion = 1      " use camel case completion
+let g:neocomplete#enable_smart_case = 1                 " use smartcase
+let g:neocomplete#enable_underbar_completion = 1        " use underbar completion
+let g:neocomplete#min_syntax_length = 3                 " minimum syntax keyword length
+let g:neocomplete#enable_auto_delimiter = 1             " auto insertion of delimiter
+let g:neocomplete#enable_auto_select = 0                " auto selection of first candidate
+if !exists('g:neocomplete_keyword_patterns')            " define keyword
+  let g:neocomplete#keyword_patterns = {}               " define keyword
 endif                                                     " define keyword
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*' " define keyword
-inoremap <expr><CR>    neocomplcache#smart_close_popup() . "\<CR>" " close popup and save indent
+let g:neocomplete#keyword_patterns['default'] = '\h\w*' " define keyword
+inoremap <expr><CR>    neocomplete#smart_close_popup() . "\<CR>" " close popup and save indent
 inoremap <expr><TAB>   pumvisible() ? "\<C-n>" : "\<TAB>"          " completion. 
-inoremap <expr><C-h>   neocomplcache#smart_close_popup()."\<C-h>"  " close popup and delete backword char
-inoremap <expr><BS>    neocomplcache#smart_close_popup()."\<C-h>"  " close popup and delete backword char 
-inoremap <expr><C-y>   neocomplcache#close_popup()                 " close popup
-inoremap <expr><C-e>   neocomplcache#cancel_popup()                " close popup
-inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"     " cursor moving in insert mode
-inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"    " cursor moving in insert mode
-inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"       " cursor moving in insert mode
-inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"     " cursor moving in insert mode
+inoremap <expr><C-h>   neocomplete#smart_close_popup()."\<C-h>"  " close popup and delete backword char
+inoremap <expr><BS>    neocomplete#smart_close_popup()."\<C-h>"  " close popup and delete backword char 
+inoremap <expr><C-y>   neocomplete#close_popup()                 " close popup
+inoremap <expr><C-e>   neocomplete#cancel_popup()                " close popup
+inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"     " cursor moving in insert mode
+inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"    " cursor moving in insert mode
+inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"       " cursor moving in insert mode
+inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"     " cursor moving in insert mode
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS " enable omni completion
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete           " enable omni completion
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags             " enable omni completion
 
 " powerline
 let g:lightline = {
