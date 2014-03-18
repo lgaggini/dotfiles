@@ -39,7 +39,7 @@ set pager_context = 2                   # lines between two scree in pager
 set tilde = yes                         # replace final empty lines with tilde
 set smart_wrap = yes                    # wrap long lines
 set markers = yes                       # set marker for wrapped lines
-auto_view text/html                     # auto view for html mail
+#auto_view text/html                     # auto view for html mail
 
 # attachment
 set mailcap_path = ~/.mailcap:/etc/mailcap:/usr/lib/mime/mailcap
