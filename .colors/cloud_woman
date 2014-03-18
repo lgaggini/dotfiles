@@ -3,8 +3,8 @@
 ! file:     .colors/woman
 ! vim:nu:ai:si:et:ts=4:sw=4:ft=xdefaults:
 ! -------------------------------------------------
- *foreground:  #CCCCCC
- *background:  #28211C
+ *foreground:  #BCBCBC
+ *background:  #1C1C1C
 !black
  *color0:  #222827
  *color8:  #5D6F74
