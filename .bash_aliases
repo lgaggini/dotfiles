@@ -151,6 +151,9 @@ alias gr='git rm'
 alias gt='git timeline'
 alias gl='git log --oneline --decorate'
 alias gg='git grep'
+alias gm='git merge'
+alias gmv='git checkout'
+alias gb='git branch'
 
 # python aliases
 alias p2='python2'
