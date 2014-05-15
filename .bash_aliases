@@ -188,6 +188,7 @@ alias mus='sonata &'
 alias mov='smplayer &' 
 alias burn='wodim'
 alias cdrw='wodim dev=/dev/sr0 blank=fast'
+alias scan='nmap -v -sT -Pn'
 
 # folder aliases
 alias home='cd ~'
