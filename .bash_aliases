@@ -161,6 +161,7 @@ alias p='python'
 
 # shortcuts
 alias s='sudo '
+alias open='xdg-open'
 alias c='clear'
 alias h='history'
 alias m='man'
