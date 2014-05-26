@@ -813,9 +813,6 @@ cf()
         'fstab')
             sudo -E $EDITOR '/etc/fstab'
             ;;
-        'rc')
-            sudo -E $EDITOR '/etc/rc.conf'
-            ;;
         *)
             if [[ "$(readlink -f "$1")" != ${HOME}/* ]]; then
                 sudo -E $EDITOR "$1"
