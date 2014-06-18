@@ -342,12 +342,6 @@ psg()
     fi
 }
 
-# noteg - search in notes
-noteg()
-{
-    grep --color=auto -HIrFoi $* -C 5 ~/doc/note
-}
-
 
 # default remote host for data
 ssh_user=lg
@@ -575,6 +569,19 @@ _note()
     return 0
 }
 complete -o nospace -F _note note
+# noteg - search in notes
+noteg()
+{
+    case "$1" in
+        'lgaggini')
+            note_path=$note_path_lgaggini
+            ;;
+        'libersoft')
+            note_path=$note_path_libersoft
+            ;;
+    esac
+    grep --color=auto -HInrFoi $* -C 5 $note_path
+}
 
 
 #
