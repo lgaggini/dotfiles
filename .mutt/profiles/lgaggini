@@ -10,12 +10,10 @@ source ~/.mutt/profiles/lgaggini_send/gmail
 
 # sync headers and signature for reply
 reply-hook ~Clgaggini@gmail.com "source ~/.mutt/profiles/lgaggini_send/gmail"
-reply-hook ~Clorenzo@keepsimple.it "source ~/.mutt/profiles/lgaggini_send/keepsimple"
 reply-hook ~Clg@lgaggini.net "source ~/.mutt/profiles/lgaggini_send/lgaggini"
 
 # macro for change identity on the fly
 macro index g "<enter-command>source ~/.mutt/profiles/lgaggini_send/gmail<enter>" "switch to gmail profile"
-#macro index k "<enter-command>source ~/.mutt/profiles/lgaggini_send/keepsimple<enter>" "switch to keepsimple profile"
 macro index l "<enter-command>source ~/.mutt/profiles/lgaggini_send/lgaggini<enter>" "switch to lgaggini profile"
 
 # address book
