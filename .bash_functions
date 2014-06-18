@@ -545,15 +545,15 @@ note()
         'libersoft')
             note_path=$note_path_libersoft
             ;;
-    esac 
+    esac
 
     if [[ -z "$2" ]]; then
         ls -lh $note_path
     else
         vim $note_path$2.txt
-        chmod 0666 $note_path$2.txt
-        alive $ssh_host && scp $note_path$2.txt $ssh_user@$ssh_host:/srv/storage/data/doc/note/`echo $note_path | awk -F/ '{print $3}'`
-        alive $cloud_host && scp -p $note_path$2.txt $cloud_user@$cloud_host:/home/$cloud_user/doc/note/`echo $note_path | awk -F/ '{print $3}'`
+        git add $note_path$2.txt
+        git commit -m 'cli note change'
+        git push origin master
     fi
 }
 # _note - note name completion
@@ -607,9 +607,9 @@ contact()
             ;;
     esac
     abook --datafile $addressbook
-    alive $ssh_host && scp $addressbook $ssh_user@$ssh_host:/srv/storage/data/doc/contact/
-    alive $cloud_host && scp -p $addressbook $cloud_user@$cloud_host:/home/$cloud_user/doc/contact/addressbook
-    
+    git add $address
+    git commit -m 'cli addressbook updated'
+    git push origin master
 }
 
 
