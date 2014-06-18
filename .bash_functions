@@ -104,7 +104,7 @@ elif [ $system == "service" ]; then
         done
     }
     # completion
-    function _$system()
+    function _service()
     {
         local cur services
         cur=`_get_cword`
@@ -112,11 +112,11 @@ elif [ $system == "service" ]; then
         COMPREPLY=( $(compgen -W "${services}" -- ${cur}) )
         return 0
     }
-    complete -F _$system start
-    complete -F _$system reload
-    complete -F _$system restart
-    complete -F _$system stop
-    complete -F _$system status
+    complete -F _service start
+    complete -F _service reload
+    complete -F _service restart
+    complete -F _service stop
+    complete -F _service status
 fi
 
 #
