@@ -551,9 +551,9 @@ note()
         ls -lh $note_path
     else
         vim $note_path$2.txt
-        git add $note_path$2.txt
-        git commit -m 'cli note change'
-        git push origin master
+        git --git-dir=$note_path.git --work-tree=$note_path add $note_path$2.txt
+        git --git-dir=$note_path.git --work-tree=$note_path commit -m 'cli note change'
+        git --git-dir=$note_path.git --work-tree=$note_path push origin master
     fi
 }
 # _note - note name completion
@@ -589,10 +589,14 @@ noteg()
 #
 
 # addressbook path
-addressbook_lgaggini=~/doc/lgaggini/contact/lgaggini.abook
-addressbook_libersoft=~/doc/libersoft/contact/libersoft.abook
+addresspath_lgaggini=~/doc/lgaggini/contact/
+addressbook_lgaggini=$addresspath_lgagginilgaggini.abook
+addresspath_libersoft=~/doc/libersoft/contact/
+addressbook_libersoft=$addresspath_libersoftlibersoft.abook
 
+address_path=$addresspath_lgaggini
 addressbook=$addressbook_lgaggini
+
 
 # contact - abook with custom addressbook
 # usage: contact
@@ -600,16 +604,18 @@ contact()
 {
     case "$1" in
         'lgaggini')
+            address_path=$addresspath_lgaggini
             addressbook=$addressbook_lgaggini
             ;;
         'libersoft')
+            address_path=$addresspath_libersoft
             addressbook=$addressbook_libersoft
             ;;
     esac
     abook --datafile $addressbook
-    git add $address
-    git commit -m 'cli addressbook updated'
-    git push origin master
+    git --git-dir==$address_path.git --work-tree=$address_path add $addressbook
+    git --git-dir==$address_path.git --work-tree=$address_path commit -m 'cli addressbook updated'
+    git --git-dir==$address_path.git --work-tree=$address_path push origin master
 }
 
 
