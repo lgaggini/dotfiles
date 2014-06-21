@@ -502,7 +502,7 @@ setpass()
     getpassdb $1
     gpwsafe -f $pwfile -e $2
     git --git-dir=$pwfile_path.git --work-tree=$pwfile_path add $pwfile
-    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path commit -m 'cli pass change'
+    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path commit -m 'new pass for $2'
 }
 
 # mkpass - set a new password account
@@ -512,7 +512,7 @@ mkpass()
     getpassdb $1
     gpwsafe -f $pwfile -a $2
     git --git-dir=$pwfile_path.git --work-tree=$pwfile_path add $pwfile
-    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path commit -m 'cli pass change'
+    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path commit -m 'new account $2'
 }
 
 # lspass - list all password
@@ -530,7 +530,7 @@ rmpass()
     getpassdb $1
     gpg --decrypt -q -u $key_pub $pwfile_pass | gpwsafe -f $pwfile --delete $2
     git --git-dir=$pwfile_path.git --work-tree=$pwfile_path add $pwfile
-    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path commit -m 'cli pass change'
+    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path commit -m 'removed account $2'
 }
 
 
