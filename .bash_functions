@@ -456,12 +456,15 @@ balance()
 #
 # password file
 pwfile_lgaggini=~/doc/lgaggini/pass/lgaggini.psafe3
+pwfile_lgaggini_path=~/doc/lgaggini/pass/
 pwfile_lgaggini_pass=~/doc/lgaggini/pass/cat/master.gpg
 
 pwfile_libersoft=~/doc/libersoft/pass/libersoft.psafe3
+pwfile_libersoft=~/doc/libersoft/pass/
 pwfile_libersoft_pass=~/doc/libersoft/pass/cat/master.gpg
 
 pwfile=$pwfile_lgaggini
+pwfile_path=$pwfile_lgaggini_path
 pwfile_pass=$pwfile_lgaggini_pass
 
 # getpassdb - retrieve a password db by contex
@@ -471,10 +474,12 @@ getpassdb()
     case "$1" in
         'lgaggini')
             pwfile=$pwfile_lgaggini
+            pwfile_path=$pwfile_lgaggini_path
             pwfile_pass=$pwfile_lgaggini_pass
             ;;
         'libersoft')
             pwfile=$pwfile_libersoft
+            pwfile_path=$pwfile_libersoft_path
             pwfile_pass=$pwfile_libersoft_pass
             ;;
     esac
@@ -494,7 +499,9 @@ setpass()
 {
     getpassdb $1
     gpwsafe -f $pwfile -e $2
-    alive $ssh_host && scp $pwfile $ssh_user@$ssh_host:/srv/storage/data/doc/pass/
+    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path add $pwfile
+    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path commit -m 'cli pass change'
+    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path push origin master
 }
 
 # mkpass - set a new password account
@@ -503,7 +510,9 @@ mkpass()
 {
     getpassdb $1
     gpwsafe -f $pwfile -a $2
-    alive $ssh_host && scp $pwfile $ssh_user@$ssh_host:/srv/storage/data/doc/pass/
+    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path add $pwfile
+    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path commit -m 'cli pass change'
+    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path push origin master
 }
 
 # lspass - list all password
@@ -520,7 +529,9 @@ rmpass()
 {
     getpassdb $1
     gpg --decrypt -q -u $key_pub $pwfile_pass | gpwsafe -f $pwfile --delete $2
-    alive $ssh_host && scp $pwfile $ssh_user@$ssh_host:/srv/storage/data/doc/pass/
+    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path add $pwfile
+    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path commit -m 'cli pass change'
+    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path push origin master
 }
 
 
