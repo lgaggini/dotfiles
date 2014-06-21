@@ -368,6 +368,7 @@ alive()
 # money file
 
 ledger=~/doc/lgaggini/money/money.dat
+ledger_path=~/doc/lgaggini/money/
 accounts_path=~/doc/lgaggini/money/accounts.dat
 
 # money - personal finance manager by ledger
@@ -379,7 +380,8 @@ money()
     echo '    ' $2 '    ' $3 'EUR'  >> $ledger
     echo '    ' $1                  >> $ledger
     echo                            >> $ledger
-    alive $ssh_host && scp $ledger $ssh_user@$ssh_host:/srv/storage/data/doc/money/
+    git --git-dir=$ledger_path.git --work-tree=$ledger_path add $ledger
+    git --git-dir=$ledger_path.git --work-tree=$ledger_path commit -m '$1 -> $2: $3'
     tail -n 4 $ledger
 }
 
