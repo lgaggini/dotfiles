@@ -501,7 +501,6 @@ setpass()
     gpwsafe -f $pwfile -e $2
     git --git-dir=$pwfile_path.git --work-tree=$pwfile_path add $pwfile
     git --git-dir=$pwfile_path.git --work-tree=$pwfile_path commit -m 'cli pass change'
-    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path push origin master
 }
 
 # mkpass - set a new password account
@@ -512,7 +511,6 @@ mkpass()
     gpwsafe -f $pwfile -a $2
     git --git-dir=$pwfile_path.git --work-tree=$pwfile_path add $pwfile
     git --git-dir=$pwfile_path.git --work-tree=$pwfile_path commit -m 'cli pass change'
-    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path push origin master
 }
 
 # lspass - list all password
@@ -531,7 +529,6 @@ rmpass()
     gpg --decrypt -q -u $key_pub $pwfile_pass | gpwsafe -f $pwfile --delete $2
     git --git-dir=$pwfile_path.git --work-tree=$pwfile_path add $pwfile
     git --git-dir=$pwfile_path.git --work-tree=$pwfile_path commit -m 'cli pass change'
-    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path push origin master
 }
 
 
@@ -564,8 +561,6 @@ note()
         vim $note_path$2.txt
         git --git-dir=$note_path.git --work-tree=$note_path add $note_path$2.txt
         git --git-dir=$note_path.git --work-tree=$note_path commit -m 'cli note change'
-        git --git-dir=$note_path.git --work-tree=$note_path push origin master
-    fi
 }
 # _note - note name completion
 _note() 
@@ -626,7 +621,6 @@ contact()
     abook --datafile $addressbook
     git --git-dir==$address_path.git --work-tree=$address_path add $addressbook
     git --git-dir==$address_path.git --work-tree=$address_path commit -m 'cli addressbook updated'
-    git --git-dir==$address_path.git --work-tree=$address_path push origin master
 }
 
 
