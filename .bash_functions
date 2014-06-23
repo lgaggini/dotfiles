@@ -563,6 +563,7 @@ note()
         vim $note_path$2.txt
         git --git-dir=$note_path.git --work-tree=$note_path add $note_path$2.txt
         git --git-dir=$note_path.git --work-tree=$note_path commit -m 'cli note change'
+    fi
 }
 # _note - note name completion
 _note() 
