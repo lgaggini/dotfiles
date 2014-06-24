@@ -21,6 +21,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
 Bundle 'itchyny/lightline.vim'
+Bundle 'scrooloose/nerdcommenter'
 
 "
 " General
@@ -250,3 +251,5 @@ let g:syntastic_python_checkers=['pep8']
 " goldenview
 
 " eclimd
+
+" nerdcommenter
