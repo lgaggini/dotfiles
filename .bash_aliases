@@ -9,8 +9,8 @@
 alias aliases='cat ~/.bash_aliases'
 
 # script
-alias onbak='sh ~/bin/onbak.sh'
-alias offbak='sh ~/bin/offbak.sh'
+alias onbak='sh ~/backup/onbak.sh'
+alias offbak='sh ~/backup/offbak.sh'
 
 # remote machine aliases
 alias agharti='ssh lg@agharti'
