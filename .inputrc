@@ -23,6 +23,8 @@ set completion-ignore-case on
 set echo-control-characters off
 # Completed dir names have a slash appended
 set mark-directories on
+# Remove display all message
+set completion-query-items 0
 
 #up-down arrow to search in history
 "\e[A":history-search-backward
