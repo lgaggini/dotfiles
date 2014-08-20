@@ -11,10 +11,12 @@ source ~/.mutt/profiles/lgaggini_send/gmail
 # sync headers and signature for reply
 reply-hook ~Clgaggini@gmail.com "source ~/.mutt/profiles/lgaggini_send/gmail"
 reply-hook ~Clg@lgaggini.net "source ~/.mutt/profiles/lgaggini_send/lgaggini"
+reply-hook ~Cl.gaggini@alice.it "source ~/.mutt/profiles/lgaggini_send/alice"
 
 # macro for change identity on the fly
 macro index g "<enter-command>source ~/.mutt/profiles/lgaggini_send/gmail<enter>" "switch to gmail profile"
 macro index l "<enter-command>source ~/.mutt/profiles/lgaggini_send/lgaggini<enter>" "switch to lgaggini profile"
+macro index a "<enter-command>source ~/.mutt/profiles/lgaggini_send/alice<enter>" "switch to alice profile"
 
 # address book
 set query_command = "abook --datafile ~/doc/lgaggini/contact/lgaggini.abook --mutt-query '%s'"
