@@ -138,6 +138,7 @@ alias ut='sudo umount'
 alias wh='which'
 alias lsdir='du -xmh --max-depth=1 | sort -rh'
 alias path='echo -e ${PATH//:/\\n}'
+alias ssh='TERM=rxvt ssh'
 
 # git aliases
 alias gs='git status'
