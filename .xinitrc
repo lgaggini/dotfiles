@@ -19,9 +19,6 @@ volumeicon &
 # parcellite
 parcellite &
 
-# mpd daemon user mode
-mpd ~/.mpdconf &
-
 # custom keyboard mapping
 if [ -f $HOME/.Xmodmap ]; then
   (sleep 20 && /usr/bin/xmodmap $HOME/.Xmodmap) &
