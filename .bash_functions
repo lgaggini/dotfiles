@@ -589,7 +589,7 @@ noteg()
             note_path=$note_path_libersoft
             ;;
     esac
-    grep --color=auto -HInrFoi $* -C 5 $note_path
+    grep --color=auto -HInrFoi ${*:2} -C 5 $note_path
 }
 
 
