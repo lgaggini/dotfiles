@@ -19,6 +19,9 @@ volumeicon &
 # parcellite
 parcellite &
 
+# seafile client
+seafile-applet &
+
 # custom keyboard mapping
 if [ -f $HOME/.Xmodmap ]; then
   (sleep 20 && /usr/bin/xmodmap $HOME/.Xmodmap) &
