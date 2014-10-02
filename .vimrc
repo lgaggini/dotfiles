@@ -251,5 +251,6 @@ let g:syntastic_python_checkers=['pep8']
 " goldenview
 
 " eclimd
+let g:EclimTempFilesEnable = 0
 
 " nerdcommenter
