@@ -252,5 +252,11 @@ let g:syntastic_python_checkers=['pep8']
 
 " eclimd
 let g:EclimTempFilesEnable = 0
+let g:EclimCompletionMethod = 'omnifunc'
+
+if !exists('g:neocomplcache_force_omni_patterns')
+  let g:neocomplcache_force_omni_patterns = {}
+endif
+let g:neocomplcache_force_omni_patterns.java = '\k\.\k*'
 
 " nerdcommenter
