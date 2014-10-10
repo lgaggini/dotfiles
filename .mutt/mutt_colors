@@ -13,11 +13,11 @@ color error      brightred      default                       # error msg
 color markers    brightred      default                       # + for wrap
 
 # text color - message index menu e attachment menu
-color indicator  brightmagenta  cyan                          # actual messagge bar
-color tree       cyan           default                       # thread arrow
-color index      cyan           default      "~A"             # all messages
+color indicator  white          cyan                          # actual messagge bar
+color tree       white          default                       # thread arrow
+color index      white          default      "~A"             # all messages
 color index      brightgreen    default      "~N"             # new messages
-color index      cyan           default      "~R"             # read messages
+color index      white          default      "~R"             # read messages
 color index      brightblue     default      "~U"             # unread messages
 color index      brightred      default      "~F"             # important messages
 color index      red            default      "~T"             # tagged messages  
