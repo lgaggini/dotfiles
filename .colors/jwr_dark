@@ -3,6 +3,8 @@
 ! author: jason ryan - jasonwryan.com/ 
 ! vim:enc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=txt:
 ! -------------------------------------------------
+ *foreground:  #BCBCBC
+ *background:  #1C1C1C
 !black
 *color0: #333333
 *color8: #3D3D3D
