@@ -101,7 +101,7 @@ set backspace=indent,eol,start  " backspace through everything in insert mode
 " GUI
 "
 set guioptions=aAeimgr                              " custom gvim view
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10  " custom gvim font
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11  " custom gvim font
 if has('gui_running')
     color muon                      " custom gvim colorscheme
 endif
