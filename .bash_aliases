@@ -232,6 +232,7 @@ alias wav2ogg='for i in *.wav; do sox -S $i -C5 $(basename $i .wav).ogg; done'
 alias mp32ogg='for i in *.mp3; do sox -S $i -C5 $(basename $i .mp3).ogg; done'
 alias ape2mp3='for i in *.ape; do ffmpeg -i $i -id3v2_version 3 -codec:a libmp3lame -ab 192K $(basename $i .ape).mp3; done'
 alias ogg2mp3='for name in *.ogg; do ffmpeg -i "$name" -ab 192k -map_metadata 0:s:0 "${name/.ogg/.mp3}"; done;'
+alias flac2mp3='for i in *.flac; do sox -S $i -C 192 $(basename $i .flac).mp3; done'
 
 # super user
 alias sudo='sudo '
