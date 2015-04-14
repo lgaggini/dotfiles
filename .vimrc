@@ -22,6 +22,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
 Bundle 'itchyny/lightline.vim'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'jamessan/vim-gnupg'
 
 "
 " General
