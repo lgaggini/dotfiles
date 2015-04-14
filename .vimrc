@@ -135,6 +135,10 @@ let NERDTreeShowHidden = 1                                " show hidden files
 let g:miniBufExplUseSingleClick = 1                       " single click for open buffer
 let g:miniBufExplSplitBelow = 0                           " minibuffer bar on top
 let g:miniBufExplModSelTarget = 1                         " compatibility with other explorers (tagbar)
+map <C-j> :bnext<CR>                                      " map j-k to move between buffer
+map <C-j> :bprev<CR>
+map <C-Left> :bprev<CR>                                   " map left-right to move between buffer
+map <C-Right> :bnext<CR>
 
 " tagbar
 nmap <F9> :TagbarToggle<CR>
