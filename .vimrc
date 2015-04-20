@@ -136,9 +136,10 @@ let g:miniBufExplUseSingleClick = 1                       " single click for ope
 let g:miniBufExplSplitBelow = 0                           " minibuffer bar on top
 let g:miniBufExplModSelTarget = 1                         " compatibility with other explorers (tagbar)
 map <C-j> :bnext<CR>                                      " map j-k to move between buffer
-map <C-j> :bprev<CR>
+map <C-k> :bprev<CR>
 map <C-Left> :bprev<CR>                                   " map left-right to move between buffer
 map <C-Right> :bnext<CR>
+map <C-Tab> :bnext<CR>                                    " map Tab to cycle between bufffer
 
 " tagbar
 nmap <F9> :TagbarToggle<CR>
