@@ -1,0 +1,27 @@
+!---------------------------
+!--       .screenrc       --
+!--      by lgaggini      --
+!--      CC BY-SA 3.0     --
+!---------------------------
+
+#  general
+startup_message off
+altscreen on
+
+# ctrl-a to ctrl-j
+escape ^Jj
+
+# byobu keybinding
+bindkey -k k2 screen                    # F2 | Create new window
+bindkey -k k3 eval 'prev' 'fit'         # F3 | Previous Window
+bindkey -k k4 eval 'next' 'fit'         # F4 | Next Window
+bindkey -k k6 detach                    # F6 | Detach from this session
+bindkey -k k7 eval 'copy' 'stuff ^b'    # F7 | Enter copy/scrollback mode and page up
+bindkey -k k8 title                     # F8 | Rename current window
+
+# easier scroll
+bindkey "^[[5~" eval 'copy' 'stuff ^b'  # PgUp | Enter copy/scrollback mode and page up
+bindkey "^[[6~" eval 'copy' "stuff ^f'  # PgDown | Enter copy/scrollback mode and page down
+
+# status bar
+hardstatus alwayslastline '%{= G}[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{= R}%n*%f %t%?%{= R}(%u)%?%{= w}%+Lw%?%= %{= g}][ %{y}Load: %l %{g}][%{B}%Y-%m-%d %{W}%c:%s %{g}]'
