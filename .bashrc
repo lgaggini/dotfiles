@@ -35,7 +35,7 @@ else
   root="${red}"
 fi
 
-PS1="${red}[${root}\u${red}][\[\e[0;96m\]\h${red}][${green}\w${red}]\n${red}└─╼ \[\e[0m\]"
+PS1="${red}[${root}\u${green}@\[\e[0;96m\]\h${red}][${green}\w${red}]\n${red}└─╼ \[\e[0m\]"
 
 #
 # path
@@ -106,7 +106,7 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m'                   # begin underline
 #
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases          # aliases
 [ -f ~/.bash_functions ] && source ~/.bash_functions      # functions
-GIT_PROMPT_START="${red}[${root}\u${red}][\[\e[0;96m\]\h${red}][${green}\w${red}]"
+GIT_PROMPT_START="${red}[${root}\u${green}@\[\e[0;96m\]\h${red}][${green}\w${red}]"
 GIT_PROMPT_END="\n${red}└─╼ \[\e[0m\]"
 [ -f ~/.bash-git-prompt/gitprompt.sh ] && source ~/.bash-git-prompt/gitprompt.sh    # git prompt
 
