@@ -30,16 +30,22 @@ fi
 # single press of control to escape https://github.com/alols/xcape
 (sleep 20 && xcape) &
 
-# check monitors status, single or dual
-# monitor=$(sh ~/bin/check_monitor.sh)
+# xfce power manager
+xfce4-power-manager &
 
-# set monitor(s) and start the window manager
+# autolock
+xautolock -locker xflock4 -time 15 &
+
+# connection manager
+wicd-client --tray &
+
+# check monitors status and set monitor setup
+#monitor=$(sh ~/bin/check_monitor.sh)
 #if [ $monitor = "dual" ]; then
-#  sh ~/bin/dual-above.sh
-#  exec awesome
+#  sh ~/bin/dual-right.sh
 #else
 #  sh ~/bin/single.sh
-#  exec awesome -c $XDG_CONFIG_HOME/awesome/rc.lua.single
 #fi
 
+# wm
 exec /usr/bin/awesome
