@@ -40,12 +40,9 @@ xautolock -locker xflock4 -time 15 &
 wicd-client --tray &
 
 # check monitors status and set monitor setup
-#monitor=$(sh ~/bin/check_monitor.sh)
-#if [ $monitor = "dual" ]; then
-#  sh ~/bin/dual-right.sh
-#else
-#  sh ~/bin/single.sh
-#fi
+if [ $(~/bin/check_dp3.sh) -eq 0 ]; then
+  sh ~/.screenlayout/dp3-left.sh
+fi
 
 # wm
 exec /usr/bin/awesome
