@@ -36,6 +36,7 @@ set shortmess+=filmnrxoOtT      " abbrev. of messages (avoids 'hit enter')
 set backup                      " file backup
 set backupdir=~/.vim/backup     " directory for backup files
 set directory=~/.vim/swap       " directory for swap files
+set clipboard=unnamed           " map default copy/paste register to * (clipboard)
 
 "
 " Editor view
