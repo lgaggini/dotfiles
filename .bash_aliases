@@ -240,3 +240,7 @@ alias mys='sudo -E'
 alias res='sudo !!'
 alias reboot='sudo reboot'
 alias poweroff='sudo halt'
+
+# clipboard mac style
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
