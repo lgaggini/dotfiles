@@ -21,7 +21,7 @@ bindkey -k k8 title                     # F8 | Rename current window
 
 # easier scroll
 bindkey "^[[5~" eval 'copy' 'stuff ^b'  # PgUp | Enter copy/scrollback mode and page up
-bindkey "^[[6~" eval 'copy' "stuff ^f'  # PgDown | Enter copy/scrollback mode and page down
+bindkey "^[[6~" eval 'copy' 'stuff ^f'  # PgDown | Enter copy/scrollback mode and page down
 
 # status bar
 hardstatus alwayslastline '%{= G}[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{= R}%n*%f %t%?%{= R}(%u)%?%{= w}%+Lw%?%= %{= g}][ %{y}Load: %l %{g}][%{B}%Y-%m-%d %{W}%c:%s %{g}]'
