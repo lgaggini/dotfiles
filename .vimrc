@@ -114,8 +114,8 @@ endif
 "
 " Custom keys and shortcuts
 "
-let mapleader = ","             " custom map leader
-let g:mapleader = ","           " custom map leader
+let mapleader = "\<Space>"      " custom map leader
+let g:mapleader = "\<Space>"    " custom map leader
 map <Leader>c :bp<bar>bd#<CR>   " close buffer without lose split
 
 "
