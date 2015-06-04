@@ -118,6 +118,7 @@ endif
 let mapleader = "\<Space>"      " custom map leader
 let g:mapleader = "\<Space>"    " custom map leader
 map <Leader>c :bp<bar>bd#<CR>   " close buffer without lose split
+map <Leader>o :on<CR>           " cancel split
 
 "
 " Plugins
