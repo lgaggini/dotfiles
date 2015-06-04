@@ -23,6 +23,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'itchyny/lightline.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'jamessan/vim-gnupg'
+Bundle 'terryma/vim-expand-region'
 
 "
 " General
@@ -258,3 +259,7 @@ let g:syntastic_python_checkers=['pep8']
 " goldenview
 
 " nerdcommenter
+
+" vim expand region
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
