@@ -10,20 +10,20 @@
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
-Bundle 'zhaocai/GoldenView.Vim'
-Bundle 'fholgado/minibufexpl.vim'
-Bundle 'Shougo/neocomplete.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'majutsushi/tagbar'
-Bundle 'itchyny/lightline.vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'jamessan/vim-gnupg'
-Bundle 'terryma/vim-expand-region'
+Plugin 'zhaocai/GoldenView.Vim'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
+Plugin 'itchyny/lightline.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'jamessan/vim-gnupg'
+Plugin 'terryma/vim-expand-region'
 
 "
 " General
