@@ -14,16 +14,18 @@ call vundle#begin()
 
 Plugin 'gmarik/vundle'
 
-Plugin 'zhaocai/GoldenView.Vim'
+" Basic
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'majutsushi/tagbar'
+Plugin 'terryma/vim-expand-region'
 Plugin 'itchyny/lightline.vim'
+" Extra
+Plugin 'majutsushi/tagbar'
+Plugin 'zhaocai/GoldenView.Vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'jamessan/vim-gnupg'
-Plugin 'terryma/vim-expand-region'
 
 "
 " General
