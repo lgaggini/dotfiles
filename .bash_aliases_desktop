@@ -1,0 +1,57 @@
+#!/bin/sh
+#---------------------------
+#-- .bash_aliases_desktop --
+#--      by lgaggini      --
+#--      CC BY-SA 3.0     --
+#---------------------------
+
+# folder
+alias bin='cd ~/bin'
+alias film='cd ~/media/video/film/'
+alias tv='cd ~/media/video/serie'
+alias book='cd ~/book/book/'
+alias comics='cd ~/book/comics/'
+alias down='cd ~/download'
+alias doc='cd ~/doc'
+alias code='cd ~/code'
+alias album='cd ~/media/music/album'
+
+# shortcuts
+alias open='xdg-open'
+alias t='urxvt &' 
+alias b='chromium &'
+alias f='thunar &'
+alias sf='sudo thunar &'
+alias e='gvim &'
+alias se='mys gvim &'
+alias mail='thunderbird &'
+alias gnote='zim &'
+alias pad='mousepad &'
+alias tasks='lxtask &'
+alias im='gajim &'
+alias irc='hexchat &'
+alias office='libreoffice &'
+alias theme='lxappearance &'
+alias mus='sonata &'
+alias mov='smplayer &' 
+
+# music (mpd control + volume + audio conversion)
+alias v-='amixer -q set Master 5- unmute'
+alias v+='amixer -q set Master 5+ unmute'
+alias mute='amixer -q set Master toggle'
+alias mi='mpc playlist'
+alias mp='mpc play'
+alias ms='mpc stop'
+alias mpp='mpc toggle'
+alias mprev='mpc prev'
+alias mnext='mpc next'
+alias flac2ogg='for i in *.flac; do sox -S $i -C5 $(basename $i .flac).ogg; done'
+alias wav2ogg='for i in *.wav; do sox -S $i -C5 $(basename $i .wav).ogg; done'
+alias mp32ogg='for i in *.mp3; do sox -S $i -C5 $(basename $i .mp3).ogg; done'
+alias ape2mp3='for i in *.ape; do ffmpeg -i $i -id3v2_version 3 -codec:a libmp3lame -ab 192K $(basename $i .ape).mp3; done'
+alias ogg2mp3='for name in *.ogg; do ffmpeg -i "$name" -ab 192k -map_metadata 0:s:0 "${name/.ogg/.mp3}"; done;'
+alias flac2mp3='for i in *.flac; do sox -S $i -C 192 $(basename $i .flac).mp3; done'
+
+# clipboard mac style
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'

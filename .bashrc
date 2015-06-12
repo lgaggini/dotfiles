@@ -114,7 +114,9 @@ GIT_PROMPT_END="\n${red}└─╼ \[\e[0m\]"
 # machine specific configuration
 #
 [ -f ~/.bashrc_local ] && source ~/.bashrc_local                  # local config
+[ -f ~/.bash_aliases_desktop ] && source ~/.bash_aliases_desktop  # desktop/gui aliases
 [ -f ~/.bash_aliases_local ] && source ~/.bash_aliases_local      # local aliases
+[ -f ~/.bash_functions_desktop ] && source ~/.bash_functions_desktop  # local functions
 [ -f ~/.bash_functions_local ] && source ~/.bash_functions_local  # local functions
 
 # term title with command:
