@@ -26,13 +26,17 @@ set mark-directories on
 # Remove display all message
 set completion-query-items 0
 
-# up-down arrow to search in history
+#up-down arrow to search in history
 "\e[A":history-search-backward
 "\e[B":history-search-forward
 
 # ctrl + up-down arrow to move in history
-"\e[1;5A": next-history
-"\e[1;5B": previous-history
+"\e[1;5A": previous-history
+"\e[1;5B": next-history
+
+# enable Alt-arrows 
+"\e[1;3D": backward-word
+"\e[1;3C": forward-word
 
 #
 # defaults
@@ -61,8 +65,6 @@ $if mode=emacs
 
 # for rxvt
 "\e[8~": end-of-line
-"\eOa": previous-history
-"\eOb": next-history
 
 # for non RH/Debian xterm, can't hurt for RH/DEbian xterm
 "\eOH": beginning-of-line
