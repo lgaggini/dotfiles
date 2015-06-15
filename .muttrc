@@ -16,8 +16,7 @@ set beep_new = yes                      # beep on new msg
 set history = 20                        # history entries
 
 # profile management
-source ~/.mutt/profiles/libersoft       # default profile
-macro index <F1> "<enter-command>source ~/.mutt/profiles/libersoft<enter><change-folder>=INBOX<enter>" "libersoft profile"
+source ~/.mutt/profiles/lgaggini        # default profile
 macro index <F2> "<enter-command>source ~/.mutt/profiles/lgaggini<enter><change-folder>=INBOX<enter>" "lgaggini profile"
 
 # mailbox & directory
