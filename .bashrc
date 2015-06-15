@@ -148,4 +148,4 @@ esac
 #
 # welcome messages and goodies
 #
-fortune -s
+fortune -as
