@@ -123,10 +123,6 @@ pwfile_lgaggini=~/doc/lgaggini/pass/lgaggini.psafe3
 pwfile_lgaggini_path=~/doc/lgaggini/pass/
 pwfile_lgaggini_pass=~/doc/lgaggini/pass/cat/master.gpg
 
-pwfile_libersoft=~/doc/libersoft/pass/libersoft.psafe3
-pwfile_libersoft=~/doc/libersoft/pass/
-pwfile_libersoft_pass=~/doc/libersoft/pass/cat/master.gpg
-
 pwfile=$pwfile_lgaggini
 pwfile_path=$pwfile_lgaggini_path
 pwfile_pass=$pwfile_lgaggini_pass
@@ -140,11 +136,6 @@ getpassdb()
             pwfile=$pwfile_lgaggini
             pwfile_path=$pwfile_lgaggini_path
             pwfile_pass=$pwfile_lgaggini_pass
-            ;;
-        'libersoft')
-            pwfile=$pwfile_libersoft
-            pwfile_path=$pwfile_libersoft_path
-            pwfile_pass=$pwfile_libersoft_pass
             ;;
     esac
 }
@@ -202,7 +193,6 @@ rmpass()
 
 # note folder
 note_path_lgaggini=~/doc/lgaggini/note/
-note_path_libersoft=~/doc/libersoft/note/
 
 note_path=$note_path_lgaggini
 
@@ -213,9 +203,6 @@ note()
     case "$1" in
         'lgaggini')
             note_path=$note_path_lgaggini
-            ;;
-        'libersoft')
-            note_path=$note_path_libersoft
             ;;
     esac
 
@@ -247,9 +234,6 @@ noteg()
         'lgaggini')
             note_path=$note_path_lgaggini
             ;;
-        'libersoft')
-            note_path=$note_path_libersoft
-            ;;
     esac
     grep --color=auto -HInrFoi ${*:2} -C 5 $note_path
 }
@@ -262,8 +246,6 @@ noteg()
 # addressbook path
 addresspath_lgaggini=~/doc/lgaggini/contact/
 addressbook_lgaggini=$addresspath_lgagginilgaggini.abook
-addresspath_libersoft=~/doc/libersoft/contact/
-addressbook_libersoft=$addresspath_libersoftlibersoft.abook
 
 address_path=$addresspath_lgaggini
 addressbook=$addressbook_lgaggini
@@ -277,10 +259,6 @@ contact()
         'lgaggini')
             address_path=$addresspath_lgaggini
             addressbook=$addressbook_lgaggini
-            ;;
-        'libersoft')
-            address_path=$addresspath_libersoft
-            addressbook=$addressbook_libersoft
             ;;
     esac
     abook --datafile $addressbook
