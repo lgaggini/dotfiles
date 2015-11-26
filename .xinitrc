@@ -34,7 +34,7 @@ fi
 xfce4-power-manager &
 
 # autolock
-xautolock -locker xflock4 -time 15 &
+xautolock -locker xflock4 -time 10 &
 
 # connection manager
 wicd-client --tray &
@@ -43,6 +43,9 @@ wicd-client --tray &
 if [ $(~/bin/check_dp3.sh) -eq 0 ]; then
   sh ~/.screenlayout/dp3-left.sh
 fi
+
+# redshift gamma / brightness manager
+redshift-gtk &
 
 # wm
 exec /usr/bin/awesome
