@@ -47,5 +47,8 @@ fi
 # redshift gamma / brightness manager
 redshift-gtk &
 
+# backlight setting
+xbacklight -set 70
+
 # wm
 exec /usr/bin/awesome
