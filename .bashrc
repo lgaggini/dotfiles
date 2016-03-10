@@ -149,3 +149,8 @@ esac
 # welcome messages and goodies
 #
 fortune -as
+
+#
+# check if the ssh keys is unlocked
+#
+ssh-add -l > /dev/null || ssh-add
