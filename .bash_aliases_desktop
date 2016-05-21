@@ -34,6 +34,7 @@ alias office='libreoffice &'
 alias theme='lxappearance &'
 alias mus='sonata &'
 alias mov='smplayer &' 
+alias gitg='GTK_THEME=Vertex:dark gitg'
 
 # music (mpd control + volume + audio conversion)
 alias v-='amixer -q set Master 5- unmute'
