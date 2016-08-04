@@ -20,15 +20,15 @@ volumeicon &
 clipit &
 
 # seafile client
-seafile-applet &
+#seafile-applet &
 
 # custom keyboard mapping
 if [ -f $HOME/.Xmodmap ]; then
-  (sleep 20 && /usr/bin/xmodmap $HOME/.Xmodmap) &
+  (sleep 30 && /usr/bin/xmodmap $HOME/.Xmodmap) &
 fi
 
 # single press of control to escape https://github.com/alols/xcape
-(sleep 20 && xcape) &
+#(sleep 20 && xcape) &
 
 # xfce power manager
 xfce4-power-manager &
@@ -49,6 +49,9 @@ redshift-gtk &
 
 # backlight setting
 xbacklight -set 70
+
+# http://unix.stackexchange.com/a/295652/88209
+source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
 # wm
 exec /usr/bin/awesome
