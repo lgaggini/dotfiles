@@ -10,7 +10,7 @@ alias op='xdg-open'
 alias t='urxvt &' 
 alias b='chromium &'
 alias f='thunar &'
-alias e='gvim &'
+alias ed='gvim &'
 alias se='mys gvim &'
 alias gitg='GTK_THEME=Vertex:dark gitg'
 
