@@ -15,16 +15,15 @@ call vundle#rc()
 Plugin 'gmarik/vundle'
 
 " Basic
-Plugin 'fholgado/minibufexpl.vim'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'terryma/vim-expand-region'
 Plugin 'itchyny/lightline.vim'
-" Extra
-Plugin 'majutsushi/tagbar'
-Plugin 'zhaocai/GoldenView.Vim'
+Plugin 'ap/vim-buftabline'
+Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'terryma/vim-expand-region'
+Plugin 'jiangmiao/auto-pairs.git'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
 Plugin 'jamessan/vim-gnupg'
 
 "
@@ -136,15 +135,9 @@ let NERDTreeChDirMode = 0                                 " not change vim worki
 let NERDTreeQuitOnOpen = 1                                " close tree after file open
 let NERDTreeShowHidden = 1                                " show hidden files
 
-" minibufferexplorer
-let g:miniBufExplUseSingleClick = 1                       " single click for open buffer
-let g:miniBufExplSplitBelow = 0                           " minibuffer bar on top
-let g:miniBufExplModSelTarget = 1                         " compatibility with other explorers (tagbar)
+" buftabline
 map <C-j> :bnext<CR>                                      " map j-k to move between buffer
 map <C-k> :bprev<CR>
-map <C-Left> :bprev<CR>                                   " map left-right to move between buffer
-map <C-Right> :bnext<CR>
-map <C-Tab> :bnext<CR>                                    " map Tab to cycle between bufffer
 
 " tagbar
 nmap <F9> :TagbarToggle<CR>
@@ -178,7 +171,6 @@ inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"       " cursor moving
 inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"     " cursor moving in insert mode
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS " enable omni completion
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete           " enable omni completion
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags             " enable omni completion
 
 " powerline
 let g:lightline = {
@@ -258,10 +250,6 @@ endfunction
 
 " syntastic
 let g:syntastic_python_checkers=['pep8']
-
-" goldenview
-
-" nerdcommenter
 
 " vim expand region
 vmap v <Plug>(expand_region_expand)
