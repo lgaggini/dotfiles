@@ -118,7 +118,7 @@ alias pk='pkill'
 alias ff='find / -name'
 alias fl='file'
 alias sf='sudo find / -name'
-alias gr='grep -color=auto'
+alias gp='grep -color=auto'
 alias sd='sed'
 alias aw='awk'
 alias le='less'
@@ -143,6 +143,7 @@ alias v='vim'
 alias scan='nmap -v -sT -Pn'
 alias netscan='nmap -sn'
 alias ssh='TERM=rxvt ssh'
+alias ssh='TERM=rxvt ssh'
 
 # git aliases
 alias gs='git status'
@@ -159,6 +160,13 @@ alias gg='git grep'
 alias gm='git merge'
 alias gmv='git checkout'
 alias gb='git branch'
+
+# svn aliases
+alias svu='svn update'
+alias svs='svn status'
+alias svc='svn commit -m'
+alias svd='svn diff -r -HEAD'
+alias svl='svn log -v'
 
 # python aliases
 alias p2='python2'
