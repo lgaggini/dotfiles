@@ -5,35 +5,13 @@
 #--      CC BY-SA 3.0     --
 #---------------------------
 
-# folder
-alias bin='cd ~/bin'
-alias film='cd ~/media/video/film/'
-alias tv='cd ~/media/video/serie'
-alias book='cd ~/book/book/'
-alias comics='cd ~/book/comics/'
-alias down='cd ~/download'
-alias doc='cd ~/doc'
-alias code='cd ~/code'
-alias album='cd ~/media/music/album'
-
 # shortcuts
-alias open='xdg-open'
+alias op='xdg-open'
 alias t='urxvt &' 
 alias b='chromium &'
 alias f='thunar &'
-alias sf='sudo thunar &'
 alias e='gvim &'
 alias se='mys gvim &'
-alias mail='thunderbird &'
-alias gnote='zim &'
-alias pad='mousepad &'
-alias tasks='lxtask &'
-alias im='gajim &'
-alias irc='hexchat &'
-alias office='libreoffice &'
-alias theme='lxappearance &'
-alias mus='sonata &'
-alias mov='smplayer &' 
 alias gitg='GTK_THEME=Vertex:dark gitg'
 
 # music (mpd control + volume + audio conversion)

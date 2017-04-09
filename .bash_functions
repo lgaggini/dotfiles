@@ -553,13 +553,6 @@ mm()
     sudo mount $1 /media/mobile && cd /media/mobile
 }
 
-# cdm - mounte selected device ad cd/dvd
-# usage cdm
-cdm()
-{
-    sudo mount /dev/sr0 /media/cdrom && cd /media/cdrom
-}
-
 # isom - mount selected iso to selected mount point 
 # usage: isom <iso>
 isom()

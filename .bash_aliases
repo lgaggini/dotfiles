@@ -12,10 +12,6 @@ alias aliases='cat ~/.bash_aliases'
 alias onbak='sh ~/backup/onbak.sh'
 alias offbak='sh ~/backup/offbak.sh'
 
-# remote machine aliases
-alias agharti='ssh lg@agharti'
-alias nibiru='ssh lg@nibiru'
-
 # yaourt aliases
 alias ysyu='yaourt -Syu'
 alias ysyua='yaourt -Syua'
@@ -144,12 +140,9 @@ alias m='man'
 alias sb='source ~/.bashrc'
 alias e='exit'
 alias v='vim'
-alias sv='sudo vim'
 alias scan='nmap -v -sT -Pn'
 alias netscan='nmap -sn'
 alias ssh='TERM=rxvt ssh'
-alias burn='wodim'
-alias cdrw='wodim dev=/dev/sr0 blank=fast'
 
 # git aliases
 alias gs='git status'
@@ -172,19 +165,28 @@ alias p2='python2'
 alias p='python'
 
 # generic folder aliases
-alias home='cd ~'
 alias .='pwd'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
+alias prev='cd -'
 alias usb='cd /media/usb'
 alias cdrom='cd /media/cdrom'
 alias mobile='cd /media/mobile'
 alias iso='cd /media/iso'
 alias esterno='cd /mnt/esterno'
-alias prev='cd -'
+
+# home folder aliases
+alias home='cd ~'
+alias bin='cd ~/bin'
+alias code='cd ~/code'
+alias down='cd ~/download'
+alias doc='cd ~/doc'
+alias media='cd ~/media '
+alias read='cd ~/read'
+alias tmp='cd ~/tmp'
 
 # super user
 alias s='sudo '
