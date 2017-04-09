@@ -107,11 +107,10 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m'                   # begin underline
 #
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases          # aliases
 [ -f ~/.bash_functions ] && source ~/.bash_functions      # functions
+
+# GIT prompt
 GIT_PROMPT_START="${red}[\t|${root}\u${green}@\[\e[0;96m\]\h${red}][${green}\w${red}]"
 GIT_PROMPT_END="\n${red}└─╼ \[\e[0m\]"
-if [ "$TERM" == 'screen-256color-bce' ]; then
-    GIT_PROMPT_END=${GIT_PROMPT_END}'\[\033k\h\033\\\]'
-fi
 [ -f ~/.bash-git-prompt/gitprompt.sh ] && source ~/.bash-git-prompt/gitprompt.sh    # git prompt
 
 #
@@ -127,7 +126,7 @@ fi
 # http://mg.pov.lt/blog/bash-prompt.html
 case ${TERM} in
   xterm*|rxvt*|Eterm|aterm|kterm|gnome|screen-256color-bce)
-    PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
+    PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/$HOME/\~}"'
     # Show the currently running command in the terminal title:
     # http://www.davidpashley.com/articles/xterm-titles-with-bash.html
     show_command_in_title_bar()
@@ -140,7 +139,13 @@ case ${TERM} in
                 # output them.
                 ;;
             *)
-                echo -ne "\033]0;${USER}@${HOSTNAME}:${PWD/#$HOME/~} ${BASH_COMMAND}\007"
+                SANITIZED_COMMAND=${BASH_COMMAND/TERM=rxvt ssh /}
+                # titlebar
+                echo -ne "\033]0;${USER}@${HOSTNAME}:${PWD/$HOME/\~} ${SANITIZED_COMMAND}\007"
+                # screen tab
+                if [ "$TERM" == 'screen-256color-bce' ]; then
+                    printf $'\ek%s\e\\' "${SANITIZED_COMMAND/setGitPrompt/bash}";
+                fi
                 ;;
         esac
     }
