@@ -14,7 +14,9 @@ Xft.hintstyle:  hintslight
 Xft.lcdfilter:  lcddefault
 
 ! terminal colors ------------------------------------------------------
-#include "/home/lg/.colors/jwr_dark"
+*foreground:  #BCBCBC
+*background:  #1C1C1C
+#include "/home/lg/.colors/star_trail.jpg.xres"
 
 ! urxvt settings--------------------------------------------------------
 !
