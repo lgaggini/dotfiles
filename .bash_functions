@@ -367,15 +367,15 @@ sm()
     $ echo $3 | mailx -s $2 $1
 }
 
-# surf - grab info from web, default archwiki
-# usage: surf <site> <keyword>
-surf()
+# sr - grab info from web, default google by duckduckgo
+# usage: sr <keyword>
+sr()
 {
     if [[ -z "$2" ]]; then
-        surfraw archwiki $1
+        surfraw S \!gitl $1
         return 1
-    fi    
-    surfraw $1 $2
+    fi
+    surfraw $@
 }
 
 # web - web pager
