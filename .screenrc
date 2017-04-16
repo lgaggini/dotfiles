@@ -18,6 +18,7 @@ bindkey -k k4 eval 'next' 'fit'         # F4 | Next Window
 bindkey -k k6 detach                    # F6 | Detach from this session
 bindkey -k k7 eval 'copy' 'stuff ^b'    # F7 | Enter copy/scrollback mode and page up
 bindkey -k k8 title                     # F8 | Rename current window
+bindkey -k F2 paste .                   # F12 | Paste from buffer
 
 # easier scroll
 bindkey "^[[5~" eval 'copy' 'stuff ^b'  # PgUp | Enter copy/scrollback mode and page up
