@@ -168,6 +168,7 @@ alias svc='svn commit -m'
 alias svd='svn diff -r HEAD'
 alias svl='svn log -v'
 alias sva='svn add'
+alias svr='svn revert'
 
 # python aliases
 alias p2='python2'
