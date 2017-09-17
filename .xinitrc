@@ -17,7 +17,7 @@ fi
 volumeicon &
 
 # clipboard mabager
-clipit &
+parcellite &
 
 # seafile client
 #seafile-applet &
