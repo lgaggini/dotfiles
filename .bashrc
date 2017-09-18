@@ -125,7 +125,7 @@ GIT_PROMPT_END="\n${red}$ \[\e[0m\]"
 # term title with command:
 # http://mg.pov.lt/blog/bash-prompt.html
 case ${TERM} in
-  xterm*|rxvt*|Eterm|aterm|kterm|gnome|screen-256color-bce)
+  xterm*|rxvt*|Eterm|aterm|kterm|gnome|screen-256color-bce|screen-256color)
     PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/$HOME/\~}"'
     # Show the currently running command in the terminal title:
     # http://www.davidpashley.com/articles/xterm-titles-with-bash.html
@@ -142,8 +142,8 @@ case ${TERM} in
                 SANITIZED_COMMAND=${BASH_COMMAND/TERM=rxvt ssh /}
                 # titlebar
                 echo -ne "\033]0;${USER}@${HOSTNAME}:${PWD/$HOME/\~} ${SANITIZED_COMMAND}\007"
-                # screen tab
-                if [ "$TERM" == 'screen-256color-bce' ]; then
+                # screen / tmux tab
+                if [ "$TERM" == 'screen-256color-bce' ] || [ "$TERM" == 'screen-256color' ]; then
                     printf $'\ek%s\e\\' "${SANITIZED_COMMAND/setGitPrompt/bash}";
                 fi
                 ;;
