@@ -145,6 +145,7 @@ alias netscan='nmap -sn'
 alias ssh='TERM=rxvt ssh'
 alias ssh='TERM=rxvt ssh'
 alias unlock='gkeyring -k Portachiavi_predefinito --unlock'
+alias wttr='curl wttr.in'
 
 # git aliases
 alias gs='git status'
