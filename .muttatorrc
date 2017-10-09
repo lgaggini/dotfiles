@@ -30,5 +30,6 @@ highlight URL text-decoration: none; color: lightblue; background: inherit;
 highlight WarningMsg color: red; background: #222222;
 source! /home/lg/.muttatorrc.local
 set gui=menu
+map f :javascript hints.show("o")<CR>
 
 " vim: set ft=muttator:
