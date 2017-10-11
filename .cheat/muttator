@@ -1,0 +1,83 @@
+!                                       Mark/unmark selected messages as junk
+#                                       Select previous message from the same sender
+*                                       Select next message from the same sender
++                                       Scroll message down pagewise
+-                                       Scroll message up pagewise
+:                                       Enter command line mode
+:                                       Enter command line mode
+<C-S-N>                                 Go to next mailbox with unread messages
+<C-S-P>                                 Go to previous mailbox with unread messages
+<C-^>                                   Select the alternate tab or the [count]th tab
+<C-i>                                   Go forward
+<C-n>                                   Go to the next tab
+<C-n>                                   Select next folder
+<C-o>                                   Go back
+<C-p>                                   Select previous folder
+<C-r>                                   Redo
+<C-s>                                   Archive message
+<C-t>                                   Mark all messages as read
+<Down>                                  Scroll message down
+<Esc>                                   Focus content
+<F1>                                    Open the help page
+<Nop>                                   Do nothing
+<Return>                                Start message mode
+<S-Esc>                                 Temporarily ignore all Muttator key bindings
+<S-Tab>                                 Rewind keyboard focus
+<Space>                                 Scroll message or select next unread one
+<Tab>                                   Advance keyboard focus
+<Up>                                    Scroll message up
+@                                       Play a macro
+B                                       Show buffer list
+C                                       Compose a new message to the sender of selected mail
+D                                       Delete current buffer and select the tab to the left
+F                                       Forward message inline
+G                                       Select last message
+J                                       Select next unread message
+K                                       Select previous unread message
+M                                       Open the message in new tab
+R                                       Reply to all
+S                                       Copy selected messages
+T                                       Mark current folder as read
+ZZ                                      Quit and save the session
+[a                                      Select previous message with an attachment
+[s                                      Select previous starred message
+]a                                      Select next message with an attachment
+]s                                      Select next starred message
+b                                       Open a prompt to switch buffers
+c                                       Compose a new message
+d                                       Delete current tab and select the tab to the right
+d                                       Move mail to Trash folder
+f                                       Enter in hint mode
+g$                                      Go to the last tab
+g0                                      Go to the first tab
+g<lt>                                   Redisplay the last command output
+gB                                      Repeat last :buffer[!] command in reverse direction
+gM                                      Get new messages for current account only
+gT                                      Go to previous tab
+gb                                      Repeat last :buffer[!] command
+gg                                      Select first message
+gi                                      Go to inbox
+gj                                      Select next message, including closed threads
+gk                                      Select previous message
+gm                                      Get new messages
+gt                                      Go to the next tab
+h                                       Toggle displayed headers
+i                                       Ignore next key and send it directly to the webpage
+j                                       Select next message
+k                                       Select previous message
+l                                       Label message
+o                                       Goto folder
+p                                       Open RSS message in browser
+q                                       Record a key sequence into a macro
+r                                       Reply to sender
+s                                       Move selected messages
+t                                       Select thread
+u                                       Undo
+x                                       Toggle HTML message display
+y                                       Yank field
+za                                      Toggle thread collapsed/expanded
+zc                                      Collapse thread
+zm                                      Collapse all threads
+zo                                      Open thread
+zr                                      Expand all threads
+

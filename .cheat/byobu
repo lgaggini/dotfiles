@@ -1,0 +1,55 @@
+Manipulation
+F2                                          New window
+Ctrl-F1                                     Split window horizontal
+Ctrl-F2                                     Split window vertical
+Ctrl-F3                                     Swap panels
+Ctrl-F4                                     Swap panels
+Ctrl-Shift-F3                               Swap windows
+Ctrl-Shift-F4                               Swap windows
+Ctrl-Up                                     Resize panel up
+Ctrl-Down                                   Resize panel down
+Ctrl-Left                                   Resize panel left
+Ctrl-Right                                  Resize panel right
+Alt-F11                                     Separate panels from current window
+Ctrl-F11                                    Join windows as panels in current window
+Shift-F11                                   Full screen current panel toggle
+
+Moving around
+F3                                          Previous window
+F4                                          Next window
+Alt-Up                                      Previous session
+Alt-Down                                    Next session
+Alt-F3                                      Previous panel
+Alt-F4                                      Next panel
+Shift-Up                                    Next panel up
+Shift-Down                                  Next panel down
+Shift-Left                                  Next panel left
+Shift-Right                                 Next panel right
+
+Tools
+F6                                          Detach
+Ctrl-F6                                     Kill Panel
+F7                                          Copy mode
+Alt-NPage                                   Page up
+Alt-PPage                                   Page down
+Alt-Insert                                  Paste buffer
+Shift-F7                                    Send command to all panes
+Ctrl-F9                                     Send command to all windows
+
+Settings
+F9                                          Byobu configuration
+F8                                          Rename panel
+Ctrl-F8                                     Rename session
+Alt-F8                                      Cycle layouts
+Alt-F9                                      Synchronize and display panels
+Shift-F3                                    Display help
+F5                                          Reload profile
+Alt-F5                                      Toggle UTF-8
+Shift-F5                                    Cycle statusbar
+Ctrl-F5                                     Reconnect socket
+Alt-Shift-F5                                Cycle profile
+Shift-F8                                    Capture current panel to printscreen file and show
+Alt-Shift-F8                                Load layout
+Alt-Shift-F9                                Save layout
+Shift-F12                                   Toggle Fkeys
+Alt-F12                                     Toggle mouse support
