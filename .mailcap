@@ -28,8 +28,8 @@ application/vnd.oasis.opendocument.text-template; mutt_bgrun /usr/bin/libreoffic
 # image formats
 image/*; mutt_bgrun /usr/bin/ristretto '%s'; test=test -n "$DISPLAY"
 # compressed file
-application/zip; mutt_bgrun /usr/bin/file-roller '%s'; test=test -n "$DISPLAY"
-application/x-rar; mutt_bgrun /usr/bin/file-roller '%s'; test=test -n "$DISPLAY"
-application/x-compressed; mutt_bgrun /usr/bin/file-roller '%s'; test=test -n "$DISPLAY" 
-application/x-gtar; mutt_bgrun /usr/bin/file-roller '%s'; test=test -n "$DISPLAY"
-application/x-bzip2; mutt_bgrun /usr/bin/file-roller '%s'; test=test -n "$DISPLAY"
+application/zip; mutt_bgrun /usr/bin/xarchiver '%s'; test=test -n "$DISPLAY"
+application/x-rar; mutt_bgrun /usr/bin/xarchiver '%s'; test=test -n "$DISPLAY"
+application/x-compressed; mutt_bgrun /usr/bin/xarchiver '%s'; test=test -n "$DISPLAY" 
+application/x-gtar; mutt_bgrun /usr/bin/xarchiver '%s'; test=test -n "$DISPLAY"
+application/x-bzip2; mutt_bgrun /usr/bin/xarchiver '%s'; test=test -n "$DISPLAY"
