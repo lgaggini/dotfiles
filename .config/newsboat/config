@@ -1,15 +1,11 @@
 #---------------------------
-#--  .newsbeuter/config   --
+#--   .newsboat/config    --
 #--      by lgaggini      --
 #--      CC BY-SA 3.0     --
 #---------------------------
 
 # Accounts
-urls-source "ttrss"
-ttrss-url ""
-ttrss-login ""
-ttrss-password ""
-ttrss-mode "multi"
+urls-source "local"
 
 # General options
 browser "chromium %u"
@@ -20,6 +16,7 @@ max-items 300
 keep-articles-days 15
 delete-read-articles-on-quit yes
 cleanup-on-quit yes
+download-full-page yes
 
 # Colors scheme
 color   background   default default 
