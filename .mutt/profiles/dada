@@ -1,0 +1,19 @@
+# mailbox & directory
+set folder = "~/mail"                   # mailbox folder
+set record = "~/mail/Posta\ inviata/"   # sent mail folder
+set postponed = "~/mail/Bozze/"         # draft mail folders
+set spoolfile = "~/mail/INBOX/"         # inbox
+set trash = "~/mail/Posta\ eliminata/"  # trash folder for mail delete
+
+# default profile for new messages
+source ~/.mutt/profiles/dada_send/outlook
+
+# sync headers and signature for reply
+reply-hook ~Clorenzo.gaggini@dada.eu "source ~/.mutt/profiles/dada_send/outlook"
+
+# address book
+# set query_command = "abook --datafile ~/doc/lgaggini/contact/lgaggini.abook --mutt-query '%s'"
+
+# sidebar
+unmailboxes *
+mailboxes `echo /home/lg/mail/*/ | sed "s/ /\\\ /g" | sed 's/\/\\//g' `       # mailboxes in the sidebar

@@ -46,7 +46,7 @@ export PATH=$PATH:/usr/lib/surfraw          # surfraw addition
 #
 # app env variables
 #
-export MAIL=/srv/mail/$LOGNAME/INBOX/
+export MAIL=~/mail/INBOX
 export LANG=it_IT.utf8
 export EDITOR=/usr/bin/vim
 export VISUAL=$EDITOR

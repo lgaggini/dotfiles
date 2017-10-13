@@ -1,0 +1,11 @@
+# headers
+my_hdr From: Lorenzo Gaggini <lorenzo.gaggini@dada.eu>
+my_hdr Reply-To: Lorenzo Gaggini <lorenzo.gaggini@dada.eu>
+my_hdr X-Operating-System: "`uname -sr` - powered by Archlinux" 
+my_hdr X-Disclaimer: Free as in Freedom
+my_hdr X-Mailer: Mutt http://www.mutt.org
+my_hdr X-Editor: Vim http://www.vim.org
+
+# signature
+set sig_dashes = yes 
+set signature = "~/.signature/dada"

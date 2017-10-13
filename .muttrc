@@ -8,7 +8,7 @@
 set help = yes                          # enable help
 set status_on_top = no                  # status line on bottom
 set charset = utf-8                     # charset
-set locale = "it_IT.utf8"               # locale
+#set locale = "it_IT.utf8"               # locale
 set ascii_chars = yes                   # use ascii chars
 set beep = no                           # no beep on error
 set mark_old = yes                      # mark old msg not read
@@ -16,8 +16,7 @@ set beep_new = yes                      # beep on new msg
 set history = 20                        # history entries
 
 # profile management
-source ~/.mutt/profiles/lgaggini        # default profile
-macro index <F2> "<enter-command>source ~/.mutt/profiles/lgaggini<enter><change-folder>=INBOX<enter>" "lgaggini profile"
+source ~/.mutt/profiles/dada            # default profile
 
 # mailbox & directory
 set mbox_type = Maildir                 # mailbox type
@@ -38,7 +37,7 @@ set pager_context = 2                   # lines between two scree in pager
 set tilde = yes                         # replace final empty lines with tilde
 set smart_wrap = yes                    # wrap long lines
 set markers = yes                       # set marker for wrapped lines
-#auto_view text/html                     # auto view for html mail
+auto_view text/html                     # auto view for html mail
 
 # attachment
 set mailcap_path = ~/.mailcap:/etc/mailcap:/usr/lib/mime/mailcap
@@ -106,18 +105,26 @@ bind    editor  <down>      history-down
 bind    editor  <up>        history-up
 bind    index   \t          collapse-thread
 
+# neomutt
+bind index X change-vfolder  # open a different virtual folder
+bind index + entire-thread   # read entire thread of the current message
+bind index \` modify-labels  # modify (notmuch) tags
+bind index / vfolder-from-query  # generate virtual folder from query
+bind index < vfolder-window-backward # generate virtual folder from query with time window
+bind index > vfolder-window-forward # generate virtual folder from query with time window
+
 # macro
 macro browser m <return><mail> "start compose a message"
 macro index,pager A " abook --add-email-quiet" "add the sender address to abook"
 
 # sidebar
-set sidebar_width = 30                      # sidebar width
-set sidebar_visible = yes                   # sidebar enabled
-bind index \CP sidebar-prev                 # ctrl-n to select prev folder
-bind index \CN sidebar-next                 # ctrl-n to select next folder
-bind index \CO sidebar-open                 # ctrl-o to open selected folder
-bind pager \CP sidebar-prev                 # ctrl-n to select prev folder
-bind pager \CN sidebar-next                 # ctrl-n to select next folder
-bind pager \CO sidebar-open                 # ctrl-o to open selected folder
+set sidebar_width = 30                              # sidebar width
+set sidebar_visible = yes                           # sidebar enabled
+bind index \CP sidebar-prev                         # ctrl-n to select prev folder
+bind index \CN sidebar-next                         # ctrl-n to select next folder
+bind index \CO sidebar-open                         # ctrl-o to open selected folder
+bind pager \CP sidebar-prev                         # ctrl-n to select prev folder
+bind pager \CN sidebar-next                         # ctrl-n to select next folder
+bind pager \CO sidebar-open                         # ctrl-o to open selected folder
 
 #gpg
