@@ -5,15 +5,20 @@
 These are configuration files for my GNU/Linux toolboox:
 
 * shell: `bash`
+* terminal: `urxvt`
+* terminal multiplexer: `tmux + byobu`
 * wm: awesome
 * editor: `vim`
-* email: `mutt` + `notmuch`
-* feed: `newsbeuter`
+* email: `mutt` + `notmuch`, 
+* email gui: `thunderbird` + `muttator`
+* pim: `khal` + `todoman` + `davmail` + `vdirsyncer`
+* pim gui: `thunderbird` + `lightning`
+* feed: `newsboat` + `w3m` + [custom script](https://gist.github.com/lgaggini/f0d0e119a0ab4410943dd227370f6fe6)
 * ide: `gvim`
 * versioning: `git`
-* music: `mpd` 
+* music: `mopidy` + `sonata` 
 * browser: `w3m`
-* surfer: `surfraw`
+* surfer: `surfraw` + `w3m` + [custom script](https://gist.github.com/lgaggini/f0d0e119a0ab4410943dd227370f6fe6)
 * password manager: `pwsafe`
 * personal finance: `ledger`
 * document viewer:  `zathura`
