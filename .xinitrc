@@ -50,6 +50,9 @@ redshift-gtk &
 # backlight setting
 xbacklight -set 50
 
+# davamil start
+davmail &
+
 # http://unix.stackexchange.com/a/295652/88209
 source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
