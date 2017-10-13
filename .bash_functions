@@ -378,6 +378,18 @@ sr()
     surfraw $@
 }
 
+# srg - grab info from web, default google by duckduckgo, gui version
+# usage: srg <keyword>
+srg()
+{
+    if [[ -z "$2" ]]; then
+        surfraw -g S \!gitl $1
+        return 1
+    fi
+    surfraw $@
+}
+
+
 # web - web pager
 # usage: web <url>
 web()

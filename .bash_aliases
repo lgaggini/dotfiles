@@ -146,6 +146,7 @@ alias ssh='TERM=rxvt ssh'
 alias ssh='TERM=rxvt ssh'
 alias unlock='gkeyring -k Portachiavi_predefinito --unlock'
 alias wttr='curl wttr.in'
+alias cal='khal'
 
 # git aliases
 alias gs='git status'
