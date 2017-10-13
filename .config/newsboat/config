@@ -8,7 +8,7 @@
 urls-source "local"
 
 # General options
-browser "chromium %u"
+browser "~/bin/tmux_splitted_pager.sh %u"
 refresh-on-startup yes
 show-read-feeds no
 article-sort-order date-desc
