@@ -1,0 +1,60 @@
+Hyperlink operations
+U:              go to URL Enter the URL you whish to visit.
+Esc-u:          go to relative URL Enter the relative URL you whish to visit.
+c:              peek current URL See what the URL of the current document is.
+u:              peek link URL  Place cursor on a link and hit "u" to see what URL it links to.
+i:              peek image URL Place cursor on a image and hit "i" to see what the URL of the image is.
+L:              Show all links and images Hit "L" to get a list of all links, anchors and images of the current page.
+Esc-l:          Popup linkslist Hit "Esc-l" (small L) to get a popup menu filled with all the links of the current page.
+Esc-M:          open in external browser Place cursor on a link and hit "Esc-M" (shift-M) to open the link in an external browser.
+
+Navigation operations
+B:              Back
+s:              Show history in popup selection menu and go to selected page
+R:              Reload the current document
+Esc-a:          Add current page to bookmarks
+Esc-b:          Open a bookmarked page
+Cltr-h:         View history
+
+Tab operations
+T:              open new tab
+Ctrl-q:         close current tab
+{:              move to previous tab
+}:              move to next tab
+Esc-t:          open popup tab selection menu and move to seleced tab
+Ctrl-t:         open current link in a new tab
+
+Document operations
+v:              toggle view html-source / normal view
+S:              save the rendered output of the current document to a file
+Esc-s:          save the current document to a file
+E:              edit current document open the current document in an editor if the current document is a local document
+Esc-e:          edit rendered document open the rendered output of the current document in an editor
+
+Image operations
+I:              view image Place cursor on a image and hit "I" to view the image in an external image viewer.
+i:              peek image URL Place cursor on a image and hit "i" to see what the URL of the image is.
+Esc-I:          save image Place cursor on a image and hit "Esc-I" to save the image.
+
+Pager operations
+<space>:        scroll one screen down
++:              scroll one screen down
+Ctrl-v:         scroll one screen down
+b:              scroll one screen up
+-:              scroll one screen up
+Esc-v:          scroll one screen up
+k:              move cursor up one line
+j:              move cursor down one line
+K:              scroll down one line
+J:              scroll up one line
+<:              shift screen left
+>:              shift screen right
+Z:              move to center line
+[:              go to first link
+]:              go to last link
+<tab>:          move to the next link
+Esc-m:          get a popup menu filled with all the links of the current page and move to the selected link.
+Ctrl-l:         redraw screen
+Miscalanious    operations
+Ctrl-k:         view cookies
+m:              toggle mouse operations (handy to select with the mouse pointer without having to pres shift)

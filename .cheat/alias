@@ -1,0 +1,210 @@
+#!/bin/sh
+#---------------------------
+#--     .bash_aliases     --
+#--      by lgaggini      --
+#--      CC BY-SA 3.0     --
+#---------------------------
+
+# list
+aliases='cat ~/.bash_aliases'
+
+# script
+onbak='sh ~/backup/onbak.sh'
+offbak='sh ~/backup/offbak.sh'
+
+# yaourt aliases
+ysyu='yaourt -Syu'
+ysyua='yaourt -Syua'
+ys='yaourt -S'
+ysy='yaourt -Sy'
+yrs='yaourt -Rs'
+yr='yaourt -R'
+yss='yaourt -Ss'
+ysc='yaourt -Sc'
+yscc='yaourt -Scc'
+yqe='yaourt -Qe'
+yqs="yaourt -Qs"
+yql="yaourt -Ql"
+yqi="yaourt -Qi"
+yqqtd="yaourt -Qqtd"
+
+# completion for yaourt / pacman aliases
+function _pacalias
+{
+    local cur
+    source /usr/share/bash-completion/completions/pacman
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    case $COMP_WORDS in
+        yr*)
+            _pacman_pkg Qq;;
+        yq*)
+            { _arch_incomp 'g groups' && _pacman_pkg Qg sort; }    ||
+            { _arch_incomp 'p file'   && _pacman_file; }           ||
+            _arch_incomp 'o owns'   || _arch_incomp 'u upgrades' ||
+            _pacman_pkg Qq;;
+        ys*)
+            { _arch_incomp 'g groups' && _pacman_pkg Sg; }      ||
+            { _arch_incomp 'l list'   && _pacman_pkg Sl sort; } ||
+            _pacman_pkg Slq;;
+        yu*)
+            _pacman_file;;
+    esac
+    return 0;
+}
+complete -F _pacysyu
+complete -F _pacys
+complete -F _pacyss
+complete -F _pacysc
+complete -F _pacyscc
+complete -F _pacyqs
+complete -F _pacyql
+complete -F _pacyqi
+complete -F _pacyrs
+complete -F _pacyr
+
+# aptitude/apt-get alias
+manager='aptitude'
+apu='sudo $manager update'
+apuu='sudo $manager upgrade'
+api='sudo $manager install'
+apr='sudo $manager remove'
+app='sudo $manager purge'
+aps='sudo $manager search'
+apss='sudo $manager show'
+apc='sudo $manager clean'
+apcc='sudo $manager autoclean'
+apd='sudo $manager download'
+
+# completion for aptitude / apt-get aliases
+function _apalias()
+{
+    local cur
+    cur=`_get_cword`
+    case $COMP_WORDS in
+        api|apss|apd)
+            COMPREPLY=( $( apt-cache pkgnames $cur 2> /dev/null ) )
+            return 0;;
+        apr|app)
+            source /usr/share/bash-completion/completions/dpkg
+            COMPREPLY=( $( _comp_dpkg_installed_packages "$cur" ) )
+            return 0;;
+    esac
+    return 0
+}
+complete -F _apapi
+complete -F _apapss
+complete -F _apapd
+complete -F _apapr
+complete -F _apapp
+
+# toolbox aliases (ls, cp, grep, find, cd, etc.)
+la='ls -a --color=auto'
+ll='ls -alh --color=auto'
+lr='ls -aR --color=auto'
+lt='ls -lahrt --color=auto'
+ln='ln -si'
+mv='mv -iv'
+cp='cp -ripv'
+rm='rm -rv'
+df='df -h'
+cl='column'
+du='du -h'
+diff='colordiff'
+md='mkdir -p'
+rd='rmdir'
+ps='ps auxf'
+kl='kill'
+pk='pkill'
+ff='find / -name'
+fl='file'
+sf='sudo find / -name'
+gp='grep -color=auto'
+sd='sed'
+aw='awk'
+le='less'
+he='head'
+tp='htop'
+ta='tail -f'
+ct='cat'
+rs='rsync --progress --partial'
+st='sort'
+pg='ping -c 7'
+un='uniq'
+ut='sudo umount'
+wh='which'
+lsdir='du -xmh --max-depth=1 | sort -rh'
+path='echo -e ${PATH//:/\\n}'
+c='clear'
+h='history'
+m='man'
+sb='source ~/.bashrc'
+e='exit'
+v='vim'
+scan='nmap -v -sT -Pn'
+netscan='nmap -sn'
+ssh='TERM=rxvt ssh'
+ssh='TERM=rxvt ssh'
+unlock='gkeyring -k Portachiavi_predefinito --unlock'
+wttr='curl wttr.in'
+cal='khal'
+
+# git aliases
+gs='git status'
+gv='git show'
+gd='git diff --word-diff'
+gc='git commit'
+ga='git add'
+gpl='git pull'
+gps='git push'
+gr='git rm'
+gt='git timeline'
+gl='git log --oneline --decorate'
+gg='git grep'
+gm='git merge'
+gmv='git checkout'
+gb='git branch'
+
+# svn aliases
+svu='svn update'
+svs='svn status'
+svc='svn commit -m'
+svd='svn diff -r HEAD'
+svl='svn log -v'
+sva='svn add'
+svr='svn revert'
+
+# python aliases
+p2='python2'
+p='python'
+
+# generic folder aliases
+.='pwd'
+..='cd ..'
+...='cd ../..'
+....='cd ../../..'
+.....='cd ../../../..'
+......='cd ../../../../..'
+prev='cd -'
+usb='cd /media/usb'
+cdrom='cd /media/cdrom'
+mobile='cd /media/mobile'
+iso='cd /media/iso'
+esterno='cd /mnt/esterno'
+
+# home folder aliases
+home='cd ~'
+bin='cd ~/bin'
+code='cd ~/code'
+down='cd ~/download'
+doc='cd ~/doc'
+media='cd ~/media'
+reading='cd ~/read'
+tmp='cd ~/tmp'
+
+# super user
+s='sudo '
+sudo='sudo '
+mys='sudo -E'
+res='sudo !!'
+reboot='sudo reboot'
+poweroff='sudo halt'

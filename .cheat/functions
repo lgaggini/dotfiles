@@ -1,0 +1,131 @@
+# help_funcs - summary of custom user functions
+# usage: help-funcs
+--
+{
+    cat "${HOME}/.bash_functions" | grep -B 1 usage
+--
+# start, stop, restart, reload, status - simple systemd / system V daemon management
+# usage: start/stop/restart/reload <daemon-name>
+--
+# mkcd - makedir and cd in it
+# usage: mkcd <file>
+--
+# cpcd - cp and cd to destination
+# usage: cpcd <cp-arguments>
+--
+# mvcd - mv and cd to destination
+# usage: mvcd <mv-arguments>
+--
+# cdls - cd and ls
+# usage: cdls <path>
+--
+# up - cd up by n directories
+# usage: up <level-numbers>
+--
+# uprm - move up by 1 and remove directory
+# usage: uprm
+--
+# swap - switch 2 filenames around
+# usage: swap <file1> <file2>
+--
+# bak - backup selected file
+# usage: bak <filename>
+--
+# default - set file/directory owner and permissions to normal values (644/755)
+# usage: default <file>
+--
+# grab - grab the ownership of a file
+# usage: grab <file>
+--
+# own - change ownership
+# usage: own <file> <user>
+--
+# cpmod - copy permission from file1 to file2
+# usage: cpmod <file1> <file2>
+--
+# lowercase - rename file names to lowercase and replace space with underscore from pwd
+# usage: lowercase
+--
+# fix-tabs - replace tabs with space
+# usage: fix-tabs <file>
+--
+# fp - find a file by name in pwd
+# usage: fp <name>
+--
+# fr - find a file by name globally
+# usage: fr <name>
+--
+# fcd - find a file by name in selected path
+# usage: fcd <name> <path>
+--
+# fpg - find a file by grepping in pwd
+# usage: fpg <word>
+--
+# frg - find a file by grepping in root
+# usage: frg <word>
+--
+# fcdg - find a file by grepping in selected path
+# usage: fcdg <word> <path>
+--
+# mang - search in man page
+# usage: mang <manpage> <word>
+--
+# hig - search in history
+# usage: hig <word>
+--
+# psg - check if a process is running by name and return PID(s)
+# usage: psg <process-name>
+--
+# dict - dictionary
+# usage: dict <keyword>
+--
+# calc - basic calculator
+# usage: calc <expression>
+--
+# sm - send email from console
+# usage: sm <to> <subject> <body> 
+--
+# sr - grab info from web, default google by duckduckgo
+# usage: sr <keyword>
+--
+# srg - grab info from web, default google by duckduckgo, gui version
+# usage: srg <keyword>
+--
+# web - web pager
+# usage: web <url>
+--
+# publicip - get the current public ip address
+# usage: publicip
+--
+# extract - extract compressed files
+# usage: extract <files>
+--
+# compress - archive wrapper
+# usage: compress <foo.tar.gz> ./foo ./bar
+--
+# colors - test console colors
+# usage: colors
+--
+# mkiso - make iso from folder
+# usage: mkiso <folder> <volume-name>
+--
+# log - view live and color logs
+# usage: log <logname>
+--
+# dotfiles - sync dotfiles for git sync
+# usage: dotfiles
+--
+# cf - wrapper for configuration files
+# usage: cf <alias-or-filename>
+--
+# pw - generate a random password
+# usage: pw <password-length> - defaults to 12
+--
+# um - mount selected device ad usb stick or disk
+# usage: um <dev>
+--
+# mm - mount selected device as mobile
+# usage: mm <dev>
+--
+# isom - mount selected iso to selected mount point 
+# usage: isom <iso>
