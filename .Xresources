@@ -137,8 +137,10 @@ URxvt*borderLess:         false
 ! fonts
 !
 ! xft fonts
-URxvt*font: xft:DejaVu Sans Mono for Powerline:size=11
-URxvt*boldFont: xft:DejaVu Sans Mono for Powerline:bold:size=11
+!URxvt*font: xft:DejaVu Sans Mono for Powerline:size=11
+URxvt*font: xft:Hack:size=11
+!URxvt*boldFont: xft:DejaVu Sans Mono for Powerline:bold:size=11
+URxvt*boldFont: xft:Hack:bold:size=11
 ! normal fonts
 !URxvt*font:-*-courier-medium-r-normal-*-14-*-*-*-*-*-iso8859-1
 !URxvt*boldFont:-*-courier-bold-r-normal-*-14-*-*-*-*-*-iso8859-1
