@@ -16,4 +16,5 @@ reply-hook ~Clorenzo.gaggini@dada.eu "source ~/.mutt/profiles/dada_send/outlook"
 
 # sidebar
 unmailboxes *
-mailboxes `echo /home/lg/mail/*/ | sed "s/ /\\\ /g" | sed 's/\/\\//g' `       # mailboxes in the sidebar
+#mailboxes `echo /home/lg/mail/*/ | sed "s/ /\\\ /g" | sed 's/\/\\//g' ` # mailboxes in the sidebar
+mailboxes `cat ~/.mutt/profiles/subscriptions`                           # mailboxes in the sidebar
