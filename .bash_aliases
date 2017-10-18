@@ -147,6 +147,7 @@ alias ssh='TERM=rxvt ssh'
 alias unlock='gkeyring -k Portachiavi_predefinito --unlock'
 alias wttr='curl wttr.in'
 alias cal='khal'
+alias mirror_update='sudo reflector --latest 100 --sort rate --save /etc/pacman.d/mirrorlist'
 
 # git aliases
 alias gs='git status'
