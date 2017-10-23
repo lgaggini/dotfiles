@@ -139,6 +139,8 @@ alias h='history'
 alias m='man'
 alias sb='source ~/.bashrc'
 alias e='exit'
+
+# app aliases
 alias v='vim'
 alias scan='nmap -v -sT -Pn'
 alias netscan='nmap -sn'
@@ -148,6 +150,7 @@ alias unlock='gkeyring -k Portachiavi_predefinito --unlock'
 alias wttr='curl wttr.in'
 alias cal='khal'
 alias mirror_update='sudo reflector --latest 100 --sort rate --save /etc/pacman.d/mirrorlist'
+alias mutt='neomutt'
 
 # git aliases
 alias gs='git status'
