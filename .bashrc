@@ -113,6 +113,8 @@ GIT_PROMPT_START="${red}[${root}\u${green}@\[\e[0;96m\]\h${red}][${green}\w${red
 GIT_PROMPT_END="\n${red}$ \[\e[0m\]"
 [ -f ~/.bash-git-prompt/gitprompt.sh ] && source ~/.bash-git-prompt/gitprompt.sh    # git prompt
 
+# Fuzzy finder completion
+source /usr/share/fzf/completion.bash
 #
 # machine specific configuration
 #
