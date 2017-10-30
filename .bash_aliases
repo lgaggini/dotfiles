@@ -145,12 +145,12 @@ alias v='vim'
 alias scan='nmap -v -sT -Pn'
 alias netscan='nmap -sn'
 alias ssh='TERM=rxvt ssh'
-alias ssh='TERM=rxvt ssh'
 alias unlock='gkeyring -k Portachiavi_predefinito --unlock'
 alias wttr='curl wttr.in'
 alias cal='khal'
 alias mirror_update='sudo reflector --latest 100 --sort rate --save /etc/pacman.d/mirrorlist'
 alias mutt='neomutt'
+alias vpn='sudo openvpn --config ~/.openvpn/dada/client.conf'
 
 # git aliases
 alias gs='git status'
