@@ -572,7 +572,7 @@ isom()
     sudo mount $1 /media/iso -oloop && cd /media/iso
 }
 
-#cheat autocompletion
+# cheat autocompletion
 function _cheat_autocomplete {
     sheets=$(cheat -l | cut -d' ' -f1)
     COMPREPLY=()
@@ -582,3 +582,9 @@ function _cheat_autocomplete {
 }
 
 complete -F _cheat_autocomplete cheat
+
+# check aur packages update
+yqu()
+{
+  yaourt -Qs | grep "^local" | cut -d '/' -f2 | cut -d' ' -f1 | while read package; do yaourt -Ss $package; done | grep 'installed:' | cut -d'/' -f2 | cut -d' ' -f1
+}
