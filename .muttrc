@@ -21,7 +21,7 @@ source ~/.mutt/profiles/dada            # default profile
 # mailbox & directory
 set mbox_type = Maildir                 # mailbox type
 set mask = "!^\\.[^.]"                  # mailbox scan
-set copy = no                           # copy managed by gmail
+set copy = yes                          # save sent mails
 set move = no                           # not move from spool
 set tmpdir = /tmp                       # temporary files
 
