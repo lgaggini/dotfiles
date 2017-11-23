@@ -4,8 +4,8 @@ Ctrl-F1                                     Split window horizontal
 Ctrl-F2                                     Split window vertical
 Ctrl-F3                                     Swap panels
 Ctrl-F4                                     Swap panels
-Ctrl-Shift-F3                               Swap windows
-Ctrl-Shift-F4                               Swap windows
+Alt-Shift-F3                               Swap windows
+Alt-Shift-F4                               Swap windows
 Ctrl-Up                                     Resize panel up
 Ctrl-Down                                   Resize panel down
 Ctrl-Left                                   Resize panel left
