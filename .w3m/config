@@ -122,7 +122,7 @@ ssl_cert_file
 ssl_key_file 
 ssl_ca_path 
 ssl_ca_file 
-use_cookie 1
+use_cookie 0
 show_cookie 0
 accept_cookie 1
 accept_bad_cookie 0
