@@ -35,7 +35,7 @@ else
   root="${red}"
 fi
 
-PS1="${green}\w\n${red}> \[\e[0m\]"
+PS1="${bred}\w\n${bcyan}> \[\e[0m\]"
 
 #
 # path
@@ -109,8 +109,8 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m'                   # begin underline
 [ -f ~/.bash_functions ] && source ~/.bash_functions      # functions
 
 # GIT prompt
-GIT_PROMPT_START="${green}\w"
-GIT_PROMPT_END="\n${red}> \[\e[0m\]"
+GIT_PROMPT_START="${bred}\w"
+GIT_PROMPT_END="\n${bcyan}> \[\e[0m\]"
 [ -f ~/.bash-git-prompt/gitprompt.sh ] && source ~/.bash-git-prompt/gitprompt.sh    # git prompt
 
 # Fuzzy finder completion
