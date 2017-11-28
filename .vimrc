@@ -139,7 +139,6 @@ let NERDTreeQuitOnOpen = 1                                " close tree after fil
 let NERDTreeShowHidden = 1                                " show hidden files
 
 " tagbar
-nmap <F9> :TagbarToggle<CR>
 nnoremap <silent> <leader>tt :TagbarToggle<CR>            " tagbar toggle key
 let g:tagbar_left = 0                                     " tagbar to the right
 let g:tagbar_autofocus = 1                                " tagbar focus on open  
