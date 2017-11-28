@@ -16,7 +16,6 @@ Plugin 'gmarik/vundle'
 
 " Basic
 Plugin 'itchyny/lightline.vim'
-Plugin 'ap/vim-buftabline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'mileszs/ack.vim'
@@ -118,8 +117,12 @@ endif
 "
 let mapleader = "\<Space>"      " custom map leader
 let g:mapleader = "\<Space>"    " custom map leader
-map <Leader>c :bp<bar>bd#<CR>   " close buffer without lose split
-map <Leader>o :on<CR>           " cancel split
+map <Bar> <C-W>v<C-W><Right>    " vertical split
+map <Bslash> <C-W>s<C-W><Down>  " horizontal split
+map <Tab> <C-W>w                " cycle split by tab
+map T :tabnew<CR>               " new tab
+map <gt> :tabnext<CR>           " cycle tab by gt
+map X :tabclose<CR>             " close tab
 
 "
 " Plugins
@@ -134,10 +137,6 @@ let NERDTreeIgnore = []                                   " file to ignore
 let NERDTreeChDirMode = 0                                 " not change vim working directory
 let NERDTreeQuitOnOpen = 1                                " close tree after file open
 let NERDTreeShowHidden = 1                                " show hidden files
-
-" buftabline
-map <C-j> :bnext<CR>                                      " map j-k to move between buffer
-map <C-k> :bprev<CR>
 
 " tagbar
 nmap <F9> :TagbarToggle<CR>
