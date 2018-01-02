@@ -55,7 +55,7 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 if [ -n "$DISPLAY" ]; then
     BROWSER=/usr/bin/chromium
 else
-    BROWSER=/usr/bin/links
+    BROWSER=/usr/bin/w3m
 fi
 export BROWSER
 [[ -x /usr/bin/lesspipe ]] && eval "$(SHELL=/bin/sh lesspipe)"  # less more friendly for non-text
