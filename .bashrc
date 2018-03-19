@@ -108,6 +108,10 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m'                   # begin underline
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases          # aliases
 [ -f ~/.bash_functions ] && source ~/.bash_functions      # functions
 
+
+# jumping around by z (https://github.com/rupa/z)
+source ~/bin/z.sh
+
 # GIT prompt
 GIT_PROMPT_START="${bred}\w"
 GIT_PROMPT_END="\n${bcyan}> \[\e[0m\]"
@@ -115,6 +119,7 @@ GIT_PROMPT_END="\n${bcyan}> \[\e[0m\]"
 
 # Fuzzy finder completion
 source /usr/share/fzf/completion.bash
+
 #
 # machine specific configuration
 #
