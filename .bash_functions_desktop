@@ -114,85 +114,12 @@ balance()
     ledger -f $ledger --input-date-format "%d/%m/%Y" -y "%d/%m/%Y" -E balance $*
 }
 
-
-# 
-# pass manager by pwsafe
-#
-# password file
-pwfile_lgaggini=~/doc/lgaggini/pass/lgaggini.psafe3
-pwfile_lgaggini_path=~/doc/lgaggini/pass/
-pwfile_lgaggini_pass=~/doc/lgaggini/pass/cat/master.gpg
-
-pwfile=$pwfile_lgaggini
-pwfile_path=$pwfile_lgaggini_path
-pwfile_pass=$pwfile_lgaggini_pass
-
-# getpassdb - retrieve a password db by contex
-# usage - getpass <context>
-getpassdb()
-{
-    case "$1" in
-        'lgaggini')
-            pwfile=$pwfile_lgaggini
-            pwfile_path=$pwfile_lgaggini_path
-            pwfile_pass=$pwfile_lgaggini_pass
-            ;;
-    esac
-}
-
-# getpass - retrieve a password
-# usage - getpass <account>
-getpass()
-{
-    getpassdb $1
-    gpg --decrypt -q -u $key_pub $pwfile_pass | gpwsafe -f $pwfile -u -p -x $2
-}
-
-# setpass - set a new password for existing account
-# usage - setpass <account>
-setpass()
-{
-    getpassdb $1
-    gpwsafe -f $pwfile -e $2
-    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path add $pwfile
-    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path commit -m 'new pass for $2'
-}
-
-# mkpass - set a new password account
-# usage - mkpass <account>
-mkpass()
-{
-    getpassdb $1
-    gpwsafe -f $pwfile -a $2
-    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path add $pwfile
-    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path commit -m 'new account $2'
-}
-
-# lspass - list all password
-# usage - lspass <regex>
-lspass()
-{
-    getpassdb $1
-    gpg --decrypt -q -u $key_pub $pwfile_pass | gpwsafe -f $pwfile --list $2
-}
-
-# rmpass - remove password account
-# usage - rmpass <account>
-rmpass()
-{
-    getpassdb $1
-    gpg --decrypt -q -u $key_pub $pwfile_pass | gpwsafe -f $pwfile --delete $2
-    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path add $pwfile
-    git --git-dir=$pwfile_path.git --work-tree=$pwfile_path commit -m 'removed account $2'
-}
-
-
 #
 # note manager
 #
 
 # note folder
-note_path_lgaggini=~/OneDrive/Blocchi\ appunti/
+note_path_lgaggini=~/note/
 
 note_path="$note_path_lgaggini"
 
