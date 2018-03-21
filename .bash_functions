@@ -588,3 +588,56 @@ yqu()
 {
   yaourt -Qs | grep "^local" | cut -d '/' -f2 | cut -d' ' -f1 | while read package; do yaourt -Ss $package; done | grep 'installed:' | cut -d'/' -f2 | cut -d' ' -f1
 }
+
+#
+# note manager
+#
+
+# note folder
+note_path_lgaggini=~/note/
+note_path="$note_path_lgaggini"
+
+# note - quick note view and edit/create
+# usage: note <name>
+note()
+{
+    case "$1" in
+        'lgaggini')
+            note_path="$note_path_lgaggini"
+            ;;
+    esac
+
+    if [[ -z "$1" ]]; then
+        ls -lh "$note_path"
+    else
+        vim "$note_path"$1.txt
+        #git --git-dir=$note_path.git --work-tree=$note_path add $note_path$2.txt
+        #git --git-dir=$note_path.git --work-tree=$note_path commit -m 'cli note change'
+    fi
+}
+# _note - note name completion
+_note() 
+{
+    local cur names IFS
+ 
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    names=`ls "$note_path" | sed 's/\.[^.]*$//'`
+    IFS=$'\t\n'
+ 
+    COMPREPLY=( $(compgen -W "${names}" -- ${cur}) )
+    return 0
+}
+complete -o nospace -F _note note
+# noteg - search in notes
+noteg()
+{
+    case "$1" in
+        'lgaggini')
+            note_path=$note_path_lgaggini
+            ;;
+    esac
+    grep --color=auto -HInrFoi ${*:2} -C 5 "$note_path"
+}
+
+
+
