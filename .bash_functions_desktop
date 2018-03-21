@@ -120,7 +120,6 @@ balance()
 
 # note folder
 note_path_lgaggini=~/note/
-
 note_path="$note_path_lgaggini"
 
 # note - quick note view and edit/create
@@ -171,7 +170,7 @@ noteg()
 #
 
 # addressbook path
-addresspath_lgaggini=~/doc/lgaggini/contact/
+addresspath_lgaggini=~/contact/
 addressbook_lgaggini=$addresspath_lgagginilgaggini.abook
 
 address_path=$addresspath_lgaggini
