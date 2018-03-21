@@ -639,5 +639,19 @@ noteg()
     grep --color=auto -HInrFoi ${*:2} -C 5 "$note_path"
 }
 
+# cluster_info - get groups/hosts info by ansible and ansible-cmdb
+cluster_info()
+{
+    ~/bin/cluster_info.sh $1
+}
 
+# _cluster_info - group name completion for cluster_info from ansible inventory
+_cluster_info()
+{
+    local cur groups IFS
 
+    groups=`clusters`
+    COMPREPLY=(`compgen -W "${groups}" -- $2`)
+    return 0
+}
+complete -o nospace -F _cluster_info cluster_info
