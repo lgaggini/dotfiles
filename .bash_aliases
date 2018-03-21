@@ -151,6 +151,7 @@ alias cal='khal'
 alias mirror_update='sudo reflector --latest 100 --sort rate --save /etc/pacman.d/mirrorlist'
 alias mutt='neomutt'
 alias vpn='sudo openvpn --config ~/.openvpn/dada/client.conf'
+alias clusters='cat /etc/ansible/hosts | grep "^\["'
 
 # git aliases
 alias gs='git status'
