@@ -1,4 +1,4 @@
 [submodule ".config/awesome"]
   path = .config/awesome
-  url = git://github.com/lgaggini/awesome-archKiss.git
+  url = https://github.com/lgaggini/awesome-archKiss.git
   ignore = untracked
