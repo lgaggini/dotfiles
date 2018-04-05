@@ -123,6 +123,7 @@ map <Tab> <C-W>w                " cycle split by tab
 map T :tabnew<CR>               " new tab
 map <gt> :tabnext<CR>           " cycle tab by gt
 map X :tabclose<CR>             " close tab
+map <S-Tab> :bnext<CR>          " cycle buffers by shift-tab
 
 "
 " Plugins
