@@ -2,3 +2,7 @@
   path = .config/awesome
   url = https://github.com/lgaggini/awesome-archKiss.git
   ignore = untracked
+[submodule ".bash-git-prompt"]
+  path = .bash-git-prompt
+  url = https://github.com/magicmonty/bash-git-prompt.git
+  ignore = untracked
