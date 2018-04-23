@@ -528,6 +528,9 @@ cf()
         'vim')
             $EDITOR "${HOME}/.vimrc"
             ;;
+        'mutt')
+            $EDITOR "${HOME}/.muttrc"
+            ;;
         'awesome')
             $EDITOR "${HOME}/.config/awesome/rc.lua"
             ;;
