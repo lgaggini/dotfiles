@@ -105,6 +105,10 @@ bind    editor  <down>      history-down
 bind    editor  <up>        history-up
 bind    index   \t          collapse-thread
 
+# Make urlscan replace urlview, more encodings and has more info in the url list
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+
 # neomutt
 bind index X change-vfolder  # open a different virtual folder
 bind index + entire-thread   # read entire thread of the current message
