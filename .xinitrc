@@ -28,7 +28,7 @@ if [ -f $HOME/.Xmodmap ]; then
 fi
 
 # single press of control to escape https://github.com/alols/xcape
-#(sleep 20 && xcape) &
+xcape -e 'Control_L=Escape'
 
 # xfce power manager
 xfce4-power-manager &
