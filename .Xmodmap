@@ -8,3 +8,5 @@
 clear lock
 keycode 66 = Control_L
 add control = Control_L
+! slash to ugrave
+keycode 51 = slash section
