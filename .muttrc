@@ -52,6 +52,7 @@ set recall = ask-no                           # ask for postponed on new msg
 set forward_format = "[(fwd): %s]"            # forward subject format
 set reply_regexp = "^(([Rr]e?):[ \t]*)+"      # regexp to id reply
 set quote_regexp = "^([ \t]*[|>:}#])+"        # regexp to id quote
+set query_command = "lbdbq %s 2>/dev/null"    # lbdbq for address book
 
 # send
 set send_charset="utf-8"                      # utf8-charset for send
