@@ -206,6 +206,7 @@ alias down='cd ~/down'
 alias doc='cd ~/doc'
 alias logs='cd ~/logs'
 alias media='cd ~/media'
+alias music='cd ~/media/music'
 alias reading='cd ~/read'
 alias tmp='cd ~/tmp'
 
