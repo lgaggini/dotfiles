@@ -9,6 +9,8 @@ These are configuration files for my GNU/Linux toolboox:
 * terminal multiplexer: `tmux + byobu`
 * wm: `awesome`
 * editor: `vim`
+* file manager: `ranger`
+* file manager gui: `pcmanfm`
 * email: `mutt` + `notmuch`, 
 * email gui: `thunderbird` + `muttator`
 * pim: `khal` + `todoman` + `davmail` + `vdirsyncer`
@@ -16,9 +18,11 @@ These are configuration files for my GNU/Linux toolboox:
 * wiki/notes: `vim` + some wrapper bash functions
 * wiki/notes gui: `zim`
 * feed: `newsboat` + `w3m` + [custom script](https://gist.github.com/lgaggini/f0d0e119a0ab4410943dd227370f6fe6)
-* ide: `gvim`
+* ide: `vim`
+* ide gui: `gvim`
 * versioning: `git`
-* music: `mopidy` + `sonata` 
+* music: `mpd` + `mpc` + `ncmpc`
+* music gui: `sonata`
 * browser: `w3m`
 * surfer: `surfraw` + `w3m` + [custom script](https://gist.github.com/lgaggini/f0d0e119a0ab4410943dd227370f6fe6)
 * password manager: `pass`
