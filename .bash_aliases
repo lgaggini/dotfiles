@@ -153,6 +153,7 @@ alias mutt='neomutt'
 alias vpn='sudo openvpn --config ~/.openvpn/dada/client.conf'
 alias clusters='cat /etc/ansible/hosts | grep "^\[" | sed 's/[][]//g''
 alias livesets='scdl -l https://soundcloud.com/lgaggini-euphoria/sets/sets-to-listen --path ~/media/music/trance/livesets/ --no-playlist-folder --download-archive ~/media/music/trance/livesets/livesets.txt'
+alias backup='restic -r /home/lg/bak --password-file ~/doc/lgaggini/pass/backup'
 
 # git aliases
 alias gs='git status'
