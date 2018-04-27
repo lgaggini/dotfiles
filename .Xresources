@@ -106,34 +106,6 @@ URxvt*internalBorder:     2
 URxvt*borderLess:         false
 
 !
-! colors
-!
-! foreground color
-!URxvt*foreground:         #CCCCCC
-! background color  
-!URxvt*background:         #28211C
-! border color
-!URxvt*colorBD:           color
-! italic and bold color  
-!URxvt*colorIT:           color
-! underline color
-!URxvt*colorUL:           color
-! background in reverse mode
-!URxvt*colorRV:           color
-! colour for underline itself
-!URxvt*underlineColor:    color
-! cursor color
-!URxvt*cursorColor:       color
-! cursor text color
-!URxvt*cursorColor2:      color
-! pointer foreground color
-!URxvt*pointerColor:      color
-! pointer background color
-!URxvt*pointerColor2:     color
-! border color
-!URxvt*borderColor:       color
-  
-!
 ! fonts
 !
 ! xft fonts
@@ -141,10 +113,6 @@ URxvt*borderLess:         false
 URxvt*font: xft:Hack:size=11
 !URxvt*boldFont: xft:DejaVu Sans Mono for Powerline:bold:size=11
 URxvt*boldFont: xft:Hack:bold:size=11
-! normal fonts
-!URxvt*font:-*-courier-medium-r-normal-*-14-*-*-*-*-*-iso8859-1
-!URxvt*boldFont:-*-courier-bold-r-normal-*-14-*-*-*-*-*-iso8859-1
-
 !
 ! scrollbar
 !
