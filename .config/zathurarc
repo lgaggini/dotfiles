@@ -1,0 +1,8 @@
+#---------------------------
+#--       zathurarc       --
+#--      by lgaggini      --
+#--      CC BY-SA 3.0     --
+#---------------------------
+
+set font "hack 10"
+set recolor "true"
