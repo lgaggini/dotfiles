@@ -11,7 +11,7 @@ These are configuration files for my GNU/Linux toolboox:
 * editor: `vim`
 * file manager: `ranger`
 * file manager gui: `pcmanfm`
-* email: `mutt` + `notmuch`, 
+* email: `mutt` + `notmuch` + `msmtp` + `lbdb` + `offlineimap`
 * email gui: `thunderbird` + `muttator`
 * pim: `khal` + `todoman` + `davmail` + `vdirsyncer`
 * pim gui: `thunderbird` + `lightning`
