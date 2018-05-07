@@ -1,6 +1,6 @@
 tabstop 8
 indent_incr 4
-pixel_per_char 9
+pixel_per_char 18
 pixel_per_line 18
 frame 0
 target_self 0
@@ -75,10 +75,10 @@ index_file
 mime_types ~/.mime.types, /usr/etc/mime.types
 mailcap ~/.w3m/mailcap, /usr/etc/w3m/mailcap
 urimethodmap ~/.w3m/urimethodmap, /usr/etc/w3m/urimethodmap
-editor /usr/bin/vi
+editor /usr/bin/vim
 mailto_options 1
-mailer /usr/bin/mail
-extbrowser /usr/bin/firefox
+mailer /usr/bin/neomutt
+extbrowser /usr/bin/chromium
 extbrowser2 
 extbrowser3 
 extbrowser4 
