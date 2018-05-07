@@ -106,10 +106,10 @@ set backspace=indent,eol,start  " backspace through everything in insert mode
 set guioptions=aAeimgr                              " custom gvim view
 set guifont=Hack                                    " custom gvim font
 if has('gui_running')
-    color muon                      " custom gvim colorscheme
+color muon                      " custom gvim colorscheme
 endif
 if !has('gui_running')
-  set t_Co=256                      " powerline colors in terminal
+set t_Co=256                      " powerline colors in terminal
 endif
 
 "
@@ -124,6 +124,28 @@ map T :tabnew<CR>               " new tab
 map <gt> :tabnext<CR>           " cycle tab by gt
 map X :tabclose<CR>             " close tab
 map <S-Tab> :bnext<CR>          " cycle buffers by shift-tab
+" disable arrow to force vim keybindings
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+vnoremap <Up> <nop>
+vnoremap <Down> <nop>
+vnoremap <Left> <nop>
+vnoremap <Right> <nop>
+" replace arrow in command line mode too
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <C-k> <Up>
+cnoremap <C-j> <Down>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <C-h> <S-Left>
+cnoremap <C-l> <S-Right>
 
 "
 " Plugins
@@ -164,10 +186,6 @@ inoremap <expr><C-h>   neocomplete#smart_close_popup()."\<C-h>"  " close popup a
 inoremap <expr><BS>    neocomplete#smart_close_popup()."\<C-h>"  " close popup and delete backword char 
 inoremap <expr><C-y>   neocomplete#close_popup()                 " close popup
 inoremap <expr><C-e>   neocomplete#cancel_popup()                " close popup
-inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"     " cursor moving in insert mode
-inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"    " cursor moving in insert mode
-inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"       " cursor moving in insert mode
-inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"     " cursor moving in insert mode
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS " enable omni completion
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete           " enable omni completion
 
