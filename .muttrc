@@ -14,6 +14,7 @@ set beep = no                           # no beep on error
 set mark_old = yes                      # mark old msg not read
 set beep_new = yes                      # beep on new msg
 set history = 20                        # history entries
+set crypt_use_gpgme = yes               # manage gpg by gpgme
 
 # profile management
 source ~/.mutt/profiles/dada            # default profile
