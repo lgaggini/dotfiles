@@ -26,13 +26,13 @@ set mark-directories on
 # Remove display all message
 set completion-query-items 0
 
-# ctrl-h, ctrl-l to search in history vim-like
-"\C-h": history-search-backward
-"\C-l": history-search-forward
+# ctrl-k, ctrl-j to search in history vim-like
+"\C-k": history-search-backward
+"\C-j": history-search-forward
 
-# ctrl-j, ctrl-k to move between words vim-like
-"\C-j": backward-word
-"\C-k": forward-word
+# ctrl-h, ctrl-k to move between words vim-like
+"\C-h": backward-word
+"\C-l": forward-word
 
 # disable unused input
 "\e[": skip-csi-sequence
