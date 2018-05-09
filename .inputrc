@@ -34,6 +34,9 @@ set completion-query-items 0
 "\C-h": backward-word
 "\C-l": forward-word
 
+# ctrl-d to kill previous char backspace like
+"\C-d": backward-delete-char
+
 # disable unused input
 "\e[": skip-csi-sequence
 
