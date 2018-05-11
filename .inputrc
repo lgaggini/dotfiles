@@ -26,6 +26,10 @@ set mark-directories on
 # Remove display all message
 set completion-query-items 0
 
+# ctrl-p, ctrl-n to search in history
+"\C-p": history-search-backward
+"\C-n": history-search-forward
+
 # ctrl-k, ctrl-j to search in history vim-like
 "\C-k": history-search-backward
 "\C-j": history-search-forward
