@@ -30,17 +30,6 @@ set completion-query-items 0
 "\C-p": history-search-backward
 "\C-n": history-search-forward
 
-# ctrl-k, ctrl-j to search in history vim-like
-"\C-k": history-search-backward
-"\C-j": history-search-forward
-
-# ctrl-h, ctrl-k to move between words vim-like
-"\C-h": backward-word
-"\C-l": forward-word
-
-# ctrl-d to kill previous char backspace like
-"\C-d": backward-delete-char
-
 # disable unused input
 "\e[": skip-csi-sequence
 
