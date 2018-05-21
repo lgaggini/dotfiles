@@ -613,9 +613,7 @@ note()
     if [[ -z "$1" ]]; then
         ls -lh "$note_path"
     else
-        vim "$note_path"$1.txt
-        #git --git-dir=$note_path.git --work-tree=$note_path add $note_path$2.txt
-        #git --git-dir=$note_path.git --work-tree=$note_path commit -m 'cli note change'
+        vim "$note_path"$1.md
     fi
 }
 # _note - note name completion
@@ -639,7 +637,7 @@ noteg()
             note_path=$note_path_lgaggini
             ;;
     esac
-    grep --color=auto -HInrFoi ${*:2} -C 5 "$note_path"
+    grep --color=auto -HInrFoi ${*:1} -C 5 "$note_path"
 }
 
 # cluster_info - get groups/hosts info by ansible and ansible-cmdb
