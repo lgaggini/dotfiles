@@ -97,15 +97,8 @@ set date_format = "%a %d/%m/%y, %H:%M"
 source ~/.mutt/mutt_colors
 
 # bind
-bind    pager   <up>        previous-line
-bind    pager   <down>      next-line
-bind    pager   <left>      previous-entry
-bind    pager   <right>     next-entry
-bind    pager   <left>      previous-entry
-bind    pager   <right>     next-entry
-bind    editor  <down>      history-down
-bind    editor  <up>        history-up
-bind    index   \t          collapse-thread
+bind    pager   \ck          previous-line
+bind    index   \ct          collapse-thread
 
 # Make urlscan replace urlview, more encodings and has more info in the url list
 macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
