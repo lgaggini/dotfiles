@@ -16,7 +16,6 @@ These are configuration files for my GNU/Linux toolboox:
 * pim: `khal` + `todoman` + `davmail` + `vdirsyncer`
 * pim gui: `thunderbird` + `lightning`
 * wiki/notes: `vim` + some wrapper bash functions
-* wiki/notes gui: `zim`
 * feed: `newsboat` + `w3m` + [custom script](https://gist.github.com/lgaggini/f0d0e119a0ab4410943dd227370f6fe6)
 * ide: `vim`
 * ide gui: `gvim`
@@ -26,6 +25,7 @@ These are configuration files for my GNU/Linux toolboox:
 * browser: `w3m`
 * surfer: `surfraw` + `w3m` + [custom script](https://gist.github.com/lgaggini/f0d0e119a0ab4410943dd227370f6fe6)
 * password manager: `pass`
+* password manager gui: `qtpass`
 * personal finance: `ledger`
 * document viewer:  `zathura`
 
