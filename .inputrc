@@ -30,6 +30,10 @@ set completion-query-items 0
 "\C-p": history-search-backward
 "\C-n": history-search-forward
 
+# ctrl-w to kill word backward
+set bind-tty-special-chars off
+"\C-w": backward-kill-word
+
 # disable unused input
 "\e[": skip-csi-sequence
 
