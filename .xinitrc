@@ -20,7 +20,7 @@ volumeicon &
 parcellite &
 
 # seafile client
-#seafile-applet &
+# seafile-applet &
 
 # custom keyboard mapping
 if [ -f $HOME/.Xmodmap ]; then
@@ -41,14 +41,8 @@ if [ $(~/bin/check_dp3.sh) -eq 0 ]; then
   sh ~/.screenlayout/dp3-left.sh
 fi
 
-# redshift gamma / brightness manager
-redshift-gtk &
-
 # backlight setting
 xbacklight -set 50
-
-# davamil start
-davmail &
 
 # http://unix.stackexchange.com/a/295652/88209
 source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
