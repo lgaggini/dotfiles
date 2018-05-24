@@ -1,0 +1,11 @@
+[Unit]
+Description=hourly wallpaper rotation
+
+[Timer]
+Persistent=true
+OnBootSec=60
+OnCalendar=hourly
+Unit=wallpaper-rotation.service
+
+[Install]
+WantedBy=timers.target

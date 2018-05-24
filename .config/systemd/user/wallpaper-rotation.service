@@ -1,0 +1,11 @@
+[Unit]
+Description=wallpaper rotation
+After=graphical.target
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/sh -c 'find %h/.wallpaper/ -type f -print0 | shuf -n1 -z | xargs -0 feh --bg-center'
+
+[Install]
+WantedBy=default.target

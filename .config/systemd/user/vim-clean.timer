@@ -1,0 +1,11 @@
+[Unit]
+Description=weekly vim backup files clean
+
+[Timer]
+Persistent=true
+OnBootSec=600
+OnCalendar=weekly
+Unit=vim-clean.service
+
+[Install]
+WantedBy=timers.target
