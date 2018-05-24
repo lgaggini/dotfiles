@@ -1,0 +1,9 @@
+[Unit]
+Description=Scheduled daily backup
+
+[Timer]
+OnCalendar=Mon-Fri *-*-* 12:00
+Unit=restic.service
+
+[Install]
+WantedBy=timers.target

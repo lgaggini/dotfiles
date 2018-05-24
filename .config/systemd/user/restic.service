@@ -1,0 +1,10 @@
+[Unit]
+Description=Perform a restic backup and backup retention
+Documentation=https://restic.net/
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c "/bin/systemctl --user set-environment RESTIC_PASSWORD=$(/usr/bin/pass backup)"
+ExecStart=/usr/bin/restic -r %h/bak --exclude-file %h/bak/exclude backup %h
+ExecStart=/usr/bin/restic -r %h/bak forget --keep-daily 30
+ExecStart=/bin/bash -c "/bin/systemctl --user unset-environment RESTIC_PASSWORD"
