@@ -1,0 +1,10 @@
+[Unit]
+Description=Rsync backup to a remote host by ssh
+
+[Timer]
+Persistent=true
+OnCalendar=daily
+Unit=backup-rsync.service
+
+[Install]
+WantedBy=timers.target
