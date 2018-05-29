@@ -19,14 +19,6 @@ volumeicon &
 # clipboard mabager
 parcellite &
 
-# seafile client
-# seafile-applet &
-
-# custom keyboard mapping
-if [ -f $HOME/.Xmodmap ]; then
-  (sleep 20 && /usr/bin/xmodmap $HOME/.Xmodmap) &
-fi
-
 # xfce power manager
 xfce4-power-manager &
 
@@ -47,11 +39,16 @@ xbacklight -set 50
 # http://unix.stackexchange.com/a/295652/88209
 source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
-# hide unused mouse
-unclutter &
+# custom keyboard mapping
+if [ -f $HOME/.Xmodmap ]; then
+  (sleep 20 && /usr/bin/xmodmap $HOME/.Xmodmap) &
+fi
 
 # single press of control to escape https://github.com/alols/xcape
 xcape -e 'Control_L=Escape'
+
+# hide unused mouse
+unclutter &
 
 # wm
 exec /usr/bin/awesome
