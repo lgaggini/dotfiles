@@ -167,4 +167,5 @@ decloud()
 awcf()
 {
     rsync -a -v --existing /home/lg/.config/awesome/ /home/lg/code/lgaggini/awesome-archKiss/
+    grep "awful.key" | cut -d'{' -f2 | sed 's/altkey/Alt/g' | sed 's/modkey/Mod/g' | sed 's/},//g' > ~/.cheat/awesome
 }
