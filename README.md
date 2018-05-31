@@ -6,7 +6,7 @@ These are configuration files for my GNU/Linux toolboox:
 
 * shell: `bash`
 * terminal: `urxvt`
-* terminal multiplexer: `tmux + byobu`
+* terminal multiplexer: `tmux + byobu + tmuxp`
 * wm: `awesome`
 * editor: `vim`
 * file manager: `ranger`

@@ -1,0 +1,7 @@
+session_name: pim
+windows:
+  - window_name: pim
+    layout: main-vertical
+    panes:
+      - khal interactive
+      - todo
