@@ -41,7 +41,7 @@ source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
 # custom keyboard mapping
 if [ -f $HOME/.Xmodmap ]; then
-  (sleep 20 && /usr/bin/xmodmap $HOME/.Xmodmap) &
+    /usr/bin/xmodmap $HOME/.Xmodmap
 fi
 
 # single press of control to escape https://github.com/alols/xcape
@@ -49,6 +49,10 @@ xcape -e 'Control_L=Escape'
 
 # hide unused mouse
 unclutter &
+
+# gnome-keyring
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
 
 # wm
 exec /usr/bin/awesome
