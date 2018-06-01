@@ -518,6 +518,9 @@ cf()
         'inputrc')
             $EDITOR "${HOME}/.inputrc"
             ;;
+        'xinitrc')
+            $EDITOR "${HOME}/.xinitrc"
+            ;;
         'bash')
             $EDITOR "${HOME}/.bashrc"
             source "${HOME}/.bashrc"
