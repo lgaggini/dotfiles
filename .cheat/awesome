@@ -31,7 +31,7 @@
  Mod,         "s", function () awful.util.spawn_with_shell(pad) end), -- [s]cratch pad
  Mod,         "n", function () awful.util.spawn_with_shell(note) end), -- [n]ote
  Mod,         "c", function () awful.util.spawn_with_shell(skype) end), -- [c]hat
- Mod,         "i", function () awful.util.spawn_with_shell(irc) end), -- [i]rc
+ Mod,         "i", function () awful.util.spawn_with_shell(pim) end), -- p[i]m
  Mod,         "v", function () awful.util.spawn_with_shell(remote) end), -- [v]irtual / rdp
  Mod,         "t", function () awful.util.spawn_with_shell(task) end), -- [t]ask manager
  Mod,         "p", function () awful.util.spawn_with_shell(password) end), -- [p]assword
