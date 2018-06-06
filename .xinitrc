@@ -29,7 +29,9 @@ xautolock -locker xflock4 -time 10 &
 wicd-client --tray &
 
 # check monitors status and set monitor setup
-if [ $(~/bin/check_dp3.sh) -eq 0 ]; then
+if [ $(~/bin/check_dual_monitor.sh) -eq 0 ]; then
+  sh ~/.screenlayout/dp3-left-vga1-right.sh-left.sh
+elif [ $(~/bin/check_dp3.sh) -eq 0]; then
   sh ~/.screenlayout/dp3-left.sh
 fi
 
