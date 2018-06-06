@@ -136,6 +136,10 @@ alias m='man'
 alias sb='source ~/.bashrc'
 alias e='exit'
 
+# systemd aliases
+alias sct='systemctl'
+alias jct='journalctl'
+
 # app aliases
 alias v='vim'
 alias scan='nmap -v -sT -Pn'
