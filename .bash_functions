@@ -595,6 +595,17 @@ yqu()
   yaourt -Qs | grep "^local" | cut -d '/' -f2 | cut -d' ' -f1 | while read package; do yaourt -Ss $package; done | grep 'installed:' | cut -d'/' -f2 | cut -d' ' -f1
 }
 
+
+# fuzzy searchable git log
+# usage: fzf_git_log
+fzf_git_log() {
+    git ctimeline --color=always "$@" |
+      fzf --ansi --no-sort --height 100% \
+          --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
+                       xargs -I@ sh -c 'git show --color=always @'"
+}
+
+
 #
 # note manager
 #
