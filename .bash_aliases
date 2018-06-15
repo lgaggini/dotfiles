@@ -152,7 +152,7 @@ alias mirror_update='sudo reflector --latest 100 --sort rate --save /etc/pacman.
 alias mutt='neomutt'
 alias vpn='sudo openvpn --config ~/.openvpn/dada/client.conf'
 alias clusters='cat /etc/ansible/hosts | grep "^\[" | sed 's/[][]//g''
-alias livesets='scdl -l https://soundcloud.com/lgaggini-euphoria/sets/sets-to-listen --path ~/media/music/trance/livesets/ --no-playlist-folder --download-archive ~/media/music/trance/livesets/livesets.txt'
+alias livesets='scdl -l https://soundcloud.com/lgaggini-euphoria/sets/sets-to-listen --path ~/media/music/trance/livesets/ --no-playlist-folder --download-archive ~/media/music/trance/livesets/livesets.txt -c'
 alias backup='export RESTIC_PASSWORD=$(/usr/bin/pass backup) && restic -r /home/lg/bak'
 
 # git aliases
