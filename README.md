@@ -14,14 +14,12 @@ These are configuration files for my GNU/Linux toolboox:
 * email: `mutt` + `notmuch` + `msmtp` + `lbdb` + `offlineimap`
 * email gui: `thunderbird` + `muttator`
 * pim: `khal` + `todoman` + `davmail` + `vdirsyncer`
-* pim gui: `thunderbird` + `lightning`
 * wiki/notes: `vim` + some wrapper bash functions
 * feed: `newsboat` + `w3m` + [custom script](https://gist.github.com/lgaggini/f0d0e119a0ab4410943dd227370f6fe6)
 * ide: `vim`
 * ide gui: `gvim`
 * versioning: `git`
 * music: `mpd` + `mpc` + `ncmpc`
-* music gui: `sonata`
 * browser: `w3m`
 * surfer: `surfraw` + `w3m` + [custom script](https://gist.github.com/lgaggini/f0d0e119a0ab4410943dd227370f6fe6)
 * password manager: `pass`
