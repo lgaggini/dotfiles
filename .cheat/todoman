@@ -1,0 +1,128 @@
+
+cancel
+Usage: todo cancel [OPTIONS] TODOS...
+
+  Cancel one or more tasks.
+
+Options:
+  --help  Show this message and exit.
+
+copy
+Usage: todo copy [OPTIONS] IDS...
+
+  Copy tasks to another list.
+
+Options:
+  -l, --list TEXT  The list to copy the tasks to.
+  --help           Show this message and exit.
+
+delete
+Usage: todo delete [OPTIONS] IDS...
+
+  Delete tasks.
+
+  Permanently deletes one or more task. It is recommended that you use the
+  `cancel` command if you wish to remove this from the pending list, but
+  keep the actual task around.
+
+Options:
+  --yes
+  --help  Show this message and exit.
+
+done
+Usage: todo done [OPTIONS] TODOS...
+
+  Mark one or more tasks as done.
+
+Options:
+  --help  Show this message and exit.
+
+edit
+Usage: todo edit [OPTIONS] ID
+
+  Edit the task with id ID.
+
+Options:
+  -s, --start TEXT   When the task starts.
+  -d, --due TEXT     The due date of the task, in the format specified in the
+                     configuration file.
+  --location TEXT    The location where this todo takes place.
+  --priority TEXT    The priority for this todo
+  -i, --interactive  Go into interactive mode before saving the task.
+  --help             Show this message and exit.
+
+flush
+Usage: todo flush [OPTIONS]
+
+  Delete done tasks. This will also clear the cache to reset task IDs.
+
+Options:
+  --yes   Confirm the action without prompting.
+  --help  Show this message and exit.
+
+list
+Usage: todo list [OPTIONS] [LISTS]...
+
+  List tasks. Filters any completed or cancelled tasks by default.
+
+  If no arguments are provided, all lists will be displayed, and only
+  incomplete tasks are show. Otherwise, only todos for the specified list
+  will be displayed.
+
+  eg:      - `todo list' shows all unfinished tasks from all lists.   -
+  `todo list work' shows all unfinished tasks from the list `work`.
+
+  This is the default action when running `todo'.
+
+  The following commands can further filter shown todos, or include those
+  omited by default:
+
+Options:
+  --location TEXT           Only show tasks with location containg TEXT
+  --category TEXT           Only show tasks with category containg TEXT
+  --grep TEXT               Only show tasks with message containg TEXT
+  --sort TEXT               Sort tasks using these fields
+  --reverse / --no-reverse  Sort tasks in reverse order (see --sort). Defaults
+                            to true.
+  --due INTEGER             Only show tasks due in INTEGER hours
+  --priority TEXT           Only show tasks with priority at least as high as
+                            TEXT (low, medium or high).
+  --start TEXT...           Only shows tasks before/after given DATE
+  --startable               Show only todos which should can be started today
+                            (i.e.: start time is not in the future).
+  -s, --status TEXT         Show only todos with the provided comma-separated
+                            statuses. Valid statuses are "NEEDS-ACTION",
+                            "CANCELLED", "COMPLETED", "IN-PROCESS" or "ANY"
+  --help                    Show this message and exit.
+
+move
+Usage: todo move [OPTIONS] IDS...
+
+  Move tasks to another list.
+
+Options:
+  -l, --list TEXT  The list to move the tasks to.
+  --help           Show this message and exit.
+
+new
+Usage: todo new [OPTIONS] [SUMMARY]...
+
+  Create a new task with SUMMARY.
+
+Options:
+  -l, --list TEXT    The list to create the task in.
+  -s, --start TEXT   When the task starts.
+  -d, --due TEXT     The due date of the task, in the format specified in the
+                     configuration file.
+  --location TEXT    The location where this todo takes place.
+  --priority TEXT    The priority for this todo
+  -i, --interactive  Go into interactive mode before saving the task.
+  --help             Show this message and exit.
+
+show
+Usage: todo show [OPTIONS] ID
+
+  Show details about a task.
+
+Options:
+  --help  Show this message and exit.

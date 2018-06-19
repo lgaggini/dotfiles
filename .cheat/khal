@@ -1,0 +1,264 @@
+
+-v,
+
+--color
+Usage: khal [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  -c, --config PATH     The config file to use.
+  -v, --verbose         Output debugging information.
+  --color / --no-color  Use colored/uncolored output. Default is to only
+                        enable colors when not part of a pipe.
+  --version             Show the version and exit.
+  --help                Show this message and exit.
+
+Commands:
+  at              Print all events at a specific datetime...
+  calendar        Print calendar with agenda.
+  configure       Helper for initial configuration of khal.
+  edit            Interactively edit (or delete) events...
+  import          Import events from an .ics file (or stdin).
+  interactive     Interactive UI.
+  list            List all events between a start (default:...
+  new             Create a new event from arguments.
+  printcalendars  List all calendars.
+  printformats    Print a date in all formats.
+  printics        Print an ics file (or read from stdin)...
+  search          Search for events matching SEARCH_STRING.
+
+enable
+
+--version
+khal, version 0.9.8
+
+--help
+Usage: khal [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  -c, --config PATH     The config file to use.
+  -v, --verbose         Output debugging information.
+  --color / --no-color  Use colored/uncolored output. Default is to only
+                        enable colors when not part of a pipe.
+  --version             Show the version and exit.
+  --help                Show this message and exit.
+
+Commands:
+  at              Print all events at a specific datetime...
+  calendar        Print calendar with agenda.
+  configure       Helper for initial configuration of khal.
+  edit            Interactively edit (or delete) events...
+  import          Import events from an .ics file (or stdin).
+  interactive     Interactive UI.
+  list            List all events between a start (default:...
+  new             Create a new event from arguments.
+  printcalendars  List all calendars.
+  printformats    Print a date in all formats.
+  printics        Print an ics file (or read from stdin)...
+  search          Search for events matching SEARCH_STRING.
+
+
+Usage: khal [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  -c, --config PATH     The config file to use.
+  -v, --verbose         Output debugging information.
+  --color / --no-color  Use colored/uncolored output. Default is to only
+                        enable colors when not part of a pipe.
+  --version             Show the version and exit.
+  --help                Show this message and exit.
+
+Commands:
+  at              Print all events at a specific datetime...
+  calendar        Print calendar with agenda.
+  configure       Helper for initial configuration of khal.
+  edit            Interactively edit (or delete) events...
+  import          Import events from an .ics file (or stdin).
+  interactive     Interactive UI.
+  list            List all events between a start (default:...
+  new             Create a new event from arguments.
+  printcalendars  List all calendars.
+  printformats    Print a date in all formats.
+  printics        Print an ics file (or read from stdin)...
+  search          Search for events matching SEARCH_STRING.
+
+Commands:
+
+at
+Usage: khal at [OPTIONS] [[START DATE] TIME | now]
+
+  Print all events at a specific datetime (defaults to now).
+
+Options:
+  -d, --exclude-calendar CAL  Exclude the given calendar. Can be specified
+                              multiple times.
+  -a, --include-calendar CAL  Include the given calendar. Can be specified
+                              multiple times.
+  -f, --format TEXT           The format of the events.
+  -df, --day-format TEXT      The format of the day line.
+  --notstarted                Print only events that have not started
+  --help                      Show this message and exit.
+
+calendar
+Usage: khal calendar [OPTIONS] [DATERANGE]...
+
+  Print calendar with agenda.
+
+Options:
+  -d, --exclude-calendar CAL  Exclude the given calendar. Can be specified
+                              multiple times.
+  -a, --include-calendar CAL  Include the given calendar. Can be specified
+                              multiple times.
+  -f, --format TEXT           The format of the events.
+  -df, --day-format TEXT      The format of the day line.
+  -o, --once                  Print each event only once (even if it is
+                              repeated or spans multiple days).
+  --notstarted                Print only events that have not started.
+  --help                      Show this message and exit.
+
+configure
+Usage: khal configure [OPTIONS]
+
+  Helper for initial configuration of khal.
+
+Options:
+  --help  Show this message and exit.
+
+edit
+Usage: khal edit [OPTIONS] [SEARCH_STRING]...
+
+  Interactively edit (or delete) events matching the search string.
+
+Options:
+  -d, --exclude-calendar CAL  Exclude the given calendar. Can be specified
+                              multiple times.
+  -a, --include-calendar CAL  Include the given calendar. Can be specified
+                              multiple times.
+  -f, --format TEXT           The format of the events.
+  --show-past                 Show events that have already occurred as
+                              options
+  --help                      Show this message and exit.
+
+import
+Usage: khal import [OPTIONS] [ICS]...
+
+  Import events from an .ics file (or stdin).
+
+  If an event with the same UID is already present in the (implicitly)
+  selected calendar import will ask before updating (i.e. overwriting) that
+  old event with the imported one, unless --batch is given, than it will
+  always update. If this behaviour is not desired, use the `--random-uid`
+  flag to generate a new, random UID. If no calendar is specified (and not
+  `--batch`), you will be asked to choose a calendar. You can either enter
+  the number printed behind each calendar's name or any unique prefix of a
+  calendar's name.
+
+Options:
+  -a, --include-calendar TEXT  The calendar to use.
+  --batch                      do not ask for any confirmation.
+  -r, --random_uid             Select a random uid.
+  -f, --format TEXT            The format to print the event.
+  --help                       Show this message and exit.
+
+interactive
+Usage: khal interactive [OPTIONS]
+
+  Interactive UI. Also launchable via `ikhal`.
+
+Options:
+  -d, --exclude-calendar CAL  Exclude the given calendar. Can be specified
+                              multiple times.
+  -a, --include-calendar CAL  Include the given calendar. Can be specified
+                              multiple times.
+  --help                      Show this message and exit.
+
+list
+Usage: khal list [OPTIONS] [DATETIME [DATETIME | RANGE]]
+
+  List all events between a start (default: today) and (optional) end
+  datetime.
+
+Options:
+  -d, --exclude-calendar CAL  Exclude the given calendar. Can be specified
+                              multiple times.
+  -a, --include-calendar CAL  Include the given calendar. Can be specified
+                              multiple times.
+  -f, --format TEXT           The format of the events.
+  -df, --day-format TEXT      The format of the day line.
+  -o, --once                  Print each event only once (even if it is
+                              repeated or spans multiple days).
+  --notstarted                Print only events that have not started.
+  --help                      Show this message and exit.
+
+new
+Usage: khal new [OPTIONS] [START [END | DELTA] [TIMEZONE] [SUMMARY] [::
+                DESCRIPTION]]
+
+  Create a new event from arguments.
+
+  START and END can be either dates, times or datetimes, please have a look
+  at the man page for details. Everything that cannot be interpreted as a
+  (date)time or a timezone is assumed to be the event's summary, if two
+  colons (::) are present, everything behind them is taken as the event's
+  description.
+
+Options:
+  -a, --calendar CAL
+  -i, --interactive      Add event interactively
+  -l, --location TEXT    The location of the new event.
+  -g, --categories TEXT  The categories of the new event.
+  -r, --repeat TEXT      Repeat event: daily, weekly, monthly or yearly.
+  -u, --until TEXT       Stop an event repeating on this date.
+  -f, --format TEXT      The format to print the event.
+  -m, --alarms TEXT      Alarm times for the new event as DELTAs comma
+                         separated
+  --help                 Show this message and exit.
+
+printcalendars
+Usage: khal printcalendars [OPTIONS]
+
+  List all calendars.
+
+Options:
+  -d, --exclude-calendar CAL  Exclude the given calendar. Can be specified
+                              multiple times.
+  -a, --include-calendar CAL  Include the given calendar. Can be specified
+                              multiple times.
+  --help                      Show this message and exit.
+
+printformats
+Usage: khal printformats [OPTIONS]
+
+  Print a date in all formats.
+
+  Print the date 2013-12-21 10:09 in all configured date(time) formats to
+  check if these locale settings are configured to ones liking.
+
+Options:
+  --help  Show this message and exit.
+
+printics
+Usage: khal printics [OPTIONS] [ICS]
+
+  Print an ics file (or read from stdin) without importing it.
+
+  Just print the ics file, do nothing else.
+
+Options:
+  -f, --format TEXT  The format to print the event.
+  --help             Show this message and exit.
+
+search
+Usage: khal search [OPTIONS] SEARCH_STRING
+
+  Search for events matching SEARCH_STRING.
+
+  For recurring events, only the master event and different overwritten
+  events are shown.
+
+Options:
+  -d, --exclude-calendar CAL  Exclude the given calendar. Can be specified
+                              multiple times.
+  -a, --include-calendar CAL  Include the given calendar. Can be specified
+                              multiple times.
+  -f, --format TEXT           The format of the events.
+  --help                      Show this message and exit.
