@@ -1,0 +1,10 @@
+[Unit]
+Description=Clean the maildir trash from messages older than 14 days
+
+[Timer]
+Persistent=true
+OnCalendar=daily
+Unit=trash-maildir-clean.service
+
+[Install]
+WantedBy=timers.target

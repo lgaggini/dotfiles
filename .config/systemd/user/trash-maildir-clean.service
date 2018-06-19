@@ -1,0 +1,6 @@
+[Unit]
+Description=Clean the maildir trash from messages older than 14 days
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/find %h/mail/Posta\x20eliminata -type f -mtime +14 -exec rm {} \;
