@@ -10,11 +10,10 @@ These are configuration files for my GNU/Linux toolboox:
 * wm: `awesome`
 * editor: `vim`
 * file manager: `ranger`
-* file manager gui: `pcmanfm`
 * email: `mutt` + `notmuch` + `msmtp` + `lbdb` + `offlineimap`
 * email gui: `thunderbird` + `muttator`
 * pim: `khal` + `todoman` + `davmail` + `vdirsyncer`
-* wiki/notes: `vim` + some wrapper bash functions
+* wiki/notes: `ranger` + `vim` + some wrapper bash functions
 * feed: `newsboat` + `w3m` + [custom script](https://gist.github.com/lgaggini/f0d0e119a0ab4410943dd227370f6fe6)
 * ide: `vim`
 * ide gui: `gvim`
