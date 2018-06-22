@@ -54,7 +54,6 @@ set scrolloff=3                 " minimum lines to keep above and below cursor
 set foldenable                  " auto fold code
 set foldlevel=99                " folding level
 set foldmethod=indent           " folding method
-set cursorline                  " highlight current line
 set spelllang=it,en
 autocmd FileType mail setlocal spell        " set spell for email
 
@@ -63,15 +62,19 @@ autocmd FileType mail setlocal spell        " set spell for email
 " 2 -> solid block
 " 3 -> blinking underscore
 " 4 -> solid underscore
+" 5 -> blinking pipe
+" 6 -> solid pipe
 if exists('$TMUX')
     " tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
-    let &t_SI .= "\<Esc>Ptmux;\<Esc>\<Esc>[4 q\<Esc>\\"
+    let &t_SI .= "\<Esc>Ptmux;\<Esc>\<Esc>[6 q\<Esc>\\"
+    let &t_SR .= "\<Esc>Ptmux;\<Esc>\<Esc>[4 q\<Esc>\\"
     let &t_EI .= "\<Esc>Ptmux;\<Esc>\<Esc>[2 q\<Esc>\\"
-    autocmd VimLeave * silent !echo -ne "\033Ptmux;\033\033[0 q\033\\"
+    autocmd VimLeave * silent !echo -ne "\033Ptmux;\033\033[2 q\033\\"
 else
-    let &t_SI .= "\<Esc>[4 q"
+    let &t_SI .= "\<Esc>[6 q"
+    let &t_SR .= "\<Esc>[4 q"
     let &t_EI .= "\<Esc>[2 q"
-    autocmd VimLeave * silent !echo -ne "\033[0 q"
+    autocmd VimLeave * silent !echo -ne "\033[2 q"
 endif
 
 "
