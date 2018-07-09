@@ -7,7 +7,7 @@
 "
 " Plugins by plug
 "
-call plug#begin('~/vim/plugs')
+call plug#begin('~/.vim/plugs')
 " general utilities
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
