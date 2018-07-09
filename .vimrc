@@ -20,7 +20,7 @@ Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'Shougo/deoplete.nvim'
 " linting and tagging
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'majutsushi/tagbar'
 call plug#end()
 
@@ -213,12 +213,6 @@ let g:lightline = {
       \   'fileencoding': 'MyFileencoding',
       \   'mode': 'MyMode',
       \ },
-      \ 'component_expand': {
-      \   'syntastic': 'SyntasticStatuslineFlag',
-      \ },
-      \ 'component_type': {
-      \   'syntastic': 'error',
-      \ },
       \ 'subseparator': { 'left': '|', 'right': '|' }
       \ }
 
@@ -264,18 +258,6 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
     let g:lightline.fname = a:fname
   return lightline#statusline(0)
 endfunction
-
-augroup AutoSyntastic
-  autocmd!
-  autocmd BufWritePost *.c,*.cpp call s:syntastic()
-augroup END
-function! s:syntastic()
-  SyntasticCheck
-  call lightline#update()
-endfunction
-
-" syntastic
-let g:syntastic_python_checkers=['pep8']
 
 " vim expand region
 vmap v <Plug>(expand_region_expand)
