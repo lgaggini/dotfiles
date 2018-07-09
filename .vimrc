@@ -5,25 +5,25 @@
 "---------------------------
 
 "
-" Plugins by vundle
+" Plugins by plug
 "
-filetype off
+call plug#begin('~/vim/plugs')
+" general utilities
+Plug 'itchyny/lightline.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'mileszs/ack.vim'
+Plug 'terryma/vim-expand-region'
+Plug 'jamessan/vim-gnupg'
+" completion
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'Shougo/deoplete.nvim'
+" linting and tagging
+Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar'
+call plug#end()
 
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
-
-Plugin 'gmarik/vundle'
-
-" Basic
-Plugin 'itchyny/lightline.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'mileszs/ack.vim'
-Plugin 'terryma/vim-expand-region'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'majutsushi/tagbar'
-Plugin 'jamessan/vim-gnupg'
 
 "
 " General
@@ -167,7 +167,6 @@ cnoremap <C-l> <S-Right>
 " nerdtree
 map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>          " tree toggle key
 map <leader>e :NERDTreeFind<CR>                           " find files in tree
-" autocmd vimenter * if !argc() | NERDTree | endif          " open tree on startup without file
 let NERDTreeShowBookmarks = 0                             " not show bookmark tree
 let NERDTreeIgnore = []                                   " file to ignore
 let NERDTreeChDirMode = 0                                 " not change vim working directory
@@ -181,26 +180,23 @@ let g:tagbar_autofocus = 1                                " tagbar focus on open
 let g:tagbar_compact = 1                                  " compact view
 let g:tagbar_singleclick = 1                              " go to tag with single click
 
-" neocomplete
-let g:neocomplete#enable_at_startup = 1                 " enable at startup
-let g:neocomplete#enable_camel_case_completion = 1      " use camel case completion
-let g:neocomplete#enable_smart_case = 1                 " use smartcase
-let g:neocomplete#enable_underbar_completion = 1        " use underbar completion
-let g:neocomplete#min_syntax_length = 3                 " minimum syntax keyword length
-let g:neocomplete#enable_auto_delimiter = 1             " auto insertion of delimiter
-let g:neocomplete#enable_auto_select = 0                " auto selection of first candidate
-if !exists('g:neocomplete_keyword_patterns')            " define keyword
-  let g:neocomplete#keyword_patterns = {}               " define keyword
-endif                                                     " define keyword
-let g:neocomplete#keyword_patterns['default'] = '\h\w*' " define keyword
-inoremap <expr><CR>    neocomplete#smart_close_popup() . "\<CR>" " close popup and save indent
-inoremap <expr><TAB>   pumvisible() ? "\<C-n>" : "\<TAB>"          " completion. 
-inoremap <expr><C-h>   neocomplete#smart_close_popup()."\<C-h>"  " close popup and delete backword char
-inoremap <expr><BS>    neocomplete#smart_close_popup()."\<C-h>"  " close popup and delete backword char 
-inoremap <expr><C-y>   neocomplete#close_popup()                 " close popup
-inoremap <expr><C-e>   neocomplete#cancel_popup()                " close popup
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS " enable omni completion
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete           " enable omni completion
+" deoplete
+let g:deoplete#enable_at_startup = 1                                                    " enable completion at startup
+let g:deoplete#enable_smart_case = 1                                                    " smart case completion
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"                                " cycle completions by <TAB>
+inoremap <silent><expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"    " enter completion by <CR>
+" sources
+if !exists('g:deoplete#sources')
+    let g:deoplete#sources = {}
+endif
+let g:deoplete#sources._ = ['buffer', 'member', 'file', 'tag']
+let g:deoplete#sources.python = ['buffer', 'member', 'file', 'omni']
+" omni completion
+if !exists('g:deoplete#omni#input_patterns')
+    let g:deoplete#omni#input_patterns = {}
+endif
+let g:deoplete#omni#input_patterns.python = '([^. \t]\.|^\s*@|^\s*from\s.+ import |^\s*from |^\s*import )\w*'
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
 " powerline
 let g:lightline = {
