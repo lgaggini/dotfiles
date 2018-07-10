@@ -592,7 +592,7 @@ complete -F _cheat_autocomplete cheat
 # check aur packages update
 yqu()
 {
-  yaourt -Qs | grep "^local" | cut -d '/' -f2 | cut -d' ' -f1 | while read package; do yaourt -Ss $package; done | grep 'installed:' | cut -d'/' -f2 | cut -d' ' -f1
+    yay -Qm | cut -d' ' -f1 | while read package; do yay -Ss "$package" | grep "Installed:" | awk '{print $1" "$2" > "$6}' | tr -d ')'; done
 }
 
 
