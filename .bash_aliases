@@ -8,23 +8,23 @@
 # alias list
 alias aliases='cat ~/.bash_aliases'
 
-# yaourt aliases
-alias ysyu='yaourt -Syu'
-alias ysyua='yaourt -Syua'
-alias ys='yaourt -S'
-alias ysy='yaourt -Sy'
-alias yrs='yaourt -Rs'
-alias yr='yaourt -R'
-alias yss='yaourt -Ss'
-alias ysc='yaourt -Sc'
-alias yscc='yaourt -Scc'
-alias yqe='yaourt -Qe'
-alias yqs="yaourt -Qs"
-alias yql="yaourt -Ql"
-alias yqi="yaourt -Qi"
-alias yqqtd="yaourt -Qqtd"
+# yay aliases
+alias ysyu='yay -Syu'
+alias ysyua='yay -Syua'
+alias ys='yay -S'
+alias ysy='yay -Sy'
+alias yrs='yay -Rs'
+alias yr='yay -R'
+alias yss='yay -Ss'
+alias ysc='yay -Sc'
+alias yscc='yay -Scc'
+alias yqe='yay -Qe'
+alias yqs="yay -Qs"
+alias yql="yay -Ql"
+alias yqi="yay -Qi"
+alias yqqtd="yay -Qqtd"
 
-# completion for yaourt / pacman aliases
+# completion for yay / pacman aliases
 function _pacalias
 {
     local cur
