@@ -133,6 +133,9 @@ URxvt*scrollstyle:        plain
 ! extension
 !
 ! matcher for clickable urls and vtwheel for scroll in man, less, etc.
-URxvt.perl-ext-common:  default,matcher,vtwheel
+URxvt.perl-ext-common:  default,matcher,vtwheel,resize-font
 URxvt.url-launcher:     /usr/bin/chromium
 URxvt.matcher.button:   1
+URxvt.keysym.Control-minus:   resize-font:smaller
+URxvt.keysym.Control-plus:    resize-font:bigger
+URxvt.keysym.Control-equal:   resize-font:reset
