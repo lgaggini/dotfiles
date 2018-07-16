@@ -23,6 +23,7 @@ alias yqs="yay -Qs"
 alias yql="yay -Ql"
 alias yqi="yay -Qi"
 alias yqqtd="yay -Qqtd"
+alias yqm="yay -Qm"
 
 # completion for yay / pacman aliases
 function _pacalias
