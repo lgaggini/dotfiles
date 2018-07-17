@@ -22,6 +22,8 @@ Plug 'Shougo/deoplete.nvim'
 " linting and tagging
 Plug 'w0rp/ale'
 Plug 'majutsushi/tagbar'
+" filetype specific plugin
+Plug 'pearofducks/ansible-vim'
 call plug#end()
 
 
