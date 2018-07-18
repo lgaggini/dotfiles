@@ -139,6 +139,7 @@ map T :tabnew<CR>               " new tab
 map <gt> :tabnext<CR>           " cycle tab by gt
 map X :tabclose<CR>             " close tab
 map <S-Tab> :bnext<CR>          " cycle buffers by shift-tab
+map <Leader>ii mzgg=G`z        " reindent current file
 " disable arrow to force vim keybindings
 noremap <Up> <nop>
 noremap <Down> <nop>
