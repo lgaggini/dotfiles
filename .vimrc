@@ -24,6 +24,7 @@ Plug 'w0rp/ale'
 Plug 'majutsushi/tagbar'
 " filetype specific plugin
 Plug 'pearofducks/ansible-vim'
+Plug 'rodjek/vim-puppet'
 call plug#end()
 
 
