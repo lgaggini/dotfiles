@@ -47,7 +47,8 @@ set clipboard=unnamed           " map default copy/paste register to * (clipboar
 "
 syntax on                       " syntax highlighting
 set background=dark             " dark background
-color desert                    " load a colorscheme
+color pablo                     " load a colorscheme
+hi SpellCap ctermbg=6           " fix SpellCap color
 set number                      " line numbers
 hi LineNr ctermfg=White         " line numbers style
 set linespace=0                 " no extra spaces between rows
@@ -118,10 +119,10 @@ set backspace=indent,eol,start  " backspace through everything in insert mode
 "
 " GUI
 "
-set guioptions=aAeimgr                              " custom gvim view
-set guifont=Hack                                    " custom gvim font
+set guioptions=aAeimgr            " custom gvim view
+set guifont=Hack                  " custom gvim font
 if has('gui_running')
-color muon                      " custom gvim colorscheme
+color archery                     " custom gvim colorscheme
 endif
 if !has('gui_running')
 set t_Co=256                      " powerline colors in terminal
