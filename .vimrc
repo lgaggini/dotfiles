@@ -165,6 +165,11 @@ cnoremap <C-h> <S-Left>
 cnoremap <C-l> <S-Right>
 
 "
+" Auto set filetype
+"
+autocmd BufRead,BufNewFile *.strace set filetype=strace   " strace file
+
+"
 " Plugins
 "
 
