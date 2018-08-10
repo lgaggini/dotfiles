@@ -1,9 +1,11 @@
 [Unit]
 Description=Rsync backup to a remote host by ssh
+After=network-online.target
+Wants=network-online.target
 
 [Timer]
 Persistent=true
-OnCalendar=daily
+OnCalendar=*-*-* 12:30:00
 Unit=backup-rsync.service
 
 [Install]
