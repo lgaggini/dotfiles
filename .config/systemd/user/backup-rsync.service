@@ -4,6 +4,6 @@ Description=Rsync backup to a remote host by ssh
 [Service]
 Type=oneshot
 Environment="USER=lgaggini"
-Environment="KEY=%h/.ssh/toc02_backups"
-Environment="DESTINATION=toc02.ced:bak/"
-ExecStart=/usr/bin/rsync -az --delete -e '/usr/bin/ssh -i ${KEY}' %h/bak/ ${USER}@${DESTINATION}
+Environment="KEY=%h/.ssh/backup-rsync"
+Environment="DESTINATION=astserver01.register.it:bak/"
+ExecStart=/usr/bin/rsync -az --delete -e "/usr/bin/ssh -i ${KEY}" %h/bak/ ${USER}@${DESTINATION}
