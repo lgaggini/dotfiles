@@ -12,7 +12,6 @@ alias b='chromium &'
 alias f='thunar &'
 alias ed='gvim &'
 alias se='mys gvim &'
-alias gitg='GTK_THEME=Vertex:dark gitg'
 
 # music (mpd control + volume + audio conversion)
 alias v-='amixer -q set Master 5- unmute'
