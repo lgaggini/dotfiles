@@ -109,7 +109,8 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m'                   # begin underline
 [ -f ~/.bash_functions ] && source ~/.bash_functions      # functions
 
 
-# jumping around by z (https://github.com/rupa/z)
+# jumping around by z/g (https://github.com/rupa/z)
+_Z_CMD="g"
 source ~/bin/z.sh
 
 # GIT prompt
@@ -117,8 +118,11 @@ GIT_PROMPT_START="${bred}\w"
 GIT_PROMPT_END="\n${bcyan}> \[\e[0m\]"
 [ -f ~/.bash-git-prompt/gitprompt.sh ] && source ~/.bash-git-prompt/gitprompt.sh    # git prompt
 
-# Fuzzy finder completion
+# Fuzzy finder completion and key bindings
 source /usr/share/fzf/completion.bash
+source /usr/share/fzf/key-bindings.bash
+# CTRL-G - cd into the selected directory
+bind '"\C-g": " \C-e\C-u`__fzf_cd__`\e\C-e\er\C-m"'
 
 #
 # machine specific configuration
