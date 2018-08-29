@@ -123,6 +123,10 @@ source /usr/share/fzf/completion.bash
 source /usr/share/fzf/key-bindings.bash
 # CTRL-G - cd into the selected directory
 bind '"\C-g": " \C-e\C-u`__fzf_cd__`\e\C-e\er\C-m"'
+# custom colors
+export FZF_DEFAULT_OPTS='
+--color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:229
+--color info:150,prompt:110,spinner:150,pointer:167,marker:174'
 
 #
 # machine specific configuration
