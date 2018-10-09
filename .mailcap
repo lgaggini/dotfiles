@@ -26,7 +26,7 @@ application/vnd.oasis.opendocument.text; mutt_bgrun /usr/bin/libreoffice '%s'; t
 application/vnd.oasis.opendocument.text-master; mutt_bgrun /usr/bin/libreoffice '%s'; test=test -n "$DISPLAY"
 application/vnd.oasis.opendocument.text-template; mutt_bgrun /usr/bin/libreoffice '%s'; test=test -n "$DISPLAY"
 # image formats
-image/*; mutt_bgrun /usr/bin/ristretto '%s'; test=test -n "$DISPLAY"
+image/*; mutt_bgrun /usr/bin/feh '%s'; test=test -n "$DISPLAY"
 # compressed file
 application/zip; mutt_bgrun /usr/bin/file-roller '%s'; test=test -n "$DISPLAY"
 application/x-zip-compressed; mutt_bgrun /usr/bin/file-roller '%s'; test=test -n "$DISPLAY"
