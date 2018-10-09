@@ -24,6 +24,7 @@ alias yql="yay -Ql"
 alias yqi="yay -Qi"
 alias yqqtd="yay -Qqtd"
 alias yqm="yay -Qm"
+alias ymr="sudo reflector --latest 50 --age 24 --sort rate --save /etc/pacman.d/mirrorlist"
 
 # completion for yay / pacman aliases
 function _pacalias
