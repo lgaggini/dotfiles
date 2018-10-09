@@ -56,5 +56,8 @@ unclutter &
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
+# geoclue agent
+/usr/lib/geoclue-2.0/demos/agent &
+
 # wm
 exec /usr/bin/awesome
