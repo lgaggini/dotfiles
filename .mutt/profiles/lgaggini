@@ -1,9 +1,9 @@
 # mailbox & directory
-set folder = "/srv/mail/lg"            # mailbox folder
-set record = "/srv/mail/lg/sent/"      # sent mail folder
-set postponed = "/srv/mail/lg/drafts/" # draft mail folders
-set spoolfile = "/srv/mail/lg/INBOX"   # inbox
-set trash = "/srv/mail/lg/trash/"      # trash folder for mail delete
+set folder = "/home/lg/mail/"               # mailbox folder
+set record = "/home/lg/mail/sent/"          # sent mail folder
+set postponed = "/home/lg/mail/drafts/"     # draft mail folders
+set spoolfile = "/home/lg/mail/INBOX"       # inbox
+set trash = "/home/lg/mail/trash/"          # trash folder for mail delete
 
 # default profile for new messages
 source ~/.mutt/profiles/lgaggini_send/gmail
@@ -18,13 +18,9 @@ macro index g "<enter-command>source ~/.mutt/profiles/lgaggini_send/gmail<enter>
 macro index l "<enter-command>source ~/.mutt/profiles/lgaggini_send/lgaggini<enter>" "switch to lgaggini profile"
 macro index a "<enter-command>source ~/.mutt/profiles/lgaggini_send/alice<enter>" "switch to alice profile"
 
-# address book
-set query_command = "abook --datafile ~/doc/lgaggini/contact/lgaggini.abook --mutt-query '%s'"
-
 # sidebar
 unmailboxes *
-mailboxes "+-- lgaggini -----------"
-mailboxes `echo /srv/mail/lg/*/`       # mailboxes in the sidebar
+mailboxes `echo /home/lg/mail/*/`       # mailboxes in the sidebar
 
 # search macro
 macro index <F8> "<enter-command>unset wait_key<enter><shell-escape>notmuch-mutt -o ~/mail/lgaggini/search -r --prompt search<enter><change-folder-readonly>~/mail/lgaggini/search<enter>" "notmuch: search mail"
