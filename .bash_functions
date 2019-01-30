@@ -554,7 +554,7 @@ cf()
 # usage: pw <password-length> - defaults to 12
 pw() 
 {
-    echo $(cat /dev/urandom | tr -cd '[:graph:]' | head -c ${1:-12})
+    echo $(cat /dev/urandom | tr -cd '[:graph:]' | head -c ${1:-14})
 }
 
 # um - mount selected device ad usb stick or disk
