@@ -9,7 +9,7 @@ set trash = "~/mail/Posta\ eliminata/"  # trash folder for mail delete
 source ~/.mutt/profiles/dada_send/outlook
 
 # sync headers and signature for reply
-reply-hook ~Clorenzo.gaggini@dada.eu "source ~/.mutt/profiles/dada_send/outlook"
+reply-hook ~Clorenzo.gaggini@register.it "source ~/.mutt/profiles/dada_send/outlook"
 
 # address book
 # set query_command = "abook --datafile ~/doc/lgaggini/contact/lgaggini.abook --mutt-query '%s'"
