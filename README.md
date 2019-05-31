@@ -34,7 +34,3 @@ There are many [available solutions](http://dotfiles.github.com/) to manage dotf
 
 When on a new machine i clone my github dotfiles repository and copy manually configuration files in the right place.
 That's all, no much automation but very simple.
-
-## LICENSE
-Feel free to use, fork, modify and share it as you want.
-[Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)](https://creativecommons.org/licenses/by-sa/3.0/)
