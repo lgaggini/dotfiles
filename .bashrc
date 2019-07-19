@@ -53,12 +53,17 @@ export VISUAL=$EDITOR
 export PAGER=/usr/bin/less
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 if [ -n "$DISPLAY" ]; then
-    BROWSER=/usr/bin/chromium
+    BROWSER=/usr/bin/firefox
 else
     BROWSER=/usr/bin/w3m
 fi
 export BROWSER
 [[ -x /usr/bin/lesspipe ]] && eval "$(SHELL=/bin/sh lesspipe)"  # less more friendly for non-text
+export DESKTOP_SESSION=gnome
+export WORKON_HOME=~/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv2
+source /usr/bin/virtualenvwrapper.sh
 
 #
 # bash options
