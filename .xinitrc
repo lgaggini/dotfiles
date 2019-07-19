@@ -59,5 +59,8 @@ export SSH_AUTH_SOCK
 # geoclue agent
 /usr/lib/geoclue-2.0/demos/agent &
 
+# qt5ct theming
+export QT_QPA_PLATFORMTHEME=qt5ct
+
 # wm
 exec /usr/bin/awesome
