@@ -1,0 +1,16 @@
+! basic config
+rofi.modi:          window,run,calc
+rofi.combi-modi:    window,run,calc
+
+! appearance
+rofi.theme: /usr/share/rofi/themes/DarkBlue.rasi
+
+! vim keybindings https://gist.github.com/MilesMcBain/0e6f449c3f8e07ed1b06aa785b0726ff
+rofi.kb-row-up:                      Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab
+rofi.kb-row-down:                    Down,Control+j
+rofi.kb-accept-entry:                Control+m,Return,KP_Enter
+rofi.terminal:                       mate-terminal
+rofi.kb-remove-to-eol:               Control+Shift+e
+rofi.kb-mode-next:                   Shift+Right,Control+Tab,Control+l
+rofi.kb-mode-previous:               Shift+Left,Control+Shift+Tab,Control+h
+rofi.kb-remove-char-back:            BackSpace
