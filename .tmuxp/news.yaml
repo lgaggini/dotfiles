@@ -1,0 +1,7 @@
+session_name: news
+windows:
+  - window_name: news
+    layout: main-vertical
+    panes:
+      - newsboat
+      - w3m
