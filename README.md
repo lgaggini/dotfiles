@@ -11,18 +11,17 @@ These are configuration files for my GNU/Linux toolboox:
 * editor: `vim`
 * file manager: `ranger`
 * email: `mutt` + `notmuch` + `msmtp` + `lbdb` + `offlineimap`
-* email gui: `thunderbird` + `muttator`
 * pim: `khal` + `todoman` + `davmail` + `vdirsyncer`
 * wiki/notes: `ranger` + `vim` + some wrapper bash functions
 * feed: `newsboat` + `w3m` + [custom script](https://gist.github.com/lgaggini/f0d0e119a0ab4410943dd227370f6fe6)
 * ide: `vim`
 * ide gui: `gvim`
 * versioning: `git`
-* music: `mpd` + `mpc` + `ncmpc`
+* music: `mpd` + `mpc` + `ncmpc` + `rofi-mpc`
 * browser: `w3m`
 * surfer: `surfraw` + `w3m` + [custom script](https://gist.github.com/lgaggini/f0d0e119a0ab4410943dd227370f6fe6)
 * password manager: `pass`
-* password manager gui: `qtpass`
+* password manager gui: `rofi-pass`
 * personal finance: `ledger`
 * document viewer:  `zathura`
 * backup: `restic`
