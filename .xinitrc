@@ -28,13 +28,6 @@ xautolock -locker i3lock-fancy -time 10 &
 # connection manager
 wicd-client --tray &
 
-# check monitors status and set monitor setup
-if [ $(~/bin/check_dual_monitor.sh) -eq 0 ]; then
-  sh ~/.screenlayout/dp3-left-vga1-right.sh-left.sh
-elif [ $(~/bin/check_dp3.sh) -eq 0]; then
-  sh ~/.screenlayout/dp3-left.sh
-fi
-
 # backlight setting
 xbacklight -set 50
 
@@ -64,6 +57,9 @@ export SSH_AUTH_SOCK
 
 # qt5ct theming
 export QT_QPA_PLATFORMTHEME=qt5ct
+
+# check monitors status and set monitor setup
+autorandr
 
 # wm
 exec /usr/bin/awesome
