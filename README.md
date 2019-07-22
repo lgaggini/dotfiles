@@ -17,7 +17,7 @@ These are configuration files for my GNU/Linux toolboox:
 * ide: `vim`
 * ide gui: `gvim`
 * versioning: `git`
-* music: `mpd` + `mpc` + `ncmpc` + `rofi-mpc`
+* music: `mpd` + `mpc` + `ncmpcpp` + `rofi-mpc`
 * browser: `w3m`
 * surfer: `surfraw` + `w3m` + [custom script](https://gist.github.com/lgaggini/f0d0e119a0ab4410943dd227370f6fe6)
 * password manager: `pass`

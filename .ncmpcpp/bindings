@@ -1,0 +1,25 @@
+# vim like keybindings, https://gist.github.com/Soft/959188#gistcomment-1735413
+def_key "j"
+    scroll_down
+def_key "k"
+    scroll_up
+
+def_key "ctrl-u"
+    page_up
+def_key "ctrl-d"
+    page_down
+
+def_key "h"
+    previous_column
+def_key "l"
+    next_column
+
+def_key "n"
+    next_found_item
+def_key "N"
+    previous_found_item
+
+def_key "J"
+    move_sort_order_down
+def_key "K"
+    move_sort_order_up
