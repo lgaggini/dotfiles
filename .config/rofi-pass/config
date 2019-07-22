@@ -25,7 +25,7 @@ _image_viewer () {
 
 # If for some reason, you cannot do this, you can set the command here.
 # and set fix_layout to true
-fix_layout=true
+fix_layout=false
 
 layout_cmd () {
   setxkbmap it
