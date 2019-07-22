@@ -41,6 +41,9 @@ xbacklight -set 50
 # http://unix.stackexchange.com/a/295652/88209
 source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
+# set xxkbmap before to apply custom keyboard mapping
+setxkbmap it
+
 # custom keyboard mapping
 if [ -f $HOME/.Xmodmap ]; then
     /usr/bin/xmodmap $HOME/.Xmodmap
