@@ -8,6 +8,7 @@
  Alt, "Shift"    "k", function () awful.client.swap.byidx( -1)    end),
  Alt,            "u", awful.client.urgent.jumpto),
  Alt,            "Tab",
+ Alt,            "Tab", function () awful.util.spawn_with_shell(wswitcher) end),
  Alt, "Shift"    "Tab",
  Mod,            "Return", function () awful.util.spawn(terminal) end),
                     "XF86MonBrightnessDown", function () awful.util.spawn_with_shell(bright_down) end),
@@ -38,8 +39,8 @@
  Mod,         "v", function () awful.util.spawn_with_shell(remote) end), -- [v]irtual / rdp
  Mod,         "t", function () awful.util.spawn_with_shell(task) end), -- [t]ask manager
  Mod,         "p", function () awful.util.spawn_with_shell(password) end), -- [p]assword
- Mod,         "q", function () awful.util.spawn_with_shell(password_man) end), -- [q]t-pass 
  Mod,         "a", function () awful.util.spawn_with_shell(music) end), -- [a]udio
+ Mod,         "r", function () awful.util.spawn_with_shell(runner) end), -- [r]unner
  Mod, "Shift" "l", function () awful.util.spawn_with_shell(lock) end) -- [l]ock
  Alt, "Shift"    "f",       function (c) c.fullscreen = not c.fullscreen end),
  Alt,            "c",       function (c) c:kill()                        end),
