@@ -59,7 +59,7 @@ export SSH_AUTH_SOCK
 export QT_QPA_PLATFORMTHEME=qt5ct
 
 # check monitors status and set monitor setup
-autorandr
+autorandr -c
 
 # wm
 exec /usr/bin/awesome
