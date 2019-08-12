@@ -1,8 +1,8 @@
 # dotfiles
-#### by lgaggini
 
-## README
-These are configuration files for my GNU/Linux toolboox:
+These are configuration files for my GNU/Linux workstation.
+
+## Toolboox
 
 * shell: `bash`
 * terminal: `urxvt`
@@ -27,9 +27,17 @@ These are configuration files for my GNU/Linux toolboox:
 * backup: `restic`
 * irc: `weechat`
 
+## Usage
 There are many [available solutions](http://dotfiles.github.com/) to manage dotfiles. I use a very simple approach. I have a dedicated folder repo, dotfiles, where i copy manually every files to track. After the first manually copy, i sync my dotfiles by `--existing` options of `rsync`, that syncs two folder only for files present in the destination. In my bash functions i have the function dots:
 
     rsync -a -v --existing /home/lorenzo/ /home/lorenzo/code/dotfiles/
 
 When on a new machine i clone my github dotfiles repository and copy manually configuration files in the right place.
 That's all, no much automation but very simple.
+
+## Screenshoots
+
+![urxvt_colors](urxtv_colors.png)
+![urxvt_rofi](urxtv_rofi.png)
+![fzf_ranger](fzf_ranger.png)
+![vim_ncmpcpp](vim_ncmpcpp.png)
