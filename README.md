@@ -44,3 +44,6 @@ That's all, no much automation but very simple.
 ![fzf_ranger](fzf_ranger.png)
 * vim + ncmpcpp
 ![vim_ncmpcpp](vim_ncmpcpp.png)
+
+## Credits
+* [Archlinux wallpaper by giancarlo64](https://www.deviantart.com/giancarlo64/art/ArchLinux-Wallpaper-360078960)
