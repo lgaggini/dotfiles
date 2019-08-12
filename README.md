@@ -36,8 +36,11 @@ When on a new machine i clone my github dotfiles repository and copy manually co
 That's all, no much automation but very simple.
 
 ## Screenshoots
-
-![urxvt_colors](urxtv_colors.png)
-![urxvt_rofi](urxtv_rofi.png)
+* urxvt + wallpaper
+![urxvt_colors](urxvt_colors.png)
+* urxvt + rofi
+![urxvt_rofi](urxvt_rofi.png)
+* fzf + ranger
 ![fzf_ranger](fzf_ranger.png)
+* vim + ncmpcpp
 ![vim_ncmpcpp](vim_ncmpcpp.png)
