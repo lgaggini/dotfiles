@@ -2,7 +2,7 @@
 
 These are configuration files for my GNU/Linux workstation.
 
-## Toolboox
+## Toolbox
 
 * shell: `bash`
 * terminal: `urxvt`
