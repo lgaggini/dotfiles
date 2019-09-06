@@ -22,6 +22,7 @@ These are configuration files for my GNU/Linux workstation.
 * surfer: `surfraw` + `w3m` + [custom script](https://gist.github.com/lgaggini/f0d0e119a0ab4410943dd227370f6fe6)
 * password manager: `pass`
 * password manager gui: `rofi-pass`
+* clipboard manager: `greenclip + rofi`
 * personal finance: `ledger`
 * document viewer:  `zathura`
 * backup: `restic`
