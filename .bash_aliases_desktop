@@ -8,7 +8,7 @@
 # shortcuts
 alias op='xdg-open'
 alias t='urxvt &' 
-alias b='chromium &'
+alias b='firefox &'
 alias f='thunar &'
 alias ed='gvim &'
 alias se='mys gvim &'
