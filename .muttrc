@@ -127,5 +127,6 @@ bind pager \CN sidebar-next                         # ctrl-n to select next fold
 bind pager \CO sidebar-open                         # ctrl-o to open selected folder
 set sidebar_format = '%B%?F? [%F]?%* %?N?%N/?%S'    # sidebar format
 set mail_check_stats                                # update mailboxes stats
+set sidebar_short_path = yes                        # short path for folder
 
 #gpg
