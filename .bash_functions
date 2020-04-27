@@ -551,7 +551,7 @@ cf()
 }
 
 # pw - generate a random password
-# usage: pw <password-length> - defaults to 12
+# usage: pw <password-length> - defaults to 14
 pw() 
 {
     echo $(cat /dev/urandom | tr -cd '[:graph:]' | head -c ${1:-14})
