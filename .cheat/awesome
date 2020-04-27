@@ -13,6 +13,7 @@
  Mod,            "Return", function () awful.util.spawn(terminal) end),
                     "XF86MonBrightnessDown", function () awful.util.spawn_with_shell(bright_down) end),
                     "XF86MonBrightnessUp",   function () awful.util.spawn_with_shell(bright_up) end),
+                    "XF86AudioPlay",   function () awful.util.spawn_with_shell(music_toggle) end),
  Mod, "Shift"    "p", function () awful.util.spawn_with_shell(audio_toggle) end),
  Mod, "Control"  "r", awesome.restart),
  Mod, "Shift"    "q", awesome.quit),
