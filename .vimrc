@@ -191,20 +191,18 @@ let g:tagbar_singleclick = 1                              " go to tag with singl
 
 " deoplete
 let g:deoplete#enable_at_startup = 1                                                    " enable completion at startup
-let g:deoplete#enable_smart_case = 1                                                    " smart case completion
+call deoplete#custom#option('smart_case', v:true)                                       " smart case completion
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"                                " cycle completions by <TAB>
 inoremap <silent><expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"    " enter completion by <CR>
 " sources
-if !exists('g:deoplete#sources')
-    let g:deoplete#sources = {}
-endif
-let g:deoplete#sources._ = ['buffer', 'member', 'file', 'tag']
-let g:deoplete#sources.python = ['buffer', 'member', 'file', 'omni']
+call deoplete#custom#option('sources', {
+\ '_': ['buffer', 'member', 'file', 'tag'],
+\ 'python': ['buffer', 'member', 'file', 'omni'],
+\})
 " omni completion
-if !exists('g:deoplete#omni#input_patterns')
-    let g:deoplete#omni#input_patterns = {}
-endif
-let g:deoplete#omni#input_patterns.python = '([^. \t]\.|^\s*@|^\s*from\s.+ import |^\s*from |^\s*import )\w*'
+call deoplete#custom#option('omni_patterns', {
+\ 'python': '([^. \t]\.|^\s*@|^\s*from\s.+ import |^\s*from |^\s*import )\w*',
+\})
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
 " powerline
