@@ -58,7 +58,7 @@ set query_command = "lbdbq %s 2>/dev/null"    # lbdbq for address book
 # send
 set send_charset="utf-8"                      # utf8-charset for send
 set sendmail="/usr/bin/msmtp"                 # software to send mail
-set envelope_from = yes                       # retrieve from automatically
+set use_envelope_from                         # retrieve from automatically
 
 ignore *
 unignore Subject: Date: From: Reply-To: To: CC: BCC:\
