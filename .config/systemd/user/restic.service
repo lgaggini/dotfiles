@@ -6,5 +6,5 @@ Documentation=https://restic.net/
 Type=oneshot
 ExecStart=/bin/bash -c "/bin/systemctl --user set-environment RESTIC_PASSWORD=$(/usr/bin/pass backup)"
 ExecStart=/usr/bin/restic -r %h/bak --exclude-file %h/bak/exclude backup %h
-ExecStart=/usr/bin/restic -r %h/bak forget --keep-daily 10 --prune
+ExecStart=/usr/bin/restic -r %h/bak forget --keep-daily 7 --prune
 ExecStart=/bin/bash -c "/bin/systemctl --user unset-environment RESTIC_PASSWORD"
