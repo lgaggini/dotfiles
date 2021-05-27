@@ -35,7 +35,7 @@ else
   root="${red}"
 fi
 
-PS1="${bred}\w\n${bcyan}> \[\e[0m\]"
+PS1="${magenta}[\t] ${bred}\w\n${bcyan}> \[\e[0m\]"
 
 #
 # path
@@ -119,7 +119,7 @@ _Z_CMD="g"
 source ~/bin/z.sh
 
 # GIT prompt
-GIT_PROMPT_START="${bred}\w"
+GIT_PROMPT_START="${magenta}[\t] ${bred}\w"
 GIT_PROMPT_END="\n${bcyan}> \[\e[0m\]"
 [ -f ~/.bash-git-prompt/gitprompt.sh ] && source ~/.bash-git-prompt/gitprompt.sh    # git prompt
 
