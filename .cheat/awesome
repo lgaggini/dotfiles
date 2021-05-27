@@ -33,7 +33,7 @@
  Mod,         "m", function () awful.util.spawn_with_shell(email) end), -- e[m]ail
  Mod,         "s", function () awful.util.spawn_with_shell(pad) end), -- [s]cratch pad
  Mod,         "n", function () awful.util.spawn_with_shell(note) end), -- [n]ote
- Mod,         "c", function () awful.util.spawn_with_shell(teams) end), -- [c]hat
+ Mod,         "c", function () awful.util.spawn_with_shell(slack) end), -- [c]hat
  Mod,         "k", function () awful.util.spawn_with_shell(irc) end), -- ir[k]
  Mod,         "i", function () awful.util.spawn_with_shell(pim) end), -- p[i]m
  Mod,         "d", function () awful.util.spawn_with_shell(news) end), -- fee[d]
