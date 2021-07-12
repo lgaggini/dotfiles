@@ -128,7 +128,6 @@ source /usr/share/fzf/completion.bash
 source /usr/share/fzf/key-bindings.bash
 # CTRL-G - cd into the selected directory
 bind '"\C-g": " \C-e\C-u`__fzf_cd__`\e\C-e\er\C-m"'
-bind -x '"\C-f": fzf-file-widget'
 # custom colors
 export FZF_DEFAULT_OPTS="
 --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
