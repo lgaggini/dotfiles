@@ -1,4 +1,4 @@
-#! /usr/bin/env python2
+#! /usr/bin/env python
 # Author: Lorenzo Gaggini
 # Version: 0.1
 #
@@ -12,8 +12,8 @@ import os
 
 
 def usage():
-    print "Usage: %s get_user|get_pass, account" \
-        % (os.path.basename(sys.argv[0]))
+    print('Usage: %s get_user|get_pass, account'
+          % (os.path.basename(sys.argv[0])))
     sys.exit(0)
 
 
@@ -32,8 +32,8 @@ if __name__ == "__main__":
     method = sys.argv[1]
 
     if method == "get_user":
-        print get_user(sys.argv[2])
+        print(get_user(sys.argv[2]))
     elif method == "get_pass":
-        print get_pass(sys.argv[2])
+        print(get_pass(sys.argv[2]))
     else:
         usage()
