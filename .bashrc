@@ -86,7 +86,7 @@ stty -ixon                          # disable ^S/^Q flow control
 #
 # hystory
 #
-export HISTSIZE=5000                            # Increase bash history size
+export HISTSIZE=50000                           # Increase bash history size
 export HISTCONTROL=ignoreboth                   # ingore space and duplicates in history
 export PROMPT_COMMAND='history -a'              # save command after it has been executed
 export HISTIGNORE="&:[ ]*:ls:ls -a:cd:cd .."    # leave commands out of history log
