@@ -58,6 +58,9 @@ export SSH_AUTH_SOCK
 # qt5ct theming
 export QT_QPA_PLATFORMTHEME=qt5ct
 
+# workrave
+workrave &
+
 # check monitors status and set monitor setup
 autorandr -c
 
