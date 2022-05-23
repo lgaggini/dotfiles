@@ -47,7 +47,7 @@ set clipboard=unnamed           " map default copy/paste register to * (clipboar
 "
 syntax on                       " syntax highlighting
 set background=dark             " dark background
-color pablo                     " load a colorscheme
+color muon                     " load a colorscheme
 hi SpellCap ctermbg=6           " fix SpellCap color
 set number                      " line numbers
 hi LineNr ctermfg=White         " line numbers style
