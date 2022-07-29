@@ -59,7 +59,7 @@ URxvt*mouseWheelScrollPage: false
 ! enable transparency
 URxvt*transparent:          true
 ! percentage of shading
-URxvt*.shading:             105
+URxvt*.shading:             100
 ! shading color
 URxvt*tintColor:            #1C1C1C
 ! percentage of fading on unfocused
