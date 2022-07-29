@@ -15,6 +15,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'mileszs/ack.vim'
 Plug 'terryma/vim-expand-region'
 Plug 'jamessan/vim-gnupg'
+Plug 'tribela/vim-transparent'
 " completion
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
