@@ -1,0 +1,14 @@
+configuration {
+    modi: "window,run,calc";
+    combi-modi: "window,run,calc";
+    kb-row-up: "Up,Control+k,ISO_Left_Tab";
+    kb-row-down: "Down,Control+j";
+    kb-accept-entry: "Control+m,Return,KP_Enter";
+    terminal: "rofi-sensible-terminal";
+    kb-remove-to-eol: "Control+Shift+e";
+    kb-mode-next: "Shift+Right,Control+Tab,Control+l";
+    kb-mode-previous: "Shift+Left,Control+ISO_Left_Tab,Control+h";
+    kb-remove-char-back: "BackSpace,Shift+BackSpace";
+    kb-mode-complete: "";
+}
+@theme "./archkiss.rasi"
