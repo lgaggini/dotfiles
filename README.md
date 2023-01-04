@@ -10,6 +10,7 @@ These are configuration files for my GNU/Linux workstation.
 * wm: `awesome`
 * editor: `vim`
 * file manager: `ranger`
+* file manager gui: `thunar`
 * email: `mutt` + `notmuch` + `msmtp` + `lbdb` + `offlineimap`
 * pim: `khal` + `todoman` + `davmail` + `vdirsyncer`
 * wiki/notes: `ranger` + `vim` + some wrapper bash functions
