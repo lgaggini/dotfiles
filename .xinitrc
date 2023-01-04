@@ -16,9 +16,6 @@ fi
 # volumeicon
 volumeicon &
 
-# clipboard mabager
-greenclip daemon &
-
 # xfce power manager
 xfce4-power-manager &
 
