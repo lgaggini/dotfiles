@@ -28,7 +28,7 @@
  Mod  "l",
  Mod  "x", function() menubar.show() end,
  Mod,         "b", function () awful.util.spawn_with_shell(browser) end), -- [b]rowser
- Mod,         "f", function () awful.util.spawn_with_shell(filemanager) end), -- [f]ilemanager
+ Mod,         "f", function () awful.util.spawn_with_shell(filemanager_gui) end), -- [f]ilemanager
  Mod,         "e", function () awful.util.spawn_with_shell(editor) end), -- [e]ditor 
  Mod,         "m", function () awful.util.spawn_with_shell(email) end), -- e[m]ail
  Mod,         "s", function () awful.util.spawn_with_shell(pad) end), -- [s]cratch pad
