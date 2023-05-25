@@ -22,9 +22,6 @@ xfce4-power-manager &
 # autolock
 xautolock -locker i3lock-fancy -time 10 &
 
-# connection manager
-wicd-client --tray &
-
 # backlight setting
 xbacklight -set 50
 
