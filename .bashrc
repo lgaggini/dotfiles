@@ -96,7 +96,7 @@ export HISTIGNORE="&:[ ]*:ls:ls -a:cd:cd .."    # leave commands out of history 
 #
 alias ls='ls --color=auto'                                  # ls colored output
 [ -f ~/.dir_colors ] && eval $(dircolors -b ~/.dir_colors)  # custom file colors
-export GREP_COLOR="1;36"                                    # grep colored ouput
+export GREP_COLOR="mt=1;36"                                    # grep colored ouput
 alias grep='grep --color=auto'                              # grep colored ouput
 export LESS="-R"                                            # less colored output
 export LESS_TERMCAP_mb=$'\E[01;31m'                         # begin blinking
