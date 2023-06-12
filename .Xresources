@@ -16,7 +16,7 @@ Xft.lcdfilter:  lcddefault
 ! terminal colors ------------------------------------------------------
 *foreground:  #BCBCBC
 *background:  #1C1C1C
-#include "/home/lg/.colors/star_trail.jpg.xres"
+#include "/home/lg/.colors/dark_green"
 
 ! urxvt settings--------------------------------------------------------
 !

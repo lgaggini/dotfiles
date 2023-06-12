@@ -1,0 +1,38 @@
+! http://dotshare.it/dots/1058/
+
+! special
+*.foreground:   #c5c8c6
+*.background:   #181512
+
+! black
+*.color0:       #282a2e
+*.color8:       #373b41
+
+! red
+*.color1:       #7b8748
+*.color9:       #707c3d
+
+! green
+*.color2:       #b5bd68
+*.color10:      #8c9440
+
+! yellow
+*.color3:       #af865a
+*.color11:      #a47b4f
+
+! blue
+*.color4:       #7b8753
+*.color12:      #707c48
+
+! magenta
+*.color5:       #7b6e64
+*.color13:      #706359
+
+! cyan
+*.color6:       #657c3d
+*.color14:      #5a7032
+
+! white
+*.color7:       #ccdcbe
+*.color15:      #c1d1b3
+
