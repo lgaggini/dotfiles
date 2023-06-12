@@ -14,10 +14,13 @@ if [ -f $HOME/.Xresources ]; then
 fi
 
 # volumeicon
-volumeicon &
+pasystray &
 
 # xfce power manager
 xfce4-power-manager &
+
+# blueman manager
+blueman-applet &
 
 # autolock
 xautolock -locker i3lock-fancy -time 10 &
