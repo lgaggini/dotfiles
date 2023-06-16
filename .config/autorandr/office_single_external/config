@@ -8,11 +8,11 @@ output eDP-1
 off
 output HDMI-1
 crtc 0
-gamma 1.0:0.909:0.909
-mode 2560x1440
+gamma 1.075:0.909:0.833
+mode 1920x1080
 pos 0x0
 primary
-rate 69.93
+rate 60.00
 x-prop-aspect_ratio Automatic
 x-prop-audio auto
 x-prop-broadcast_rgb Automatic
