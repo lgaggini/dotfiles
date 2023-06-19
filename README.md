@@ -38,8 +38,6 @@ When on a new machine i clone my github dotfiles repository and copy manually co
 That's all, no much automation but very simple.
 
 ## Screenshoots
-* urxvt + wallpaper
-![urxvt_colors](urxvt_colors.png)
 * urxvt + rofi
 ![urxvt_rofi](urxvt_rofi.png)
 * fzf + ranger
@@ -50,3 +48,4 @@ That's all, no much automation but very simple.
 ## Credits
 * [Awesome-archKiss theme by me](https://github.com/lgaggini/awesome-archKiss)
 * [Archlinux wallpaper by giancarlo64](https://www.deviantart.com/giancarlo64/art/ArchLinux-Wallpaper-360078960)
+* [Nature wallpaper by sohail nachiti](https://www.pexels.com/photo/close-up-photography-of-leaves-with-droplets-807598/)
