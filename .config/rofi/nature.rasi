@@ -33,7 +33,7 @@
     alternate-active-foreground: @active-foreground;
     active-background:           rgba ( 57, 57, 57, 100 % );
     selected-active-background:  rgba ( 38, 139, 210, 100 % );
-    font: "Hack Nerd Font 10";
+    font: "Hack Nerd Font 12";
 }
 window {
     background-color: rgba (15, 15, 15, 100 % );

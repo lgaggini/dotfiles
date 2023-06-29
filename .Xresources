@@ -109,8 +109,8 @@ URxvt*borderLess:         false
 ! fonts
 !
 ! xft fonts
-URxvt*font: xft:Hack Nerd Font Mono:size=11
-URxvt*boldFont: xft:Hack Nerd Font Mono:bold:size=11
+URxvt*font: xft:Hack Nerd Font Mono:size=14
+URxvt*boldFont: xft:Hack Nerd Font Mono:bold:size=14
 !
 ! scrollbar
 !
