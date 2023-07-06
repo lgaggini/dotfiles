@@ -140,6 +140,7 @@ alias h='history'
 alias m='man'
 alias sb='source ~/.bashrc'
 alias e='exit'
+alias q='exit'
 alias ack='rg'
 
 # systemd aliases
