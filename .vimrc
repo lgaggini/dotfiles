@@ -120,14 +120,13 @@ set backspace=indent,eol,start  " backspace through everything in insert mode
 "
 " GUI
 "
-set guioptions=aAeimgr            " custom gvim view
-set guifont=Hack                  " custom gvim font
+set guioptions=aAeimgr                  " custom gvim view
 if has('gui_running')
-color retrobox                    " custom gvim colorscheme
-set guifont=Hack\ 14              " custom gvim font
+color retrobox                          " custom gvim colorscheme
+set guifont=Hack\ Nerd\ Font\ Mono\ 14  " custom gvim font
 endif
 if !has('gui_running')
-set t_Co=256                      " powerline colors in terminal
+set t_Co=256                            " powerline colors in terminal
 endif
 
 "
