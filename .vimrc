@@ -16,9 +16,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'jamessan/vim-gnupg'
 Plug 'tribela/vim-transparent'
 " completion
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'Shougo/deoplete.nvim'
+Plug 'ycm-core/YouCompleteMe'
 " linting and tagging
 Plug 'w0rp/ale'
 Plug 'majutsushi/tagbar'
@@ -188,22 +186,6 @@ let g:tagbar_left = 0                                     " tagbar to the right
 let g:tagbar_autofocus = 1                                " tagbar focus on open  
 let g:tagbar_compact = 1                                  " compact view
 let g:tagbar_singleclick = 1                              " go to tag with single click
-
-" deoplete
-let g:deoplete#enable_at_startup = 1                                                    " enable completion at startup
-call deoplete#custom#option('smart_case', v:true)                                       " smart case completion
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"                                " cycle completions by <TAB>
-inoremap <silent><expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"    " enter completion by <CR>
-" sources
-call deoplete#custom#option('sources', {
-\ '_': ['buffer', 'member', 'file', 'tag'],
-\ 'python': ['buffer', 'member', 'file', 'omni'],
-\})
-" omni completion
-call deoplete#custom#option('omni_patterns', {
-\ 'python': '([^. \t]\.|^\s*@|^\s*from\s.+ import |^\s*from |^\s*import )\w*',
-\})
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
 " powerline
 let g:lightline = {
