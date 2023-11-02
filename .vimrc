@@ -12,7 +12,6 @@ call plug#begin('~/.vim/plugs')
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'mileszs/ack.vim'
 Plug 'terryma/vim-expand-region'
 Plug 'jamessan/vim-gnupg'
 Plug 'tribela/vim-transparent'
