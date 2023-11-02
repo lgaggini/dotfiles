@@ -35,6 +35,7 @@ else
   root="${red}"
 fi
 
+# default fallback PS1 before git bash prompt
 PS1="${magenta}[\t] ${bred}\w\n${bcyan}> \[\e[0m\]"
 
 #
@@ -120,8 +121,8 @@ _Z_CMD="g"
 source ~/bin/z.sh
 
 # GIT prompt
-GIT_PROMPT_START="${magenta}[\t] ${bred}\w"
-GIT_PROMPT_END="\n${bcyan}> \[\e[0m\]"
+GIT_PROMPT_START_USER="[_LAST_COMMAND_INDICATOR_] ${magenta}[\t] ${bred}\w"
+GIT_PROMPT_END_USER="\n${bcyan}> \[\e[0m\]"
 [ -f ~/.bash-git-prompt/gitprompt.sh ] && source ~/.bash-git-prompt/gitprompt.sh    # git prompt
 
 # Fuzzy finder completion and key bindings
