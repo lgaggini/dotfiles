@@ -1,5 +1,5 @@
 /******************************************************************************
- * archkiss Color theme inspired based on glue_pro_blue
+ * nature Color theme inspired based on glue_pro_blue
  * User: lgaggini
  * Copyright: lgaggini, Rasmus Steinke
  ******************************************************************************/
@@ -13,9 +13,9 @@
     blue:                        rgba ( 38, 139, 210, 100 % );
     urgent-foreground:           rgba ( 243, 132, 61, 100 % );
     alternate-urgent-background: transparent;
-    active-foreground:           rgba ( 38, 139, 210, 100 % );
+    active-foreground:           rgba ( 60, 77, 20, 100 % );
     lightbg:                     rgba ( 238, 232, 213, 100 % );
-    selected-active-foreground:  rgba ( 32, 81, 113, 100 % );
+    selected-active-foreground:  rgba ( 188, 188, 188, 100 % );
     alternate-active-background: transparent;
     background:                  transparent;
     bordercolor:                 rgba ( 57, 57, 57, 100 % );
@@ -32,7 +32,7 @@
     background-color:            rgba ( 0, 0, 0, 0 % );
     alternate-active-foreground: @active-foreground;
     active-background:           rgba ( 57, 57, 57, 100 % );
-    selected-active-background:  rgba ( 38, 139, 210, 100 % );
+    selected-active-background:  rgba ( 60, 77, 20, 100 % );
     font: "Hack Nerd Font 12";
 }
 window {
