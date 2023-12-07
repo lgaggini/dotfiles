@@ -1,0 +1,58 @@
+-- Conky, a system monitor https://github.com/brndnmtthws/conky
+--
+-- This configuration file is Lua code. You can write code in here, and it will
+-- execute when Conky loads. You can use it to generate your own advanced
+-- configurations.
+--
+-- Try this (remove the `--`):
+--
+--   print("Loading Conky config")
+--
+-- For more on Lua, see:
+-- https://www.lua.org/pil/contents.html
+
+conky.config = {
+    alignment = 'top_left',
+    background = false,
+    border_width = 1,
+    cpu_avg_samples = 2,
+    default_color = 'b5bd68',
+    default_outline_color = 'white',
+    default_shade_color = 'white',
+    double_buffer = true,
+    draw_borders = true,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    extra_newline = false,
+    font = 'DejaVu Sans Mono:size=12',
+    gap_x = 5,
+    gap_y = 32,
+    minimum_height = 480,
+    minimum_width = 1067,
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_ncurses = false,
+    out_to_stderr = false,
+    out_to_x = true,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'panel',
+    own_window_hints = 'sticky,above',
+    show_graph_range = false,
+    show_graph_scale = false,
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'none',
+    use_xft = true,
+    xinerama_head = 1,
+}
+
+conky.text = [[
+${alignc}${voffset 150}${font ttyclock:regular:size=125}${time %H:%M}${font}
+${alignr}${voffset 20}${font Hack Nerd Font Mono:regular:size=15}${time %A %d %B %Y}${font}
+${alignr}${voffset 5}${font Hack Nerd Font Mono:regular:size=15}${texeci 1800 curl wttr.in/Pescia?format="%l+%C+%t+%w&lang=it"}
+${alignr}${voffset 5}${font Hack Nerd Font Mono:regular:size=15}${texeci 1800 curl wttr.in/Firenze?format="%l+%C+%t+%w&lang=it"}
+]]
