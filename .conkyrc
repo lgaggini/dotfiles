@@ -51,7 +51,8 @@ conky.config = {
 }
 
 conky.text = [[
-${alignc}${voffset 150}${font ttyclock:regular:size=125}${time %H:%M}${font}
+${alignr}${voffset 120}${font Hack Nerd Font Mono:regular:size=15}${texeci 60 awk '{print strftime("%H:%M", (32400-$1),1)}' /proc/uptime}${font}
+${alignc}${voffset 10}${font ttyclock:regular:size=125}${time %H:%M}${font}
 ${alignr}${voffset 20}${font Hack Nerd Font Mono:regular:size=15}${time %A %d %B %Y}${font}
 ${alignr}${voffset 5}${font Hack Nerd Font Mono:regular:size=15}${texeci 1800 curl wttr.in/Pescia?format="%l+%C+%t+%w&lang=it"}
 ${alignr}${voffset 5}${font Hack Nerd Font Mono:regular:size=15}${texeci 1800 curl wttr.in/Firenze?format="%l+%C+%t+%w&lang=it"}
