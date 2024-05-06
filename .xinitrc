@@ -46,8 +46,8 @@ xcape -e 'Control_L=Escape'
 unclutter &
 
 # gnome-keyring
-eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
-export SSH_AUTH_SOCK
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets)
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}"/gcr/ssh
 
 # geoclue agent
 /usr/lib/geoclue-2.0/demos/agent &
