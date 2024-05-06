@@ -62,9 +62,12 @@ export BROWSER
 [[ -x /usr/bin/lesspipe ]] && eval "$(SHELL=/bin/sh lesspipe)"  # less more friendly for non-text
 export DESKTOP_SESSION=gnome
 export WORKON_HOME=~/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv2
-source /usr/bin/virtualenvwrapper.sh
+source /usr/bin/virtualenvwrapper_lazy.sh
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+pyenv virtualenvwrapper_lazy
 
 #
 # bash options
@@ -88,7 +91,7 @@ stty -ixon                          # disable ^S/^Q flow control
 # hystory
 #
 export HISTSIZE=50000                           # Increase bash history size
-export HISTTIMEFORMAT="%y-%m-%d %T "              # History date and time
+export HISTTIMEFORMAT="%y-%m-%d %T "            # History date and time
 export HISTCONTROL=ignoreboth                   # ingore space and duplicates in history
 export PROMPT_COMMAND='history -a'              # save command after it has been executed
 export HISTIGNORE="&:[ ]*:ls:ls -a:cd:cd .."    # leave commands out of history log
