@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #---------------------------
 #--    .bash_functions    --
 #--      by lgaggini      --
@@ -636,7 +636,7 @@ _note()
     local cur names IFS
  
     cur="${COMP_WORDS[COMP_CWORD]}"
-    names=`find "$note_path" -type f -name "*.md"| cut -d'/' -f5- | sed 's/\.[^.]*$//'`
+    names=`\find "$note_path" -type f -name "*.md"| cut -d'/' -f5- | sed 's/\.[^.]*$//'`
     IFS=$'\t\n'
 
     COMPREPLY=( $(compgen -W "${names}" -- ${cur}) )

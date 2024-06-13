@@ -88,7 +88,7 @@ shopt -s lithist                    # save all lines of a multiline command in s
 stty -ixon                          # disable ^S/^Q flow control 
 
 #
-# hystory
+# history
 #
 export HISTSIZE=50000                           # Increase bash history size
 export HISTTIMEFORMAT="%y-%m-%d %T "            # History date and time
@@ -99,18 +99,7 @@ export HISTIGNORE="&:[ ]*:ls:ls -a:cd:cd .."    # leave commands out of history 
 #
 # colors
 #
-alias ls='ls --color=auto'                                  # ls colored output
 [ -f ~/.dir_colors ] && eval $(dircolors -b ~/.dir_colors)  # custom file colors
-export GREP_COLOR="mt=1;36"                                    # grep colored ouput
-alias grep='grep --color=auto'                              # grep colored ouput
-export LESS="-R"                                            # less colored output
-export LESS_TERMCAP_mb=$'\E[01;31m'                         # begin blinking
-export LESS_TERMCAP_md=$'\E[01;38;5;74m'                    # begin bold
-export LESS_TERMCAP_me=$'\E[0m'                             # end mode
-export LESS_TERMCAP_se=$'\E[0m'                             # end standout-mode
-export LESS_TERMCAP_so=$'\E[38;5;246m'                      # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'\E[0m'                             # end underline
-export LESS_TERMCAP_us=$'\E[04;38;5;146m'                   # begin underline
 
 #
 # alias and function from external
@@ -118,15 +107,13 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m'                   # begin underline
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases          # aliases
 [ -f ~/.bash_functions ] && source ~/.bash_functions      # functions
 
-
-# jumping around by z/g (https://github.com/rupa/z)
-_Z_CMD="g"
-source ~/bin/z.sh
-
 # GIT prompt
 GIT_PROMPT_START_USER="[_LAST_COMMAND_INDICATOR_] ${magenta}[\t] ${bred}\w"
 GIT_PROMPT_END_USER="\n${bcyan}> \[\e[0m\]"
 [ -f ~/.bash-git-prompt/gitprompt.sh ] && source ~/.bash-git-prompt/gitprompt.sh    # git prompt
+
+# Smarter cd command
+[ -f ~/.zoxide ] && source ~/.zoxide  # local functions
 
 # Fuzzy finder completion and key bindings
 source /usr/share/fzf/completion.bash
@@ -135,7 +122,7 @@ source /usr/share/fzf/key-bindings.bash
 bind '"\C-g": " \C-e\C-u`__fzf_cd__`\e\C-e\er\C-m"'
 # custom colors
 export FZF_DEFAULT_OPTS="
---preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
+--preview '([[ -f {} ]] && (bat --theme=base16-256 --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
 --color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:229
 --color info:150,prompt:110,spinner:150,pointer:167,marker:174"
 
@@ -152,7 +139,7 @@ export FZF_DEFAULT_OPTS="
 # http://mg.pov.lt/blog/bash-prompt.html
 case ${TERM} in
   xterm*|rxvt*|Eterm|aterm|kterm|gnome|screen-256color-bce|screen-256color)
-    PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/$HOME/\~}"'
+    # PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/$HOME/\~}"'
     # Show the currently running command in the terminal title:
     # http://www.davidpashley.com/articles/xterm-titles-with-bash.html
     show_command_in_title_bar()

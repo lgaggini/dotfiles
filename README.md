@@ -5,6 +5,7 @@ These are configuration files for my GNU/Linux workstation.
 ## Toolbox
 
 * shell: `bash`
+* core tools: `lsd, fzf, fd, git-delta, procs, duf, ncdu, zoxide, btop, curlie, ripgrep, bat, prettyping`
 * terminal: `urxvt`
 * terminal multiplexer: `tmux + byobu + tmuxp`
 * wm: `awesome`
@@ -12,7 +13,7 @@ These are configuration files for my GNU/Linux workstation.
 * file manager: `ranger`
 * file manager gui: `thunar`
 * email: `mutt` + `notmuch` + `msmtp` + `lbdb` + `offlineimap`
-* pim: `khal` + `todoman` + `davmail` + `vdirsyncer`
+* pim: `khal` + `todoman` + `vdirsyncer`
 * wiki/notes: `ranger` + `vim` + some wrapper bash functions
 * feed: `newsboat` + `w3m` + [custom script](https://gist.github.com/lgaggini/f0d0e119a0ab4410943dd227370f6fe6)
 * ide: `vim`
@@ -28,6 +29,7 @@ These are configuration files for my GNU/Linux workstation.
 * document viewer:  `zathura`
 * backup: `restic`
 * irc: `weechat`
+* calculator: `rofi-calc'
 
 ## Usage
 There are many [available solutions](http://dotfiles.github.com/) to manage dotfiles. I use a very simple approach. I have a dedicated folder repo, dotfiles, where i copy manually every files to track. After the first manually copy, i sync my dotfiles by `--existing` options of `rsync`, that syncs two folder only for files present in the destination. In my bash functions i have the function dots:
