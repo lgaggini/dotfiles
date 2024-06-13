@@ -22,12 +22,16 @@
     stag = add -u
     unstag = reset HEAD --
     change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD'  ]]; then export $VAR='$NEW'; fi\" $@;  }; f "
+[include]
+    path = .config/themes.gitconfig
 [pager]
     pager = delta
     diff = delta
     show = delta
 [delta]
-    syntax-theme = Nord
+    dark = true
+    syntax-theme = base16-256
+    features = villsau
     line-numbers = true
     side-by-side = true
     line-numbers-left-format = "{nm:>4}┊"
