@@ -14,7 +14,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-expand-region'
 Plug 'jamessan/vim-gnupg'
-Plug 'tribela/vim-transparent'
 " completion
 Plug 'ycm-core/YouCompleteMe'
 " linting and tagging
