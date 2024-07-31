@@ -29,7 +29,8 @@ These are configuration files for my GNU/Linux workstation.
 * document viewer:  `zathura`
 * backup: `restic`
 * irc: `weechat`
-* calculator: `rofi-calc'
+* calculator: `rofi-calc`
+* snippet-manager: `rofi-snippy`
 
 ## Usage
 There are many [available solutions](http://dotfiles.github.com/) to manage dotfiles. I use a very simple approach. I have a dedicated folder repo, dotfiles, where i copy manually every files to track. After the first manually copy, i sync my dotfiles by `--existing` options of `rsync`, that syncs two folder only for files present in the destination. In my bash functions i have the function dots:

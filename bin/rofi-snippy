@@ -1,0 +1,47 @@
+#!/bin/bash
+#
+# Author: Lorenzo Gaggini
+# Version: 1.0
+#
+# Based on "snippy" by "sessy", ehanced by mhwombat 
+# (https://bbs.archlinux.org/viewtopic.php?id=71938)
+#
+# This version may be more convenient for people who only need 
+# one-line snippets, because all your snippets can go in one file.
+#
+# You will also need "rofi", "xsel" and "xdotool". Get them from your linux
+# distro in the usual way.
+#
+# To use:
+# 1. Create a file in your home directory called ".snippyrc".
+#
+# 2. The format of the file is shown below:
+#
+#        [tag] text_to_paste
+#
+#    Where "[tag]" starts in column 1. For example:
+#
+#        [hw] Hello, world!
+#
+# 3. Bind a convenient key combination to this script.
+#
+#    TIP: If you're using AwesomeWm, add something like this rc.lua
+#    awful.key({ modkey, "Shift" },"s", function () awful.util.spawn_with_shell("rofi-snippy") end), --  [s]nippets
+#
+
+CONFIG=${HOME}/.snippyrc
+ROFI_ARGS=""
+
+# Display the menu and get the selection
+SELECTION=$(/usr/bin/rofi -dmenu "${ROFI_ARGS}" < "${CONFIG}")
+
+# Get the text associated with the selection.
+TEXT=$(grep -F "${SELECTION/\] */]}" "${CONFIG}" | sed "s/^\[[^]]*\] //")
+
+if [ "${TEXT}" ]; then
+  # Put the selected string (without the trailing newline) into the primary and clipboard buffer
+  echo -n "${TEXT}" | xsel --input
+  echo -n "${TEXT}" | xsel --input --clipboard
+  # Paste into the current application.
+  xdotool key shift+Insert
+fi
