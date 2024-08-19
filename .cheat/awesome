@@ -29,7 +29,7 @@
  Mod             "r",     function () awful.screen.focused().mypromptbox:run() end,
  Mod  "l",
  Mod  "x", function() menubar.show() end,
- Mod,         "b", function () awful.util.spawn_with_shell(browser) end), -- [b]rowser
+ Mod,         "b", function () awful.util.spawn_with_shell(browser_work) end), -- [b]rowser
  Mod,         "f", function () awful.util.spawn_with_shell(filemanager_gui) end), -- [f]ilemanager
  Mod,         "e", function () awful.util.spawn_with_shell(editor) end), -- [e]ditor 
  Mod,         "m", function () awful.util.spawn_with_shell(email) end), -- e[m]ail
@@ -45,6 +45,8 @@
  Mod,         "h", function () awful.util.spawn_with_shell(clipboard) end), -- clipboard [h]istory
  Mod,         "a", function () awful.util.spawn_with_shell(music) end), -- [a]udio
  Mod,         "r", function () awful.util.spawn_with_shell(runner) end), -- [r]unner
+ Mod,         "u", function () awful.util.spawn_with_shell(calculator) end), -- calc[u]lator
+ Mod,         "g", function () awful.util.spawn_with_shell(snippets) end), -- snippets [g]
  Mod, "Shift" "l", function () awful.util.spawn_with_shell(lock) end) -- [l]ock
  Alt, "Shift"    "f",       function (c) c.fullscreen = not c.fullscreen end),
  Alt,            "c",       function (c) c:kill()                        end),
