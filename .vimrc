@@ -133,11 +133,14 @@ let g:mapleader = "\<Space>"    " custom map leader
 map <Bar> <C-W>v<C-W><Right>    " vertical split
 map <Bslash> <C-W>s<C-W><Down>  " horizontal split
 map <Tab> <C-W>w                " cycle split by tab
-map T :tabnew<CR>               " new tab
-map <gt> :tabnext<CR>           " cycle tab by gt
-map X :tabclose<CR>             " close tab
+map B :enew<CR>                 " new buffer
+map gb :bnext<CR>               " cycle buffers by gb
 map <S-Tab> :bnext<CR>          " cycle buffers by shift-tab
-map <Leader>ii mzgg=G`z        " reindent current file
+map <Leader>x :bd<CR>           " close buffer
+map T :tabnew<CR>               " new tab
+map gt :tabnext<CR>             " cycle tab by gt
+map X :tabclose<CR>             " close tab
+map <Leader>ii mzgg=G`z         " reindent current file
 " disable arrow to force vim keybindings
 noremap <Up> <nop>
 noremap <Down> <nop>
