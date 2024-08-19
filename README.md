@@ -9,15 +9,15 @@ These are configuration files for my GNU/Linux workstation.
 * terminal: `urxvt`
 * terminal multiplexer: `tmux + byobu + tmuxp`
 * wm: `awesome`
-* editor: `vim`
+* editor: `vim`, `neovim`
 * file manager: `ranger`
 * file manager gui: `thunar`
 * email: `mutt` + `notmuch` + `msmtp` + `lbdb` + `offlineimap`
 * pim: `khal` + `todoman` + `vdirsyncer`
 * wiki/notes: `ranger` + `vim` + some wrapper bash functions
 * feed: `newsboat` + `w3m` + [custom script](https://gist.github.com/lgaggini/f0d0e119a0ab4410943dd227370f6fe6)
-* ide: `vim`
-* ide gui: `gvim`
+* ide: `neovim`
+* ide gui: `neovide`
 * versioning: `git`
 * music: `mpd` + `mpc` + `ncmpcpp` + `rofi-mpc`
 * browser: `w3m`
