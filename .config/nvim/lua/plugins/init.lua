@@ -25,5 +25,19 @@ return {
       { "<leader>tb", "<cmd>AerialToggle<cr>", desc = "aerial toggle" },
     },
     lazy = false
+  },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    opts = {
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "v",
+          node_incremental = "v",
+          scope_incremental = "r",
+          node_decremental = "V",
+        }
+      }
+    }
   }
 }
