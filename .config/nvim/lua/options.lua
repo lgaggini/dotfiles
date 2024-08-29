@@ -5,4 +5,4 @@ local o = vim.o
 o.foldmethod = 'expr'
 o.foldexpr = 'nvim_treesitter#foldexpr()'
 -- system clipboard
-o.clipboard = 'unnamed,unnamedplus'
+o.clipboard = 'unnamed'
