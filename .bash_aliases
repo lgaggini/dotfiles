@@ -150,6 +150,7 @@ alias jct='journalctl'
 # app aliases
 alias v='vim'
 alias nv='nvim'
+alias vim='nvim'
 alias curl='curlie'
 alias dig='dog'
 alias scan='nmap -v -sT -Pn'

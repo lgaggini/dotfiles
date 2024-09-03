@@ -9,7 +9,7 @@ These are configuration files for my GNU/Linux workstation.
 * terminal: `urxvt`
 * terminal multiplexer: `tmux + byobu + tmuxp`
 * wm: `awesome`
-* editor: `vim`, `neovim`
+* editor: `neovim + nvchad`, `vim`
 * file manager: `ranger`
 * file manager gui: `thunar`
 * email: `mutt` + `notmuch` + `msmtp` + `lbdb` + `offlineimap`
