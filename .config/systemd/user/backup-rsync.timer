@@ -5,7 +5,7 @@ Wants=network-online.target
 
 [Timer]
 Persistent=true
-OnCalendar=*-*-* 12:30:00
+OnCalendar=*-*-* 13:00:00
 Unit=backup-rsync.service
 
 [Install]
