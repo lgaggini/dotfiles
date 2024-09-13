@@ -49,7 +49,7 @@ export PATH=$PATH:/usr/lib/surfraw          # surfraw addition
 #
 export MAIL=~/mail/INBOX
 export LANG=it_IT.utf8
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/nvim
 export VISUAL=$EDITOR
 export PAGER=/usr/bin/less
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
