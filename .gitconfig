@@ -30,7 +30,7 @@
     show = delta
 [delta]
     dark = true
-    syntax-theme = base16-256
+    syntax-theme = zenburn
     features = villsau
     line-numbers = true
     side-by-side = true
