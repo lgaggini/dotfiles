@@ -1,14 +1,14 @@
 # dotfiles
 
-These are configuration files for my GNU/Linux workstation.
+These are configuration files for my GNU/Linux workstation(s) and some files for my recently added macOS workstation too (`term`, `zsh`, `amethyst`, `karabiner`).
 
 ## Toolbox
 
-* shell: `bash`
+* shell: `bash`, `zsh` (on mac)  
 * core tools: `lsd, fzf, fd, git-delta, procs, duf, ncdu, zoxide, btop, curlie, ripgrep, bat, prettyping`
-* terminal: `urxvt`
+* terminal: `urxvt`, `term` (on mac)
 * terminal multiplexer: `tmux + byobu + tmuxp`
-* wm: `awesome`
+* wm: `awesome`, `amethyst` (on mac)
 * editor: `neovim + nvchad`, `vim`
 * file manager: `ranger`
 * file manager gui: `thunar`

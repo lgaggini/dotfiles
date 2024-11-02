@@ -1,0 +1,17 @@
+#!/bin/zsh
+#---------------------------
+#--     .zsh_functions    --
+#--      by lgaggini      --
+#--      CC BY-SA 3.0     --
+#---------------------------
+
+ssh() {
+    if [[ -n "${TMUX_PANE:-}" ]]  ; then
+            tmux rename-window "$*"
+            command ssh "$@"
+            tmux set-window-option automatic-rename "on" 1>/dev/null
+    else
+            command ssh "$@"
+    fi
+}
+

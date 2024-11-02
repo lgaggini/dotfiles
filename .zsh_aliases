@@ -1,0 +1,136 @@
+#!/bin/zsh
+#---------------------------
+#--     .zsh_aliases     --
+#--      by lgaggini      --
+#--      CC BY-SA 3.0     --
+#---------------------------
+
+# alias list
+alias aliases='cat ~/.zsh_aliases'
+
+# homebrew aliases TODO
+
+# toolbox aliases (ls, cp, grep, find, cd, etc.)
+alias ls='lsd'
+alias la='ls -a'
+alias ll='ls -alh'
+alias lr='ls -aR'
+alias lt='ls -laht'
+alias ltr='ls -lart'
+alias ln='ln -si'
+alias mv='mv -iv'
+alias cp='cp -ripv'
+alias rm='rm -rv'
+alias df='duf'
+alias cl='column'
+alias du='du -h'
+alias diff='delta'
+alias md='mkdir -p'
+alias rd='rmdir'
+alias ps='procs'
+alias kl='kill'
+alias pk='pkill'
+alias find='fd'
+alias fl='file'
+alias grep='rg'
+alias gp='grep'
+alias sd='sed'
+alias less='cat'
+alias le='less'
+alias he='head'
+alias ht='htop'
+alias bt='btop'
+alias ta='tail -f'
+alias cat='bat --theme=base16-256'
+alias ct='cat'
+alias rs='rsync --progress --partial'
+alias st='sort'
+alias un='uniq'
+alias ut='sudo umount'
+alias wh='which'
+alias ncdu='ncdu --color dark-bg'
+alias lsdir='ncdu --color dark-bg'
+alias path='echo -e ${PATH//:/\\n}'
+alias c='clear'
+alias h='history'
+alias m='man'
+alias sz='source ~/.zshrc'
+alias e='exit'
+alias q='exit'
+
+# launchctl aliases TODO
+
+# app aliases
+alias vim='nvim'
+alias v='vim'
+alias curl='curlie'
+alias dig='dog'
+alias scan='nmap -v -sT -Pn'
+alias netscan='nmap -sn'
+alias wttr='curl wttr.in'
+alias ping='gping'
+alias pg='ping -c 7'
+
+# git aliases
+alias gs='git status'
+alias gv='git show'
+alias gd='git diff'
+alias gc='git commit'
+alias ga='git add'
+alias gpl='git pull'
+alias gps='git push'
+alias gr='git rm'
+alias gt='git timeline'
+alias gct='fzf_git_log'
+alias gl='git log --oneline --decorate'
+alias gg='git grep'
+alias gm='git merge'
+alias gmv='git checkout'
+alias gb='git branch'
+
+# svn aliases
+alias svu='svn update'
+alias svs='svn status'
+alias svc='svn commit -m'
+alias svd='svn diff --diff-cmd colordiff -r HEAD'
+alias svl='svn log -v'
+alias sva='svn add'
+alias svr='svn revert'
+
+# python aliases
+alias p2='python2'
+alias p='python'
+
+# generic folder aliases
+alias .='pwd'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias prev='cd -'
+alias usb='cd /media/usb'
+alias cdrom='cd /media/cdrom'
+alias mobile='cd /media/mobile'
+alias iso='cd /media/iso'
+alias esterno='cd /mnt/esterno'
+
+# home folder aliases
+alias home='cd ~'
+alias bin='cd ~/bin'
+alias code='cd ~/code'
+alias down='cd ~/down'
+alias doc='cd ~/doc'
+alias logs='cd ~/logs'
+alias media='cd ~/media'
+alias music='cd ~/media/music'
+alias reading='cd ~/read'
+alias tmp='cd ~/tmp'
+
+# super user
+alias s='sudo '
+alias sudo='sudo '
+alias mys='sudo -E'
+alias res='sudo !!'
+alias reboot='sudo reboot'
+alias poweroff='sudo halt'
