@@ -10,3 +10,8 @@ o.clipboard = 'unnamed'
 o.list = true
 -- expand tab
 o.expandtab = true
+-- gui configs
+if vim.g.neovide then
+  o.guifont = "Hack Nerd Font Mono:h16"
+  vim.g.neovide_transparency = 0.75
+end
