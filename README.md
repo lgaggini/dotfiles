@@ -1,29 +1,28 @@
 # dotfiles
 
-These are configuration files for my GNU/Linux workstation(s) and some files for my recently added macOS workstation too (`term`, `zsh`, `amethyst`, `karabiner`).
+These are configuration files for my GNU/Linux workstation(s), some files for my recently added macOS workstation (`term`, `zsh`, `amethyst`, `karabiner`, `neovim`) and for my Windows workstation too (`windows terminal`, `zsh`, `komorebi`, `autohotkey`, `neovim`, `flow-launcher`).
 
 ## Toolbox
-
-* shell: `bash`, `zsh` (on mac)  
-* core tools: `lsd, fzf, fd, git-delta, procs, duf, ncdu, zoxide, btop, curlie, ripgrep, bat, prettyping`
-* terminal: `urxvt`, `term` (on mac)
+* shell: `bash`, `zsh` (on mac/windows)
+* core tools: `lsd, fzf, fd, git-delta, procs, duf, ncdu, zoxide, btop, curlie, ripgrep, bat, prettyping` (everywhere)
+* terminal: `urxvt`, `term` (on mac), `windows terminal` (on windows)
 * terminal multiplexer: `tmux + byobu + tmuxp`
-* wm: `awesome`, `amethyst` (on mac)
-* editor: `neovim + nvchad`, `vim`
+* wm: `awesome`, `amethyst` (on mac), `komorebi` (on windows)
+* editor: `neovim + nvchad` (everywhere), `vim`
 * file manager: `ranger`
 * file manager gui: `thunar`
 * email: `mutt` + `notmuch` + `msmtp` + `lbdb` + `offlineimap`
 * pim: `khal` + `todoman` + `vdirsyncer`
 * wiki/notes: `ranger` + `vim` + some wrapper bash functions
 * feed: `newsboat` + `w3m` + [custom script](https://gist.github.com/lgaggini/f0d0e119a0ab4410943dd227370f6fe6)
-* ide: `neovim`
-* ide gui: `neovide`
-* versioning: `git`
+* ide: `neovim` (everywhere)
+* ide gui: `neovide` (everywhere)
+* versioning: `git` (everywhere)
 * music: `mpd` + `mpc` + `ncmpcpp` + `rofi-mpc`
 * browser: `w3m`
 * surfer: `surfraw` + `w3m` + [custom script](https://gist.github.com/lgaggini/f0d0e119a0ab4410943dd227370f6fe6)
 * password manager: `pass`
-* password manager gui: `rofi-pass`
+* password manager gui: `rofi-pass`, `bitwarden` (on mac/windows)
 * clipboard manager: `greenclip + rofi`
 * personal finance: `ledger`
 * document viewer:  `zathura`

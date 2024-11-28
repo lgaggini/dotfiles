@@ -1,0 +1,178 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.30/schema.json",
+  "app_specific_configuration_path": "$Env:USERPROFILE/applications.json",
+  "window_hiding_behaviour": "Cloak",
+  "cross_monitor_move_behaviour": "Insert",
+  "default_workspace_padding": 5,
+  "default_container_padding": 5,
+  "border": true,
+  "border_width": 4,
+  "border_offset": -1,
+  "theme": {
+    "palette": "Base16",
+    "name": "Blueish",
+    "unfocused_border": "Base03",
+    "bar_accent": "Base0D"
+  },
+  "stackbar": {
+    "height": 40,
+    "mode": "OnStack",
+    "tabs": {
+      "width": 300
+    }
+  },
+  "display_index_preferences": {
+    "0": "ACR0695-7&1ef22e97&0&UID256",
+    "1": "GSM59F1-7&1ef22e97&0&UID268"
+  },
+  "bar_configurations": [
+    "$Env:USERPROFILE/komorebi.bar.landscape.json",
+  "$Env:USERPROFILE/komorebi.bar.portrait.json"
+  ],
+  "monitors": [
+    {
+      "workspaces": [
+        {
+          "name": "Tools",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "firefox.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "explorer.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "SumatraPDF.exe"
+            }
+          ]
+        },
+        {
+          "name": "Gaming",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Playnite.DesktopApp.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "iRacingUI.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "Trading Paints.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "CrewChiefV4.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "MOZA Pit House.exe"
+            }
+          ]
+        },
+        {
+          "name": "Prod",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Ableton Live 12 Standard.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "rekordobx.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "soffice.bin"
+            }
+          ]
+        },
+        {
+          "name": "Pim",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Joplin.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "thunderbird.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "Bitwarden.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "kmymoney.exe"
+            }
+          ]
+        },
+        {
+          "name": "Media",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Spotify.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "rssguard.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "msedge.exe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "workspaces": [
+        {
+          "name": "Tools2",
+          "layout": "Rows"
+        },
+        {
+          "name": "Gaming2",
+          "layout": "Rows"
+        },
+        {
+          "name": "Prod2",
+          "layout": "Rows"
+        },
+        {
+          "name": "Pim2",
+          "layout": "Rows"
+        },
+        {
+          "name": "Media2",
+          "layout": "Rows"
+        }
+      ]
+    }
+  ],
+  "tray_and_multi_window_applications": [
+    {
+        "kind": "Exe",
+        "id": "Joplin.exe"
+    },
+    {
+      "kind": "Exe",
+      "id": "MOZA Pit House.exe"
+    },
+    {
+      "kind": "Exe",
+      "id": "rzappengine.exe"
+    }
+  ]
+}

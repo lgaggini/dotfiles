@@ -1,0 +1,130 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": 
+    [
+        {
+            "command": "unbound",
+            "keys": "alt+f4"
+        },
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
+        },
+        {
+            "command": "paste",
+            "id": "User.paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "id": "User.splitPane.A6751878",
+            "keys": "alt+shift+d"
+        },
+        {
+            "command": "find",
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
+        }
+    ],
+    "alwaysShowNotificationIcon": true,
+    "copyFormatting": "none",
+    "copyOnSelect": true,
+    "defaultProfile": "{17da3cac-b318-431e-8a3e-7fcdefe6d114}",
+    "focusFollowMouse": true,
+    "minimizeToNotificationArea": true,
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles": 
+    {
+        "defaults": {},
+        "list": 
+        [
+            {
+                "colorScheme": "Dark+",
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "font": 
+                {
+                    "face": "Hack Nerd Font Mono",
+                    "size": 14
+                },
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell",
+                "opacity": 75
+            },
+            {
+                "colorScheme": "Dark+",
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "font": 
+                {
+                    "face": "Hack Nerd Font Mono",
+                    "size": 14
+                },
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Prompt dei comandi",
+                "opacity": 75
+            },
+            {
+                "colorScheme": "Dark+",
+                "font": 
+                {
+                    "face": "Hack Nerd Font Mono",
+                    "size": 14
+                },
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "opacity": 75,
+                "source": "Windows.Terminal.Azure"
+            },
+            {
+                "colorScheme": "Dark+",
+                "commandline": "C:/tools/msys64/msys2_shell.cmd -defterm -shell zsh -here -no-start -ucrt64",
+                "font": 
+                {
+                    "face": "Hack Nerd Font Mono",
+                    "size": 14
+                },
+                "guid": "{17da3cac-b318-431e-8a3e-7fcdefe6d114}",
+                "icon": "C:/tools/msys64/ucrt64.ico",
+                "name": "UCRT64 / MSYS2",
+                "opacity": 75,
+                "startingDirectory": "C:/tools/msys64/home/%USERNAME%",
+                "useAcrylic": false
+            },
+            {
+                "colorScheme": "Dark+",
+                "commandline": "C:/tools/msys64/msys2_shell.cmd -defterm -shell zsh -here -no-start -msys",
+                "font": 
+                {
+                    "face": "Hack Nerd Font Mono",
+                    "size": 14
+                },
+                "guid": "{71160544-14d8-4194-af25-d05feeac7233}",
+                "icon": "C:/tools/msys64/msys2.ico",
+                "name": "MSYS / MSYS2",
+                "opacity": 75,
+                "startingDirectory": "C:/tools/msys64/home/%USERNAME%"
+            }
+        ]
+    },
+    "schemes": [],
+    "themes": [],
+    "useAcrylicInTabRow": true
+}
