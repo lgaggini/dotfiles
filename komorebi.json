@@ -61,19 +61,23 @@
             },
             {
               "kind": "Exe",
+              "id": "steamwebhelper.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "GalaxyClient.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "EpicGamesLauncher.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "EADesktop.exe"
+            },
+            {
+              "kind": "Exe",
               "id": "iRacingUI.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "Trading Paints.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "CrewChiefV4.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "MOZA Pit House.exe"
             }
           ]
         },
@@ -87,7 +91,11 @@
             },
             {
               "kind": "Exe",
-              "id": "rekordobx.exe"
+              "id": "rekordbox.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "gimp-2.10.exe"
             },
             {
               "kind": "Exe",
@@ -121,6 +129,10 @@
           "name": "Media",
           "layout": "BSP",
           "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "vlc.exe"
+            },
             {
               "kind": "Exe",
               "id": "Spotify.exe"
@@ -164,8 +176,30 @@
   ],
   "tray_and_multi_window_applications": [
     {
-        "kind": "Exe",
-        "id": "Joplin.exe"
+      "kind": "Exe",
+      "id": "Joplin.exe"
+    },
+    {
+      "kind": "Exe",
+      "id": "rzappengine.exe"
+    },
+    {
+      "kind": "Exe",
+      "id": "kmymoney.exe"
+    },
+    {
+      "kind": "Exe",
+      "id": "EADesktop.exe"
+    }
+  ],
+  "ignore_rules": [
+    {
+      "kind": "Exe",
+      "id": "Trading Paints.exe"
+    },
+    {
+      "kind": "Exe",
+      "id": "CrewChiefV4.exe"
     },
     {
       "kind": "Exe",
@@ -174,6 +208,13 @@
     {
       "kind": "Exe",
       "id": "rzappengine.exe"
+    }
+  ],
+  "object_name_change_applications": [
+    {
+      "id": "soffice.bin",
+      "kind": "Exe",
+      "matching_strategy": "Equals"
     }
   ]
 }
