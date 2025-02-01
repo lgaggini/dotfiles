@@ -8,11 +8,12 @@
   "border": true,
   "border_width": 4,
   "border_offset": -1,
+  "font_family": "JetBrains Mono",
   "theme": {
     "palette": "Base16",
-    "name": "Blueish",
+    "name": "Brewer",
     "unfocused_border": "Base03",
-    "bar_accent": "Base0D"
+    "bar_accent": "Base0F"
   },
   "stackbar": {
     "height": 40,
