@@ -16,23 +16,23 @@ RunAndWait(app, id) {
 LaunchOrFocus(path) {
   exe := SubStr(path, InStr(path, "\", false, -1) + 1)
   id := 'ahk_exe ' exe
-    ; checks if an app is already running
-    if !ProcessExist(exe)
-      ; IF NOT open and focus it.
-      Run(path)
-      WinWait(id)
-    ; bring it to the front and in focus
-    WinActivate(id)
+  ; checks if an app is already running
+  if !ProcessExist(exe)
+    ; IF NOT open and focus it.
+    Run(path)
+    WinWait(id)
+  ; bring it to the front and in focus
+  WinActivate(id)
 }
 
 Launch(path) {
-    exe := SubStr(path, InStr(path, "\", false, -1) + 1)
+  exe := SubStr(path, InStr(path, "\", false, -1) + 1)
   id := 'ahk_exe ' exe
   RunAndWait(path, id)
 }
 
 LaunchWPA(path, arguments) {
-    exe := SubStr(path, InStr(path, "\", false, -1) + 1)
+  exe := SubStr(path, InStr(path, "\", false, -1) + 1)
   id := 'ahk_exe ' exe
   path_with_arguments:= path arguments
   RunAndWait(path_with_arguments, id)
