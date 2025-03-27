@@ -45,7 +45,7 @@ set mailcap_path = ~/.mailcap:/etc/mailcap:/usr/lib/mime/mailcap
 
 # compose
 set askcc = yes                               # ask for cc on new msg
-set editor = "nvim -c 'set tw=70 et' '+/^$' " # neovim as default editor
+set editor = "nvim -c 'set tw=70 et' '+/^$' "  # vim as default editor
 set reply_to = ask-yes                        # user Reply-To for reply
 set edit_headers = yes                        # edit header for cc and bcc
 set postpone = yes                            # save drafts
