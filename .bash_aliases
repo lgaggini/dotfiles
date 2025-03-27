@@ -197,6 +197,9 @@ alias svr='svn revert'
 alias p2='python2'
 alias p='python'
 
+# k8s aliases
+alias k='kubecolor'
+
 # generic folder aliases
 alias .='pwd'
 alias ..='cd ..'

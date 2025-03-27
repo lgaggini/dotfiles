@@ -107,8 +107,21 @@ export HISTIGNORE="&:[ ]*:ls:ls -a:cd:cd .."    # leave commands out of history 
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases          # aliases
 [ -f ~/.bash_functions ] && source ~/.bash_functions      # functions
 
+
+# K8S
+source /usr/bin/switch.sh
+source '/opt/kube-ps1/kube-ps1.sh'
+KUBE_PS1_SYMBOL_COLOR=green
+KUBE_PS1_CTX_COLOR=yellow
+KUBE_PS1_NS_COLOR=green
+KUBE_PS1_BG_COLOR=black
+#https://github.com/magicmonty/bash-git-prompt/issues/467
+function prompt_callback() {
+  echo -n " $(kube_ps1) ${bred}\w"
+}
+
 # GIT prompt
-GIT_PROMPT_START_USER="[_LAST_COMMAND_INDICATOR_] ${magenta}[\t] ${bred}\w"
+GIT_PROMPT_START_USER="[_LAST_COMMAND_INDICATOR_] ${magenta}[\t]"
 GIT_PROMPT_END_USER="\n${bcyan}> \[\e[0m\]"
 [ -f ~/.bash-git-prompt/gitprompt.sh ] && source ~/.bash-git-prompt/gitprompt.sh    # git prompt
 
