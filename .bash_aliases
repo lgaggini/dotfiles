@@ -199,6 +199,7 @@ alias p='python'
 
 # k8s aliases
 alias k='kubecolor'
+complete -o nospace -F __start_kubectl k
 
 # generic folder aliases
 alias .='pwd'
