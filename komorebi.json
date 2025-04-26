@@ -12,6 +12,7 @@
   "theme": {
     "palette": "Base16",
     "name": "Brewer",
+    "single_border": "Base0F",
     "unfocused_border": "Base03",
     "bar_accent": "Base0F"
   },
@@ -22,14 +23,6 @@
       "width": 300
     }
   },
-  "display_index_preferences": {
-    "0": "ACR0695-7&1ef22e97&0&UID256",
-    "1": "GSM59F1-7&1ef22e97&0&UID268"
-  },
-  "bar_configurations": [
-    "$Env:USERPROFILE/komorebi.bar.landscape.json",
-  "$Env:USERPROFILE/komorebi.bar.portrait.json"
-  ],
   "monitors": [
     {
       "workspaces": [
@@ -39,20 +32,72 @@
           "initial_workspace_rules": [
             {
               "kind": "Exe",
-              "id": "firefox.exe"
-            },
-            {
-              "kind": "Exe",
               "id": "explorer.exe"
             },
             {
               "kind": "Exe",
               "id": "SumatraPDF.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "Neovide.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "7zFM.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "WinSCP.exe"
             }
           ]
         },
         {
-          "name": "Gaming",
+          "name": "Web",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "firefox.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "rssguard.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "msedge.exe"
+            }
+          ]
+        },
+        {
+          "name": "Prod",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Ableton Live 12 Standard.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "rekordbox.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "gimp-3.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "soffice.bin"
+            },
+            {
+              "kind": "Exe",
+              "id": "WindowsTerminal.exe"
+            }
+          ]
+        },
+        {
+          "name": "Game",
           "layout": "BSP",
           "initial_workspace_rules": [
             {
@@ -77,29 +122,11 @@
             },
             {
               "kind": "Exe",
+              "id": "Amazon Games UI.exe"
+            },
+            {
+              "kind": "Exe",
               "id": "iRacingUI.exe"
-            }
-          ]
-        },
-        {
-          "name": "Prod",
-          "layout": "BSP",
-          "initial_workspace_rules": [
-            {
-              "kind": "Exe",
-              "id": "Ableton Live 12 Standard.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "rekordbox.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "gimp-2.10.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "soffice.bin"
             }
           ]
         },
@@ -114,10 +141,6 @@
             {
               "kind": "Exe",
               "id": "thunderbird.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "Bitwarden.exe"
             },
             {
               "kind": "Exe",
@@ -139,37 +162,13 @@
             },
             {
               "kind": "Exe",
-              "id": "rssguard.exe"
+              "id": "iTunes.exe"
             },
             {
               "kind": "Exe",
-              "id": "msedge.exe"
+              "id": "calibre.exe"
             }
           ]
-        }
-      ]
-    },
-    {
-      "workspaces": [
-        {
-          "name": "Tools2",
-          "layout": "Rows"
-        },
-        {
-          "name": "Gaming2",
-          "layout": "Rows"
-        },
-        {
-          "name": "Prod2",
-          "layout": "Rows"
-        },
-        {
-          "name": "Pim2",
-          "layout": "Rows"
-        },
-        {
-          "name": "Media2",
-          "layout": "Rows"
         }
       ]
     }
@@ -215,6 +214,12 @@
       "id": "soffice.bin",
       "kind": "Exe",
       "matching_strategy": "Equals"
+    }
+  ],
+  "floating_applications": [
+    {
+      "kind": "Exe",
+      "id": "Bitwarden.exe"
     }
   ]
 }
