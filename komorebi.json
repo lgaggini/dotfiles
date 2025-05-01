@@ -27,6 +27,16 @@
     {
       "workspaces": [
         {
+          "name": "Term",
+          "layout": "BSP",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "WindowsTerminal.exe"
+            }
+          ]
+        },
+        {
           "name": "Tools",
           "layout": "BSP",
           "initial_workspace_rules": [
@@ -63,10 +73,6 @@
             {
               "kind": "Exe",
               "id": "rssguard.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "msedge.exe"
             }
           ]
         },
@@ -89,10 +95,6 @@
             {
               "kind": "Exe",
               "id": "soffice.bin"
-            },
-            {
-              "kind": "Exe",
-              "id": "WindowsTerminal.exe"
             }
           ]
         },
@@ -167,6 +169,10 @@
             {
               "kind": "Exe",
               "id": "calibre.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "msedge.exe"
             }
           ]
         }

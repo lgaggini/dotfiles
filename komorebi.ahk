@@ -76,6 +76,8 @@ soundcloud := " --profile-directory=Default --app-id=eikjhbkpemdappjfcmdeeeamdpk
 <#r::Send ("!{Space}")
 
 ; Applications launchers
+;; terminal
+<#Enter::LaunchOrFocus(terminal)
 ;; tools
 <#f::Launch(file_manager)
 <#t::LaunchOrFocus(task_manager)
@@ -88,14 +90,11 @@ soundcloud := " --profile-directory=Default --app-id=eikjhbkpemdappjfcmdeeeamdpk
 }
 ;; web
 <#b::LaunchOrFocus(browser)
-<#a::LaunchWPA(wpa_exe, soundcloud)
 <#u::LaunchOrFocus(feed)
-<#q::LaunchWPA(wpa_exe, reddit)
 ;; productivity
 <#c::LaunchOrFocus(calc)
 <#s::LaunchOrFocus(music_studio)
 <#d::LaunchOrFocus(dj)
-<#Enter::LaunchOrFocus(terminal)
 ;; gaming
 <#g::LaunchOrFocus(gaming)
 <#i::LaunchLnk(iracing, "IracingUI.exe")
@@ -105,6 +104,8 @@ soundcloud := " --profile-directory=Default --app-id=eikjhbkpemdappjfcmdeeeamdpk
 <#p::LaunchOrFocus(password)
 ;; media
 <#y::LaunchOrFocus(spotify)
+<#a::LaunchWPA(wpa_exe, soundcloud)
+<#q::LaunchWPA(wpa_exe, reddit)
 
 ; Focus monitors
 !s::Komorebic("cycle-monitor next")
@@ -112,24 +113,26 @@ soundcloud := " --profile-directory=Default --app-id=eikjhbkpemdappjfcmdeeeamdpk
 ; Focus workspaces
 !h::Komorebic("cycle-workspace previous")
 !l::Komorebic("cycle-workspace next")
-;; [x]tools
+;; term
 !1::Komorebic("focus-workspace 0")
-!x::Komorebic("focus-workspace 0")
-;; [w]eb
+;; [x]tools
 !2::Komorebic("focus-workspace 1")
-!w::Komorebic("focus-workspace 1")
-;; [p]roductivity
+!x::Komorebic("focus-workspace 1")
+;; [w]eb
 !3::Komorebic("focus-workspace 2")
-!p::Komorebic("focus-workspace 2")
-;; [g]aming
+!w::Komorebic("focus-workspace 2")
+;; [p]roductivity
 !4::Komorebic("focus-workspace 3")
-!g::Komorebic("focus-workspace 3")
-;; p[i]m
+!p::Komorebic("focus-workspace 3")
+;; [g]aming
 !5::Komorebic("focus-workspace 4")
-!i::Komorebic("focus-workspace 4")
-;; medi[a]
+!g::Komorebic("focus-workspace 4")
+;; p[i]m
 !6::Komorebic("focus-workspace 5")
-!a::Komorebic("focus-workspace 5")
+!i::Komorebic("focus-workspace 5")
+;; medi[a]
+!7::Komorebic("focus-workspace 6")
+!a::Komorebic("focus-workspace 6")
 !Esc::Komorebic("focus-last-workspace")
 
 ; Focus windows
@@ -142,24 +145,27 @@ soundcloud := " --profile-directory=Default --app-id=eikjhbkpemdappjfcmdeeeamdpk
 ; Move windows across workspaces
 !+h::Komorebic("cycle-send-to-workspace previous")
 !+l::Komorebic("cycle-send-to-workspace next")
-;; [x]tools
+;; term
 !+1::Komorebic("move-to-workspace 0")
-!+x::Komorebic("move-to-workspace 0")
+!+Enter::Komorebic("move-to-workspace 0")
+;; [x]tools
+!+2::Komorebic("move-to-workspace 1")
+!+x::Komorebic("move-to-workspace 1")
 ;; [w]eb
-!+2::Komorebic("move-to-workspace 0")
-!+w::Komorebic("move-to-workspace 0")
-;; [p]roductivity
 !+3::Komorebic("move-to-workspace 2")
-!+p::Komorebic("move-to-workspace 2")
+!+w::Komorebic("move-to-workspace 2")
+;; [p]roductivity
+!+4::Komorebic("move-to-workspace 3")
+!+p::Komorebic("move-to-workspace 3")
 ;; [g]aming
-!+4::Komorebic("move-to-workspace 1")
-!+g::Komorebic("move-to-workspace 1")
+!+5::Komorebic("move-to-workspace 4")
+!+g::Komorebic("move-to-workspace 4")
 ;; p[i]m
-!+5::Komorebic("move-to-workspace 3")
-!+i::Komorebic("move-to-workspace 3")
+!+6::Komorebic("move-to-workspace 5")
+!+i::Komorebic("move-to-workspace 5")
 ;; medi[a]
-!+6::Komorebic("move-to-workspace 4")
-!+a::Komorebic("move-to-workspace 4")
+!+7::Komorebic("move-to-workspace 6")
+!+a::Komorebic("move-to-workspace 6")
 
 ; Move windows
 !+k::Komorebic("cycle-move previous")
