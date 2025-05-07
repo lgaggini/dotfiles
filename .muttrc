@@ -32,7 +32,7 @@ set sort_aux = date-received            # secondary order by received date
 set sort_browser = alpha                # alphabetic browser order
 set uncollapse_jump = yes               # jump to first unread msg og thread
 set collapse_unread = no                # not collapse thread with msg unread
-set pager_index_lines = 25              # index line to view on pager open
+set pager_index_lines = 15              # index line to view on pager open
 set pager_stop = yes                    # not go to next messagge on the end
 set pager_context = 2                   # lines between two scree in pager
 set tilde = yes                         # replace final empty lines with tilde
@@ -85,13 +85,13 @@ set sort_alias = alias                  # alias order by alias
 
 # look & feel
 set folder_format = "[%2C] %t %N %-40.40f (dim: %8s) ultima modifica: %d"
-set index_format = "%S %X %D %-15.15n (%2M) %s"
+set index_format = "%S %X %D %-30.30n (%2M) %s"
 set status_format = " %f (%r) DIM: %l MSGS: %?M?%M/?%m%?n? NEW: %n?%?o? OLD: %o?%?d?\
 DEL: %d?%?F? FLAG: %F?%?t? TAG: %t?%?p? POSTP: %p?%?b? INC: %b?%?l?? (SORT: %s/%S)%> (%P) "
 set pager_format = " [STATUS FLAGS: %Z] DA: %f"
 set compose_format = "-- Compose Menu [Dim. messaggio: circa %l N° Attach: %a (compreso il msg di testo)]%>-
 set attach_format = "%2n %u %D %t %-25.25f %I %> [%.7m/%.10M, %.6e%?C?, %C?, %s]"
-set message_format="%-.16n: %s"
+set message_format="%-.20n: %s"
 set alias_format="%4n %2f %t %-12a %r"
 set date_format = "%d/%m %H:%M"
 source ~/.mutt/mutt_colors
@@ -117,7 +117,7 @@ macro browser m <return><mail> "start compose a message"
 macro index,pager A " abook --add-email-quiet" "add the sender address to abook"
 
 # sidebar
-set sidebar_width = 18                              # sidebar width
+set sidebar_width = 22                              # sidebar width
 set sidebar_visible = yes                           # sidebar enabled
 bind index \CP sidebar-prev                         # ctrl-n to select prev folder
 bind index \CN sidebar-next                         # ctrl-n to select next folder
