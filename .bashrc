@@ -115,7 +115,6 @@ KUBE_PS1_SYMBOL_COLOR=green
 KUBE_PS1_CTX_COLOR=yellow
 KUBE_PS1_NS_COLOR=green
 KUBE_PS1_BG_COLOR=black
-[ -f ~/.kube/completion.bash.inc ] && source ~/.kube/completion.bash.inc
 
 #https://github.com/magicmonty/bash-git-prompt/issues/467
 function prompt_callback() {
