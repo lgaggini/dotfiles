@@ -139,7 +139,7 @@ export FZF_DEFAULT_OPTS="
 --preview '([[ -f {} ]] && (bat --theme=base16-256 --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
 --color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:229
 --color info:150,prompt:110,spinner:150,pointer:167,marker:174
---height=~100%"
+--height=20"
 # custom fzf behaviour
 export FZF_COMPLETION_TRIGGER='**'
 _fzf_complete_ssh_notrigger() {
