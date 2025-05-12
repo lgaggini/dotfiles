@@ -109,6 +109,7 @@ export HISTIGNORE="&:[ ]*:ls:ls -a:cd:cd .."    # leave commands out of history 
 
 
 # K8S
+source <(kubectl completion bash)
 [ -f /usr/bin/switch.sh ] && source /usr/bin/switch.sh
 [ -f /opt/kube-ps1/kube-ps1.sh ] && source /opt/kube-ps1/kube-ps1.sh
 KUBE_PS1_SYMBOL_COLOR=green
