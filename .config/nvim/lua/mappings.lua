@@ -2,6 +2,16 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
+-- command line
+map("c", "<C-a>", "<Home>", {desc = "start of command line"})
+map("c", "<C-e>", "<End>", {desc = "end of command line"})
+map("c", "<C-p>", "<Up>", {desc = "previous command"})
+map("c", "<C-n>", "<Down>", {desc = "next command"})
+map("c", "<C-b>", "<Left>", {desc = "previous char"})
+map("c", "<C-f>", "<Right>", {desc = "next char"})
+map("c", "<M-b>", "<S-Left>", {desc = "previous word"})
+map("c", "<M-f>", "<S-Right>", {desc = "next word"})
+
 -- splits
 map("n", "\\", "<cmd>split<CR>", { desc = "split horizontal" })
 map("n", "|", "<cmd>vsplit<CR>", { desc = "split vertical" })
