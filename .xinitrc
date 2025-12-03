@@ -58,6 +58,9 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 # workrave
 workrave &
 
+# solaar
+solaar -w hide &
+
 # check monitors status and set monitor setup
 autorandr -c
 
