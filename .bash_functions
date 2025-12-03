@@ -551,10 +551,10 @@ cf()
 }
 
 # pw - generate a random password
-# usage: pw <password-length> - defaults to 14
+# usage: pw <password-length> - defaults to 16
 pw() 
 {
-    echo $(cat /dev/urandom | tr -cd '[:graph:]' | head -c ${1:-14})
+    echo $(cat /dev/urandom | tr -cd '[:graph:]' | head -c ${1:-16})
 }
 
 # um - mount selected device ad usb stick or disk
