@@ -11,4 +11,4 @@ configuration {
     kb-remove-char-back: "BackSpace,Shift+BackSpace";
     kb-mode-complete: "";
 }
-@theme "./nature.rasi"
+@theme "./archkiss.rasi"
