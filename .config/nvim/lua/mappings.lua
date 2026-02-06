@@ -2,6 +2,9 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
+map("n", ";", ":", { desc = "CMD enter command mode" })
+map("i", "jk", "<ESC>")
+
 -- command line
 map("c", "<C-a>", "<Home>", {desc = "start of command line"})
 map("c", "<C-e>", "<End>", {desc = "end of command line"})

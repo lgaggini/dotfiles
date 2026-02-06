@@ -26,6 +26,7 @@ return {
     },
     lazy = false
   },
+  -- treesitter
   {
     'nvim-treesitter/nvim-treesitter',
     opts = {
