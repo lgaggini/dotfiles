@@ -539,6 +539,9 @@ cf()
         'awesome')
             $EDITOR "${HOME}/.config/awesome/rc.lua"
             ;;
+        'git')
+            $EDITOR "${HOME}/.gitconfig"
+            ;;
         'fstab')
             sudo -E $EDITOR '/etc/fstab'
             ;;
