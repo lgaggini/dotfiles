@@ -19,8 +19,8 @@
     ps = push
     timeline = log --graph \"--pretty=format:%C(192)%h%Creset by %C(bold 239)%an%Creset (%ar)%C(182)%d%Creset%n%s%n%b\" --all    
     ctimeline = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)\"
-    stag = add -u
-    unstag = reset HEAD --
+    undo = reset --soft HEAD^
+    wip = for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads
     change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD'  ]]; then export $VAR='$NEW'; fi\" $@;  }; f "
 [include]
     path = .config/themes.gitconfig
@@ -36,3 +36,7 @@
     side-by-side = true
     line-numbers-left-format = "{nm:>4}┊"
     line-numbers-right-format = "{np:>4}│"
+[status]
+    showUntrackedFiles = all
+[push]
+    default = simple

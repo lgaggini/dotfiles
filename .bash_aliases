@@ -169,6 +169,7 @@ alias pg='ping -c 7'
 
 # git aliases
 alias gs='git status'
+alias gss='git status --short --branch'
 alias gv='git show'
 alias gd='git diff'
 alias gc='git commit'
@@ -183,6 +184,8 @@ alias gg='git grep'
 alias gm='git merge'
 alias gmv='git checkout'
 alias gb='git branch'
+alias gwip='git wip'
+alias gu='git undo'
 
 # svn aliases
 alias svu='svn update'
