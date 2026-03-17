@@ -495,7 +495,9 @@ log()
 # usage: dotfiles
 dots()
 {
-    rsync -a -v --existing --exclude '.bash-git-prompt' --exclude '.config/awesome/' /home/lg/ /home/lg/code/lgaggini/dotfiles/
+    DOTS_REPO="${HOME}/code/lgaggini/dotfiles/"
+    rsync -a -v --existing --exclude '.bash-git-prompt' --exclude '.config/awesome/' /home/lg/ "${DOTS_REPO}"
+    cd "${DOTS_REPO}"
 }
 
 # cf - wrapper for configuration files
