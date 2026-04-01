@@ -6,10 +6,11 @@ set spoolfile = "~/mail/INBOX/"         # inbox
 set trash = "~/mail/Posta\ eliminata/"  # trash folder for mail delete
 
 # default profile for new messages
-source ~/.mutt/profiles/dada_send/outlook
+source ~/.mutt/profiles/team.blue_send/outlook
 
 # sync headers and signature for reply
-reply-hook ~Clorenzo.gaggini@register.it "source ~/.mutt/profiles/dada_send/outlook"
+reply-hook ~Clorenzo.gaggini@team.blue "source ~/.mutt/profiles/team.blue_send/outlook"
+reply-hook ~Clorenzo.gaggini@register.it "source ~/.mutt/profiles/team.blue_send/outlook"
 
 # address book
 # set query_command = "abook --datafile ~/doc/lgaggini/contact/lgaggini.abook --mutt-query '%s'"

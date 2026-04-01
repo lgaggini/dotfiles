@@ -1,6 +1,6 @@
 # headers
-my_hdr From: Lorenzo Gaggini <lorenzo.gaggini@register.it>
-my_hdr Reply-To: Lorenzo Gaggini <lorenzo.gaggini@register.it>
+my_hdr From: Lorenzo Gaggini <lorenzo.gaggini@team.blue>
+my_hdr Reply-To: Lorenzo Gaggini <lorenzo.gaggini@team.blue>
 my_hdr X-Operating-System: "`uname -sr` - powered by Archlinux" 
 my_hdr X-Disclaimer: Free as in Freedom
 my_hdr X-Mailer: Neomutt https://neomutt.org
@@ -8,4 +8,4 @@ my_hdr X-Editor: Neovim https://neovim.io
 
 # signature
 set sig_dashes = yes 
-set signature = "~/.signature/dada"
+set signature = "~/.signature/team.blue"
