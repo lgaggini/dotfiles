@@ -166,6 +166,8 @@ decloud()
 # usage: awcf
 awcf()
 {
-    rsync -a -v --existing ~/.config/awesome/ /home/lg/code/lgaggini/awesome-archKiss/
+    AW_REPO="${HOME}/code/lgaggini/awesome-archKiss/"
+    rsync -a -v --existing ~/.config/awesome/ "${AW_REPO}"
     grep "awful.key" ~/.config/awesome/rc.lua | cut -d'{' -f2 | sed 's/altkey/Alt/g' | sed 's/modkey/Mod/g' | sed 's/},//g' > ~/.cheat/awesome
+    cd "${AW_REPO}"
 }
