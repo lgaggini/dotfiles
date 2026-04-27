@@ -33,10 +33,9 @@
     alternate-active-foreground: @active-foreground;
     active-background:           rgba ( 57, 57, 57, 100 % );
     selected-active-background:  rgba ( 60, 77, 20, 100 % );
-    font: "Hack Nerd Font 12";
 }
 window {
-    background-color: rgba (15, 15, 15, 100 % );
+    background-color: rgba (15, 15, 15, 65 % );
     border:           1;
     border-color: rgba ( 83, 93, 108, 100 % );
     padding:          5;
@@ -66,6 +65,7 @@ listview {
 element-text {
     background-color: inherit;
     text-color:       inherit;
+    font:             "Hack Nerd Font Mono 14";
 }
 element {
     border:  0;
@@ -137,10 +137,12 @@ case-indicator {
 entry {
     spacing:    0;
     text-color: @normal-foreground;
+    font:             "Hack Nerd Font Mono 14";
 }
 prompt {
     spacing:    0;
     text-color: @normal-foreground;
+    font:             "Hack Nerd Font Mono 14";
 }
 inputbar {
     children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
