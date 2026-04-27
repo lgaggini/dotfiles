@@ -12,51 +12,50 @@
 # usage: help-funcs
 functions()
 {
-    cat "${HOME}/.bash_functions" | grep -B 1 usage
+    grep -B 1 usage "${HOME}/.bash_functions"
 }
 
 #
 # service management
 #
-# start, stop, restart, reload, status - simple systemd / system V daemon management
+# start, stop, restart, reload, status - simple systemd daemon management
 # usage: start/stop/restart/reload <daemon-name>
 system='systemctl'
 
 # systemd
-if [ $system == "systemctl" ]; then 
-    # alias
+if [ "$system" == "systemctl" ]; then
     start()
     {
-        for arg in $*; do
-            sudo $system start $arg
+        for arg in "$@"; do
+            sudo $system start "$arg"
         done
     }
 
     stop()
     {
-        for arg in $*; do
-            sudo $system stop $arg
+        for arg in "$@"; do
+            sudo $system stop "$arg"
         done
     }
 
     restart()
     {
-        for arg in $*; do
-            sudo $system restart $arg
+        for arg in "$@"; do
+            sudo $system restart "$arg"
         done
     }
 
     reload()
     {
-        for arg in $*; do
-            sudo $system reload $arg 
+        for arg in "$@"; do
+            sudo $system reload "$arg" 
         done
     }
 
     status()
     {
-        for arg in $*; do
-            sudo $system status $arg 
+        for arg in "$@"; do
+            sudo $system status "$arg" 
         done
     }
     # completion
@@ -66,89 +65,38 @@ if [ $system == "systemctl" ]; then
     complete -F _$system restart
     complete -F _$system stop
     complete -F _$system status
-# systemV
-elif [ $system == "service" ]; then 
-    # alias
-    start()
-    {
-        for arg in $*; do
-            sudo $system $arg start
-        done
-    }
-
-    stop()
-    {
-        for arg in $*; do
-            sudo $system $arg stop
-        done
-    }
-
-    restart()
-    {
-        for arg in $*; do
-            sudo $system $arg restart
-        done
-    }
-
-    reload()
-    {
-        for arg in $*; do
-            sudo $system $arg reload
-        done
-    }
-
-    status()
-    {
-        for arg in $*; do
-            sudo $system $arg status
-        done
-    }
-    # completion
-    function _service()
-    {
-        local cur services
-        cur=`_get_cword`
-        services=`ls /etc/init.d`
-        COMPREPLY=( $(compgen -W "${services}" -- ${cur}) )
-        return 0
-    }
-    complete -F _service start
-    complete -F _service reload
-    complete -F _service restart
-    complete -F _service stop
-    complete -F _service status
 fi
 
 #
 # navigation and basic operations
 #
-# mkcd - makedir and cd in it
-# usage: mkcd <file>
-mkcd () 
+# mkc - makedir and cd in it
+# usage: mkc <file>
+mkc () 
 { 
-    mkdir $1 && cd $1 
+    mkdir "$1" && cd "$1" || exit
 }
 
-# cpcd - cp and cd to destination
-# usage: cpcd <cp-arguments>
-cpcd ()
+# cpc - cp and cd to destination
+# usage: cpc <cp-arguments>
+cpc ()
 {
-    cp $@ && cd ${!#}
+    cp "$@" && cd "${!#}" || exit
 }
 
-# mvcd - mv and cd to destination
-# usage: mvcd <mv-arguments>
-mvcd ()
+# mvc - mv and cd to destination
+# usage: mvc <mv-arguments>
+mvc ()
 {
-    mv $@ && cd ${!#}
+    mv "$@" && cd "${!#}" || exit
 }
 
-# cdls - cd and ls
-# usage: cdls <path>
-cdls()
+# cdl - cd and ls
+# usage: cdl <path>
+cdl()
 {
-    cd $@;
-    ls -a --color=auto
+    cd "$@" || exit;
+    ls
 }
 
 # up - cd up by n directories
@@ -160,23 +108,23 @@ up()
         dir=..
     elif [[ $1 =~ ^[0-9]+$ ]]; then
         x=0
-        while [ $x -lt ${1:-1} ]; do
+        while [ "$x" -lt "${1:-1}" ]; do
             dir=${dir}../
-            x=$(($x+1))
+            x=$((x+1))
         done
     else
         dir=${PWD%/$1/*}/$1
     fi
-    cd "$dir";
+    cd "$dir" || exit
 }
 
-# uprm - move up by 1 and remove directory
-# usage: uprm
-uprm()
+# upr - move up by 1 and remove directory
+# usage: upr
+upr()
 {
     dir=$(pwd)
     cd ..
-    rm -r $dir
+    rm "$dir"
 }
 
 # swap - switch 2 filenames around
@@ -193,7 +141,7 @@ swap()
 # usage: bak <filename>
 bak()
 {
-    cp $1{,.bak}
+    cp "$1"{,.bak}
 }
 
 #
@@ -204,144 +152,22 @@ bak()
 default()
 {
     sudo chmod -R u=rwX,go=rX "$@"
-    sudo chown -R ${USER}:users "$@"
+    sudo chown -R "${USER}":users "$@"
 }
 
 # grab - grab the ownership of a file
 # usage: grab <file>
-grab() 
-{ 
-    sudo chown -R ${USER}:${GROUP} ${1:-.} 
-}
-
-# own - change ownership
-# usage: own <file> <user>
-own() 
-{ 
-    chown -R "$2":"$2" ${1:-.}
+grab()
+{
+    sudo chown -R "${USER}":"${GROUP}" "${1:-.}"
 }
 
 # cpmod - copy permission from file1 to file2
 # usage: cpmod <file1> <file2>
 cpmod()
 {
-    chmod --reference $1 $2
+    chmod --reference "$1" "$2"
 }
-
-# lowercase - rename file names to lowercase and replace space with underscore from pwd
-# usage: lowercase
-lowercase()
-{
-    # Process each directory’s contents before the directory  itself
-    find * -depth -type d | while read x
-    do
-        # Translate Caps to Small letters
-        y=$(echo "$x" | tr '[A-Z ]' '[a-z_]');
-        # create directory if it does not exit
-        if [ ! -d "$y" ]; then
-                mkdir -p "$y"
-        fi
-        # check if the source and destination is the same
-        if [ "$x" != "$y" ]; then
-                # move directory files before deleting
-                ls -A "$x" | while read i
-                do
-                  mv "$x"/"$i" "$y"
-                done
-                rmdir "$x"
-        fi
-    done
-    # Rename all files
-    find * -type f | while read x
-    do
-        # Translate Caps to Small letters
-        y=$(echo "$x" | tr '[A-Z ]' '[a-z_]')
-        if [ "$x" != "$y" ]; then
-                mv "$x" "$y"
-        fi
-    done
-}
-
-# fix-tabs - replace tabs with space
-# usage: fix-tabs <file>
-fix-tabs() 
-{ 
-    expand -t 4 "$1" > "$1.expanded"
-    mv -f "$1.expanded" "$1"
-}
-
-
-#
-# find and grep
-#
-# fp - find a file by name in pwd
-# usage: fp <name>
-fp()
-{
-    sudo find . -iname '*'$*'*' -ls
-}
-
-# fr - find a file by name globally
-# usage: fr <name>
-fr()
-{
-    sudo find / -iname '*'$*'*' -ls
-}
-
-# fcd - find a file by name in selected path
-# usage: fcd <name> <path>
-fcd()
-{
-    sudo find $2 -iname '*'$1'*' -ls
-}
-
-# fpg - find a file by grepping in pwd
-# usage: fpg <word>
-fpg()
-{
-    sudo grep --color=auto -HIrFo -- $* .
-}
-
-# frg - find a file by grepping in root
-# usage: frg <word>
-frg()
-{
-    sudo grep --color=auto -HIrFo -- $* /
-}
-
-# fcdg - find a file by grepping in selected path
-# usage: fcdg <word> <path>
-fcdg()
-{
-    sudo grep --color=auto -HIrFo -- $1 $2
-}
-
-# mang - search in man page
-# usage: mang <manpage> <word>
-mang()
-{
-    man $1 | grep --color=auto $2 -C 5
-}
-
-# hig - search in history
-# usage: hig <word>
-hig()
-{
-    history | grep --color=auto $* -C 5
-}
-
-# psg - check if a process is running by name and return PID(s)
-# usage: psg <process-name>
-psg()
-{
-    if ps ax | grep -v grep | grep $1 > /dev/null
-    then
-        ps ax | grep --color=auto $1
-    else
-        echo "$1 is not running"
-    fi
-}
-
 
 #
 # cli utility
@@ -350,7 +176,7 @@ psg()
 # usage: dict <keyword>
 dict()
 {
-    sdcv $* | less
+    sdcv "$@" | less
 }
 
 # calc - basic calculator
@@ -360,11 +186,11 @@ calc()
     echo "scale=4; $1" | bc
 }
 
-# sm - send email from console
-# usage: sm <to> <subject> <body> 
-sm()
+# mail - send email from console
+# usage: mail <to> <subject> <body> 
+mail()
 {
-    $ echo $3 | mailx -s $2 $1
+    $ echo "$3" | mailx -s $2 $1
 }
 
 # sr - grab info from web, default google by duckduckgo
@@ -372,10 +198,10 @@ sm()
 sr()
 {
     if [[ -z "$2" ]]; then
-        surfraw S \!gitl $1
+        surfraw duckduckgo "$1"
         return 1
     fi
-    surfraw $@
+    surfraw "$@"
 }
 
 # srg - grab info from web, default google by duckduckgo, gui version
@@ -383,233 +209,18 @@ sr()
 srg()
 {
     if [[ -z "$2" ]]; then
-        surfraw -g S \!gitl $1
+        surfraw -g duckduckgo "$1"
         return 1
     fi
-    surfraw $@
+    surfraw "$@"
 }
-
 
 # web - web pager
 # usage: web <url>
 web()
 {
-    w3m $1
+    w3m "$1"
 }
-
-# publicip - get the current public ip address
-# usage: publicip
-myip()
-{ 
-    curl ifconfig.me/ip
-}
-
-# extract - extract compressed files
-# usage: extract <files>
-extract() 
-{
-    local e=0 i c
-    for i; do
-    if [ -f $i && -r $i ]; then
-        c=
-        case $i in
-            *.tar.bz2) c='tar xjf'    ;;
-            *.tar.gz)  c='tar xzf'    ;;
-            *.bz2)     c='bunzip2'    ;;
-            *.gz)      c='gunzip'     ;;
-            *.tar)     c='tar xf'     ;;
-            *.tbz2)    c='tar xjf'    ;;
-            *.tgz)     c='tar xzf'    ;;
-            *.7z)      c='7z x'       ;;
-            *.Z)       c='uncompress' ;;
-            *.exe)     c='cabextract' ;;
-            *.rar)     c='unrar x'    ;;
-            *.xz)      c='unxz'       ;;
-            *.zip)     c='unzip'      ;;
-            *)     echo "$0: cannot extract \`$i': Unrecognized file extension" >&2; e=1 ;;
-        esac
-        [ $c ] && command $c "$i"
-    else
-        echo "$0: cannot extract \`$i': File is unreadable" >&2; e=2
-    fi
-    done
-    return $e
-}
-
-# compress - archive wrapper
-# usage: compress <foo.tar.gz> ./foo ./bar
-compress()
-{
-  FILE=$1
-  case $FILE in
-    *.tar.bz2) shift && tar cjf $FILE $* ;;
-    *.tar.gz) shift && tar czf $FILE $* ;;
-    *.tgz) shift && tar czf $FILE $* ;;
-    *.zip) shift && zip $FILE $* ;;
-    *.rar) shift && rar $FILE $* ;;
-    *.7z)  shift && 7za a $FILE $* ;;
-  esac
-}
-
-# colors - test console colors
-# usage: colors
-colors()
-{
-    T='gYw'   # The test text
-    
-    echo -e "\n                 40m     41m     42m     43m\
-     44m     45m     46m     47m";
-
-    for FGs in '    m' '   1m' '  30m' '1;30m' '  31m' '1;31m' '  32m' \
-               '1;32m' '  33m' '1;33m' '  34m' '1;34m' '  35m' '1;35m' \
-               '  36m' '1;36m' '  37m' '1;37m';
-      do FG=${FGs// /}
-      echo -en " $FGs \033[$FG  $T  "
-      for BG in 40m 41m 42m 43m 44m 45m 46m 47m;
-        do echo -en "$EINS \033[$FG\033[$BG  $T  \033[0m"
-      done
-      echo
-    done
-    echo
-}
-
-# mkiso - make iso from folder
-# usage: mkiso <folder> <volume-name>
-mkiso() 
-{ 
-    mkisofs -V $2 -J -r $1 -o isoimage.iso
-}
-
-# log - view live and color logs
-# usage: log <logname>
-log()
-{
-    sudo tail -f -n 50 $1 | ccze
-}
-
-
-#
-# automations
-#
-# dotfiles - sync dotfiles for git sync
-# usage: dotfiles
-dots()
-{
-    DOTS_REPO="${HOME}/code/lgaggini/dotfiles/"
-    rsync -a -v --existing --exclude '.bash-git-prompt' --exclude '.config/awesome/' /home/lg/ "${DOTS_REPO}"
-    cd "${DOTS_REPO}"
-}
-
-# cf - wrapper for configuration files
-# usage: cf <alias-or-filename>
-cf()
-{
-    if [[ -z "$1" ]]; then
-        echo "Missing arguments. Syntax: {FILE|ALIAS}"
-        return 1
-    fi
-    case "$1" in
-        'alias')
-            $EDITOR "${HOME}/.bash_aliases"
-            source "${HOME}/.bash_aliases"
-            ;;
-        'function')
-            $EDITOR "${HOME}/.bash_functions"
-            source "${HOME}/.bash_functions"
-            ;;
-        'inputrc')
-            $EDITOR "${HOME}/.inputrc"
-            ;;
-        'xinitrc')
-            $EDITOR "${HOME}/.xinitrc"
-            ;;
-        'bash')
-            $EDITOR "${HOME}/.bashrc"
-            source "${HOME}/.bashrc"
-            ;;
-        'Xresources')
-            $EDITOR "${HOME}/.Xresources"
-            ;;
-        'vim')
-            $EDITOR "${HOME}/.vimrc"
-            ;;
-        'mutt')
-            $EDITOR "${HOME}/.muttrc"
-            ;;
-        'awesome')
-            $EDITOR "${HOME}/.config/awesome/rc.lua"
-            ;;
-        'git')
-            $EDITOR "${HOME}/.gitconfig"
-            ;;
-        'fstab')
-            sudo -E $EDITOR '/etc/fstab'
-            ;;
-        *)
-            if [[ "$(readlink -f "$1")" != ${HOME}/* ]]; then
-                sudo -E $EDITOR "$1"
-            else
-                $EDITOR "$1"
-            fi
-            ;;
-    esac
-}
-
-# pw - generate a random password
-# usage: pw <password-length> - defaults to 16
-pw() 
-{
-    echo $(cat /dev/urandom | tr -cd '[:graph:]' | head -c ${1:-16})
-}
-
-# um - mount selected device ad usb stick or disk
-# usage: um <dev>
-um()
-{
-    sudo mount $1 /media/usb && cd /media/usb
-}
-
-# mm - mount selected device as mobile
-# usage: mm <dev>
-mm()
-{
-    sudo mount $1 /media/mobile && cd /media/mobile
-}
-
-# isom - mount selected iso to selected mount point 
-# usage: isom <iso>
-isom()
-{
-    sudo mount $1 /media/iso -oloop && cd /media/iso
-}
-
-# cheat autocompletion
-function _cheat_autocomplete {
-    sheets=$(cheat -l | cut -d' ' -f1)
-    COMPREPLY=()
-    if [ $COMP_CWORD = 1 ]; then
-        COMPREPLY=(`compgen -W "$sheets" -- $2`)
-    fi
-}
-
-complete -F _cheat_autocomplete cheat
-
-# check aur packages update
-yqu()
-{
-    yay -Qm | cut -d' ' -f1 | while read package; do yay -Ss "$package" | grep "Installed:" | awk '{print $1" "$2" > "$6}' | tr -d ')'; done
-}
-
-
-# fuzzy searchable git log
-# usage: fzf_git_log
-fzf_git_log() {
-    git ctimeline --color=always "$@" |
-      fzf --ansi --no-sort --height 100% \
-          --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
-                       xargs -I@ sh -c 'git show --color=always @'"
-}
-
 
 #
 # note manager
@@ -641,10 +252,10 @@ _note()
     local cur names IFS
  
     cur="${COMP_WORDS[COMP_CWORD]}"
-    names=`\find "$note_path" -type f -name "*.md"| cut -d'/' -f5- | sed 's/\.[^.]*$//'`
+    names=$(\find "$note_path" -type f -name "*.md"| cut -d'/' -f5- | sed 's/\.[^.]*$//')
     IFS=$'\t\n'
 
-    COMPREPLY=( $(compgen -W "${names}" -- ${cur}) )
+    COMPREPLY=( $(compgen -W "${names}" -- "${cur}") )
     return 0
 }
 complete -o nospace -F _note note
@@ -656,22 +267,231 @@ noteg()
             note_path=$note_path_lgaggini
             ;;
     esac
-    grep --color=auto -HInrFoi ${*:1} -C 5 "$note_path"
+    grep --color=auto -HInrFoi "${*:1}" -C 5 "$note_path"
 }
 
-# cluster_info - get groups/hosts info by ansible and ansible-cmdb
-cluster_info()
+#
+# automations
+#
+
+# dotfiles - sync dotfiles for git sync
+# usage: dotfiles
+dots()
 {
-    ~/bin/cluster_info.sh $1
+    DOTS_REPO="${HOME}/code/lgaggini/dotfiles/"
+    rsync -a -v --existing --exclude '.bash-git-prompt' --exclude '.config/awesome/' /home/lg/ "${DOTS_REPO}"
+    cd "${DOTS_REPO}" || exit
 }
 
-# _cluster_info - group name completion for cluster_info from ansible inventory
-_cluster_info()
+# awcf - sync awesome config for git sync
+# usage: awcf
+awcf()
 {
-    local cur groups IFS
-
-    groups=`clusters`
-    COMPREPLY=(`compgen -W "${groups}" -- $2`)
-    return 0
+    AW_REPO="${HOME}/code/lgaggini/awesome-archKiss/"
+    rsync -a -v --existing ~/.config/awesome/ "${AW_REPO}"
+    cd "${AW_REPO}" || exit
 }
-complete -o nospace -F _cluster_info cluster_info
+
+# cf - wrapper for configuration files
+# usage: cf <alias-or-filename>
+cf()
+{
+    if [[ -z "$1" ]]; then
+        echo "Missing arguments. Syntax: {FILE|ALIAS}"
+        return 1
+    fi
+    case "$1" in
+        'alias'|'aliases')
+            $EDITOR "${HOME}/.bash_aliases"
+            source "${HOME}/.bashrc"
+            aliases > "${XDG_CONFIG_HOME}/cheat/cheatsheets/personal/bash_aliases"
+            ;;
+        'function'|'functions')
+            $EDITOR "${HOME}/.bash_functions"
+            source "${HOME}/.bashrc"
+            functions > "${XDG_CONFIG_HOME}/cheat/cheatsheets/personal/bash_functions"
+            ;;
+        'inputrc')
+            $EDITOR "${HOME}/.inputrc"
+            ;;
+        'bash')
+            $EDITOR "${HOME}/.bashrc"
+            source "${HOME}/.bashrc"
+            ;;
+        'alacritty')
+            $EDITOR "${XDG_CONFIG_HOME}/alacritty/alacritty.toml"
+            ;;
+        'awesome')
+            $EDITOR "${XDG_CONFIG_HOME}/awesome/rc.lua"
+            echo 'awesome.restart()' | awesome-client
+            grep "awful.key" ~/.config/awesome/rc.lua | cut -d'{' -f2 | sed 's/altkey/Alt/g' | sed 's/modkey/Mod/g' | sed 's/},//g' > "${XDG_CONFIG_HOME}/cheat/cheatsheets/personal/awesome"
+            ;;
+        'git')
+            $EDITOR "${HOME}/.gitconfig"
+            ;;
+        'tmux')
+            $EDITOR "${HOME}/.tmux.conf"
+            tmux source-file "${HOME}/.tmux.conf"
+            grep "bind-key" "${HOME}/.tmux.conf" > "${XDG_CONFIG_HOME}/cheat/cheatsheets/personal/tmux"
+            ;;
+        *)
+            if [[ "$(readlink -f "$1")" != ${HOME}/* ]]; then
+                sudo -E "$EDITOR" "$1"
+            else
+                "$EDITOR" "$1"
+            fi
+            ;;
+    esac
+}
+
+# pw - generate a random password
+# usage: pw <password-length> - defaults to 16
+pw()
+{
+    cat /dev/urandom | tr -cd '[:graph:]' | head -c "${1:-16}"
+}
+
+# mkiso - make iso from folder
+# usage: mkiso <folder> <volume-name>
+mkiso()
+{
+    mkisofs -V "$2" -J -r "$1" -o isoimage.iso
+}
+
+# isom - mount selected iso to selected mount point
+# usage: isom <iso>
+isom()
+{
+    sudo mount "$1" /media/iso -oloop && cd /media/iso || exit
+}
+
+# alive - check status of an host
+# usage - alive <target_host>
+alive()
+{
+    if /usr/bin/ping -q -c 1 $1  > /dev/null 2>&1; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+# extract - extract compressed files
+# usage: extract <files>
+extract()
+{
+    local e=0 i c
+    for i; do
+    if [ -f "$i" && -r "$i" ]; then
+        c=
+        case $i in
+            *.tar.bz2) c='tar xjf'    ;;
+            *.tar.gz)  c='tar xzf'    ;;
+            *.bz2)     c='bunzip2'    ;;
+            *.gz)      c='gunzip'     ;;
+            *.tar)     c='tar xf'     ;;
+            *.tbz2)    c='tar xjf'    ;;
+            *.tgz)     c='tar xzf'    ;;
+            *.7z)      c='7z x'       ;;
+            *.Z)       c='uncompress' ;;
+            *.exe)     c='cabextract' ;;
+            *.rar)     c='unrar x'    ;;
+            *.xz)      c='unxz'       ;;
+            *.zip)     c='unzip'      ;;
+            *)     echo "$0: cannot extract \`$i': Unrecognized file extension" >&2; e=1 ;;
+        esac
+        [ "$c" ] && command "$c" "$i"
+    else
+        echo "$0: cannot extract \`$i': File is unreadable" >&2; e=2
+    fi
+    done
+    return $e
+}
+
+# compress - archive wrapper
+# usage: compress <foo.tar.gz> ./foo ./bar
+compress()
+{
+  FILE=$1
+  case $FILE in
+    *.tar.bz2) shift && tar cjf "$FILE" "$@" ;;
+    *.tar.gz) shift && tar czf "$FILE" "$@" ;;
+    *.tgz) shift && tar czf "$FILE" "$@" ;;
+    *.zip) shift && zip "$FILE" "$@" ;;
+    *.rar) shift && rar "$FILE" "$@" ;;
+    *.7z)  shift && 7za a "$FILE" "$@" ;;
+  esac
+}
+
+# colors - test console colors
+# usage: colors
+colors()
+{
+    T='gYw'   # The test text
+    
+    echo -e "\n                 40m     41m     42m     43m\
+     44m     45m     46m     47m";
+
+    for FGs in '    m' '   1m' '  30m' '1;30m' '  31m' '1;31m' '  32m' \
+               '1;32m' '  33m' '1;33m' '  34m' '1;34m' '  35m' '1;35m' \
+               '  36m' '1;36m' '  37m' '1;37m';
+      do FG=${FGs// /}
+      echo -en " $FGs \033[$FG  $T  "
+      for BG in 40m 41m 42m 43m 44m 45m 46m 47m;
+        do echo -en "$EINS \033[$FG\033[$BG  $T  \033[0m"
+      done
+      echo
+    done
+    echo
+}
+
+# lowercase - rename file names to lowercase and replace space with underscore from pwd
+# usage: lowercase
+lowercase()
+{
+    # Process each directory’s contents before the directory  itself
+    find ./* -depth -type d | while read -r x
+    do
+        # Translate Caps to Small letters
+        y=$(echo "$x" | tr 'A-Z ' 'a-z_');
+        # create directory if it does not exit
+        if [ ! -d "$y" ]; then
+                mkdir -p "$y"
+        fi
+        # check if the source and destination is the same
+        if [ "$x" != "$y" ]; then
+                # move directory files before deleting
+                ls -A "$x" | while read -r i
+                do
+                  mv "$x"/"$i" "$y"
+                done
+                rmdir "$x"
+        fi
+    done
+    # Rename all files
+    find ./* -type f | while read -r x
+    do
+        # Translate Caps to Small letters
+        y=$(echo "$x" | tr 'A-Z ' 'a-z_')
+        if [ "$x" != "$y" ]; then
+                mv "$x" "$y"
+        fi
+    done
+}
+
+# fix-tabs - replace tabs with space
+# usage: fix-tabs <file>
+fix-tabs()
+{
+    expand -t 4 "$1" > "$1.expanded"
+    mv -f "$1.expanded" "$1"
+}
+
+# fuzzy searchable git log
+# usage: fzf_git_log
+fzf_git_log() {
+    git ctimeline --color=always "$@" |
+      fzf --ansi --no-sort --height 100% \
+          --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
+                       xargs -I@ sh -c 'git show --color=always @'"
+}
