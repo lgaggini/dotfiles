@@ -6,9 +6,10 @@
 #---------------------------
 
 # alias list
-alias aliases='cat ~/.bash_aliases'
+alias aliases='grep alias < ~/.bash_aliases | grep -v complete | grep -v function'
 
-# yay aliases
+# package management aliases
+## yay
 alias ysyu='yay -Syu'
 alias ysyua='yay -Syua'
 alias ys='yay -S'
@@ -25,8 +26,7 @@ alias yqi="yay -Qi"
 alias yqqtd="yay -Qqtd"
 alias yqm="yay -Qm"
 alias ymr="sudo reflector --latest 50 --age 24 --sort rate --save /etc/pacman.d/mirrorlist"
-
-# completion for yay / pacman aliases
+### completion for yay / pacman
 function _pacalias
 {
     local cur
@@ -60,7 +60,7 @@ complete -F _pacalias yqi
 complete -F _pacalias yrs
 complete -F _pacalias yr
 
-# aptitude/apt-get alias
+## aptitude/apt-get
 manager='aptitude'
 alias apu='sudo $manager update'
 alias apuu='sudo $manager upgrade'
@@ -72,8 +72,7 @@ alias apss='sudo $manager show'
 alias apc='sudo $manager clean'
 alias apcc='sudo $manager autoclean'
 alias apd='sudo $manager download'
-
-# completion for aptitude / apt-get aliases
+### completion for aptitude / apt-get
 function _apalias()
 {
     local cur
@@ -97,77 +96,70 @@ complete -F _apalias app
 
 # toolbox aliases (ls, cp, grep, find, cd, etc.)
 alias ls='lsd'
-alias la='ls -a'
-alias ll='ls -alh'
-alias lr='ls -aR'
-alias lt='ls -laht'
-alias ltr='ls -lart'
+alias grep='rg'
+alias diff='delta'
+alias df='duf'
+alias ps='procs'
+alias less='bat --theme=base16'
+alias cat='bat --theme=base16 -p -P'
+alias curl='curlie'
+alias dig='dog'
+alias ping='prettyping'
+alias vim='nvim'
+alias vimdiff='nvim -d'
+## aliases
+alias l='ls -alh'
+alias lr='ls -alrh'
+alias lt='ls -larth'
+alias ltr='ls -lath'
+alias ldir='ls -ald'
 alias ln='ln -si'
 alias mv='mv -iv'
 alias cp='cp -ripv'
 alias rm='rm -rv'
-alias df='duf'
-alias cl='column'
 alias du='du -h'
-alias diff='delta'
 alias md='mkdir -p'
 alias rd='rmdir'
-alias ps='procs'
 alias kl='kill'
 alias pk='pkill'
-alias find='fd'
 alias fl='file'
-alias grep='rg'
 alias gp='grep'
 alias sd='sed'
-alias less='cat'
 alias le='less'
 alias he='head'
-alias ht='htop'
-alias bt='btop'
-alias ta='tail -f'
-alias cat='bat --theme=zenburn'
-alias ct='cat'
+alias tp='top'
+alias hd='head'
+alias tl='tail'
 alias rs='rsync --progress --partial'
 alias st='sort'
 alias un='uniq'
-alias ut='sudo umount'
 alias wh='which'
-alias ncdu='ncdu --color dark-bg'
-alias lsdir='ncdu --color dark-bg'
-alias path='echo -e ${PATH//:/\\n}'
+alias pg='ping -c 5'
+alias ct='cat'
+alias le='less'
+alias vim='nvim'
+alias vd='vimdiff'
+alias v='vim'
+alias vi='vim'
+alias nv='nvim'
 alias c='clear'
 alias h='history'
 alias m='man'
 alias sb='source ~/.bashrc'
+alias sct='systemctl'
+alias jct='journalctl'
 alias e='exit'
 alias q='exit'
 
-# systemd aliases
-alias sct='systemctl'
-alias jct='journalctl'
-
 # app aliases
-alias v='vim'
-alias nv='nvim'
-alias vim='nvim'
-alias vimdiff='nvim -d'
-alias curl='curlie'
-alias dig='dog'
+## common
 alias scan='nmap -v -sT -Pn'
 alias netscan='nmap -sn'
-alias ssh='TERM=rxvt ssh'
-alias wttr='curl wttr.in'
-alias cal='khal'
-alias mirror_update='sudo reflector --latest 100 --sort rate --save /etc/pacman.d/mirrorlist'
+alias wth='curl wttr.in'
+alias myip='curl iconfig.me'
 alias mutt='neomutt'
-alias clusters='cat /etc/ansible/hosts | grep "^\[" | sed 's/[][]//g''
-alias livesets='scdl -l https://soundcloud.com/lgaggini-euphoria/sets/sets-to-listen --path ~/media/music/trance/livesets/ --no-playlist-folder --download-archive ~/media/music/trance/livesets/livesets.txt -c'
 alias backup='export RESTIC_PASSWORD=$(/usr/bin/pass backup) && restic -r /home/lg/bak'
-alias ping='prettyping'
-alias pg='ping -c 7'
-
-# git aliases
+## git
 alias gs='git status'
 alias gss='git status --short --branch'
 alias gv='git show'
@@ -186,8 +178,7 @@ alias gmv='git checkout'
 alias gb='git branch'
 alias gwip='git wip'
 alias gu='git undo'
-
-# svn aliases
+# svn
 alias svu='svn update'
 alias svs='svn status'
 alias svc='svn commit -m'
@@ -195,18 +186,15 @@ alias svd='svn diff --diff-cmd colordiff -r HEAD'
 alias svl='svn log -v'
 alias sva='svn add'
 alias svr='svn revert'
-
-# python aliases
-alias p2='python2'
+# python
 alias p='python'
-
-# k8s aliases
+# k8s
 alias k='kubecolor'
 complete -o nospace -F __start_kubectl k
 alias kctx='kubectx'
 alias kns='kubens'
 
-# generic folder aliases
+# navigation aliases
 alias .='pwd'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -214,28 +202,13 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 alias prev='cd -'
-alias usb='cd /media/usb'
-alias cdrom='cd /media/cdrom'
-alias mobile='cd /media/mobile'
-alias iso='cd /media/iso'
-alias esterno='cd /mnt/esterno'
 
-# home folder aliases
-alias home='cd ~'
-alias bin='cd ~/bin'
-alias code='cd ~/code'
-alias down='cd ~/down'
-alias doc='cd ~/doc'
-alias logs='cd ~/logs'
-alias media='cd ~/media'
-alias music='cd ~/media/music'
-alias reading='cd ~/read'
-alias tmp='cd ~/tmp'
-
-# super user
+# super user aliases
 alias s='sudo '
 alias sudo='sudo '
 alias mys='sudo -E'
 alias res='sudo !!'
+alias sm='sudo mount'
+alias ut='sudo umount'
 alias reboot='sudo reboot'
 alias poweroff='sudo halt'
