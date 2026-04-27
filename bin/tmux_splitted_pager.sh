@@ -12,13 +12,13 @@ fi
 # open.
 w3m_process_count=`ps auxw | grep "$W3M" | grep -cv grep`
 if [ $w3m_process_count = '1' ];then
-    tmux send-keys -t 1 "U" "C-u" "$1"
-    tmux send-keys -t 1 Enter
-    tmux select-pane -t 1
+    tmux send-keys -t 2 "U" "C-u" "$1"
+    tmux send-keys -t 2 Enter
+    tmux select-pane -2 1
 else
-    tmux send-keys -t 1 "$W3M '$1'"
+    tmux send-keys -t 2 "$W3M '$1'"
     sleep 1
-    tmux send-keys -t 1 Enter
-    tmux select-pane -t 1
+    tmux send-keys -t 2 Enter
+    tmux select-pane -t 2
 fi
 # Done! :)
