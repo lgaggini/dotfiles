@@ -94,7 +94,46 @@ complete -F _apalias apd
 complete -F _apalias apr
 complete -F _apalias app
 
-# toolbox aliases (ls, cp, grep, find, cd, etc.)
+## zypper
+alias zup='sudo zypper dup'
+alias zi='sudo zypper install'
+alias zin='sudo zypper info'
+alias zr='sudo zypper remove --clean-deps'
+alias zu='sudo zypper update'
+alias zs='zypper search'
+alias zrf='sudo zypper refresh'
+alias zcl='sudo zypper clean -a'
+alias zlu='sudo zypper list-updates'
+alias zps='sudo zypper ps'
+alias zlocks='sudo zypper locks'
+alias zlock='sudo zypper addlock'
+alias zunlock='sudo zypper removelock'
+### completion for zypper
+function _zyppalias()
+{
+    local cur
+	  local -a opts=()
+    source /usr/share/bash-completion/completions/zypper
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    case $COMP_WORDS in
+        zi|zin|zlock)
+          opts=(${opts[@]}$(echo; _available_packages ))
+	    ;;
+        zr|zu)
+          opts=(${opts[@]}$(echo; _installed_packages ))
+      ;;
+    esac
+    COMPREPLY=($(compgen -W "${opts[*]}" -- ${cur}))
+    _strip
+}
+complete -F _zyppalias zi
+complete -F _zyppalias zin
+complete -F _zyppalias zlock
+complete -F _zyppalias zr
+complete -F _zyppalias zu
+
+# core toolbox aliases (ls, cp, grep, find, vim, etc.)
+## replacement
 alias ls='lsd'
 alias grep='rg'
 alias diff='delta'
