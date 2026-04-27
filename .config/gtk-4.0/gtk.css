@@ -1,0 +1,5 @@
+* {all: unset;}
+@import url("/usr/share/themes/Flat-Remix-GTK-Forest-Dark-Solid/gtk-4.0/gtk.css");
+window > image {
+        color: #ddd;
+}
