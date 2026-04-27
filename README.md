@@ -3,40 +3,32 @@
 These are configuration files for my GNU/Linux workstation(s), some files for my recently added macOS workstation (`term`, `zsh`, `amethyst`, `karabiner`, `neovim`) and for my Windows workstation too (`windows terminal`, `zsh`, `komorebi`, `autohotkey`, `neovim`, `flow-launcher`).
 
 ## Toolbox
-* shell: `bash`, `zsh` (on mac/windows)
-* core tools: `lsd, fzf, fd, git-delta, procs, duf, ncdu, zoxide, btop, curlie, ripgrep, bat, prettyping` (everywhere)
-* terminal: `urxvt`, `term` (on mac), `windows terminal` (on windows)
-* terminal multiplexer: `tmux + byobu + tmuxp`
+* shell: `bash + starship`, `zsh + zim` (on mac/windows)
+* core tools enhancements: `lsd, ripgrep, procs, fzf, zoxide, git-delta, bat, fd, prettyping, duf, tig, bc, curlie` (everywhere)
+* terminal: `alacritty`, `term` (on mac), `windows terminal` (on windows)
+* terminal multiplexer: `tmux`
 * wm: `awesome`, `amethyst` (on mac), `komorebi` (on windows)
 * editor: `neovim + nvchad` (everywhere), `vim`
-* file manager: `ranger`
-* file manager gui: `thunar`
-* email: `mutt` + `notmuch` + `msmtp` + `lbdb` + `offlineimap`
-* pim: `khal` + `todoman` + `vdirsyncer`
-* wiki/notes: `ranger` + `vim` + some wrapper bash functions
-* feed: `newsboat` + `w3m` + [custom script](https://gist.github.com/lgaggini/f0d0e119a0ab4410943dd227370f6fe6)
+* email: `neomutt`
+* feed: `newsboat` + `w3m` + [custom script](https://github.com/lgaggini/dotfiles/blob/master/bin/tmux_splitted_pager.sh)
 * ide: `neovim` (everywhere)
-* ide gui: `neovide` (everywhere)
 * versioning: `git` (everywhere)
-* music: `mpd` + `mpc` + `ncmpcpp` + `rofi-mpc`
+* music: `mpd`
 * browser: `w3m`
-* surfer: `surfraw` + `w3m` + [custom script](https://gist.github.com/lgaggini/f0d0e119a0ab4410943dd227370f6fe6)
-* password manager: `pass`
-* password manager gui: `rofi-pass`, `bitwarden` (on mac/windows)
+* surfer: `surfraw` + `w3m` + [custom script](https://github.com/lgaggini/dotfiles/blob/master/bin/tmux_splitted_pager.sh)
+* password manager: `paas + rofi-pass`, `bitwarden` (on mac/windows)
 * clipboard manager: `greenclip + rofi`
-* personal finance: `ledger`
-* document viewer:  `zathura`
 * backup: `restic`
 * irc: `weechat`
 * calculator: `rofi-calc`
-* snippet-manager: `rofi-snippy`
+* snippet-manager: `rofi-snippy` + [custom script](https://github.com/lgaggini/dotfiles/blob/master/bin/rofi-snippy)
 
 ## Usage
 There are many [available solutions](http://dotfiles.github.com/) to manage dotfiles. I use a very simple approach. I have a dedicated folder repo, dotfiles, where i copy manually every files to track. After the first manually copy, i sync my dotfiles by `--existing` options of `rsync`, that syncs two folder only for files present in the destination. In my bash functions i have the function dots:
 
-    rsync -a -v --existing /home/lorenzo/ /home/lorenzo/code/dotfiles/
+    rsync -a -v --existing /home/lg/ /home/lg/code/dotfiles/
 
-When on a new machine i clone my github dotfiles repository and copy manually configuration files in the right place.
+When on a new machine I clone my github dotfiles repository and copy manually configuration files in the right place.
 That's all, no much automation but very simple.
 
 ## Screenshoots
@@ -44,5 +36,3 @@ To come
 
 ## Credits
 * [Awesome-archKiss theme by me](https://github.com/lgaggini/awesome-archKiss)
-* [Archlinux wallpaper by giancarlo64](https://www.deviantart.com/giancarlo64/art/ArchLinux-Wallpaper-360078960)
-* [Nature wallpaper by sohail nachiti](https://www.pexels.com/photo/close-up-photography-of-leaves-with-droplets-807598/)
