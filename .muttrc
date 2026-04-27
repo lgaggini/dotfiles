@@ -17,7 +17,7 @@ set history = 20                        # history entries
 set crypt_use_gpgme = yes               # manage gpg by gpgme
 
 # profile management
-source ~/.mutt/profiles/dada            # default profile
+source ~/.mutt/profiles/team.blue       # default profile
 
 # mailbox & directory
 set mbox_type = Maildir                 # mailbox type
