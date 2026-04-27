@@ -40,12 +40,7 @@ When on a new machine i clone my github dotfiles repository and copy manually co
 That's all, no much automation but very simple.
 
 ## Screenshoots
-* urxvt + rofi
-![urxvt_rofi](urxvt_rofi.png)
-* fzf + ranger
-![fzf_ranger](fzf_ranger.png)
-* vim + ncmpcpp
-![vim_ncmpcpp](vim_ncmpcpp.png)
+To come
 
 ## Credits
 * [Awesome-archKiss theme by me](https://github.com/lgaggini/awesome-archKiss)
