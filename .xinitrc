@@ -37,5 +37,11 @@ autorandr -c
 # start compositor
 picom --daemon
 
+# playerctl daemon
+playerctld daemon
+
+# polkit agent
+/usr/libexec/polkit-gnome-authentication-agent-1 &
+
 # wm
 exec /usr/bin/awesome
