@@ -28,10 +28,10 @@
  Mod             "r",     function () awful.screen.focused().mypromptbox:run() end,
  Mod  "l",
  Mod  "x", function() menubar.show() end,
- Mod,          "Return", function () awful.util.spawn(terminal) end),
+ Mod,         "Return", function () awful.util.spawn(terminal) end),
  Mod,         "b", function () awful.util.spawn_with_shell(browser_work) end), -- [b]rowser
  Mod,         "f", function () awful.util.spawn_with_shell(filemanager) end), -- [f]ilemanager
- Mod,         "e", function () awful.util.spawn_with_shell(editor) end), -- [e]ditor 
+ Mod,         "e", function () awful.util.spawn_with_shell(editor) end), -- [e]ditor
  Mod,         "m", function () awful.util.spawn_with_shell(email) end), -- e[m]ail
  Mod,         "n", function () awful.util.spawn_with_shell(note) end), -- [n]ote
  Mod,         "c", function () awful.util.spawn_with_shell(im) end), -- [c]hat
@@ -40,7 +40,7 @@
  Mod,         "v", function () awful.util.spawn_with_shell(videoconference) end), -- [v]ideoconference
  Mod,         "y", function () awful.util.spawn_with_shell(spotify) end), -- spotif[y]
  Mod,         "l", function () awful.util.spawn_with_shell(soundcloud) end), -- [l]ivesets
- Mod,         "s", function () awful.util.spawn_with_shell(pad) end), -- [s]cratch pad
+ Mod,         "s", function () awful.util.spawn_with_shell(screenshooter) end), -- [s]creenshooter
  Mod,         "t", function () awful.util.spawn_with_shell(task) end), -- [t]ask manager
  Mod,         "p", function () awful.util.spawn_with_shell(password) end), -- [p]assword
  Mod,         "h", function () awful.util.spawn_with_shell(clipboard) end), -- clipboard [h]istory
