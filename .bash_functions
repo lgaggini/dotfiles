@@ -311,7 +311,10 @@ cf()
             source "${HOME}/.bashrc"
             functions > "${XDG_CONFIG_HOME}/cheat/cheatsheets/personal/bash_functions"
             ;;
-        'inputrc')
+        'xinitrc'|'xinit')
+            $EDITOR "${HOME}/.xinitrc"
+            ;;
+        'inputrc'|'input')
             $EDITOR "${HOME}/.inputrc"
             ;;
         'bash')
@@ -332,7 +335,7 @@ cf()
         'tmux')
             $EDITOR "${HOME}/.tmux.conf"
             tmux source-file "${HOME}/.tmux.conf"
-            grep "bind-key" "${HOME}/.tmux.conf" > "${XDG_CONFIG_HOME}/cheat/cheatsheets/personal/tmux"
+            grep 'bind-key' "${HOME}/.tmux.conf" | grep -v '#' | sed 's/bind-key -n //' > "${XDG_CONFIG_HOME}/cheat/cheatsheets/personal/tmux"
             ;;
         *)
             if [[ "$(readlink -f "$1")" != ${HOME}/* ]]; then
