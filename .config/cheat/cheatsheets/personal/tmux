@@ -1,0 +1,23 @@
+F3 previous-window
+F4 next-window
+S-F3 swap-window -t :-1
+S-F4 swap-window -t :+1
+M-F3 display-panes \; select-pane -t :.-
+M-F4 display-panes \; select-pane -t :.+
+C-F3 display-panes \; swap-pane -s :. -t :.- \; select-pane -t :.-
+C-F4 display-panes \; swap-pane -s :. -t :.+ \; select-pane -t :.+
+C-k resize-pane -U
+C-j resize-pane -D
+C-h resize-pane -L
+C-l resize-pane -R
+F6 detach
+C-F6 kill-pane
+F7 copy-mode
+F8 command-prompt -p "(rename-window) " "rename-window '%%'"
+C-F8 command-prompt -p "(rename-session) " "rename-session '%%'"
+M-F8 next-layout
+F9 display-panes \; setw synchronize-panes
+F10 choose-tree
+M-F10 break-pane
+C-F10 join-pane -h -s :. -t :-1
+S-F11 resize-pane -Z
