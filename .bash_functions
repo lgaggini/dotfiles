@@ -176,7 +176,7 @@ cpmod()
 # usage: dict <keyword>
 dict()
 {
-    sdcv "$@" | less
+    sdcv "$@" | w3m -T text/html -dump
 }
 
 # calc - basic calculator
