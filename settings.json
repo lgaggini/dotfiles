@@ -66,16 +66,19 @@
     ],
     "profiles": 
     {
-        "defaults": {},
+        "defaults": 
+        {
+            "colorScheme": "IC_Green_PPL"
+        },
         "list": 
         [
             {
-                "colorScheme": "Dark+",
+                "colorScheme": "IC_Green_PPL",
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "font": 
                 {
                     "face": "Hack Nerd Font Mono",
-                    "size": 14
+                    "size": 15
                 },
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
@@ -83,12 +86,12 @@
                 "opacity": 75
             },
             {
-                "colorScheme": "Dark+",
+                "colorScheme": "IC_Green_PPL",
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "font": 
                 {
                     "face": "Hack Nerd Font Mono",
-                    "size": 14
+                    "size": 15
                 },
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
@@ -96,11 +99,11 @@
                 "opacity": 75
             },
             {
-                "colorScheme": "Dark+",
+                "colorScheme": "IC_Green_PPL",
                 "font": 
                 {
                     "face": "Hack Nerd Font Mono",
-                    "size": 14
+                    "size": 15
                 },
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
@@ -109,11 +112,12 @@
                 "source": "Windows.Terminal.PowershellCore"
             },
             {
-                "colorScheme": "Dark+",
+                "colorScheme": "IC_Green_PPL",
+                "commandline": "C:\\WINDOWS\\system32\\wsl.exe --distribution-id {7cebf221-4576-44d2-a2f6-88eb3d38324e} -- tmux",
                 "font": 
                 {
                     "face": "Hack Nerd Font Mono",
-                    "size": 14
+                    "size": 15
                 },
                 "guid": "{c5b491bc-c418-5b4e-9e55-175330ca25d2}",
                 "hidden": false,
@@ -123,7 +127,33 @@
             }
         ]
     },
-    "schemes": [],
+    "schemes": 
+    [
+        {
+            "background": "#2C2C2C",
+            "black": "#014401",
+            "blue": "#2EC3B9",
+            "brightBlack": "#035C03",
+            "brightBlue": "#2EFAEB",
+            "brightCyan": "#3CFAC8",
+            "brightGreen": "#AEFB86",
+            "brightPurple": "#50FAFA",
+            "brightRed": "#B4FA5C",
+            "brightWhite": "#E0F1DC",
+            "brightYellow": "#DAFA87",
+            "cursorColor": "#47FA6B",
+            "cyan": "#3CA078",
+            "foreground": "#E0F1DC",
+            "green": "#41A638",
+            "name": "IC_Green_PPL",
+            "purple": "#50A096",
+            "red": "#FF2736",
+            "selectionBackground": "#116B41",
+            "white": "#E6FEF2",
+            "yellow": "#76A831"
+        }
+    ],
+    "showTerminalTitleInTitlebar": false,
     "themes": [],
     "useAcrylicInTabRow": true
 }
