@@ -1,20 +1,18 @@
 {
-  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.30/schema.json",
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.41/schema.json",
   "app_specific_configuration_path": "$Env:USERPROFILE/applications.json",
   "window_hiding_behaviour": "Cloak",
   "cross_monitor_move_behaviour": "Insert",
-  "default_workspace_padding": 5,
-  "default_container_padding": 5,
+  "default_workspace_padding": 10,
+  "default_container_padding": 10,
   "border": true,
-  "border_width": 4,
+  "border_width": 5,
   "border_offset": -1,
   "font_family": "JetBrains Mono",
   "theme": {
     "palette": "Base16",
-    "name": "Brewer",
-    "single_border": "Base0F",
-    "unfocused_border": "Base03",
-    "bar_accent": "Base0F"
+    "name": "AtelierEstuary",
+    "bar_accent": "Base0C"
   },
   "stackbar": {
     "height": 40,
@@ -27,80 +25,17 @@
     {
       "workspaces": [
         {
-          "name": "Term",
-          "layout": "BSP",
-          "initial_workspace_rules": [
-            {
-              "kind": "Exe",
-              "id": "WindowsTerminal.exe"
-            }
-          ]
-        },
-        {
-          "name": "Tools",
-          "layout": "BSP",
-          "initial_workspace_rules": [
-            {
-              "kind": "Exe",
-              "id": "explorer.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "SumatraPDF.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "Neovide.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "7zFM.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "WinSCP.exe"
-            }
-          ]
-        },
-        {
           "name": "Web",
           "layout": "BSP",
           "initial_workspace_rules": [
             {
               "kind": "Exe",
               "id": "firefox.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "rssguard.exe"
-            }
-          ]
-        },
-        {
-          "name": "Prod",
-          "layout": "BSP",
-          "initial_workspace_rules": [
-            {
-              "kind": "Exe",
-              "id": "Ableton Live 12 Standard.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "rekordbox.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "gimp-3.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "soffice.bin"
             }
           ]
         },
         {
           "name": "Game",
-          "layout": "BSP",
           "initial_workspace_rules": [
             {
               "kind": "Exe",
@@ -125,10 +60,6 @@
             {
               "kind": "Exe",
               "id": "Amazon Games UI.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "iRacingUI.exe"
             }
           ]
         },
@@ -147,6 +78,10 @@
             {
               "kind": "Exe",
               "id": "kmymoney.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "soffice.bin"
             }
           ]
         },
@@ -163,16 +98,13 @@
               "id": "Spotify.exe"
             },
             {
-              "kind": "Exe",
-              "id": "iTunes.exe"
+              "kind": "Title",
+              "id": "SoundCloud",
+              "matching_strategy": "Contains"
             },
             {
               "kind": "Exe",
               "id": "calibre.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "msedge.exe"
             }
           ]
         }
@@ -182,11 +114,11 @@
   "tray_and_multi_window_applications": [
     {
       "kind": "Exe",
-      "id": "Joplin.exe"
+      "id": "EADesktop.exe"
     },
     {
       "kind": "Exe",
-      "id": "rzappengine.exe"
+      "id": "Playnite.DesktopApp.exe"
     },
     {
       "kind": "Exe",
@@ -194,26 +126,10 @@
     },
     {
       "kind": "Exe",
-      "id": "EADesktop.exe"
+      "id": "Joplin.exe"
     }
   ],
   "ignore_rules": [
-    {
-      "kind": "Exe",
-      "id": "Trading Paints.exe"
-    },
-    {
-      "kind": "Exe",
-      "id": "CrewChiefV4.exe"
-    },
-    {
-      "kind": "Exe",
-      "id": "MOZA Pit House.exe"
-    },
-    {
-      "kind": "Exe",
-      "id": "rzappengine.exe"
-    }
   ],
   "object_name_change_applications": [
     {
@@ -223,6 +139,30 @@
     }
   ],
   "floating_applications": [
+    {
+      "kind": "Exe",
+      "id": "WindowsTerminal.exe"
+    },
+    {
+      "kind": "Exe",
+      "id": "explorer.exe"
+    },
+    {
+      "kind": "Exe",
+      "id": "SumatraPDF.exe"
+    },
+    {
+      "kind": "Exe",
+      "id": "neovide.exe"
+    },
+    {
+      "kind": "Exe",
+      "id": "7zFM.exe"
+    },
+    {
+      "kind": "Exe",
+      "id": "WinSCP.exe"
+    },
     {
       "kind": "Exe",
       "id": "Bitwarden.exe"
