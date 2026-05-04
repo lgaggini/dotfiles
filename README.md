@@ -1,6 +1,6 @@
 # dotfiles
 
-These are configuration files for my GNU/Linux workstation(s), some files for my recently added macOS workstation (`term`, `zsh`, `amethyst`, `karabiner`, `neovim`) and for my Windows workstation too (`windows terminal`, `zsh`, `komorebi`, `autohotkey`, `neovim`, `flow-launcher`).
+These are configuration files for my GNU/Linux workstation(s), some files for my recently added macOS workstation (`term`, `zsh`, `amethyst`, `karabiner`, `neovim`) and for my Windows workstation too (`windows terminal`, `zsh`, `komorebi`, `whkd`, `neovim`, `flow-launcher`).
 
 ## Toolbox
 * shell: `bash + starship`, `zsh + zim` (on mac/windows)

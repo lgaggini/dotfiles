@@ -1,0 +1,84 @@
+.shell powershell
+
+# Komorebi / whkd control
+lwin + control + o      : taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden
+lwin + control + r      : komorebic reload-configuration
+lwin + control + i      : komorebic toggle-shortcuts
+alt + shift + r         : komorebic retile
+alt + shift + p         : komorebic toggle-pause
+
+# App shortcuts - these require shell to be pwsh / powershell
+# The apps will be focused if open, or launched if not open
+
+lwin + return            : start wt
+alt + return             : $wshell.AppActivate('Terminal')
+lwin + f                 : start explorer 
+lwin + p                 : if ($wshell.AppActivate('Bitwarden') -eq $False) { start -FilePath "$env:programfiles\Bitwarden\Bitwarden.exe"}
+lwin + t                 : if ($wshell.AppActivate('Taskmanager') -eq $False) { start taskmgr }
+lwin + e                 : start neovide --wsl
+lwin + r                 : start -FilePath "$env:LocalAppData\FlowLauncher\Flow.Launcher.exe"
+lwin + b                 : if ($wshell.AppActivate('Firefox') -eq $False) { start firefox }
+lwin + g                 : if ($wshell.AppActivate('Playnite') -eq $False) { start -FilePath "$env:LocalAppData\Playnite\Playnite.DesktopApp.exe"}
+lwin + m                 : if ($wshell.AppActivate('Thunderbird') -eq $False) { start thunderbird }
+lwin + n                 : if ($wshell.AppActivate('Joplin') -eq $False) { start -FilePath "$env:LocalAppData\Programs\Joplin\Joplin.exe" }
+lwin + u                 : if ($whsell.AppActivate('Libreoffice Calc') -eq $False {start scalc}
+lwin + y                 : if ($wshell.AppActivate('Spotify') -eq $False) { start -FilePath "$env:AppData\Spotify\Spotify.exe" }
+lwin + l                 : if ($wshell.AppActivate('SoundCloud') -eq $False) { start -FilePath "${env:programfiles(x86)}\Microsoft\Edge\Application\msedge_proxy.exe" -ArgumentList "--profile-directory=Default --app-id=eikjhbkpemdappjfcmdeeeamdpkgabmk --app-url=https://soundcloud.com/discover --app-launch-source=4"}
+
+# Monitors
+alt + o                 : komorebic cycle-move-to-monitor next
+alt + s                 : komorebic cycle-monitor next
+
+# Layouts
+alt + space             : komorebic cycle-layout next
+
+# Focus windows
+alt + j                 : komorebic cycle-focus next
+alt + k                 : komorebic cycle-focus previous
+alt + i                 : komorebic toggle-workspace-layer
+
+# Move windows
+alt + shift + j         : komorebic cycle-move next
+alt + shift + k         : komorebic cycle-move previous
+alt + shift + return    : komorebic promote
+
+# Resize
+alt + oem_plus          : komorebic resize-axis horizontal increase
+alt + oem_minus         : komorebic resize-axis horizontal decrease
+alt + shift + oem_plus  : komorebic resize-axis vertical increase
+alt + shift + oem_minus : komorebic resize-axis vertical decrease
+
+# Manipulate windows
+alt + z                 : komorebic toggle-float
+alt + shift + f         : komorebic toggle-monocle
+alt + c                 : komorebic close
+alt + m                 : komorebic minimize
+
+# Layouts
+alt + x                 : komorebic flip-layout horizontal
+alt + y                 : komorebic flip-layout vertical
+
+# Workspaces
+alt + h                 : komorebic cycle-workspace previous
+alt + l                 : komorebic cycle-workspace next
+alt + 1                 : komorebic focus-workspace 0
+alt + w                 : komorebic focus-workspace 0
+alt + 2                 : komorebic focus-workspace 1
+alt + g                 : komorebic focus-workspace 1
+alt + 3                 : komorebic focus-workspace 2
+alt + p                 : komorebic focus-workspace 2
+alt + 4                 : komorebic focus-workspace 3
+alt + a                 : komorebic focus-workspace 3
+alt + escape            : komorebic focus-last-workspace
+
+# Move windows across workspaces
+alt + shift + h         : komorebic cycle-send-to-workspace previous
+alt + shift + l         : komorebic cycle-send-to-workspace next
+alt + shift + 1         : komorebic move-to-workspace 0
+alt + shift + w         : komorebic move-to-workspace 0
+alt + shift + 2         : komorebic move-to-workspace 1
+alt + shift + g         : komorebic move-to-workspace 1
+alt + shift + 3         : komorebic move-to-workspace 2
+alt + shift + i         : komorebic move-to-workspace 2
+alt + shift + 4         : komorebic move-to-workspace 3
+alt + shift + a         : komorebic move-to-workspace 3
