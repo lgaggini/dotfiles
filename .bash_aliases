@@ -9,129 +9,134 @@
 alias aliases='grep alias < ~/.bash_aliases | grep -v complete | grep -v function'
 
 # package management aliases
+pkg_manager=zypper
+
 ## yay
-alias ysyu='yay -Syu'
-alias ysyua='yay -Syua'
-alias ys='yay -S'
-alias ysy='yay -Sy'
-alias yrs='yay -Rs'
-alias yr='yay -R'
-alias yss='yay -Ss'
-alias ysc='yay -Sc'
-alias yscc='yay -Scc'
-alias yqe='yay -Qe'
-alias yqs="yay -Qs"
-alias yql="yay -Ql"
-alias yqi="yay -Qi"
-alias yqqtd="yay -Qqtd"
-alias yqm="yay -Qm"
-alias ymr="sudo reflector --latest 50 --age 24 --sort rate --save /etc/pacman.d/mirrorlist"
-### completion for yay / pacman
-function _pacalias
-{
-    local cur
-    source /usr/share/bash-completion/completions/pacman
-    cur="${COMP_WORDS[COMP_CWORD]}"
-    case $COMP_WORDS in
-        yr*)
-            _pacman_pkg Qq;;
-        yq*)
-            { _arch_incomp 'g groups' && _pacman_pkg Qg sort; }    ||
-            { _arch_incomp 'p file'   && _pacman_file; }           ||
-            _arch_incomp 'o owns'   || _arch_incomp 'u upgrades' ||
-            _pacman_pkg Qq;;
-        ys*)
-            { _arch_incomp 'g groups' && _pacman_pkg Sg; }      ||
-            { _arch_incomp 'l list'   && _pacman_pkg Sl sort; } ||
-            _pacman_pkg Slq;;
-        yu*)
-            _pacman_file;;
-    esac
-    return 0;
-}
-complete -F _pacalias ysyu
-complete -F _pacalias ys
-complete -F _pacalias yss
-complete -F _pacalias ysc
-complete -F _pacalias yscc
-complete -F _pacalias yqs
-complete -F _pacalias yql
-complete -F _pacalias yqi
-complete -F _pacalias yrs
-complete -F _pacalias yr
+if [ "$pkg_manager" == "yay" ]; then
+  alias ysyu='yay -Syu'
+  alias ysyua='yay -Syua'
+  alias ys='yay -S'
+  alias ysy='yay -Sy'
+  alias yrs='yay -Rs'
+  alias yr='yay -R'
+  alias yss='yay -Ss'
+  alias ysc='yay -Sc'
+  alias yscc='yay -Scc'
+  alias yqe='yay -Qe'
+  alias yqs="yay -Qs"
+  alias yql="yay -Ql"
+  alias yqi="yay -Qi"
+  alias yqqtd="yay -Qqtd"
+  alias yqm="yay -Qm"
+  alias ymr="sudo reflector --latest 50 --age 24 --sort rate --save /etc/pacman.d/mirrorlist"
+  ### completion for yay / pacman
+  function _pacalias
+  {
+      local cur
+      source /usr/share/bash-completion/completions/pacman
+      cur="${COMP_WORDS[COMP_CWORD]}"
+      case $COMP_WORDS in
+          yr*)
+              _pacman_pkg Qq;;
+          yq*)
+              { _arch_incomp 'g groups' && _pacman_pkg Qg sort; }    ||
+              { _arch_incomp 'p file'   && _pacman_file; }           ||
+              _arch_incomp 'o owns'   || _arch_incomp 'u upgrades' ||
+              _pacman_pkg Qq;;
+          ys*)
+              { _arch_incomp 'g groups' && _pacman_pkg Sg; }      ||
+              { _arch_incomp 'l list'   && _pacman_pkg Sl sort; } ||
+              _pacman_pkg Slq;;
+          yu*)
+              _pacman_file;;
+      esac
+      return 0;
+  }
+  complete -F _pacalias ysyu
+  complete -F _pacalias ys
+  complete -F _pacalias yss
+  complete -F _pacalias ysc
+  complete -F _pacalias yscc
+  complete -F _pacalias yqs
+  complete -F _pacalias yql
+  complete -F _pacalias yqi
+  complete -F _pacalias yrs
+  complete -F _pacalias yr
 
 ## aptitude/apt-get
-manager='aptitude'
-alias apu='sudo $manager update'
-alias apuu='sudo $manager upgrade'
-alias api='sudo $manager install'
-alias apr='sudo $manager remove'
-alias app='sudo $manager purge'
-alias aps='sudo $manager search'
-alias apss='sudo $manager show'
-alias apc='sudo $manager clean'
-alias apcc='sudo $manager autoclean'
-alias apd='sudo $manager download'
-### completion for aptitude / apt-get
-function _apalias()
-{
-    local cur
-    cur=`_get_cword`
-    case $COMP_WORDS in
-        api|apss|apd)
-            COMPREPLY=( $( apt-cache pkgnames $cur 2> /dev/null ) )
-            return 0;;
-        apr|app)
-            source /usr/share/bash-completion/completions/dpkg
-            COMPREPLY=( $( _comp_dpkg_installed_packages "$cur" ) )
-            return 0;;
-    esac
-    return 0
-}
-complete -F _apalias api
-complete -F _apalias apss
-complete -F _apalias apd
-complete -F _apalias apr
-complete -F _apalias app
+elif [ "$pkg_manager" == "aptitude" ]; then
+  alias apu='sudo $pkg_manager update'
+  alias apuu='sudo $pkg_manager upgrade'
+  alias api='sudo $pkg_manager install'
+  alias apr='sudo $pkg_manager remove'
+  alias app='sudo $pkg_manager purge'
+  alias aps='sudo $pkg_manager search'
+  alias apss='sudo $pkg_manager show'
+  alias apc='sudo $pkg_manager clean'
+  alias apcc='sudo $pkg_manager autoclean'
+  alias apd='sudo $pkg_manager download'
+  ### completion for aptitude / apt-get
+  function _apalias()
+  {
+      local cur
+      cur=`_get_cword`
+      case $COMP_WORDS in
+          api|apss|apd)
+              COMPREPLY=( $( apt-cache pkgnames $cur 2> /dev/null ) )
+              return 0;;
+          apr|app)
+              source /usr/share/bash-completion/completions/dpkg
+              COMPREPLY=( $( _comp_dpkg_installed_packages "$cur" ) )
+              return 0;;
+      esac
+      return 0
+  }
+  complete -F _apalias api
+  complete -F _apalias apss
+  complete -F _apalias apd
+  complete -F _apalias apr
+  complete -F _apalias app
 
 ## zypper
-alias zup='sudo zypper dup'
-alias zi='sudo zypper install'
-alias zin='sudo zypper info'
-alias zr='sudo zypper remove --clean-deps'
-alias zu='sudo zypper update'
-alias zs='zypper search'
-alias zsi='zypper search -i'
-alias zrf='sudo zypper refresh'
-alias zcl='sudo zypper clean -a'
-alias zlu='sudo zypper list-updates'
-alias zps='sudo zypper ps'
-alias zlocks='sudo zypper locks'
-alias zlock='sudo zypper addlock'
-alias zunlock='sudo zypper removelock'
-### completion for zypper
-function _zyppalias()
-{
-    local cur
-	  local -a opts=()
-    source /usr/share/bash-completion/completions/zypper
-    cur="${COMP_WORDS[COMP_CWORD]}"
-    case $COMP_WORDS in
-        zi|zin|zlock)
-          opts=(${opts[@]}$(echo; _available_packages ))
-	    ;;
-        zr|zu)
-          opts=(${opts[@]}$(echo; _installed_packages ))
-      ;;
-    esac
-    COMPREPLY=($(compgen -W "${opts[*]}" -- ${cur}))
-    _strip
-}
-complete -F _zyppalias zi
-complete -F _zyppalias zin
-complete -F _zyppalias zlock
-complete -F _zyppalias zr
-complete -F _zyppalias zu
+elif [ "$pkg_manager" == "zypper" ]; then
+  alias zup='sudo zypper dup'
+  alias zi='sudo zypper install'
+  alias zin='sudo zypper info'
+  alias zr='sudo zypper remove --clean-deps'
+  alias zu='sudo zypper update'
+  alias zs='zypper search'
+  alias zsi='zypper search -i'
+  alias zrf='sudo zypper refresh'
+  alias zcl='sudo zypper clean -a'
+  alias zlu='sudo zypper list-updates'
+  alias zps='sudo zypper ps'
+  alias zlocks='sudo zypper locks'
+  alias zlock='sudo zypper addlock'
+  alias zunlock='sudo zypper removelock'
+  ### completion for zypper
+  function _zyppalias()
+  {
+      local cur
+      local -a opts=()
+      source /usr/share/bash-completion/completions/zypper
+      cur="${COMP_WORDS[COMP_CWORD]}"
+      case $COMP_WORDS in
+          zi|zin|zlock)
+            opts=(${opts[@]}$(echo; _available_packages ))
+        ;;
+          zr|zu)
+            opts=(${opts[@]}$(echo; _installed_packages ))
+        ;;
+      esac
+      COMPREPLY=($(compgen -W "${opts[*]}" -- ${cur}))
+      _strip
+  }
+  complete -F _zyppalias zi
+  complete -F _zyppalias zin
+  complete -F _zyppalias zlock
+  complete -F _zyppalias zr
+  complete -F _zyppalias zu
+fi
 
 # core toolbox aliases (ls, cp, grep, find, vim, etc.)
 ## replacement
