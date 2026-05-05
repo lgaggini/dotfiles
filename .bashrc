@@ -62,8 +62,8 @@ export HISTIGNORE="&:[ ]*:ls:ls -a:cd:cd .."    # leave commands out of history 
 #
 # aliases and functions from external
 #
-ALIAS_FILE=~/.bash_aliases
-FUNCTIONS_FILE=~/.bash_functions
+ALIAS_FILE=~/.aliases
+FUNCTIONS_FILE=~/.functions
 [ -f "${ALIAS_FILE}" ] && source "${ALIAS_FILE}"
 [ -f "${FUNCTIONS_FILE}" ] && source "${FUNCTIONS_FILE}"
 
@@ -156,15 +156,8 @@ trap show_command_in_title_bar DEBUG
 
 # local
 BASHRC_LOCAL_FILE=~/.bashrc_local
-ALIASES_LOCAL_FILE=~/.bash_aliases_local
-FUNCTIONS_LOCAL_FILE=~/.bash_functions_local
+ALIASES_LOCAL_FILE=~/.aliases_local
+FUNCTIONS_LOCAL_FILE=~/.functions_local
 [ -f "${BASHRC_LOCAL_FILE}" ] && source "${BASHRC_LOCAL_FILE}"        # local bashrc
 [ -f "${ALIASES_LOCAL_FILE}" ] && source "${ALIASES_LOCAL_FILE}"      # local aliases
 [ -f "${FUNCTIONS_LOCAL_FILE}" ] && source "${FUNCTIONS_LOCAL_FILE}"  # local functions
-
-# desktop
-ALIASES_DESKTOP_FILE=~/.bash_aliases_desktop
-FUNCTIONS_DESKTOP_FILE=~/.bash_functions_desktop
-[ -f "${ALIASES_DESKTOP_FILE}" ] && source "${ALIASES_DESKTOP_FILE}"      # desktop/gui aliases
-[ -f "${FUNCTIONS_DESKTOP_FILE}" ] && source "${FUNCTIONS_DESKTOP_FILE}"  # desktop/gui functions
-

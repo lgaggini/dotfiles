@@ -1,12 +1,12 @@
 #!/bin/bash
 #---------------------------
-#--     .bash_aliases     --
+#--       .aliases        --
 #--      by lgaggini      --
 #--      CC BY-SA 3.0     --
 #---------------------------
 
 # alias list
-alias aliases='grep alias < ~/.bash_aliases | grep -v complete | grep -v function'
+alias aliases='grep alias < ~/.aliases | grep -v complete | grep -v function'
 
 # package management aliases
 pkg_manager=zypper

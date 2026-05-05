@@ -2,7 +2,7 @@
 # usage: help-funcs
 --
 {
-    grep -B 1 usage "${HOME}/.bash_functions"
+    grep -B 1 usage "${HOME}/.functions"
 --
 # start, stop, restart, reload, status - simple systemd daemon management
 # usage: start/stop/restart/reload <daemon-name>

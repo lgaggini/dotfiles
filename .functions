@@ -1,18 +1,18 @@
 #!/bin/bash
 #---------------------------
-#--    .bash_functions    --
+#--      .functions       --
 #--      by lgaggini      --
 #--      CC BY-SA 3.0     --
 #---------------------------
 
 #
-# bash_functions help
+# functions help
 #
 # help_funcs - summary of custom user functions
 # usage: help-funcs
 functions()
 {
-    grep -B 1 usage "${HOME}/.bash_functions"
+    grep -B 1 usage "${HOME}/.functions"
 }
 
 #
@@ -48,14 +48,14 @@ if [ "$system" == "systemctl" ]; then
     reload()
     {
         for arg in "$@"; do
-            sudo $system reload "$arg" 
+            sudo $system reload "$arg"
         done
     }
 
     status()
     {
         for arg in "$@"; do
-            sudo $system status "$arg" 
+            sudo $system status "$arg"
         done
     }
     # completion
@@ -302,14 +302,14 @@ cf()
     fi
     case "$1" in
         'alias'|'aliases')
-            $EDITOR "${HOME}/.bash_aliases"
+            $EDITOR "${HOME}/.aliases"
             source "${HOME}/.bashrc"
-            aliases > "${XDG_CONFIG_HOME}/cheat/cheatsheets/personal/bash_aliases"
+            aliases > "${XDG_CONFIG_HOME}/cheat/cheatsheets/personal/aliases"
             ;;
         'function'|'functions')
-            $EDITOR "${HOME}/.bash_functions"
+            $EDITOR "${HOME}/.functions"
             source "${HOME}/.bashrc"
-            functions > "${XDG_CONFIG_HOME}/cheat/cheatsheets/personal/bash_functions"
+            functions > "${XDG_CONFIG_HOME}/cheat/cheatsheets/personal/functions"
             ;;
         'xinitrc'|'xinit')
             $EDITOR "${HOME}/.xinitrc"
