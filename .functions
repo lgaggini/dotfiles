@@ -23,7 +23,7 @@ functions()
 system='systemctl'
 
 # systemd
-if [ "$system" == "systemctl" ]; then
+if [ "$system" = "systemctl" ]; then
     start()
     {
         for arg in "$@"; do
@@ -279,7 +279,7 @@ noteg()
 dots()
 {
     DOTS_REPO="${HOME}/code/lgaggini/dotfiles/"
-    rsync -a -v --existing --exclude '.bash-git-prompt' --exclude '.config/awesome/' /home/lg/ "${DOTS_REPO}"
+    rsync -a -v --existing --exclude '.config/awesome/' "${HOME}" "${DOTS_REPO}"
     cd "${DOTS_REPO}" || exit
 }
 
@@ -300,16 +300,22 @@ cf()
         echo "Missing arguments. Syntax: {FILE|ALIAS}"
         return 1
     fi
+    SHELL_CFG='.bashrc'
+    # macOS
+    if [ "$(uname)" = "Darwin" ]; then
+      XDG_CONFIG_HOME="${HOME}/.config"
+      SHELL_CFG='.zshrc'
+    fi
     case "$1" in
         'alias'|'aliases')
             $EDITOR "${HOME}/.aliases"
-            source "${HOME}/.bashrc"
-            aliases > "${XDG_CONFIG_HOME}/cheat/cheatsheets/personal/aliases"
+            source "${HOME}/${SHELL_CFG}"
+            aliases >| "${XDG_CONFIG_HOME}/cheat/cheatsheets/personal/aliases"
             ;;
         'function'|'functions')
             $EDITOR "${HOME}/.functions"
-            source "${HOME}/.bashrc"
-            functions > "${XDG_CONFIG_HOME}/cheat/cheatsheets/personal/functions"
+            source "${HOME}/${SHELL_CFG}"
+            functions >| "${XDG_CONFIG_HOME}/cheat/cheatsheets/personal/functions"
             ;;
         'xinitrc'|'xinit')
             $EDITOR "${HOME}/.xinitrc"
@@ -320,6 +326,10 @@ cf()
         'bash')
             $EDITOR "${HOME}/.bashrc"
             source "${HOME}/.bashrc"
+            ;;
+        'zsh')
+            $EDITOR "${HOME}/.zshrc"
+            source "${HOME}/.zshrc"
             ;;
         'alacritty')
             $EDITOR "${XDG_CONFIG_HOME}/alacritty/alacritty.toml"
