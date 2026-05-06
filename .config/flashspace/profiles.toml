@@ -1,0 +1,99 @@
+[[profiles]]
+id = 'E1F1D320-CC63-46A3-8A32-9E0BE8E291FE'
+name = 'Default'
+
+[[profiles.workspaces]]
+assignAppShortcut = 'opt+shift+w'
+display = 'LG ULTRAWIDE'
+id = 'AAE46929-487D-4CBD-8AA5-CD11AB84F0B6'
+name = 'Web'
+openAppsOnActivation = false
+shortcut = 'opt+w'
+symbolIconName = 'web.camera'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'org.mozilla.firefox'
+iconPath = '/Applications/Firefox.app/Contents/Resources/firefox.icns'
+name = 'Firefox'
+
+[[profiles.workspaces]]
+assignAppShortcut = 'opt+shift+s'
+display = 'LG ULTRAWIDE'
+id = '915E20B3-92B8-4D22-BEE4-62E3C0A163C5'
+name = 'Studio'
+openAppsOnActivation = false
+shortcut = 'opt+s'
+symbolIconName = 'music.quarternote.3'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'com.ableton.live'
+iconPath = '/Applications/Ableton Live 12 Standard.app/Contents/Resources/app.icns'
+name = 'Live'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'com.pioneerdj.rekordboxdj'
+iconPath = '/Applications/rekordbox 7/rekordbox.app/Contents/Resources/rekordbox.icns'
+name = 'rekordbox'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'com.apple.Music'
+iconPath = '/System/Applications/Music.app/Contents/Resources/AppIcon.icns'
+name = 'Music'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'org.kde.kid3'
+iconPath = '/Applications/kid3.app/Contents/Resources/kid3.icns'
+name = 'Kid3'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'com.audiomodern.riffer'
+iconPath = '/Applications/Riffer.app/Contents/Resources/Icon.icns'
+name = 'Riffer'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'com.native-instruments.Massive'
+iconPath = '/Applications/Native Instruments/Massive/Massive.app/Contents/Resources/Massive.icns'
+name = 'Massive'
+
+[[profiles.workspaces]]
+assignAppShortcut = 'opt+shift+p'
+display = 'LG ULTRAWIDE'
+id = 'CC61B470-67BC-45DC-B4FC-1B27B3F80968'
+name = 'Pim'
+openAppsOnActivation = false
+shortcut = 'opt+p'
+symbolIconName = 'mail.stack'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'net.cozic.joplin-desktop'
+iconPath = '/Applications/Joplin.app/Contents/Resources/icon.icns'
+name = 'Joplin'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'com.apple.mail'
+iconPath = '/System/Applications/Mail.app/Contents/Resources/ApplicationIcon.icns'
+name = 'Mail'
+
+[[profiles.workspaces]]
+assignAppShortcut = 'opt+shift+a'
+display = 'LG ULTRAWIDE'
+id = 'C032A154-9688-476F-8CBE-746BB4EE5401'
+name = 'Media'
+openAppsOnActivation = false
+shortcut = 'opt+a'
+symbolIconName = 'beats.headphones'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'org.videolan.vlc'
+iconPath = '/Applications/VLC.app/Contents/Resources/VLC.icns'
+name = 'VLC'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'com.spotify.client'
+iconPath = '/Applications/Spotify.app/Contents/Resources/Icon.icns'
+name = 'Spotify'
+
+[[profiles.workspaces.apps]]
+bundleIdentifier = 'com.apple.Safari.WebApp.3C2F2CAB-72C6-482F-A7E2-9F7516594FB4'
+iconPath = '/Users/lorenzo/Applications/SoundCloud.app/Contents/Resources/ApplicationIcon.icns'
+name = 'SoundCloud'

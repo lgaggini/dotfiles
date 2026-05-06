@@ -1,0 +1,81 @@
+activeWorkspaceOnFocusChange = true
+alternativeDisplays = ''
+autoAssignAlreadyAssignedApps = false
+autoAssignAppsToWorkspaces = false
+centerCursorOnFocusChange = true
+centerCursorOnWorkspaceChange = true
+changeWorkspaceOnAppAssign = true
+checkForUpdatesAutomatically = true
+cornerHiddenApps = []
+displayMode = 'dynamic'
+enableFocusManagement = true
+enableIntegrations = false
+enablePictureInPictureSupport = false
+enableSpaceControl = false
+enableSpaceControlAnimations = true
+enableSpaceControlTilesAnimations = true
+enableSwipeGestures = false
+enableWorkspaceSwitcher = false
+enableWorkspaceTransitions = false
+focusFrontmostWindow = true
+focusNextWorkspaceApp = 'opt+j'
+focusPreviousWorkspaceApp = 'opt+k'
+keepUnassignedAppsOnSwitch = true
+loopWorkspaces = true
+loopWorkspacesOnAllDisplays = false
+menuBarDisplayAliases = ''
+menuBarTitleTemplate = '$WORKSPACE'
+pipApps = []
+pipScreenCornerOffset = 15
+restartAppOnWakeUp = false
+restoreHiddenAppsOnSwitch = false
+runScriptAfterWorkspaceChange = ''
+runScriptOnLaunch = ''
+runScriptOnProfileChange = 'sketchybar --reload'
+runScriptOnWorkspaceChange = 'sketchybar --trigger flashspace_workspace_change WORKSPACE="$WORKSPACE" DISPLAY="$DISPLAY"'
+showFloatingNotifications = true
+showMenuBarIcon = true
+showMenuBarTitle = true
+showRecentWorkspaceWhenActivatedTwice = false
+showWorkspaceSwitcher = 'opt+tab'
+skipEmptyWorkspacesOnSwitch = false
+spaceControlCurrentDisplayWorkspaces = false
+spaceControlHideEmptyWorkspaces = false
+spaceControlNumberOfColumns = 0
+spaceControlUpdateScreenshotsOnOpen = false
+swipeDown3FingerAction = 'none'
+swipeDown4FingerAction = 'none'
+swipeLeft3FingerAction = 'previousWorkspace'
+swipeLeft4FingerAction = 'none'
+swipeRight3FingerAction = 'nextWorkspace'
+swipeRight4FingerAction = 'none'
+swipeThreshold = 0.20000000000000001
+swipeUp3FingerAction = 'none'
+swipeUp4FingerAction = 'none'
+switchToNextWorkspace = 'opt+l'
+switchToPreviousWorkspace = 'opt+h'
+switchToRecentWorkspace = 'opt+escape'
+switchWorkspaceOnCursorScreen = false
+switchWorkspaceWhenPipCloses = true
+toggleTheFocusedAppFloating = 'opt+z'
+workspaceSwitcherCurrentDisplayWorkspaces = true
+workspaceSwitcherShowScreenshots = false
+workspaceSwitcherSortByLastActivation = true
+workspaceSwitcherVisibleWorkspaces = 5
+workspaceTransitionDimming = 0.20000000000000001
+workspaceTransitionDuration = 0.29999999999999999
+
+[[floatingApps]]
+bundleIdentifier = 'com.apple.Terminal'
+iconPath = '/System/Applications/Utilities/Terminal.app/Contents/Resources/Terminal.icns'
+name = 'Terminale'
+
+[[floatingApps]]
+bundleIdentifier = 'com.apple.finder'
+iconPath = '/System/Library/CoreServices/Finder.app/Contents/Resources/Finder.icns'
+name = 'Finder'
+
+[[floatingApps]]
+bundleIdentifier = 'com.neovide.neovide'
+iconPath = '/Applications/Neovide.app/Contents/Resources/Neovide.icns'
+name = 'Neovide'
