@@ -12,7 +12,7 @@ alias aliases='grep alias < ~/.aliases | grep -v complete | grep -v function'
 pkg_manager=zypper
 
 ## yay
-if [ "$pkg_manager" == "yay" ]; then
+if [ "$pkg_manager" = "yay" ]; then
   alias ysyu='yay -Syu'
   alias ysyua='yay -Syua'
   alias ys='yay -S'
@@ -64,7 +64,7 @@ if [ "$pkg_manager" == "yay" ]; then
   complete -F _pacalias yr
 
 ## aptitude/apt-get
-elif [ "$pkg_manager" == "aptitude" ]; then
+elif [ "$pkg_manager" = "aptitude" ]; then
   alias apu='sudo $pkg_manager update'
   alias apuu='sudo $pkg_manager upgrade'
   alias api='sudo $pkg_manager install'
@@ -98,7 +98,7 @@ elif [ "$pkg_manager" == "aptitude" ]; then
   complete -F _apalias app
 
 ## zypper
-elif [ "$pkg_manager" == "zypper" ]; then
+elif [ "$pkg_manager" = "zypper" ]; then
   alias zup='sudo zypper dup'
   alias zi='sudo zypper install'
   alias zin='sudo zypper info'
@@ -136,6 +136,18 @@ elif [ "$pkg_manager" == "zypper" ]; then
   complete -F _zyppalias zlock
   complete -F _zyppalias zr
   complete -F _zyppalias zu
+
+## homebrew
+elif [ "$pkg_manager" = "brew" ]; then
+  alias brf='brew update'
+  alias bu='brew upgrade'
+  alias bi='brew install'
+  alias bin='brew info'
+  alias br='brew uninstall'
+  alias bs='brew search'
+  alias bcl='brew cleanup'
+  alias bo='brew outdated'
+  alias bl='brew list'
 fi
 
 # core toolbox aliases (ls, cp, grep, find, vim, etc.)
