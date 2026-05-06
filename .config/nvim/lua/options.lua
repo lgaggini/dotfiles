@@ -12,6 +12,6 @@ o.list = true
 o.expandtab = true
 -- gui configs
 if vim.g.neovide then
-  o.guifont = "Hack Nerd Font Mono:h16"
+  o.guifont = "Hack Nerd Font Mono:h18"
   vim.g.neovide_opacity = 0.75
 end
