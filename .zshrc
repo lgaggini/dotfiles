@@ -157,17 +157,24 @@ export EDITOR=nvim
 # Support for bash_completion used in aliases/functions
 autoload bashcompinit && bashcompinit
 
-# Aliases
-[ -f ~/.aliases ] && source ~/.aliases 
+#
+# aliases and functions from external
+#
+ALIAS_FILE=~/.aliases
+FUNCTIONS_FILE=~/.functions
+[ -f "${ALIAS_FILE}" ] && source "${ALIAS_FILE}"
+[ -f "${FUNCTIONS_FILE}" ] && source "${FUNCTIONS_FILE}"
 
-# Functions
-[ -f ~/.functions ] && source ~/.functions 
+
+# local
+ZSHRC_LOCAL_FILE=~/.zshrc_local
+ALIASES_LOCAL_FILE=~/.aliases_local
+FUNCTIONS_LOCAL_FILE=~/.functions_local
+[ -f "${ZSHRC_LOCAL_FILE}" ] && source "${ZSHRC_LOCAL_FILE}"          # local zshrc
+[ -f "${ALIASES_LOCAL_FILE}" ] && source "${ALIASES_LOCAL_FILE}"      # local aliases
+[ -f "${FUNCTIONS_LOCAL_FILE}" ] && source "${FUNCTIONS_LOCAL_FILE}"  # local functions
 
 # pyenv init
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-
-# virtualenvwrapper
-# source virtualenvwrapper.sh
-export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
