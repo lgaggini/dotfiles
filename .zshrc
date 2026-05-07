@@ -136,9 +136,12 @@ for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 # }}} End configuration added by Zim install
 
-# Word move without remapping alt to meta
-bindkey 'ƒ' forward-word
-bindkey '∫' backward-word
+# macOS specific configuration
+if [ $(uname) = "Darwin" ]; then
+  # Word move without remapping alt to meta
+  bindkey 'ƒ' forward-word
+  bindkey '∫' backward-word
+fi
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
@@ -146,15 +149,19 @@ source <(fzf --zsh)
 bindkey '^G' fzf-cd-widget
 
 # Smarter cd command
-[ -f ~/.zoxide ] && source ~/.zoxide
+eval "$(zoxide init --cmd cd zsh)"
+
+# Default
+export EDITOR=nvim
+
+# Support for bash_completion used in aliases/functions
+autoload bashcompinit && bashcompinit
 
 # Aliases
-[ -f ~/.zsh_aliases ] && source ~/.zsh_aliases 
+[ -f ~/.aliases ] && source ~/.aliases 
 
 # Functions
-[ -f ~/.zsh_functions ] && source ~/.zsh_functions 
-
-tmux set-window-option automatic-rename "on"
+[ -f ~/.functions ] && source ~/.functions 
 
 # pyenv init
 export PYENV_ROOT="$HOME/.pyenv"
