@@ -29,7 +29,7 @@ zmodule duration-info
 zmodule git-info
 # A heavily reduced, ASCII-only version of the Spaceship and Starship prompts.
 zmodule prompt-pwd
-zmodule bira
+zmodule gitster
 
 #
 # Completion
