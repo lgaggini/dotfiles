@@ -61,6 +61,9 @@
 # note - quick note view and edit/create
 # usage: note <name>
 --
+# todo - quick todo view and edit/create
+# usage: todo <name>
+--
 # dotfiles - sync dotfiles for git sync
 # usage: dotfiles
 --

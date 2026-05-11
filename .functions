@@ -227,7 +227,7 @@ web()
 #
 
 # note folder
-note_path_lgaggini=~/note/
+note_path_lgaggini="${HOME}"/pim/note/
 note_path="$note_path_lgaggini"
 
 # note - quick note view and edit/create
@@ -252,7 +252,7 @@ _note()
     local cur names IFS
  
     cur="${COMP_WORDS[COMP_CWORD]}"
-    names=$(\find "$note_path" -type f -name "*.md"| cut -d'/' -f5- | sed 's/\.[^.]*$//')
+    names=$(\find "$note_path" -type f -name "*.md"| cut -d'/' -f6- | sed 's/\.[^.]*$//')
     IFS=$'\t\n'
 
     COMPREPLY=( $(compgen -W "${names}" -- "${cur}") )
@@ -267,8 +267,58 @@ noteg()
             note_path=$note_path_lgaggini
             ;;
     esac
-    grep --color=auto -HInrFoi "${*:1}" -C 5 "$note_path"
+    grep -HnFi "${*:1}" -C 2 "$note_path"
 }
+
+#
+# todo manager
+#
+
+# todo folder
+todo_path_lgaggini=${HOME}/pim/todo/
+todo_path="$todo_path_lgaggini"
+
+# todo - quick todo view and edit/create
+# usage: todo <name>
+todo()
+{
+    case "$1" in
+        'lgaggini')
+            todo_path="$todo_path_lgaggini"
+            ;;
+    esac
+
+    if [[ -z "$1" ]]; then
+        ls -lh "$todo_path"
+    else
+        vim "$todo_path""$1"_todo.md
+    fi
+}
+# _todo - todo name completion
+_todo() 
+{
+    local cur names IFS
+ 
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    names=$(\find "$todo_path" -type f -name "*.md"| cut -d'/' -f6- | sed 's/\.[^.]*$//' | sed 's/_todo//')
+    IFS=$'\t\n'
+
+    COMPREPLY=( $(compgen -W "${names}" -- "${cur}") )
+    return 0
+}
+complete -o nospace -F _todo todo
+# todog - search in todos
+todog()
+{
+    case "$1" in
+        'lgaggini')
+            todo_path=$todo_path_lgaggini
+            ;;
+    esac
+    grep -HnFi "${*:1}" -C 2 "$todo_path"
+}
+
+
 
 #
 # automations
