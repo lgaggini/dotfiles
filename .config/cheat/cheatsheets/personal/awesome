@@ -40,6 +40,7 @@
  Mod,         "v", function () awful.util.spawn_with_shell(videoconference) end), -- [v]ideoconference
  Mod,         "y", function () awful.util.spawn_with_shell(spotify) end), -- spotif[y]
  Mod,         "l", function () awful.util.spawn_with_shell(soundcloud) end), -- [l]ivesets
+ Mod,         "a", function () awful.util.spawn_with_shell(media_player) end), -- medi[a]_player
  Mod,         "s", function () awful.util.spawn_with_shell(screenshooter) end), -- [s]creenshooter
  Mod,         "t", function () awful.util.spawn_with_shell(task) end), -- [t]ask manager
  Mod,         "p", function () awful.util.spawn_with_shell(password) end), -- [p]assword
