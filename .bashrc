@@ -23,6 +23,7 @@
 export EDITOR=/usr/bin/nvim
 export VISUAL=$EDITOR
 export PAGER=/usr/bin/bat
+export MANPAGER="/usr/bin/bat --theme=base16 -plman"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 if [ -n "$DISPLAY" ]; then
     BROWSER=/usr/bin/firefox
