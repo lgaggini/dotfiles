@@ -279,7 +279,7 @@ noteg()
 dots()
 {
     DOTS_REPO="${HOME}/code/lgaggini/dotfiles/"
-    rsync -a -v --existing --exclude '.config/awesome/' "${HOME}" "${DOTS_REPO}"
+    rsync -a -v --existing --exclude '.config/awesome/' "${HOME}/" "${DOTS_REPO}"
     cd "${DOTS_REPO}" || exit
 }
 
@@ -288,7 +288,7 @@ dots()
 awcf()
 {
     AW_REPO="${HOME}/code/lgaggini/awesome-archKiss/"
-    rsync -a -v --existing ~/.config/awesome/ "${AW_REPO}"
+    rsync -a -v --existing "${HOME}/.config/awesome/" "${AW_REPO}"
     cd "${AW_REPO}" || exit
 }
 
