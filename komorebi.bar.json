@@ -11,6 +11,7 @@
   },
   "font_family": "JetBrains Mono",
   "font_size": 16,
+  "transparency_alpha": 220,
   "left_widgets": [
     {
       "Komorebi": {
