@@ -68,7 +68,11 @@
     {
         "defaults": 
         {
-            "colorScheme": "IC_Green_PPL"
+            "colorScheme": "IC_Green_PPL",
+            "font": 
+            {
+                "size": 16
+            }
         },
         "list": 
         [
@@ -78,7 +82,7 @@
                 "font": 
                 {
                     "face": "Hack Nerd Font Mono",
-                    "size": 15
+                    "size": 16
                 },
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
@@ -91,7 +95,7 @@
                 "font": 
                 {
                     "face": "Hack Nerd Font Mono",
-                    "size": 15
+                    "size": 16
                 },
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
@@ -103,7 +107,7 @@
                 "font": 
                 {
                     "face": "Hack Nerd Font Mono",
-                    "size": 15
+                    "size": 16
                 },
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
@@ -117,7 +121,7 @@
                 "font": 
                 {
                     "face": "Hack Nerd Font Mono",
-                    "size": 15
+                    "size": 16
                 },
                 "guid": "{c5b491bc-c418-5b4e-9e55-175330ca25d2}",
                 "hidden": false,
