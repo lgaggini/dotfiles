@@ -105,6 +105,7 @@ elif [ "$pkg_manager" = "zypper" ]; then
   alias zr='sudo zypper remove --clean-deps'
   alias zu='sudo zypper update'
   alias zs='zypper search'
+  alias zss='zypper search -s'
   alias zsi='zypper search -i'
   alias zrf='sudo zypper refresh'
   alias zcl='sudo zypper clean -a'
@@ -113,6 +114,8 @@ elif [ "$pkg_manager" = "zypper" ]; then
   alias zlocks='sudo zypper locks'
   alias zlock='sudo zypper addlock'
   alias zunlock='sudo zypper removelock'
+  alias zlr='sudo zypper lr'
+  alias zrr='sudo zypper rr'
   ### completion for zypper
   function _zyppalias()
   {
