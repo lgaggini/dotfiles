@@ -11,7 +11,8 @@
                     "XF86MonBrightnessUp",   function () awful.util.spawn_with_shell(bright_up) end),
                     "XF86AudioLowerVolume", function () awful.util.spawn_with_shell(audio_down) end),
                     "XF86AudioRaiseVolume",   function () awful.util.spawn_with_shell(audio_up) end),
-                    "XF86AudioPlay",   function () awful.util.spawn_with_shell(music_toggle) end),
+                    "XF86AudioMute",   function () awful.util.spawn_with_shell(audio_mute) end),
+                    "XF86AudioPlay",   function () awful.util.spawn_with_shell(mpris_toggle) end),
  Mod, "Shift"    "p", function () awful.util.spawn_with_shell(mpris_toggle) end),
  Mod, "Control"  "r", awesome.restart),
  Mod, "Shift"    "q", awesome.quit),
@@ -34,6 +35,7 @@
  Mod,         "e", function () awful.util.spawn_with_shell(editor) end), -- [e]ditor
  Mod,         "m", function () awful.util.spawn_with_shell(email) end), -- e[m]ail
  Mod,         "n", function () awful.util.spawn_with_shell(note) end), -- [n]ote
+ Mod,         "o", function () awful.util.spawn_with_shell(todo) end), -- t[o]d[o]
  Mod,         "c", function () awful.util.spawn_with_shell(im) end), -- [c]hat
  Mod,         "k", function () awful.util.spawn_with_shell(irc) end), -- ir[k]
  Mod,         "d", function () awful.util.spawn_with_shell(news) end), -- fee[d]
