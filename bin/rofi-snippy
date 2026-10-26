@@ -35,6 +35,8 @@ ROFI_ARGS=""
 # Display the menu and get the selection
 SELECTION=$(/usr/bin/rofi -dmenu "${ROFI_ARGS}" < "${CONFIG}")
 
+[[ -z "$SELECTION" ]] && exit 0
+
 # Get the text associated with the selection.
 TEXT=$(grep -F "${SELECTION/\] */]}" "${CONFIG}" | sed "s/^\[[^]]*\] //")
 
