@@ -411,7 +411,7 @@ cf()
 # usage: pw <password-length> - defaults to 16
 pw()
 {
-    cat /dev/urandom | tr -cd '[:graph:]' | head -c "${1:-16}"
+    cat /dev/urandom | tr -cd '[:graph:]' | tr "'\`" "^" | head -c "${1:-16}"
 }
 
 # mkiso - make iso from folder
